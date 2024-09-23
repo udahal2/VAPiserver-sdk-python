@@ -60,6 +60,24 @@ except ApiError as e:
     print(e.body)
 ```
 
+## Pagination
+
+Paginated requests will return a `SyncPager` or `AsyncPager`, which can be used as generators for the underlying object.
+
+```python
+from vapi import Vapi
+
+client = Vapi(
+    token="YOUR_TOKEN",
+)
+response = client.logs.get()
+for item in response:
+    yield item
+# alternatively, you can paginate page-by-page
+for page in response.iter_pages():
+    yield page
+```
+
 ## Advanced
 
 ### Retries

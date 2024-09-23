@@ -3486,7 +3486,12 @@ from vapi import Vapi
 client = Vapi(
     token="YOUR_TOKEN",
 )
-client.logs.get()
+response = client.logs.get()
+for item in response:
+    yield item
+# alternatively, you can paginate page-by-page
+for page in response.iter_pages():
+    yield page
 
 ```
 </dd>

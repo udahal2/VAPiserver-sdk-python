@@ -6,12 +6,15 @@ from .types.logs_get_request_type import LogsGetRequestType
 from .types.logs_get_request_sort_order import LogsGetRequestSortOrder
 import datetime as dt
 from ..core.request_options import RequestOptions
-from ..types.logs_paginated_response import LogsPaginatedResponse
+from ..core.pagination import SyncPager
+from ..types.log import Log
 from ..core.datetime_utils import serialize_datetime
+from ..types.logs_paginated_response import LogsPaginatedResponse
 from ..core.pydantic_utilities import parse_obj_as
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper
+from ..core.pagination import AsyncPager
 
 
 class LogsClient:
@@ -40,7 +43,7 @@ class LogsClient:
         updated_at_ge: typing.Optional[dt.datetime] = None,
         updated_at_le: typing.Optional[dt.datetime] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> LogsPaginatedResponse:
+    ) -> SyncPager[Log]:
         """
         Parameters
         ----------
@@ -103,7 +106,7 @@ class LogsClient:
 
         Returns
         -------
-        LogsPaginatedResponse
+        SyncPager[Log]
 
 
         Examples
@@ -113,8 +116,14 @@ class LogsClient:
         client = Vapi(
             token="YOUR_TOKEN",
         )
-        client.logs.get()
+        response = client.logs.get()
+        for item in response:
+            yield item
+        # alternatively, you can paginate page-by-page
+        for page in response.iter_pages():
+            yield page
         """
+        page = page if page is not None else 1
         _response = self._client_wrapper.httpx_client.request(
             "logs",
             method="GET",
@@ -142,13 +151,37 @@ class LogsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                return typing.cast(
+                _parsed_response = typing.cast(
                     LogsPaginatedResponse,
                     parse_obj_as(
                         type_=LogsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
+                _has_next = True
+                _get_next = lambda: self.get(
+                    org_id=org_id,
+                    type=type,
+                    assistant_id=assistant_id,
+                    phone_number_id=phone_number_id,
+                    customer_id=customer_id,
+                    squad_id=squad_id,
+                    call_id=call_id,
+                    page=page + 1,
+                    sort_order=sort_order,
+                    limit=limit,
+                    created_at_gt=created_at_gt,
+                    created_at_lt=created_at_lt,
+                    created_at_ge=created_at_ge,
+                    created_at_le=created_at_le,
+                    updated_at_gt=updated_at_gt,
+                    updated_at_lt=updated_at_lt,
+                    updated_at_ge=updated_at_ge,
+                    updated_at_le=updated_at_le,
+                    request_options=request_options,
+                )
+                _items = _parsed_response.results
+                return SyncPager(has_next=_has_next, items=_items, get_next=_get_next)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, body=_response.text)
@@ -181,7 +214,7 @@ class AsyncLogsClient:
         updated_at_ge: typing.Optional[dt.datetime] = None,
         updated_at_le: typing.Optional[dt.datetime] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> LogsPaginatedResponse:
+    ) -> AsyncPager[Log]:
         """
         Parameters
         ----------
@@ -244,7 +277,7 @@ class AsyncLogsClient:
 
         Returns
         -------
-        LogsPaginatedResponse
+        AsyncPager[Log]
 
 
         Examples
@@ -259,11 +292,17 @@ class AsyncLogsClient:
 
 
         async def main() -> None:
-            await client.logs.get()
+            response = await client.logs.get()
+            async for item in response:
+                yield item
+            # alternatively, you can paginate page-by-page
+            async for page in response.iter_pages():
+                yield page
 
 
         asyncio.run(main())
         """
+        page = page if page is not None else 1
         _response = await self._client_wrapper.httpx_client.request(
             "logs",
             method="GET",
@@ -291,13 +330,37 @@ class AsyncLogsClient:
         )
         try:
             if 200 <= _response.status_code < 300:
-                return typing.cast(
+                _parsed_response = typing.cast(
                     LogsPaginatedResponse,
                     parse_obj_as(
                         type_=LogsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
+                _has_next = True
+                _get_next = lambda: self.get(
+                    org_id=org_id,
+                    type=type,
+                    assistant_id=assistant_id,
+                    phone_number_id=phone_number_id,
+                    customer_id=customer_id,
+                    squad_id=squad_id,
+                    call_id=call_id,
+                    page=page + 1,
+                    sort_order=sort_order,
+                    limit=limit,
+                    created_at_gt=created_at_gt,
+                    created_at_lt=created_at_lt,
+                    created_at_ge=created_at_ge,
+                    created_at_le=created_at_le,
+                    updated_at_gt=updated_at_gt,
+                    updated_at_lt=updated_at_lt,
+                    updated_at_ge=updated_at_ge,
+                    updated_at_le=updated_at_le,
+                    request_options=request_options,
+                )
+                _items = _parsed_response.results
+                return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next)
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, body=_response.text)
