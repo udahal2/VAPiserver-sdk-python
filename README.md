@@ -1,6 +1,6 @@
 # Vapi Python Library
 
-[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-SDK%20generated%20by%20Fern-brightgreen)](https://github.com/fern-api/fern)
+[![fern shield](https://img.shields.io/badge/%F0%9F%8C%BF-Built%20with%20Fern-brightgreen)](https://buildwithfern.com?utm_source=github&utm_medium=github&utm_campaign=readme&utm_source=https%3A%2F%2Fgithub.com%2Ffern-demo%2Fvapi-python-sdk)
 [![pypi](https://img.shields.io/pypi/v/Vapi)](https://pypi.python.org/pypi/Vapi)
 
 The Vapi Python library provides convenient access to the Vapi API from Python.
@@ -10,6 +10,10 @@ The Vapi Python library provides convenient access to the Vapi API from Python.
 ```sh
 pip install Vapi
 ```
+
+## Reference
+
+A full reference for this library is available [here](./reference.md).
 
 ## Usage
 
@@ -95,7 +99,7 @@ A request is deemed retriable when any of the following HTTP status codes is ret
 Use the `max_retries` request option to configure this behavior.
 
 ```python
-client.calls.create(..., {
+client.calls.create(..., request_options={
     "max_retries": 1
 })
 ```
@@ -115,7 +119,7 @@ client = Vapi(
 
 
 # Override timeout for a specific method
-client.calls.create(..., {
+client.calls.create(..., request_options={
     "timeout_in_seconds": 1
 })
 ```
