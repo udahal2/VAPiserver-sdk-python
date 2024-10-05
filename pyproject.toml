@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Vapi"
-version = "0.0.0-alpha3"
+version = "0.0.0-alpha4"
 description = ""
 readme = "README.md"
 authors = []

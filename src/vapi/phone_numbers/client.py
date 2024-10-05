@@ -78,6 +78,15 @@ class PhoneNumbersClient:
         -------
         typing.List[PhoneNumbersListResponseItem]
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.phone_numbers.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "phone-number",
@@ -124,6 +133,19 @@ class PhoneNumbersClient:
         -------
         PhoneNumbersCreateResponse
 
+
+        Examples
+        --------
+        from vapi import CreateByoPhoneNumberDto, Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.phone_numbers.create(
+            request=CreateByoPhoneNumberDto(
+                credential_id="credentialId",
+            ),
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "phone-number",
@@ -161,6 +183,17 @@ class PhoneNumbersClient:
         -------
         PhoneNumbersGetResponse
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.phone_numbers.get(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",
@@ -194,6 +227,17 @@ class PhoneNumbersClient:
         -------
         PhoneNumbersDeleteResponse
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.phone_numbers.delete(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",
@@ -271,6 +315,17 @@ class PhoneNumbersClient:
         -------
         PhoneNumbersUpdateResponse
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.phone_numbers.update(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",
@@ -358,6 +413,23 @@ class AsyncPhoneNumbersClient:
         -------
         typing.List[PhoneNumbersListResponseItem]
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.phone_numbers.list()
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "phone-number",
@@ -404,6 +476,27 @@ class AsyncPhoneNumbersClient:
         -------
         PhoneNumbersCreateResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi, CreateByoPhoneNumberDto
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.phone_numbers.create(
+                request=CreateByoPhoneNumberDto(
+                    credential_id="credentialId",
+                ),
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "phone-number",
@@ -441,6 +534,25 @@ class AsyncPhoneNumbersClient:
         -------
         PhoneNumbersGetResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.phone_numbers.get(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",
@@ -476,6 +588,25 @@ class AsyncPhoneNumbersClient:
         -------
         PhoneNumbersDeleteResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.phone_numbers.delete(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",
@@ -553,6 +684,25 @@ class AsyncPhoneNumbersClient:
         -------
         PhoneNumbersUpdateResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.phone_numbers.update(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",

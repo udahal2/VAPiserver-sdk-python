@@ -44,8 +44,7 @@ from .azure_open_ai_credential import AzureOpenAiCredential
 from .azure_open_ai_credential_models_item import AzureOpenAiCredentialModelsItem
 from .azure_open_ai_credential_region import AzureOpenAiCredentialRegion
 from .azure_voice import AzureVoice
-from .azure_voice_id import AzureVoiceId
-from .azure_voice_id_enum import AzureVoiceIdEnum
+from .azure_voice_voice_id import AzureVoiceVoiceId
 from .block_complete_message import BlockCompleteMessage
 from .block_complete_message_conditions_item import BlockCompleteMessageConditionsItem
 from .block_start_message import BlockStartMessage
@@ -197,15 +196,13 @@ from .deepgram_transcriber import DeepgramTranscriber
 from .deepgram_transcriber_language import DeepgramTranscriberLanguage
 from .deepgram_transcriber_model import DeepgramTranscriberModel
 from .deepgram_voice import DeepgramVoice
-from .deepgram_voice_id import DeepgramVoiceId
-from .deepgram_voice_id_enum import DeepgramVoiceIdEnum
+from .deepgram_voice_voice_id import DeepgramVoiceVoiceId
 from .dtmf_tool import DtmfTool
 from .dtmf_tool_messages_item import DtmfToolMessagesItem
 from .eleven_labs_credential import ElevenLabsCredential
 from .eleven_labs_voice import ElevenLabsVoice
-from .eleven_labs_voice_id import ElevenLabsVoiceId
-from .eleven_labs_voice_id_enum import ElevenLabsVoiceIdEnum
 from .eleven_labs_voice_model import ElevenLabsVoiceModel
+from .eleven_labs_voice_voice_id import ElevenLabsVoiceVoiceId
 from .end_call_tool import EndCallTool
 from .end_call_tool_messages_item import EndCallToolMessagesItem
 from .error import Error
@@ -250,8 +247,7 @@ from .json_schema_type import JsonSchemaType
 from .knowledge_base import KnowledgeBase
 from .lmnt_credential import LmntCredential
 from .lmnt_voice import LmntVoice
-from .lmnt_voice_id import LmntVoiceId
-from .lmnt_voice_id_enum import LmntVoiceIdEnum
+from .lmnt_voice_voice_id import LmntVoiceVoiceId
 from .log import Log
 from .log_request_http_method import LogRequestHttpMethod
 from .log_resource import LogResource
@@ -271,8 +267,7 @@ from .model_cost import ModelCost
 from .monitor import Monitor
 from .monitor_plan import MonitorPlan
 from .neets_voice import NeetsVoice
-from .neets_voice_id import NeetsVoiceId
-from .neets_voice_id_enum import NeetsVoiceIdEnum
+from .neets_voice_voice_id import NeetsVoiceVoiceId
 from .open_ai_credential import OpenAiCredential
 from .open_ai_function import OpenAiFunction
 from .open_ai_function_parameters import OpenAiFunctionParameters
@@ -283,7 +278,7 @@ from .open_ai_model_fallback_models_item import OpenAiModelFallbackModelsItem
 from .open_ai_model_model import OpenAiModelModel
 from .open_ai_model_tools_item import OpenAiModelToolsItem
 from .open_ai_voice import OpenAiVoice
-from .open_ai_voice_id import OpenAiVoiceId
+from .open_ai_voice_voice_id import OpenAiVoiceVoiceId
 from .open_router_credential import OpenRouterCredential
 from .open_router_model import OpenRouterModel
 from .open_router_model_tools_item import OpenRouterModelToolsItem
@@ -305,9 +300,8 @@ from .regex_option_type import RegexOptionType
 from .regex_replacement import RegexReplacement
 from .rime_ai_credential import RimeAiCredential
 from .rime_ai_voice import RimeAiVoice
-from .rime_ai_voice_id import RimeAiVoiceId
-from .rime_ai_voice_id_enum import RimeAiVoiceIdEnum
 from .rime_ai_voice_model import RimeAiVoiceModel
+from .rime_ai_voice_voice_id import RimeAiVoiceVoiceId
 from .rule_based_condition import RuleBasedCondition
 from .rule_based_condition_operator import RuleBasedConditionOperator
 from .runpod_credential import RunpodCredential
@@ -541,8 +535,7 @@ __all__ = [
     "AzureOpenAiCredentialModelsItem",
     "AzureOpenAiCredentialRegion",
     "AzureVoice",
-    "AzureVoiceId",
-    "AzureVoiceIdEnum",
+    "AzureVoiceVoiceId",
     "BlockCompleteMessage",
     "BlockCompleteMessageConditionsItem",
     "BlockStartMessage",
@@ -694,15 +687,13 @@ __all__ = [
     "DeepgramTranscriberLanguage",
     "DeepgramTranscriberModel",
     "DeepgramVoice",
-    "DeepgramVoiceId",
-    "DeepgramVoiceIdEnum",
+    "DeepgramVoiceVoiceId",
     "DtmfTool",
     "DtmfToolMessagesItem",
     "ElevenLabsCredential",
     "ElevenLabsVoice",
-    "ElevenLabsVoiceId",
-    "ElevenLabsVoiceIdEnum",
     "ElevenLabsVoiceModel",
+    "ElevenLabsVoiceVoiceId",
     "EndCallTool",
     "EndCallToolMessagesItem",
     "Error",
@@ -747,8 +738,7 @@ __all__ = [
     "KnowledgeBase",
     "LmntCredential",
     "LmntVoice",
-    "LmntVoiceId",
-    "LmntVoiceIdEnum",
+    "LmntVoiceVoiceId",
     "Log",
     "LogRequestHttpMethod",
     "LogResource",
@@ -768,8 +758,7 @@ __all__ = [
     "Monitor",
     "MonitorPlan",
     "NeetsVoice",
-    "NeetsVoiceId",
-    "NeetsVoiceIdEnum",
+    "NeetsVoiceVoiceId",
     "OpenAiCredential",
     "OpenAiFunction",
     "OpenAiFunctionParameters",
@@ -780,7 +769,7 @@ __all__ = [
     "OpenAiModelModel",
     "OpenAiModelToolsItem",
     "OpenAiVoice",
-    "OpenAiVoiceId",
+    "OpenAiVoiceVoiceId",
     "OpenRouterCredential",
     "OpenRouterModel",
     "OpenRouterModelToolsItem",
@@ -802,9 +791,8 @@ __all__ = [
     "RegexReplacement",
     "RimeAiCredential",
     "RimeAiVoice",
-    "RimeAiVoiceId",
-    "RimeAiVoiceIdEnum",
     "RimeAiVoiceModel",
+    "RimeAiVoiceVoiceId",
     "RuleBasedCondition",
     "RuleBasedConditionOperator",
     "RunpodCredential",

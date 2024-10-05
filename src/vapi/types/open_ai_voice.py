@@ -5,7 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
-from .open_ai_voice_id import OpenAiVoiceId
+from .open_ai_voice_voice_id import OpenAiVoiceVoiceId
 from .chunk_plan import ChunkPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -25,7 +25,7 @@ class OpenAiVoice(UniversalBaseModel):
     This is the voice provider that will be used.
     """
 
-    voice_id: typing_extensions.Annotated[OpenAiVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
+    voice_id: typing_extensions.Annotated[OpenAiVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.
     """

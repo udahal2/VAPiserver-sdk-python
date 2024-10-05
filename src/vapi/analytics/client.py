@@ -35,6 +35,27 @@ class AnalyticsClient:
         -------
         typing.List[AnalyticsQueryResult]
 
+
+        Examples
+        --------
+        from vapi import AnalyticsOperation, AnalyticsQuery, Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.analytics.get(
+            queries=[
+                AnalyticsQuery(
+                    name="name",
+                    operations=[
+                        AnalyticsOperation(
+                            operation="sum",
+                            column="id",
+                        )
+                    ],
+                )
+            ],
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "analytics",
@@ -82,6 +103,35 @@ class AsyncAnalyticsClient:
         -------
         typing.List[AnalyticsQueryResult]
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AnalyticsOperation, AnalyticsQuery, AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.analytics.get(
+                queries=[
+                    AnalyticsQuery(
+                        name="name",
+                        operations=[
+                            AnalyticsOperation(
+                                operation="sum",
+                                column="id",
+                            )
+                        ],
+                    )
+                ],
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "analytics",

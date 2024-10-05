@@ -81,6 +81,15 @@ class CallsClient:
         -------
         typing.List[Call]
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.calls.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "call",
@@ -176,6 +185,15 @@ class CallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.calls.create()
         """
         _response = self._client_wrapper.httpx_client.request(
             "call",
@@ -232,6 +250,17 @@ class CallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.calls.get(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -265,6 +294,17 @@ class CallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.calls.delete(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -303,6 +343,17 @@ class CallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.calls.update(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -387,6 +438,23 @@ class AsyncCallsClient:
         -------
         typing.List[Call]
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.calls.list()
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "call",
@@ -482,6 +550,23 @@ class AsyncCallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.calls.create()
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "call",
@@ -538,6 +623,25 @@ class AsyncCallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.calls.get(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -571,6 +675,25 @@ class AsyncCallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.calls.delete(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -609,6 +732,25 @@ class AsyncCallsClient:
         -------
         Call
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.calls.update(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",

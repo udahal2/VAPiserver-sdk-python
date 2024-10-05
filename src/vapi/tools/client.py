@@ -80,6 +80,15 @@ class ToolsClient:
         -------
         typing.List[ToolsListResponseItem]
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.tools.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "tool",
@@ -126,6 +135,17 @@ class ToolsClient:
         -------
         ToolsCreateResponse
 
+
+        Examples
+        --------
+        from vapi import CreateDtmfToolDto, Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.tools.create(
+            request=CreateDtmfToolDto(),
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "tool",
@@ -163,6 +183,17 @@ class ToolsClient:
         -------
         ToolsGetResponse
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.tools.get(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"tool/{jsonable_encoder(id)}",
@@ -196,6 +227,17 @@ class ToolsClient:
         -------
         ToolsDeleteResponse
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.tools.delete(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"tool/{jsonable_encoder(id)}",
@@ -266,6 +308,17 @@ class ToolsClient:
         -------
         ToolsUpdateResponse
 
+
+        Examples
+        --------
+        from vapi import Vapi
+
+        client = Vapi(
+            token="YOUR_TOKEN",
+        )
+        client.tools.update(
+            id="id",
+        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"tool/{jsonable_encoder(id)}",
@@ -353,6 +406,23 @@ class AsyncToolsClient:
         -------
         typing.List[ToolsListResponseItem]
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.tools.list()
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "tool",
@@ -399,6 +469,25 @@ class AsyncToolsClient:
         -------
         ToolsCreateResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi, CreateDtmfToolDto
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.tools.create(
+                request=CreateDtmfToolDto(),
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "tool",
@@ -436,6 +525,25 @@ class AsyncToolsClient:
         -------
         ToolsGetResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.tools.get(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"tool/{jsonable_encoder(id)}",
@@ -469,6 +577,25 @@ class AsyncToolsClient:
         -------
         ToolsDeleteResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.tools.delete(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"tool/{jsonable_encoder(id)}",
@@ -539,6 +666,25 @@ class AsyncToolsClient:
         -------
         ToolsUpdateResponse
 
+
+        Examples
+        --------
+        import asyncio
+
+        from vapi import AsyncVapi
+
+        client = AsyncVapi(
+            token="YOUR_TOKEN",
+        )
+
+
+        async def main() -> None:
+            await client.tools.update(
+                id="id",
+            )
+
+
+        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"tool/{jsonable_encoder(id)}",
