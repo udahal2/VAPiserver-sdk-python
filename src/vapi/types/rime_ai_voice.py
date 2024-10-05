@@ -5,7 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
-from .rime_ai_voice_voice_id import RimeAiVoiceVoiceId
+from .rime_ai_voice_id import RimeAiVoiceId
 from .rime_ai_voice_model import RimeAiVoiceModel
 from .chunk_plan import ChunkPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
@@ -26,7 +26,7 @@ class RimeAiVoice(UniversalBaseModel):
     This is the voice provider that will be used.
     """
 
-    voice_id: typing_extensions.Annotated[RimeAiVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
+    voice_id: typing_extensions.Annotated[RimeAiVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.
     """

@@ -31,15 +31,6 @@ class FilesClient:
         -------
         typing.List[File]
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.files.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "file",
@@ -74,15 +65,6 @@ class FilesClient:
         -------
         File
             File uploaded successfully
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.files.create()
         """
         _response = self._client_wrapper.httpx_client.request(
             "file",
@@ -131,17 +113,6 @@ class FilesClient:
         -------
         File
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.files.get(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"file/{jsonable_encoder(id)}",
@@ -175,17 +146,6 @@ class FilesClient:
         -------
         File
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.files.delete(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"file/{jsonable_encoder(id)}",
@@ -224,17 +184,6 @@ class FilesClient:
         -------
         File
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.files.update(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"file/{jsonable_encoder(id)}",
@@ -275,23 +224,6 @@ class AsyncFilesClient:
         -------
         typing.List[File]
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.files.list()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "file",
@@ -326,23 +258,6 @@ class AsyncFilesClient:
         -------
         File
             File uploaded successfully
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.files.create()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "file",
@@ -391,25 +306,6 @@ class AsyncFilesClient:
         -------
         File
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.files.get(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"file/{jsonable_encoder(id)}",
@@ -443,25 +339,6 @@ class AsyncFilesClient:
         -------
         File
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.files.delete(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"file/{jsonable_encoder(id)}",
@@ -500,25 +377,6 @@ class AsyncFilesClient:
         -------
         File
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.files.update(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"file/{jsonable_encoder(id)}",

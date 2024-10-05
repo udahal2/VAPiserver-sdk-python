@@ -94,15 +94,6 @@ class AssistantsClient:
         -------
         typing.List[Assistant]
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.assistants.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "assistant",
@@ -334,15 +325,6 @@ class AssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.assistants.create()
         """
         _response = self._client_wrapper.httpx_client.request(
             "assistant",
@@ -433,17 +415,6 @@ class AssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.assistants.get(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"assistant/{jsonable_encoder(id)}",
@@ -477,17 +448,6 @@ class AssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.assistants.delete(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"assistant/{jsonable_encoder(id)}",
@@ -707,17 +667,6 @@ class AssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.assistants.update(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"assistant/{jsonable_encoder(id)}",
@@ -851,23 +800,6 @@ class AsyncAssistantsClient:
         -------
         typing.List[Assistant]
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.assistants.list()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "assistant",
@@ -1099,23 +1031,6 @@ class AsyncAssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.assistants.create()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "assistant",
@@ -1206,25 +1121,6 @@ class AsyncAssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.assistants.get(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"assistant/{jsonable_encoder(id)}",
@@ -1258,25 +1154,6 @@ class AsyncAssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.assistants.delete(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"assistant/{jsonable_encoder(id)}",
@@ -1496,25 +1373,6 @@ class AsyncAssistantsClient:
         -------
         Assistant
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.assistants.update(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"assistant/{jsonable_encoder(id)}",
