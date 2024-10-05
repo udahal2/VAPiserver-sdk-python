@@ -13,6 +13,11 @@ class BlockStartMessage(UniversalBaseModel):
     This is an optional array of conditions that must be met for this message to be triggered.
     """
 
+    type: typing.Literal["block-start"] = pydantic.Field(default="block-start")
+    """
+    This is the message type that is triggered when the block starts.
+    """
+
     content: str = pydantic.Field()
     """
     This is the content that the assistant will say when this message is triggered.

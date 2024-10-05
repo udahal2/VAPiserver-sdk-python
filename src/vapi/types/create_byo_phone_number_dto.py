@@ -23,6 +23,7 @@ class CreateByoPhoneNumberDto(UniversalBaseModel):
     If this is not set and above conditions are met, the inbound call is hung up with an error message.
     """
 
+    provider: typing.Literal["byo-phone-number"] = "byo-phone-number"
     number_e_164_check_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="numberE164CheckEnabled")
     ] = pydantic.Field(default=None)

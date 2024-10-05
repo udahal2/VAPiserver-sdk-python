@@ -35,6 +35,11 @@ class ServerMessageEndOfCallReport(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["end-of-call-report"] = pydantic.Field(default="end-of-call-report")
+    """
+    This is the type of the message. "end-of-call-report" is sent when the call ends and post-processing is complete.
+    """
+
     ended_reason: typing_extensions.Annotated[
         ServerMessageEndOfCallReportEndedReason, FieldMetadata(alias="endedReason")
     ] = pydantic.Field()

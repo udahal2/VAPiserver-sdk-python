@@ -20,6 +20,11 @@ class OpenAiVoice(UniversalBaseModel):
     Default `false` because you can achieve better results with prompting the model.
     """
 
+    provider: typing.Literal["openai"] = pydantic.Field(default="openai")
+    """
+    This is the voice provider that will be used.
+    """
+
     voice_id: typing_extensions.Annotated[OpenAiVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.

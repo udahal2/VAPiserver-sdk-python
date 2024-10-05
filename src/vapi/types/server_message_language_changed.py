@@ -31,6 +31,11 @@ class ServerMessageLanguageChanged(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["language-changed"] = pydantic.Field(default="language-changed")
+    """
+    This is the type of the message. "language-switched" is sent when the transcriber is automatically switched based on the detected language.
+    """
+
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the ISO-8601 formatted timestamp of when the message was sent.

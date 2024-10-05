@@ -9,6 +9,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ModelCost(UniversalBaseModel):
+    type: typing.Literal["model"] = pydantic.Field(default="model")
+    """
+    This is the type of cost, always 'model' for this class.
+    """
+
     model: typing.Dict[str, typing.Optional[typing.Any]] = pydantic.Field()
     """
     This is the model that was used during the call.

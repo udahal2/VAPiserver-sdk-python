@@ -33,6 +33,13 @@ class ServerMessagePhoneCallControl(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["phone-call-control"] = pydantic.Field(default="phone-call-control")
+    """
+    This is the type of the message. "phone-call-control" is an advanced type of message.
+    
+    When it is requested in `assistant.serverMessages`, the hangup and forwarding responsibilities are delegated to your server. Vapi will no longer do the actual transfer and hangup.
+    """
+
     request: ServerMessagePhoneCallControlRequest = pydantic.Field()
     """
     This is the request to control the phone call.

@@ -31,6 +31,11 @@ class ServerMessageVoiceInput(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["voice-input"] = pydantic.Field(default="voice-input")
+    """
+    This is the type of the message. "voice-input" is sent when a generation is requested from voice provider.
+    """
+
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the ISO-8601 formatted timestamp of when the message was sent.

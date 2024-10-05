@@ -21,6 +21,11 @@ class CartesiaVoice(UniversalBaseModel):
     Default `false` because you can achieve better results with prompting the model.
     """
 
+    provider: typing.Literal["cartesia"] = pydantic.Field(default="cartesia")
+    """
+    This is the voice provider that will be used.
+    """
+
     model: typing.Optional[CartesiaVoiceModel] = pydantic.Field(default=None)
     """
     This is the model that will be used. This is optional and will default to the correct model for the voiceId.

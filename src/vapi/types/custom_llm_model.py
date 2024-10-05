@@ -34,6 +34,11 @@ class CustomLlmModel(UniversalBaseModel):
     Both `tools` and `toolIds` can be used together.
     """
 
+    provider: typing.Literal["custom-llm"] = pydantic.Field(default="custom-llm")
+    """
+    This is the provider that will be used for the model. Any service, including your own server, that is compatible with the OpenAI API can be used.
+    """
+
     metadata_send_mode: typing_extensions.Annotated[
         typing.Optional[CustomLlmModelMetadataSendMode], FieldMetadata(alias="metadataSendMode")
     ] = pydantic.Field(default=None)

@@ -21,6 +21,11 @@ class PlayHtVoice(UniversalBaseModel):
     Default `false` because you can achieve better results with prompting the model.
     """
 
+    provider: typing.Literal["playht"] = pydantic.Field(default="playht")
+    """
+    This is the voice provider that will be used.
+    """
+
     voice_id: typing_extensions.Annotated[PlayHtVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.

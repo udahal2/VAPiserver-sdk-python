@@ -20,6 +20,11 @@ class AzureVoice(UniversalBaseModel):
     Default `false` because you can achieve better results with prompting the model.
     """
 
+    provider: typing.Literal["azure"] = pydantic.Field(default="azure")
+    """
+    This is the voice provider that will be used.
+    """
+
     voice_id: typing_extensions.Annotated[AzureVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.

@@ -13,6 +13,11 @@ class BlockCompleteMessage(UniversalBaseModel):
     This is an optional array of conditions that must be met for this message to be triggered.
     """
 
+    type: typing.Literal["block-complete"] = pydantic.Field(default="block-complete")
+    """
+    This is the message type that is triggered when the block completes.
+    """
+
     content: str = pydantic.Field()
     """
     This is the content that the assistant will say when this message is triggered.

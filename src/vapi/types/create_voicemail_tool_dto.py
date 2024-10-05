@@ -32,6 +32,11 @@ class CreateVoicemailToolDto(UniversalBaseModel):
     For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
     """
 
+    type: typing.Literal["voicemail"] = pydantic.Field(default="voicemail")
+    """
+    The type of tool. "voicemail". This uses the model itself to determine if a voicemil was reached. Can be used alternatively/alongside with TwilioVoicemailDetection
+    """
+
     function: typing.Optional[OpenAiFunction] = pydantic.Field(default=None)
     """
     This is the function definition of the tool.

@@ -2,8 +2,8 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
-from .client_message_conversation_update_messages_item import ClientMessageConversationUpdateMessagesItem
 import pydantic
+from .client_message_conversation_update_messages_item import ClientMessageConversationUpdateMessagesItem
 import typing_extensions
 from .open_ai_message import OpenAiMessage
 from ..core.serialization import FieldMetadata
@@ -11,6 +11,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ClientMessageConversationUpdate(UniversalBaseModel):
+    type: typing.Literal["conversation-update"] = pydantic.Field(default="conversation-update")
+    """
+    This is the type of the message. "conversation-update" is sent when an update is committed to the conversation history.
+    """
+
     messages: typing.Optional[typing.List[ClientMessageConversationUpdateMessagesItem]] = pydantic.Field(default=None)
     """
     This is the most up-to-date conversation history at the time the message is sent.

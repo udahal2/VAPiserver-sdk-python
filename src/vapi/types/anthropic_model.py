@@ -39,6 +39,7 @@ class AnthropicModel(UniversalBaseModel):
     This is the Anthropic/Claude models that will be used.
     """
 
+    provider: typing.Literal["anthropic"] = "anthropic"
     temperature: typing.Optional[float] = pydantic.Field(default=None)
     """
     This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.

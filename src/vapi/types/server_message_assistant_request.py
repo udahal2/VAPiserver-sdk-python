@@ -31,6 +31,11 @@ class ServerMessageAssistantRequest(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["assistant-request"] = pydantic.Field(default="assistant-request")
+    """
+    This is the type of the message. "assistant-request" is sent to fetch assistant configuration for an incoming call.
+    """
+
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the ISO-8601 formatted timestamp of when the message was sent.

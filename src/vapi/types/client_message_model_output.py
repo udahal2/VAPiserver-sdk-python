@@ -7,6 +7,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ClientMessageModelOutput(UniversalBaseModel):
+    type: typing.Literal["model-output"] = pydantic.Field(default="model-output")
+    """
+    This is the type of the message. "model-output" is sent as the model outputs tokens.
+    """
+
     output: typing.Dict[str, typing.Optional[typing.Any]] = pydantic.Field()
     """
     This is the output of the model. It can be a token or tool call.

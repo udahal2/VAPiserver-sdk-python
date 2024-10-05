@@ -33,6 +33,11 @@ class ServerMessageSpeechUpdate(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["speech-update"] = pydantic.Field(default="speech-update")
+    """
+    This is the type of the message. "speech-update" is sent whenever assistant or user start or stop speaking.
+    """
+
     status: ServerMessageSpeechUpdateStatus = pydantic.Field()
     """
     This is the status of the speech update.

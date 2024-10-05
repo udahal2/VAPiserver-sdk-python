@@ -138,16 +138,13 @@ class ToolsClient:
 
         Examples
         --------
-        from vapi import Vapi
-        from vapi.tools import ToolsCreateRequest_Output
+        from vapi import CreateDtmfToolDto, Vapi
 
         client = Vapi(
             token="YOUR_TOKEN",
         )
         client.tools.create(
-            request=ToolsCreateRequest_Output(
-                async_=False,
-            ),
+            request=CreateDtmfToolDto(),
         )
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -477,8 +474,7 @@ class AsyncToolsClient:
         --------
         import asyncio
 
-        from vapi import AsyncVapi
-        from vapi.tools import ToolsCreateRequest_Output
+        from vapi import AsyncVapi, CreateDtmfToolDto
 
         client = AsyncVapi(
             token="YOUR_TOKEN",
@@ -487,9 +483,7 @@ class AsyncToolsClient:
 
         async def main() -> None:
             await client.tools.create(
-                request=ToolsCreateRequest_Output(
-                    async_=False,
-                ),
+                request=CreateDtmfToolDto(),
             )
 
 

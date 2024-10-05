@@ -7,6 +7,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class TranscriberCost(UniversalBaseModel):
+    type: typing.Literal["transcriber"] = pydantic.Field(default="transcriber")
+    """
+    This is the type of cost, always 'transcriber' for this class.
+    """
+
     transcriber: typing.Dict[str, typing.Optional[typing.Any]] = pydantic.Field()
     """
     This is the transcriber that was used during the call.

@@ -33,6 +33,11 @@ class ServerMessageTranscript(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["transcript"] = pydantic.Field(default="transcript")
+    """
+    This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript.
+    """
+
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the ISO-8601 formatted timestamp of when the message was sent.

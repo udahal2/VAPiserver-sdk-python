@@ -2,8 +2,8 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
-from .tool_message_complete_role import ToolMessageCompleteRole
 import pydantic
+from .tool_message_complete_role import ToolMessageCompleteRole
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from .condition import Condition
@@ -11,6 +11,17 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ToolMessageComplete(UniversalBaseModel):
+    type: typing.Literal["request-complete"] = pydantic.Field(default="request-complete")
+    """
+    This message is triggered when the tool call is complete.
+    
+    This message is triggered immediately without waiting for your server to respond for async tool calls.
+    
+    If this message is not provided, the model will be requested to respond.
+    
+    If this message is provided, only this message will be spoken and the model will not be requested to come up with a response. It's an exclusive OR.
+    """
+
     role: typing.Optional[ToolMessageCompleteRole] = pydantic.Field(default=None)
     """
     This is optional and defaults to "assistant".

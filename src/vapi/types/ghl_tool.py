@@ -34,6 +34,7 @@ class GhlTool(UniversalBaseModel):
     For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
     """
 
+    type: typing.Literal["ghl"] = "ghl"
     id: str = pydantic.Field()
     """
     This is the unique identifier for the tool.

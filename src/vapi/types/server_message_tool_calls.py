@@ -33,6 +33,11 @@ class ServerMessageToolCalls(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Optional[typing.Literal["tool-calls"]] = pydantic.Field(default=None)
+    """
+    This is the type of the message. "tool-calls" is sent to call a tool.
+    """
+
     tool_with_tool_call_list: typing_extensions.Annotated[
         typing.List[ServerMessageToolCallsToolWithToolCallListItem], FieldMetadata(alias="toolWithToolCallList")
     ] = pydantic.Field()

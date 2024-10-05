@@ -31,6 +31,11 @@ class ServerMessageUserInterrupted(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["user-interrupted"] = pydantic.Field(default="user-interrupted")
+    """
+    This is the type of the message. "user-interrupted" is sent when the user interrupts the assistant.
+    """
+
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the ISO-8601 formatted timestamp of when the message was sent.

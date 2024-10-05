@@ -20,6 +20,11 @@ class LmntVoice(UniversalBaseModel):
     Default `false` because you can achieve better results with prompting the model.
     """
 
+    provider: typing.Literal["lmnt"] = pydantic.Field(default="lmnt")
+    """
+    This is the voice provider that will be used.
+    """
+
     voice_id: typing_extensions.Annotated[LmntVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.

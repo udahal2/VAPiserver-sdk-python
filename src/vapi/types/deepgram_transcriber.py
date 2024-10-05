@@ -2,8 +2,8 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
-from .deepgram_transcriber_model import DeepgramTranscriberModel
 import pydantic
+from .deepgram_transcriber_model import DeepgramTranscriberModel
 from .deepgram_transcriber_language import DeepgramTranscriberLanguage
 import typing_extensions
 from ..core.serialization import FieldMetadata
@@ -11,6 +11,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class DeepgramTranscriber(UniversalBaseModel):
+    provider: typing.Literal["deepgram"] = pydantic.Field(default="deepgram")
+    """
+    This is the transcription provider that will be used.
+    """
+
     model: typing.Optional[DeepgramTranscriberModel] = pydantic.Field(default=None)
     """
     This is the Deepgram model that will be used. A list of models can be found here: https://developers.deepgram.com/docs/models-languages-overview

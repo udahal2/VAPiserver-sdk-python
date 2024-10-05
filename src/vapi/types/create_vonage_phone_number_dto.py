@@ -23,6 +23,7 @@ class CreateVonagePhoneNumberDto(UniversalBaseModel):
     If this is not set and above conditions are met, the inbound call is hung up with an error message.
     """
 
+    provider: typing.Literal["vonage"] = "vonage"
     number: str = pydantic.Field()
     """
     These are the digits of the phone number you own on your Vonage.

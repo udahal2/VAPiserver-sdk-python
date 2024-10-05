@@ -20,6 +20,10 @@ class FunctionToolProviderDetails(UniversalBaseModel):
     setup_instructions: typing_extensions.Annotated[
         typing.Optional[typing.List[ToolTemplateSetup]], FieldMetadata(alias="setupInstructions")
     ] = None
+    type: typing.Literal["function"] = pydantic.Field(default="function")
+    """
+    The type of tool. "function" for Function tool.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

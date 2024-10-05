@@ -33,6 +33,7 @@ class OpenRouterModel(UniversalBaseModel):
     Both `tools` and `toolIds` can be used together.
     """
 
+    provider: typing.Literal["openrouter"] = "openrouter"
     model: str = pydantic.Field()
     """
     This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b

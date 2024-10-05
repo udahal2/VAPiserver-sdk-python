@@ -34,6 +34,11 @@ class GhlToolWithToolCall(UniversalBaseModel):
     For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
     """
 
+    type: typing.Literal["ghl"] = pydantic.Field(default="ghl")
+    """
+    The type of tool. "ghl" for GHL tool.
+    """
+
     tool_call: typing_extensions.Annotated[ToolCall, FieldMetadata(alias="toolCall")]
     metadata: GhlToolMetadata
     function: typing.Optional[OpenAiFunction] = pydantic.Field(default=None)

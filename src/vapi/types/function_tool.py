@@ -33,6 +33,7 @@ class FunctionTool(UniversalBaseModel):
     For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
     """
 
+    type: typing.Literal["function"] = "function"
     id: str = pydantic.Field()
     """
     This is the unique identifier for the tool.

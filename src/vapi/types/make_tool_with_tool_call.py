@@ -34,6 +34,11 @@ class MakeToolWithToolCall(UniversalBaseModel):
     For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
     """
 
+    type: typing.Literal["make"] = pydantic.Field(default="make")
+    """
+    The type of tool. "make" for Make tool.
+    """
+
     tool_call: typing_extensions.Annotated[ToolCall, FieldMetadata(alias="toolCall")]
     metadata: MakeToolMetadata
     function: typing.Optional[OpenAiFunction] = pydantic.Field(default=None)

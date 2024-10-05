@@ -20,6 +20,11 @@ class GhlToolProviderDetails(UniversalBaseModel):
     setup_instructions: typing_extensions.Annotated[
         typing.Optional[typing.List[ToolTemplateSetup]], FieldMetadata(alias="setupInstructions")
     ] = None
+    type: typing.Literal["ghl"] = pydantic.Field(default="ghl")
+    """
+    The type of tool. "ghl" for GHL tool.
+    """
+
     workflow_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="workflowId")] = None
     workflow_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="workflowName")] = None
     webhook_hook_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="webhookHookId")] = None

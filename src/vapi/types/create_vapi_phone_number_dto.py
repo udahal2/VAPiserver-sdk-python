@@ -23,6 +23,7 @@ class CreateVapiPhoneNumberDto(UniversalBaseModel):
     If this is not set and above conditions are met, the inbound call is hung up with an error message.
     """
 
+    provider: typing.Literal["vapi"] = "vapi"
     sip_uri: typing_extensions.Annotated[str, FieldMetadata(alias="sipUri")] = pydantic.Field()
     """
     This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.

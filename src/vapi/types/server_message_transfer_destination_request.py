@@ -31,6 +31,11 @@ class ServerMessageTransferDestinationRequest(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["transfer-destination-request"] = pydantic.Field(default="transfer-destination-request")
+    """
+    This is the type of the message. "transfer-destination-request" is sent when the model is requesting transfer but destination is unknown.
+    """
+
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the ISO-8601 formatted timestamp of when the message was sent.

@@ -20,6 +20,11 @@ class MakeToolProviderDetails(UniversalBaseModel):
     setup_instructions: typing_extensions.Annotated[
         typing.Optional[typing.List[ToolTemplateSetup]], FieldMetadata(alias="setupInstructions")
     ] = None
+    type: typing.Literal["make"] = pydantic.Field(default="make")
+    """
+    The type of tool. "make" for Make tool.
+    """
+
     scenario_id: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="scenarioId")] = None
     scenario_name: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="scenarioName")] = None
     trigger_hook_id: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="triggerHookId")] = None

@@ -5,7 +5,7 @@ import typing
 import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
-from .chunk_plan_punctuation_boundaries_item import ChunkPlanPunctuationBoundariesItem
+from .punctuation_boundary import PunctuationBoundary
 from .format_plan import FormatPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -40,7 +40,7 @@ class ChunkPlan(UniversalBaseModel):
     """
 
     punctuation_boundaries: typing_extensions.Annotated[
-        typing.Optional[typing.List[ChunkPlanPunctuationBoundariesItem]], FieldMetadata(alias="punctuationBoundaries")
+        typing.Optional[typing.List[PunctuationBoundary]], FieldMetadata(alias="punctuationBoundaries")
     ] = pydantic.Field(default=None)
     """
     These are the punctuations that are considered valid boundaries for a chunk to be created.

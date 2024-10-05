@@ -33,6 +33,11 @@ class FunctionToolWithToolCall(UniversalBaseModel):
     For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
     """
 
+    type: typing.Literal["function"] = pydantic.Field(default="function")
+    """
+    The type of tool. "function" for Function tool.
+    """
+
     tool_call: typing_extensions.Annotated[ToolCall, FieldMetadata(alias="toolCall")]
     function: typing.Optional[OpenAiFunction] = pydantic.Field(default=None)
     """

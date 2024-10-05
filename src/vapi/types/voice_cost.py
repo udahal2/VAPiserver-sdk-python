@@ -7,6 +7,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class VoiceCost(UniversalBaseModel):
+    type: typing.Literal["voice"] = pydantic.Field(default="voice")
+    """
+    This is the type of cost, always 'voice' for this class.
+    """
+
     voice: typing.Dict[str, typing.Optional[typing.Any]] = pydantic.Field()
     """
     This is the voice that was used during the call.

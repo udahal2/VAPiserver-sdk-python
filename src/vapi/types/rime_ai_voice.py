@@ -21,6 +21,11 @@ class RimeAiVoice(UniversalBaseModel):
     Default `false` because you can achieve better results with prompting the model.
     """
 
+    provider: typing.Literal["rime-ai"] = pydantic.Field(default="rime-ai")
+    """
+    This is the voice provider that will be used.
+    """
+
     voice_id: typing_extensions.Annotated[RimeAiVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.

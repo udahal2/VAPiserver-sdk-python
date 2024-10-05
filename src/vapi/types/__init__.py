@@ -15,152 +15,50 @@ from .analytics_query_result import AnalyticsQueryResult
 from .anthropic_credential import AnthropicCredential
 from .anthropic_model import AnthropicModel
 from .anthropic_model_model import AnthropicModelModel
-from .anthropic_model_tools_item import (
-    AnthropicModelToolsItem,
-    AnthropicModelToolsItem_Dtmf,
-    AnthropicModelToolsItem_EndCall,
-    AnthropicModelToolsItem_Function,
-    AnthropicModelToolsItem_Ghl,
-    AnthropicModelToolsItem_Make,
-    AnthropicModelToolsItem_TransferCall,
-    AnthropicModelToolsItem_Voicemail,
-)
+from .anthropic_model_tools_item import AnthropicModelToolsItem
 from .anyscale_credential import AnyscaleCredential
 from .anyscale_model import AnyscaleModel
-from .anyscale_model_tools_item import (
-    AnyscaleModelToolsItem,
-    AnyscaleModelToolsItem_Dtmf,
-    AnyscaleModelToolsItem_EndCall,
-    AnyscaleModelToolsItem_Function,
-    AnyscaleModelToolsItem_Ghl,
-    AnyscaleModelToolsItem_Make,
-    AnyscaleModelToolsItem_TransferCall,
-    AnyscaleModelToolsItem_Voicemail,
-)
+from .anyscale_model_tools_item import AnyscaleModelToolsItem
 from .artifact import Artifact
 from .artifact_messages_item import ArtifactMessagesItem
 from .artifact_plan import ArtifactPlan
 from .assignment_mutation import AssignmentMutation
-from .assignment_mutation_conditions_item import (
-    AssignmentMutationConditionsItem,
-    AssignmentMutationConditionsItem_ModelBased,
-    AssignmentMutationConditionsItem_RuleBased,
-)
+from .assignment_mutation_conditions_item import AssignmentMutationConditionsItem
 from .assistant import Assistant
 from .assistant_background_sound import AssistantBackgroundSound
 from .assistant_client_messages_item import AssistantClientMessagesItem
 from .assistant_first_message_mode import AssistantFirstMessageMode
-from .assistant_model import (
-    AssistantModel,
-    AssistantModel_Anthropic,
-    AssistantModel_Anyscale,
-    AssistantModel_CustomLlm,
-    AssistantModel_Deepinfra,
-    AssistantModel_Groq,
-    AssistantModel_Openai,
-    AssistantModel_Openrouter,
-    AssistantModel_PerplexityAi,
-    AssistantModel_TogetherAi,
-    AssistantModel_Vapi,
-)
+from .assistant_model import AssistantModel
 from .assistant_overrides import AssistantOverrides
 from .assistant_overrides_background_sound import AssistantOverridesBackgroundSound
 from .assistant_overrides_client_messages_item import AssistantOverridesClientMessagesItem
 from .assistant_overrides_first_message_mode import AssistantOverridesFirstMessageMode
-from .assistant_overrides_model import (
-    AssistantOverridesModel,
-    AssistantOverridesModel_Anthropic,
-    AssistantOverridesModel_Anyscale,
-    AssistantOverridesModel_CustomLlm,
-    AssistantOverridesModel_Deepinfra,
-    AssistantOverridesModel_Groq,
-    AssistantOverridesModel_Openai,
-    AssistantOverridesModel_Openrouter,
-    AssistantOverridesModel_PerplexityAi,
-    AssistantOverridesModel_TogetherAi,
-    AssistantOverridesModel_Vapi,
-)
+from .assistant_overrides_model import AssistantOverridesModel
 from .assistant_overrides_server_messages_item import AssistantOverridesServerMessagesItem
-from .assistant_overrides_transcriber import (
-    AssistantOverridesTranscriber,
-    AssistantOverridesTranscriber_Deepgram,
-    AssistantOverridesTranscriber_Gladia,
-    AssistantOverridesTranscriber_Talkscriber,
-)
-from .assistant_overrides_voice import (
-    AssistantOverridesVoice,
-    AssistantOverridesVoice_11Labs,
-    AssistantOverridesVoice_Azure,
-    AssistantOverridesVoice_Cartesia,
-    AssistantOverridesVoice_Deepgram,
-    AssistantOverridesVoice_Lmnt,
-    AssistantOverridesVoice_Neets,
-    AssistantOverridesVoice_Openai,
-    AssistantOverridesVoice_Playht,
-    AssistantOverridesVoice_RimeAi,
-)
+from .assistant_overrides_transcriber import AssistantOverridesTranscriber
+from .assistant_overrides_voice import AssistantOverridesVoice
 from .assistant_server_messages_item import AssistantServerMessagesItem
-from .assistant_transcriber import (
-    AssistantTranscriber,
-    AssistantTranscriber_Deepgram,
-    AssistantTranscriber_Gladia,
-    AssistantTranscriber_Talkscriber,
-)
-from .assistant_voice import (
-    AssistantVoice,
-    AssistantVoice_11Labs,
-    AssistantVoice_Azure,
-    AssistantVoice_Cartesia,
-    AssistantVoice_Deepgram,
-    AssistantVoice_Lmnt,
-    AssistantVoice_Neets,
-    AssistantVoice_Openai,
-    AssistantVoice_Playht,
-    AssistantVoice_RimeAi,
-)
+from .assistant_transcriber import AssistantTranscriber
+from .assistant_voice import AssistantVoice
 from .azure_open_ai_credential import AzureOpenAiCredential
 from .azure_open_ai_credential_models_item import AzureOpenAiCredentialModelsItem
 from .azure_open_ai_credential_region import AzureOpenAiCredentialRegion
 from .azure_voice import AzureVoice
 from .azure_voice_voice_id import AzureVoiceVoiceId
 from .block_complete_message import BlockCompleteMessage
-from .block_complete_message_conditions_item import (
-    BlockCompleteMessageConditionsItem,
-    BlockCompleteMessageConditionsItem_ModelBased,
-    BlockCompleteMessageConditionsItem_RuleBased,
-)
+from .block_complete_message_conditions_item import BlockCompleteMessageConditionsItem
 from .block_start_message import BlockStartMessage
-from .block_start_message_conditions_item import (
-    BlockStartMessageConditionsItem,
-    BlockStartMessageConditionsItem_ModelBased,
-    BlockStartMessageConditionsItem_RuleBased,
-)
+from .block_start_message_conditions_item import BlockStartMessageConditionsItem
 from .bot_message import BotMessage
 from .bucket_plan import BucketPlan
 from .buy_phone_number_dto import BuyPhoneNumberDto
-from .buy_phone_number_dto_fallback_destination import (
-    BuyPhoneNumberDtoFallbackDestination,
-    BuyPhoneNumberDtoFallbackDestination_Number,
-    BuyPhoneNumberDtoFallbackDestination_Sip,
-)
+from .buy_phone_number_dto_fallback_destination import BuyPhoneNumberDtoFallbackDestination
 from .byo_phone_number import ByoPhoneNumber
-from .byo_phone_number_fallback_destination import (
-    ByoPhoneNumberFallbackDestination,
-    ByoPhoneNumberFallbackDestination_Number,
-    ByoPhoneNumberFallbackDestination_Sip,
-)
+from .byo_phone_number_fallback_destination import ByoPhoneNumberFallbackDestination
 from .byo_sip_trunk_credential import ByoSipTrunkCredential
 from .call import Call
-from .call_costs_item import (
-    CallCostsItem,
-    CallCostsItem_Analysis,
-    CallCostsItem_Model,
-    CallCostsItem_Transcriber,
-    CallCostsItem_Transport,
-    CallCostsItem_Vapi,
-    CallCostsItem_Voice,
-)
-from .call_destination import CallDestination, CallDestination_Number, CallDestination_Sip
+from .call_costs_item import CallCostsItem
+from .call_destination import CallDestination
 from .call_ended_reason import CallEndedReason
 from .call_messages_item import CallMessagesItem
 from .call_paginated_response import CallPaginatedResponse
@@ -169,48 +67,24 @@ from .call_phone_call_transport import CallPhoneCallTransport
 from .call_status import CallStatus
 from .call_type import CallType
 from .callback_step import CallbackStep
-from .callback_step_block import (
-    CallbackStepBlock,
-    CallbackStepBlock_Conversation,
-    CallbackStepBlock_ToolCall,
-    CallbackStepBlock_Workflow,
-)
+from .callback_step_block import CallbackStepBlock
 from .cartesia_credential import CartesiaCredential
 from .cartesia_voice import CartesiaVoice
 from .cartesia_voice_language import CartesiaVoiceLanguage
 from .cartesia_voice_model import CartesiaVoiceModel
 from .chunk_plan import ChunkPlan
-from .chunk_plan_punctuation_boundaries_item import ChunkPlanPunctuationBoundariesItem
 from .client_inbound_message import ClientInboundMessage
 from .client_inbound_message_add_message import ClientInboundMessageAddMessage
 from .client_inbound_message_control import ClientInboundMessageControl
 from .client_inbound_message_control_control import ClientInboundMessageControlControl
-from .client_inbound_message_message import (
-    ClientInboundMessageMessage,
-    ClientInboundMessageMessage_AddMessage,
-    ClientInboundMessageMessage_Control,
-    ClientInboundMessageMessage_Say,
-)
+from .client_inbound_message_message import ClientInboundMessageMessage
 from .client_inbound_message_say import ClientInboundMessageSay
 from .client_message import ClientMessage
 from .client_message_conversation_update import ClientMessageConversationUpdate
 from .client_message_conversation_update_messages_item import ClientMessageConversationUpdateMessagesItem
 from .client_message_hang import ClientMessageHang
 from .client_message_language_changed import ClientMessageLanguageChanged
-from .client_message_message import (
-    ClientMessageMessage,
-    ClientMessageMessage_ConversationUpdate,
-    ClientMessageMessage_Hang,
-    ClientMessageMessage_LanguageChanged,
-    ClientMessageMessage_Metadata,
-    ClientMessageMessage_ModelOutput,
-    ClientMessageMessage_SpeechUpdate,
-    ClientMessageMessage_ToolCalls,
-    ClientMessageMessage_ToolCallsResult,
-    ClientMessageMessage_Transcript,
-    ClientMessageMessage_UserInterrupted,
-    ClientMessageMessage_VoiceInput,
-)
+from .client_message_message import ClientMessageMessage
 from .client_message_metadata import ClientMessageMetadata
 from .client_message_model_output import ClientMessageModelOutput
 from .client_message_speech_update import ClientMessageSpeechUpdate
@@ -218,12 +92,7 @@ from .client_message_speech_update_role import ClientMessageSpeechUpdateRole
 from .client_message_speech_update_status import ClientMessageSpeechUpdateStatus
 from .client_message_tool_calls import ClientMessageToolCalls
 from .client_message_tool_calls_result import ClientMessageToolCallsResult
-from .client_message_tool_calls_tool_with_tool_call_list_item import (
-    ClientMessageToolCallsToolWithToolCallListItem,
-    ClientMessageToolCallsToolWithToolCallListItem_Function,
-    ClientMessageToolCallsToolWithToolCallListItem_Ghl,
-    ClientMessageToolCallsToolWithToolCallListItem_Make,
-)
+from .client_message_tool_calls_tool_with_tool_call_list_item import ClientMessageToolCallsToolWithToolCallListItem
 from .client_message_transcript import ClientMessageTranscript
 from .client_message_transcript_role import ClientMessageTranscriptRole
 from .client_message_transcript_transcript_type import ClientMessageTranscriptTranscriptType
@@ -233,11 +102,7 @@ from .clone_voice_dto import CloneVoiceDto
 from .condition import Condition
 from .condition_operator import ConditionOperator
 from .conversation_block import ConversationBlock
-from .conversation_block_messages_item import (
-    ConversationBlockMessagesItem,
-    ConversationBlockMessagesItem_BlockComplete,
-    ConversationBlockMessagesItem_BlockStart,
-)
+from .conversation_block_messages_item import ConversationBlockMessagesItem
 from .cost_breakdown import CostBreakdown
 from .create_anthropic_credential_dto import CreateAnthropicCredentialDto
 from .create_anyscale_credential_dto import CreateAnyscaleCredentialDto
@@ -245,118 +110,46 @@ from .create_assistant_dto import CreateAssistantDto
 from .create_assistant_dto_background_sound import CreateAssistantDtoBackgroundSound
 from .create_assistant_dto_client_messages_item import CreateAssistantDtoClientMessagesItem
 from .create_assistant_dto_first_message_mode import CreateAssistantDtoFirstMessageMode
-from .create_assistant_dto_model import (
-    CreateAssistantDtoModel,
-    CreateAssistantDtoModel_Anthropic,
-    CreateAssistantDtoModel_Anyscale,
-    CreateAssistantDtoModel_CustomLlm,
-    CreateAssistantDtoModel_Deepinfra,
-    CreateAssistantDtoModel_Groq,
-    CreateAssistantDtoModel_Openai,
-    CreateAssistantDtoModel_Openrouter,
-    CreateAssistantDtoModel_PerplexityAi,
-    CreateAssistantDtoModel_TogetherAi,
-    CreateAssistantDtoModel_Vapi,
-)
+from .create_assistant_dto_model import CreateAssistantDtoModel
 from .create_assistant_dto_server_messages_item import CreateAssistantDtoServerMessagesItem
-from .create_assistant_dto_transcriber import (
-    CreateAssistantDtoTranscriber,
-    CreateAssistantDtoTranscriber_Deepgram,
-    CreateAssistantDtoTranscriber_Gladia,
-    CreateAssistantDtoTranscriber_Talkscriber,
-)
-from .create_assistant_dto_voice import (
-    CreateAssistantDtoVoice,
-    CreateAssistantDtoVoice_11Labs,
-    CreateAssistantDtoVoice_Azure,
-    CreateAssistantDtoVoice_Cartesia,
-    CreateAssistantDtoVoice_Deepgram,
-    CreateAssistantDtoVoice_Lmnt,
-    CreateAssistantDtoVoice_Neets,
-    CreateAssistantDtoVoice_Openai,
-    CreateAssistantDtoVoice_Playht,
-    CreateAssistantDtoVoice_RimeAi,
-)
+from .create_assistant_dto_transcriber import CreateAssistantDtoTranscriber
+from .create_assistant_dto_voice import CreateAssistantDtoVoice
 from .create_azure_open_ai_credential_dto import CreateAzureOpenAiCredentialDto
 from .create_azure_open_ai_credential_dto_models_item import CreateAzureOpenAiCredentialDtoModelsItem
 from .create_azure_open_ai_credential_dto_region import CreateAzureOpenAiCredentialDtoRegion
 from .create_byo_phone_number_dto import CreateByoPhoneNumberDto
-from .create_byo_phone_number_dto_fallback_destination import (
-    CreateByoPhoneNumberDtoFallbackDestination,
-    CreateByoPhoneNumberDtoFallbackDestination_Number,
-    CreateByoPhoneNumberDtoFallbackDestination_Sip,
-)
+from .create_byo_phone_number_dto_fallback_destination import CreateByoPhoneNumberDtoFallbackDestination
 from .create_byo_sip_trunk_credential_dto import CreateByoSipTrunkCredentialDto
 from .create_cartesia_credential_dto import CreateCartesiaCredentialDto
 from .create_conversation_block_dto import CreateConversationBlockDto
-from .create_conversation_block_dto_messages_item import (
-    CreateConversationBlockDtoMessagesItem,
-    CreateConversationBlockDtoMessagesItem_BlockComplete,
-    CreateConversationBlockDtoMessagesItem_BlockStart,
-)
+from .create_conversation_block_dto_messages_item import CreateConversationBlockDtoMessagesItem
 from .create_custom_llm_credential_dto import CreateCustomLlmCredentialDto
 from .create_customer_dto import CreateCustomerDto
 from .create_deep_infra_credential_dto import CreateDeepInfraCredentialDto
 from .create_deepgram_credential_dto import CreateDeepgramCredentialDto
 from .create_dtmf_tool_dto import CreateDtmfToolDto
-from .create_dtmf_tool_dto_messages_item import (
-    CreateDtmfToolDtoMessagesItem,
-    CreateDtmfToolDtoMessagesItem_RequestComplete,
-    CreateDtmfToolDtoMessagesItem_RequestFailed,
-    CreateDtmfToolDtoMessagesItem_RequestResponseDelayed,
-    CreateDtmfToolDtoMessagesItem_RequestStart,
-)
+from .create_dtmf_tool_dto_messages_item import CreateDtmfToolDtoMessagesItem
 from .create_eleven_labs_credential_dto import CreateElevenLabsCredentialDto
 from .create_end_call_tool_dto import CreateEndCallToolDto
-from .create_end_call_tool_dto_messages_item import (
-    CreateEndCallToolDtoMessagesItem,
-    CreateEndCallToolDtoMessagesItem_RequestComplete,
-    CreateEndCallToolDtoMessagesItem_RequestFailed,
-    CreateEndCallToolDtoMessagesItem_RequestResponseDelayed,
-    CreateEndCallToolDtoMessagesItem_RequestStart,
-)
+from .create_end_call_tool_dto_messages_item import CreateEndCallToolDtoMessagesItem
 from .create_function_tool_dto import CreateFunctionToolDto
-from .create_function_tool_dto_messages_item import (
-    CreateFunctionToolDtoMessagesItem,
-    CreateFunctionToolDtoMessagesItem_RequestComplete,
-    CreateFunctionToolDtoMessagesItem_RequestFailed,
-    CreateFunctionToolDtoMessagesItem_RequestResponseDelayed,
-    CreateFunctionToolDtoMessagesItem_RequestStart,
-)
+from .create_function_tool_dto_messages_item import CreateFunctionToolDtoMessagesItem
 from .create_gcp_credential_dto import CreateGcpCredentialDto
 from .create_ghl_tool_dto import CreateGhlToolDto
-from .create_ghl_tool_dto_messages_item import (
-    CreateGhlToolDtoMessagesItem,
-    CreateGhlToolDtoMessagesItem_RequestComplete,
-    CreateGhlToolDtoMessagesItem_RequestFailed,
-    CreateGhlToolDtoMessagesItem_RequestResponseDelayed,
-    CreateGhlToolDtoMessagesItem_RequestStart,
-)
+from .create_ghl_tool_dto_messages_item import CreateGhlToolDtoMessagesItem
 from .create_gladia_credential_dto import CreateGladiaCredentialDto
 from .create_go_high_level_credential_dto import CreateGoHighLevelCredentialDto
 from .create_groq_credential_dto import CreateGroqCredentialDto
 from .create_lmnt_credential_dto import CreateLmntCredentialDto
 from .create_make_credential_dto import CreateMakeCredentialDto
 from .create_make_tool_dto import CreateMakeToolDto
-from .create_make_tool_dto_messages_item import (
-    CreateMakeToolDtoMessagesItem,
-    CreateMakeToolDtoMessagesItem_RequestComplete,
-    CreateMakeToolDtoMessagesItem_RequestFailed,
-    CreateMakeToolDtoMessagesItem_RequestResponseDelayed,
-    CreateMakeToolDtoMessagesItem_RequestStart,
-)
+from .create_make_tool_dto_messages_item import CreateMakeToolDtoMessagesItem
 from .create_open_ai_credential_dto import CreateOpenAiCredentialDto
 from .create_open_router_credential_dto import CreateOpenRouterCredentialDto
 from .create_org_dto import CreateOrgDto
 from .create_outbound_call_dto import CreateOutboundCallDto
 from .create_output_tool_dto import CreateOutputToolDto
-from .create_output_tool_dto_messages_item import (
-    CreateOutputToolDtoMessagesItem,
-    CreateOutputToolDtoMessagesItem_RequestComplete,
-    CreateOutputToolDtoMessagesItem_RequestFailed,
-    CreateOutputToolDtoMessagesItem_RequestResponseDelayed,
-    CreateOutputToolDtoMessagesItem_RequestStart,
-)
+from .create_output_tool_dto_messages_item import CreateOutputToolDtoMessagesItem
 from .create_perplexity_ai_credential_dto import CreatePerplexityAiCredentialDto
 from .create_play_ht_credential_dto import CreatePlayHtCredentialDto
 from .create_rime_ai_credential_dto import CreateRimeAiCredentialDto
@@ -367,120 +160,37 @@ from .create_together_ai_credential_dto import CreateTogetherAiCredentialDto
 from .create_token_dto import CreateTokenDto
 from .create_token_dto_tag import CreateTokenDtoTag
 from .create_tool_call_block_dto import CreateToolCallBlockDto
-from .create_tool_call_block_dto_messages_item import (
-    CreateToolCallBlockDtoMessagesItem,
-    CreateToolCallBlockDtoMessagesItem_BlockComplete,
-    CreateToolCallBlockDtoMessagesItem_BlockStart,
-)
-from .create_tool_call_block_dto_tool import (
-    CreateToolCallBlockDtoTool,
-    CreateToolCallBlockDtoTool_Dtmf,
-    CreateToolCallBlockDtoTool_EndCall,
-    CreateToolCallBlockDtoTool_Function,
-    CreateToolCallBlockDtoTool_Ghl,
-    CreateToolCallBlockDtoTool_Make,
-    CreateToolCallBlockDtoTool_TransferCall,
-    CreateToolCallBlockDtoTool_Voicemail,
-)
+from .create_tool_call_block_dto_messages_item import CreateToolCallBlockDtoMessagesItem
+from .create_tool_call_block_dto_tool import CreateToolCallBlockDtoTool
 from .create_tool_template_dto import CreateToolTemplateDto
-from .create_tool_template_dto_details import (
-    CreateToolTemplateDtoDetails,
-    CreateToolTemplateDtoDetails_Dtmf,
-    CreateToolTemplateDtoDetails_EndCall,
-    CreateToolTemplateDtoDetails_Function,
-    CreateToolTemplateDtoDetails_Ghl,
-    CreateToolTemplateDtoDetails_Make,
-    CreateToolTemplateDtoDetails_TransferCall,
-    CreateToolTemplateDtoDetails_Voicemail,
-)
+from .create_tool_template_dto_details import CreateToolTemplateDtoDetails
 from .create_tool_template_dto_provider import CreateToolTemplateDtoProvider
-from .create_tool_template_dto_provider_details import (
-    CreateToolTemplateDtoProviderDetails,
-    CreateToolTemplateDtoProviderDetails_Function,
-    CreateToolTemplateDtoProviderDetails_Ghl,
-    CreateToolTemplateDtoProviderDetails_Make,
-)
+from .create_tool_template_dto_provider_details import CreateToolTemplateDtoProviderDetails
 from .create_tool_template_dto_visibility import CreateToolTemplateDtoVisibility
 from .create_transfer_call_tool_dto import CreateTransferCallToolDto
-from .create_transfer_call_tool_dto_destinations_item import (
-    CreateTransferCallToolDtoDestinationsItem,
-    CreateTransferCallToolDtoDestinationsItem_Assistant,
-    CreateTransferCallToolDtoDestinationsItem_Number,
-    CreateTransferCallToolDtoDestinationsItem_Sip,
-    CreateTransferCallToolDtoDestinationsItem_Step,
-)
-from .create_transfer_call_tool_dto_messages_item import (
-    CreateTransferCallToolDtoMessagesItem,
-    CreateTransferCallToolDtoMessagesItem_RequestComplete,
-    CreateTransferCallToolDtoMessagesItem_RequestFailed,
-    CreateTransferCallToolDtoMessagesItem_RequestResponseDelayed,
-    CreateTransferCallToolDtoMessagesItem_RequestStart,
-)
+from .create_transfer_call_tool_dto_destinations_item import CreateTransferCallToolDtoDestinationsItem
+from .create_transfer_call_tool_dto_messages_item import CreateTransferCallToolDtoMessagesItem
 from .create_twilio_credential_dto import CreateTwilioCredentialDto
 from .create_twilio_phone_number_dto import CreateTwilioPhoneNumberDto
-from .create_twilio_phone_number_dto_fallback_destination import (
-    CreateTwilioPhoneNumberDtoFallbackDestination,
-    CreateTwilioPhoneNumberDtoFallbackDestination_Number,
-    CreateTwilioPhoneNumberDtoFallbackDestination_Sip,
-)
+from .create_twilio_phone_number_dto_fallback_destination import CreateTwilioPhoneNumberDtoFallbackDestination
 from .create_vapi_phone_number_dto import CreateVapiPhoneNumberDto
-from .create_vapi_phone_number_dto_fallback_destination import (
-    CreateVapiPhoneNumberDtoFallbackDestination,
-    CreateVapiPhoneNumberDtoFallbackDestination_Number,
-    CreateVapiPhoneNumberDtoFallbackDestination_Sip,
-)
+from .create_vapi_phone_number_dto_fallback_destination import CreateVapiPhoneNumberDtoFallbackDestination
 from .create_voicemail_tool_dto import CreateVoicemailToolDto
-from .create_voicemail_tool_dto_messages_item import (
-    CreateVoicemailToolDtoMessagesItem,
-    CreateVoicemailToolDtoMessagesItem_RequestComplete,
-    CreateVoicemailToolDtoMessagesItem_RequestFailed,
-    CreateVoicemailToolDtoMessagesItem_RequestResponseDelayed,
-    CreateVoicemailToolDtoMessagesItem_RequestStart,
-)
+from .create_voicemail_tool_dto_messages_item import CreateVoicemailToolDtoMessagesItem
 from .create_vonage_credential_dto import CreateVonageCredentialDto
 from .create_vonage_phone_number_dto import CreateVonagePhoneNumberDto
-from .create_vonage_phone_number_dto_fallback_destination import (
-    CreateVonagePhoneNumberDtoFallbackDestination,
-    CreateVonagePhoneNumberDtoFallbackDestination_Number,
-    CreateVonagePhoneNumberDtoFallbackDestination_Sip,
-)
+from .create_vonage_phone_number_dto_fallback_destination import CreateVonagePhoneNumberDtoFallbackDestination
 from .create_web_call_dto import CreateWebCallDto
 from .create_workflow_block_dto import CreateWorkflowBlockDto
-from .create_workflow_block_dto_messages_item import (
-    CreateWorkflowBlockDtoMessagesItem,
-    CreateWorkflowBlockDtoMessagesItem_BlockComplete,
-    CreateWorkflowBlockDtoMessagesItem_BlockStart,
-)
-from .create_workflow_block_dto_steps_item import (
-    CreateWorkflowBlockDtoStepsItem,
-    CreateWorkflowBlockDtoStepsItem_Callback,
-    CreateWorkflowBlockDtoStepsItem_Handoff,
-)
+from .create_workflow_block_dto_messages_item import CreateWorkflowBlockDtoMessagesItem
+from .create_workflow_block_dto_steps_item import CreateWorkflowBlockDtoStepsItem
 from .custom_llm_credential import CustomLlmCredential
 from .custom_llm_model import CustomLlmModel
 from .custom_llm_model_metadata_send_mode import CustomLlmModelMetadataSendMode
-from .custom_llm_model_tools_item import (
-    CustomLlmModelToolsItem,
-    CustomLlmModelToolsItem_Dtmf,
-    CustomLlmModelToolsItem_EndCall,
-    CustomLlmModelToolsItem_Function,
-    CustomLlmModelToolsItem_Ghl,
-    CustomLlmModelToolsItem_Make,
-    CustomLlmModelToolsItem_TransferCall,
-    CustomLlmModelToolsItem_Voicemail,
-)
+from .custom_llm_model_tools_item import CustomLlmModelToolsItem
 from .deep_infra_credential import DeepInfraCredential
 from .deep_infra_model import DeepInfraModel
-from .deep_infra_model_tools_item import (
-    DeepInfraModelToolsItem,
-    DeepInfraModelToolsItem_Dtmf,
-    DeepInfraModelToolsItem_EndCall,
-    DeepInfraModelToolsItem_Function,
-    DeepInfraModelToolsItem_Ghl,
-    DeepInfraModelToolsItem_Make,
-    DeepInfraModelToolsItem_TransferCall,
-    DeepInfraModelToolsItem_Voicemail,
-)
+from .deep_infra_model_tools_item import DeepInfraModelToolsItem
 from .deepgram_credential import DeepgramCredential
 from .deepgram_transcriber import DeepgramTranscriber
 from .deepgram_transcriber_language import DeepgramTranscriberLanguage
@@ -488,72 +198,32 @@ from .deepgram_transcriber_model import DeepgramTranscriberModel
 from .deepgram_voice import DeepgramVoice
 from .deepgram_voice_voice_id import DeepgramVoiceVoiceId
 from .dtmf_tool import DtmfTool
-from .dtmf_tool_messages_item import (
-    DtmfToolMessagesItem,
-    DtmfToolMessagesItem_RequestComplete,
-    DtmfToolMessagesItem_RequestFailed,
-    DtmfToolMessagesItem_RequestResponseDelayed,
-    DtmfToolMessagesItem_RequestStart,
-)
+from .dtmf_tool_messages_item import DtmfToolMessagesItem
 from .eleven_labs_credential import ElevenLabsCredential
 from .eleven_labs_voice import ElevenLabsVoice
 from .eleven_labs_voice_model import ElevenLabsVoiceModel
 from .eleven_labs_voice_voice_id import ElevenLabsVoiceVoiceId
 from .end_call_tool import EndCallTool
-from .end_call_tool_messages_item import (
-    EndCallToolMessagesItem,
-    EndCallToolMessagesItem_RequestComplete,
-    EndCallToolMessagesItem_RequestFailed,
-    EndCallToolMessagesItem_RequestResponseDelayed,
-    EndCallToolMessagesItem_RequestStart,
-)
+from .end_call_tool_messages_item import EndCallToolMessagesItem
 from .error import Error
 from .exact_replacement import ExactReplacement
 from .file import File
 from .file_status import FileStatus
 from .format_plan import FormatPlan
-from .format_plan_replacements_item import (
-    FormatPlanReplacementsItem,
-    FormatPlanReplacementsItem_Exact,
-    FormatPlanReplacementsItem_Regex,
-)
+from .format_plan_replacements_item import FormatPlanReplacementsItem
 from .function_tool import FunctionTool
-from .function_tool_messages_item import (
-    FunctionToolMessagesItem,
-    FunctionToolMessagesItem_RequestComplete,
-    FunctionToolMessagesItem_RequestFailed,
-    FunctionToolMessagesItem_RequestResponseDelayed,
-    FunctionToolMessagesItem_RequestStart,
-)
+from .function_tool_messages_item import FunctionToolMessagesItem
 from .function_tool_provider_details import FunctionToolProviderDetails
 from .function_tool_with_tool_call import FunctionToolWithToolCall
-from .function_tool_with_tool_call_messages_item import (
-    FunctionToolWithToolCallMessagesItem,
-    FunctionToolWithToolCallMessagesItem_RequestComplete,
-    FunctionToolWithToolCallMessagesItem_RequestFailed,
-    FunctionToolWithToolCallMessagesItem_RequestResponseDelayed,
-    FunctionToolWithToolCallMessagesItem_RequestStart,
-)
+from .function_tool_with_tool_call_messages_item import FunctionToolWithToolCallMessagesItem
 from .gcp_credential import GcpCredential
 from .gcp_key import GcpKey
 from .ghl_tool import GhlTool
-from .ghl_tool_messages_item import (
-    GhlToolMessagesItem,
-    GhlToolMessagesItem_RequestComplete,
-    GhlToolMessagesItem_RequestFailed,
-    GhlToolMessagesItem_RequestResponseDelayed,
-    GhlToolMessagesItem_RequestStart,
-)
+from .ghl_tool_messages_item import GhlToolMessagesItem
 from .ghl_tool_metadata import GhlToolMetadata
 from .ghl_tool_provider_details import GhlToolProviderDetails
 from .ghl_tool_with_tool_call import GhlToolWithToolCall
-from .ghl_tool_with_tool_call_messages_item import (
-    GhlToolWithToolCallMessagesItem,
-    GhlToolWithToolCallMessagesItem_RequestComplete,
-    GhlToolWithToolCallMessagesItem_RequestFailed,
-    GhlToolWithToolCallMessagesItem_RequestResponseDelayed,
-    GhlToolWithToolCallMessagesItem_RequestStart,
-)
+from .ghl_tool_with_tool_call_messages_item import GhlToolWithToolCallMessagesItem
 from .gladia_credential import GladiaCredential
 from .gladia_transcriber import GladiaTranscriber
 from .gladia_transcriber_language import GladiaTranscriberLanguage
@@ -563,35 +233,13 @@ from .go_high_level_credential import GoHighLevelCredential
 from .groq_credential import GroqCredential
 from .groq_model import GroqModel
 from .groq_model_model import GroqModelModel
-from .groq_model_tools_item import (
-    GroqModelToolsItem,
-    GroqModelToolsItem_Dtmf,
-    GroqModelToolsItem_EndCall,
-    GroqModelToolsItem_Function,
-    GroqModelToolsItem_Ghl,
-    GroqModelToolsItem_Make,
-    GroqModelToolsItem_TransferCall,
-    GroqModelToolsItem_Voicemail,
-)
+from .groq_model_tools_item import GroqModelToolsItem
 from .handoff_step import HandoffStep
-from .handoff_step_block import (
-    HandoffStepBlock,
-    HandoffStepBlock_Conversation,
-    HandoffStepBlock_ToolCall,
-    HandoffStepBlock_Workflow,
-)
+from .handoff_step_block import HandoffStepBlock
 from .import_twilio_phone_number_dto import ImportTwilioPhoneNumberDto
-from .import_twilio_phone_number_dto_fallback_destination import (
-    ImportTwilioPhoneNumberDtoFallbackDestination,
-    ImportTwilioPhoneNumberDtoFallbackDestination_Number,
-    ImportTwilioPhoneNumberDtoFallbackDestination_Sip,
-)
+from .import_twilio_phone_number_dto_fallback_destination import ImportTwilioPhoneNumberDtoFallbackDestination
 from .import_vonage_phone_number_dto import ImportVonagePhoneNumberDto
-from .import_vonage_phone_number_dto_fallback_destination import (
-    ImportVonagePhoneNumberDtoFallbackDestination,
-    ImportVonagePhoneNumberDtoFallbackDestination_Number,
-    ImportVonagePhoneNumberDtoFallbackDestination_Sip,
-)
+from .import_vonage_phone_number_dto_fallback_destination import ImportVonagePhoneNumberDtoFallbackDestination
 from .invite_user_dto import InviteUserDto
 from .invite_user_dto_role import InviteUserDtoRole
 from .json_schema import JsonSchema
@@ -607,23 +255,11 @@ from .log_type import LogType
 from .logs_paginated_response import LogsPaginatedResponse
 from .make_credential import MakeCredential
 from .make_tool import MakeTool
-from .make_tool_messages_item import (
-    MakeToolMessagesItem,
-    MakeToolMessagesItem_RequestComplete,
-    MakeToolMessagesItem_RequestFailed,
-    MakeToolMessagesItem_RequestResponseDelayed,
-    MakeToolMessagesItem_RequestStart,
-)
+from .make_tool_messages_item import MakeToolMessagesItem
 from .make_tool_metadata import MakeToolMetadata
 from .make_tool_provider_details import MakeToolProviderDetails
 from .make_tool_with_tool_call import MakeToolWithToolCall
-from .make_tool_with_tool_call_messages_item import (
-    MakeToolWithToolCallMessagesItem,
-    MakeToolWithToolCallMessagesItem_RequestComplete,
-    MakeToolWithToolCallMessagesItem_RequestFailed,
-    MakeToolWithToolCallMessagesItem_RequestResponseDelayed,
-    MakeToolWithToolCallMessagesItem_RequestStart,
-)
+from .make_tool_with_tool_call_messages_item import MakeToolWithToolCallMessagesItem
 from .message_plan import MessagePlan
 from .metrics import Metrics
 from .model_based_condition import ModelBasedCondition
@@ -640,57 +276,25 @@ from .open_ai_message_role import OpenAiMessageRole
 from .open_ai_model import OpenAiModel
 from .open_ai_model_fallback_models_item import OpenAiModelFallbackModelsItem
 from .open_ai_model_model import OpenAiModelModel
-from .open_ai_model_tools_item import (
-    OpenAiModelToolsItem,
-    OpenAiModelToolsItem_Dtmf,
-    OpenAiModelToolsItem_EndCall,
-    OpenAiModelToolsItem_Function,
-    OpenAiModelToolsItem_Ghl,
-    OpenAiModelToolsItem_Make,
-    OpenAiModelToolsItem_TransferCall,
-    OpenAiModelToolsItem_Voicemail,
-)
+from .open_ai_model_tools_item import OpenAiModelToolsItem
 from .open_ai_voice import OpenAiVoice
 from .open_ai_voice_voice_id import OpenAiVoiceVoiceId
 from .open_router_credential import OpenRouterCredential
 from .open_router_model import OpenRouterModel
-from .open_router_model_tools_item import (
-    OpenRouterModelToolsItem,
-    OpenRouterModelToolsItem_Dtmf,
-    OpenRouterModelToolsItem_EndCall,
-    OpenRouterModelToolsItem_Function,
-    OpenRouterModelToolsItem_Ghl,
-    OpenRouterModelToolsItem_Make,
-    OpenRouterModelToolsItem_TransferCall,
-    OpenRouterModelToolsItem_Voicemail,
-)
+from .open_router_model_tools_item import OpenRouterModelToolsItem
 from .org import Org
 from .org_plan import OrgPlan
 from .output_tool import OutputTool
-from .output_tool_messages_item import (
-    OutputToolMessagesItem,
-    OutputToolMessagesItem_RequestComplete,
-    OutputToolMessagesItem_RequestFailed,
-    OutputToolMessagesItem_RequestResponseDelayed,
-    OutputToolMessagesItem_RequestStart,
-)
+from .output_tool_messages_item import OutputToolMessagesItem
 from .pagination_meta import PaginationMeta
 from .perplexity_ai_credential import PerplexityAiCredential
 from .perplexity_ai_model import PerplexityAiModel
-from .perplexity_ai_model_tools_item import (
-    PerplexityAiModelToolsItem,
-    PerplexityAiModelToolsItem_Dtmf,
-    PerplexityAiModelToolsItem_EndCall,
-    PerplexityAiModelToolsItem_Function,
-    PerplexityAiModelToolsItem_Ghl,
-    PerplexityAiModelToolsItem_Make,
-    PerplexityAiModelToolsItem_TransferCall,
-    PerplexityAiModelToolsItem_Voicemail,
-)
+from .perplexity_ai_model_tools_item import PerplexityAiModelToolsItem
 from .play_ht_credential import PlayHtCredential
 from .play_ht_voice import PlayHtVoice
 from .play_ht_voice_emotion import PlayHtVoiceEmotion
 from .play_ht_voice_voice_id import PlayHtVoiceVoiceId
+from .punctuation_boundary import PunctuationBoundary
 from .regex_option import RegexOption
 from .regex_option_type import RegexOptionType
 from .regex_replacement import RegexReplacement
@@ -706,212 +310,63 @@ from .sbc_configuration import SbcConfiguration
 from .server import Server
 from .server_message import ServerMessage
 from .server_message_assistant_request import ServerMessageAssistantRequest
-from .server_message_assistant_request_phone_number import (
-    ServerMessageAssistantRequestPhoneNumber,
-    ServerMessageAssistantRequestPhoneNumber_ByoPhoneNumber,
-    ServerMessageAssistantRequestPhoneNumber_Twilio,
-    ServerMessageAssistantRequestPhoneNumber_Vapi,
-    ServerMessageAssistantRequestPhoneNumber_Vonage,
-)
+from .server_message_assistant_request_phone_number import ServerMessageAssistantRequestPhoneNumber
 from .server_message_conversation_update import ServerMessageConversationUpdate
 from .server_message_conversation_update_messages_item import ServerMessageConversationUpdateMessagesItem
-from .server_message_conversation_update_phone_number import (
-    ServerMessageConversationUpdatePhoneNumber,
-    ServerMessageConversationUpdatePhoneNumber_ByoPhoneNumber,
-    ServerMessageConversationUpdatePhoneNumber_Twilio,
-    ServerMessageConversationUpdatePhoneNumber_Vapi,
-    ServerMessageConversationUpdatePhoneNumber_Vonage,
-)
+from .server_message_conversation_update_phone_number import ServerMessageConversationUpdatePhoneNumber
 from .server_message_end_of_call_report import ServerMessageEndOfCallReport
-from .server_message_end_of_call_report_costs_item import (
-    ServerMessageEndOfCallReportCostsItem,
-    ServerMessageEndOfCallReportCostsItem_Analysis,
-    ServerMessageEndOfCallReportCostsItem_Model,
-    ServerMessageEndOfCallReportCostsItem_Transcriber,
-    ServerMessageEndOfCallReportCostsItem_Transport,
-    ServerMessageEndOfCallReportCostsItem_Vapi,
-    ServerMessageEndOfCallReportCostsItem_Voice,
-)
+from .server_message_end_of_call_report_costs_item import ServerMessageEndOfCallReportCostsItem
 from .server_message_end_of_call_report_ended_reason import ServerMessageEndOfCallReportEndedReason
-from .server_message_end_of_call_report_phone_number import (
-    ServerMessageEndOfCallReportPhoneNumber,
-    ServerMessageEndOfCallReportPhoneNumber_ByoPhoneNumber,
-    ServerMessageEndOfCallReportPhoneNumber_Twilio,
-    ServerMessageEndOfCallReportPhoneNumber_Vapi,
-    ServerMessageEndOfCallReportPhoneNumber_Vonage,
-)
+from .server_message_end_of_call_report_phone_number import ServerMessageEndOfCallReportPhoneNumber
 from .server_message_hang import ServerMessageHang
-from .server_message_hang_phone_number import (
-    ServerMessageHangPhoneNumber,
-    ServerMessageHangPhoneNumber_ByoPhoneNumber,
-    ServerMessageHangPhoneNumber_Twilio,
-    ServerMessageHangPhoneNumber_Vapi,
-    ServerMessageHangPhoneNumber_Vonage,
-)
+from .server_message_hang_phone_number import ServerMessageHangPhoneNumber
 from .server_message_language_changed import ServerMessageLanguageChanged
-from .server_message_language_changed_phone_number import (
-    ServerMessageLanguageChangedPhoneNumber,
-    ServerMessageLanguageChangedPhoneNumber_ByoPhoneNumber,
-    ServerMessageLanguageChangedPhoneNumber_Twilio,
-    ServerMessageLanguageChangedPhoneNumber_Vapi,
-    ServerMessageLanguageChangedPhoneNumber_Vonage,
-)
-from .server_message_message import (
-    ServerMessageMessage,
-    ServerMessageMessage_AssistantRequest,
-    ServerMessageMessage_ConversationUpdate,
-    ServerMessageMessage_EndOfCallReport,
-    ServerMessageMessage_Hang,
-    ServerMessageMessage_LanguageChanged,
-    ServerMessageMessage_ModelOutput,
-    ServerMessageMessage_PhoneCallControl,
-    ServerMessageMessage_SpeechUpdate,
-    ServerMessageMessage_StatusUpdate,
-    ServerMessageMessage_ToolCalls,
-    ServerMessageMessage_Transcript,
-    ServerMessageMessage_TransferDestinationRequest,
-    ServerMessageMessage_TransferUpdate,
-    ServerMessageMessage_UserInterrupted,
-    ServerMessageMessage_VoiceInput,
-    ServerMessageMessage_VoiceRequest,
-)
+from .server_message_language_changed_phone_number import ServerMessageLanguageChangedPhoneNumber
+from .server_message_message import ServerMessageMessage
 from .server_message_model_output import ServerMessageModelOutput
-from .server_message_model_output_phone_number import (
-    ServerMessageModelOutputPhoneNumber,
-    ServerMessageModelOutputPhoneNumber_ByoPhoneNumber,
-    ServerMessageModelOutputPhoneNumber_Twilio,
-    ServerMessageModelOutputPhoneNumber_Vapi,
-    ServerMessageModelOutputPhoneNumber_Vonage,
-)
+from .server_message_model_output_phone_number import ServerMessageModelOutputPhoneNumber
 from .server_message_phone_call_control import ServerMessagePhoneCallControl
-from .server_message_phone_call_control_destination import (
-    ServerMessagePhoneCallControlDestination,
-    ServerMessagePhoneCallControlDestination_Number,
-    ServerMessagePhoneCallControlDestination_Sip,
-)
-from .server_message_phone_call_control_phone_number import (
-    ServerMessagePhoneCallControlPhoneNumber,
-    ServerMessagePhoneCallControlPhoneNumber_ByoPhoneNumber,
-    ServerMessagePhoneCallControlPhoneNumber_Twilio,
-    ServerMessagePhoneCallControlPhoneNumber_Vapi,
-    ServerMessagePhoneCallControlPhoneNumber_Vonage,
-)
+from .server_message_phone_call_control_destination import ServerMessagePhoneCallControlDestination
+from .server_message_phone_call_control_phone_number import ServerMessagePhoneCallControlPhoneNumber
 from .server_message_phone_call_control_request import ServerMessagePhoneCallControlRequest
 from .server_message_response import ServerMessageResponse
 from .server_message_response_assistant_request import ServerMessageResponseAssistantRequest
-from .server_message_response_assistant_request_destination import (
-    ServerMessageResponseAssistantRequestDestination,
-    ServerMessageResponseAssistantRequestDestination_Number,
-    ServerMessageResponseAssistantRequestDestination_Sip,
-)
+from .server_message_response_assistant_request_destination import ServerMessageResponseAssistantRequestDestination
 from .server_message_response_message_response import ServerMessageResponseMessageResponse
 from .server_message_response_tool_calls import ServerMessageResponseToolCalls
 from .server_message_response_transfer_destination_request import ServerMessageResponseTransferDestinationRequest
 from .server_message_response_transfer_destination_request_destination import (
     ServerMessageResponseTransferDestinationRequestDestination,
-    ServerMessageResponseTransferDestinationRequestDestination_Assistant,
-    ServerMessageResponseTransferDestinationRequestDestination_Number,
-    ServerMessageResponseTransferDestinationRequestDestination_Sip,
-    ServerMessageResponseTransferDestinationRequestDestination_Step,
 )
 from .server_message_response_voice_request import ServerMessageResponseVoiceRequest
 from .server_message_speech_update import ServerMessageSpeechUpdate
-from .server_message_speech_update_phone_number import (
-    ServerMessageSpeechUpdatePhoneNumber,
-    ServerMessageSpeechUpdatePhoneNumber_ByoPhoneNumber,
-    ServerMessageSpeechUpdatePhoneNumber_Twilio,
-    ServerMessageSpeechUpdatePhoneNumber_Vapi,
-    ServerMessageSpeechUpdatePhoneNumber_Vonage,
-)
+from .server_message_speech_update_phone_number import ServerMessageSpeechUpdatePhoneNumber
 from .server_message_speech_update_role import ServerMessageSpeechUpdateRole
 from .server_message_speech_update_status import ServerMessageSpeechUpdateStatus
 from .server_message_status_update import ServerMessageStatusUpdate
-from .server_message_status_update_destination import (
-    ServerMessageStatusUpdateDestination,
-    ServerMessageStatusUpdateDestination_Number,
-    ServerMessageStatusUpdateDestination_Sip,
-)
+from .server_message_status_update_destination import ServerMessageStatusUpdateDestination
 from .server_message_status_update_ended_reason import ServerMessageStatusUpdateEndedReason
 from .server_message_status_update_messages_item import ServerMessageStatusUpdateMessagesItem
-from .server_message_status_update_phone_number import (
-    ServerMessageStatusUpdatePhoneNumber,
-    ServerMessageStatusUpdatePhoneNumber_ByoPhoneNumber,
-    ServerMessageStatusUpdatePhoneNumber_Twilio,
-    ServerMessageStatusUpdatePhoneNumber_Vapi,
-    ServerMessageStatusUpdatePhoneNumber_Vonage,
-)
+from .server_message_status_update_phone_number import ServerMessageStatusUpdatePhoneNumber
 from .server_message_status_update_status import ServerMessageStatusUpdateStatus
 from .server_message_tool_calls import ServerMessageToolCalls
-from .server_message_tool_calls_phone_number import (
-    ServerMessageToolCallsPhoneNumber,
-    ServerMessageToolCallsPhoneNumber_ByoPhoneNumber,
-    ServerMessageToolCallsPhoneNumber_Twilio,
-    ServerMessageToolCallsPhoneNumber_Vapi,
-    ServerMessageToolCallsPhoneNumber_Vonage,
-)
-from .server_message_tool_calls_tool_with_tool_call_list_item import (
-    ServerMessageToolCallsToolWithToolCallListItem,
-    ServerMessageToolCallsToolWithToolCallListItem_Function,
-    ServerMessageToolCallsToolWithToolCallListItem_Ghl,
-    ServerMessageToolCallsToolWithToolCallListItem_Make,
-)
+from .server_message_tool_calls_phone_number import ServerMessageToolCallsPhoneNumber
+from .server_message_tool_calls_tool_with_tool_call_list_item import ServerMessageToolCallsToolWithToolCallListItem
 from .server_message_transcript import ServerMessageTranscript
-from .server_message_transcript_phone_number import (
-    ServerMessageTranscriptPhoneNumber,
-    ServerMessageTranscriptPhoneNumber_ByoPhoneNumber,
-    ServerMessageTranscriptPhoneNumber_Twilio,
-    ServerMessageTranscriptPhoneNumber_Vapi,
-    ServerMessageTranscriptPhoneNumber_Vonage,
-)
+from .server_message_transcript_phone_number import ServerMessageTranscriptPhoneNumber
 from .server_message_transcript_role import ServerMessageTranscriptRole
 from .server_message_transcript_transcript_type import ServerMessageTranscriptTranscriptType
 from .server_message_transfer_destination_request import ServerMessageTransferDestinationRequest
-from .server_message_transfer_destination_request_phone_number import (
-    ServerMessageTransferDestinationRequestPhoneNumber,
-    ServerMessageTransferDestinationRequestPhoneNumber_ByoPhoneNumber,
-    ServerMessageTransferDestinationRequestPhoneNumber_Twilio,
-    ServerMessageTransferDestinationRequestPhoneNumber_Vapi,
-    ServerMessageTransferDestinationRequestPhoneNumber_Vonage,
-)
+from .server_message_transfer_destination_request_phone_number import ServerMessageTransferDestinationRequestPhoneNumber
 from .server_message_transfer_update import ServerMessageTransferUpdate
-from .server_message_transfer_update_destination import (
-    ServerMessageTransferUpdateDestination,
-    ServerMessageTransferUpdateDestination_Assistant,
-    ServerMessageTransferUpdateDestination_Number,
-    ServerMessageTransferUpdateDestination_Sip,
-    ServerMessageTransferUpdateDestination_Step,
-)
-from .server_message_transfer_update_phone_number import (
-    ServerMessageTransferUpdatePhoneNumber,
-    ServerMessageTransferUpdatePhoneNumber_ByoPhoneNumber,
-    ServerMessageTransferUpdatePhoneNumber_Twilio,
-    ServerMessageTransferUpdatePhoneNumber_Vapi,
-    ServerMessageTransferUpdatePhoneNumber_Vonage,
-)
+from .server_message_transfer_update_destination import ServerMessageTransferUpdateDestination
+from .server_message_transfer_update_phone_number import ServerMessageTransferUpdatePhoneNumber
 from .server_message_user_interrupted import ServerMessageUserInterrupted
-from .server_message_user_interrupted_phone_number import (
-    ServerMessageUserInterruptedPhoneNumber,
-    ServerMessageUserInterruptedPhoneNumber_ByoPhoneNumber,
-    ServerMessageUserInterruptedPhoneNumber_Twilio,
-    ServerMessageUserInterruptedPhoneNumber_Vapi,
-    ServerMessageUserInterruptedPhoneNumber_Vonage,
-)
+from .server_message_user_interrupted_phone_number import ServerMessageUserInterruptedPhoneNumber
 from .server_message_voice_input import ServerMessageVoiceInput
-from .server_message_voice_input_phone_number import (
-    ServerMessageVoiceInputPhoneNumber,
-    ServerMessageVoiceInputPhoneNumber_ByoPhoneNumber,
-    ServerMessageVoiceInputPhoneNumber_Twilio,
-    ServerMessageVoiceInputPhoneNumber_Vapi,
-    ServerMessageVoiceInputPhoneNumber_Vonage,
-)
+from .server_message_voice_input_phone_number import ServerMessageVoiceInputPhoneNumber
 from .server_message_voice_request import ServerMessageVoiceRequest
-from .server_message_voice_request_phone_number import (
-    ServerMessageVoiceRequestPhoneNumber,
-    ServerMessageVoiceRequestPhoneNumber_ByoPhoneNumber,
-    ServerMessageVoiceRequestPhoneNumber_Twilio,
-    ServerMessageVoiceRequestPhoneNumber_Vapi,
-    ServerMessageVoiceRequestPhoneNumber_Vonage,
-)
+from .server_message_voice_request_phone_number import ServerMessageVoiceRequestPhoneNumber
 from .sip_trunk_gateway import SipTrunkGateway
 from .sip_trunk_gateway_outbound_protocol import SipTrunkGatewayOutboundProtocol
 from .sip_trunk_outbound_authentication_plan import SipTrunkOutboundAuthenticationPlan
@@ -920,11 +375,7 @@ from .squad import Squad
 from .squad_member_dto import SquadMemberDto
 from .start_speaking_plan import StartSpeakingPlan
 from .step_destination import StepDestination
-from .step_destination_conditions_item import (
-    StepDestinationConditionsItem,
-    StepDestinationConditionsItem_ModelBased,
-    StepDestinationConditionsItem_RuleBased,
-)
+from .step_destination_conditions_item import StepDestinationConditionsItem
 from .stop_speaking_plan import StopSpeakingPlan
 from .structured_data_plan import StructuredDataPlan
 from .success_evaluation_plan import SuccessEvaluationPlan
@@ -936,67 +387,27 @@ from .system_message import SystemMessage
 from .talkscriber_transcriber import TalkscriberTranscriber
 from .talkscriber_transcriber_language import TalkscriberTranscriberLanguage
 from .template import Template
-from .template_details import (
-    TemplateDetails,
-    TemplateDetails_Dtmf,
-    TemplateDetails_EndCall,
-    TemplateDetails_Function,
-    TemplateDetails_Ghl,
-    TemplateDetails_Make,
-    TemplateDetails_TransferCall,
-    TemplateDetails_Voicemail,
-)
+from .template_details import TemplateDetails
 from .template_provider import TemplateProvider
-from .template_provider_details import (
-    TemplateProviderDetails,
-    TemplateProviderDetails_Function,
-    TemplateProviderDetails_Ghl,
-    TemplateProviderDetails_Make,
-)
+from .template_provider_details import TemplateProviderDetails
 from .template_visibility import TemplateVisibility
 from .time_range import TimeRange
 from .time_range_step import TimeRangeStep
 from .together_ai_credential import TogetherAiCredential
 from .together_ai_model import TogetherAiModel
-from .together_ai_model_tools_item import (
-    TogetherAiModelToolsItem,
-    TogetherAiModelToolsItem_Dtmf,
-    TogetherAiModelToolsItem_EndCall,
-    TogetherAiModelToolsItem_Function,
-    TogetherAiModelToolsItem_Ghl,
-    TogetherAiModelToolsItem_Make,
-    TogetherAiModelToolsItem_TransferCall,
-    TogetherAiModelToolsItem_Voicemail,
-)
+from .together_ai_model_tools_item import TogetherAiModelToolsItem
 from .token import Token
 from .token_restrictions import TokenRestrictions
 from .token_tag import TokenTag
 from .tool_call import ToolCall
 from .tool_call_block import ToolCallBlock
-from .tool_call_block_messages_item import (
-    ToolCallBlockMessagesItem,
-    ToolCallBlockMessagesItem_BlockComplete,
-    ToolCallBlockMessagesItem_BlockStart,
-)
-from .tool_call_block_tool import (
-    ToolCallBlockTool,
-    ToolCallBlockTool_Dtmf,
-    ToolCallBlockTool_EndCall,
-    ToolCallBlockTool_Function,
-    ToolCallBlockTool_Ghl,
-    ToolCallBlockTool_Make,
-    ToolCallBlockTool_TransferCall,
-    ToolCallBlockTool_Voicemail,
-)
+from .tool_call_block_messages_item import ToolCallBlockMessagesItem
+from .tool_call_block_tool import ToolCallBlockTool
 from .tool_call_function import ToolCallFunction
 from .tool_call_message import ToolCallMessage
 from .tool_call_result import ToolCallResult
 from .tool_call_result_message import ToolCallResultMessage
-from .tool_call_result_message_item import (
-    ToolCallResultMessageItem,
-    ToolCallResultMessageItem_RequestComplete,
-    ToolCallResultMessageItem_RequestFailed,
-)
+from .tool_call_result_message_item import ToolCallResultMessageItem
 from .tool_message_complete import ToolMessageComplete
 from .tool_message_complete_role import ToolMessageCompleteRole
 from .tool_message_delayed import ToolMessageDelayed
@@ -1008,35 +419,19 @@ from .transcriber_cost import TranscriberCost
 from .transcript_plan import TranscriptPlan
 from .transcription_endpointing_plan import TranscriptionEndpointingPlan
 from .transfer_call_tool import TransferCallTool
-from .transfer_call_tool_destinations_item import (
-    TransferCallToolDestinationsItem,
-    TransferCallToolDestinationsItem_Assistant,
-    TransferCallToolDestinationsItem_Number,
-    TransferCallToolDestinationsItem_Sip,
-    TransferCallToolDestinationsItem_Step,
-)
-from .transfer_call_tool_messages_item import (
-    TransferCallToolMessagesItem,
-    TransferCallToolMessagesItem_RequestComplete,
-    TransferCallToolMessagesItem_RequestFailed,
-    TransferCallToolMessagesItem_RequestResponseDelayed,
-    TransferCallToolMessagesItem_RequestStart,
-)
+from .transfer_call_tool_destinations_item import TransferCallToolDestinationsItem
+from .transfer_call_tool_messages_item import TransferCallToolMessagesItem
 from .transfer_destination_assistant import TransferDestinationAssistant
-from .transfer_destination_assistant_transfer_mode import TransferDestinationAssistantTransferMode
 from .transfer_destination_number import TransferDestinationNumber
 from .transfer_destination_sip import TransferDestinationSip
 from .transfer_destination_step import TransferDestinationStep
+from .transfer_mode import TransferMode
 from .transport_configuration_twilio import TransportConfigurationTwilio
 from .transport_configuration_twilio_recording_channels import TransportConfigurationTwilioRecordingChannels
 from .transport_cost import TransportCost
 from .twilio_credential import TwilioCredential
 from .twilio_phone_number import TwilioPhoneNumber
-from .twilio_phone_number_fallback_destination import (
-    TwilioPhoneNumberFallbackDestination,
-    TwilioPhoneNumberFallbackDestination_Number,
-    TwilioPhoneNumberFallbackDestination_Sip,
-)
+from .twilio_phone_number_fallback_destination import TwilioPhoneNumberFallbackDestination
 from .twilio_voicemail_detection import TwilioVoicemailDetection
 from .twilio_voicemail_detection_voicemail_detection_types_item import (
     TwilioVoicemailDetectionVoicemailDetectionTypesItem,
@@ -1068,23 +463,9 @@ from .update_runpod_credential_dto import UpdateRunpodCredentialDto
 from .update_s_3_credential_dto import UpdateS3CredentialDto
 from .update_together_ai_credential_dto import UpdateTogetherAiCredentialDto
 from .update_tool_template_dto import UpdateToolTemplateDto
-from .update_tool_template_dto_details import (
-    UpdateToolTemplateDtoDetails,
-    UpdateToolTemplateDtoDetails_Dtmf,
-    UpdateToolTemplateDtoDetails_EndCall,
-    UpdateToolTemplateDtoDetails_Function,
-    UpdateToolTemplateDtoDetails_Ghl,
-    UpdateToolTemplateDtoDetails_Make,
-    UpdateToolTemplateDtoDetails_TransferCall,
-    UpdateToolTemplateDtoDetails_Voicemail,
-)
+from .update_tool_template_dto_details import UpdateToolTemplateDtoDetails
 from .update_tool_template_dto_provider import UpdateToolTemplateDtoProvider
-from .update_tool_template_dto_provider_details import (
-    UpdateToolTemplateDtoProviderDetails,
-    UpdateToolTemplateDtoProviderDetails_Function,
-    UpdateToolTemplateDtoProviderDetails_Ghl,
-    UpdateToolTemplateDtoProviderDetails_Make,
-)
+from .update_tool_template_dto_provider_details import UpdateToolTemplateDtoProviderDetails
 from .update_tool_template_dto_visibility import UpdateToolTemplateDtoVisibility
 from .update_twilio_credential_dto import UpdateTwilioCredentialDto
 from .update_user_role_dto import UpdateUserRoleDto
@@ -1094,45 +475,20 @@ from .user import User
 from .user_message import UserMessage
 from .vapi_cost import VapiCost
 from .vapi_model import VapiModel
-from .vapi_model_steps_item import VapiModelStepsItem, VapiModelStepsItem_Callback, VapiModelStepsItem_Handoff
-from .vapi_model_tools_item import (
-    VapiModelToolsItem,
-    VapiModelToolsItem_Dtmf,
-    VapiModelToolsItem_EndCall,
-    VapiModelToolsItem_Function,
-    VapiModelToolsItem_Ghl,
-    VapiModelToolsItem_Make,
-    VapiModelToolsItem_TransferCall,
-    VapiModelToolsItem_Voicemail,
-)
+from .vapi_model_steps_item import VapiModelStepsItem
+from .vapi_model_tools_item import VapiModelToolsItem
 from .vapi_phone_number import VapiPhoneNumber
-from .vapi_phone_number_fallback_destination import (
-    VapiPhoneNumberFallbackDestination,
-    VapiPhoneNumberFallbackDestination_Number,
-    VapiPhoneNumberFallbackDestination_Sip,
-)
+from .vapi_phone_number_fallback_destination import VapiPhoneNumberFallbackDestination
 from .voice_cost import VoiceCost
 from .voice_library import VoiceLibrary
 from .voice_library_gender import VoiceLibraryGender
 from .voice_library_voice_response import VoiceLibraryVoiceResponse
 from .vonage_credential import VonageCredential
 from .vonage_phone_number import VonagePhoneNumber
-from .vonage_phone_number_fallback_destination import (
-    VonagePhoneNumberFallbackDestination,
-    VonagePhoneNumberFallbackDestination_Number,
-    VonagePhoneNumberFallbackDestination_Sip,
-)
+from .vonage_phone_number_fallback_destination import VonagePhoneNumberFallbackDestination
 from .workflow_block import WorkflowBlock
-from .workflow_block_messages_item import (
-    WorkflowBlockMessagesItem,
-    WorkflowBlockMessagesItem_BlockComplete,
-    WorkflowBlockMessagesItem_BlockStart,
-)
-from .workflow_block_steps_item import (
-    WorkflowBlockStepsItem,
-    WorkflowBlockStepsItem_Callback,
-    WorkflowBlockStepsItem_Handoff,
-)
+from .workflow_block_messages_item import WorkflowBlockMessagesItem
+from .workflow_block_steps_item import WorkflowBlockStepsItem
 
 __all__ = [
     "AddVoiceToProviderDto",
@@ -1151,90 +507,30 @@ __all__ = [
     "AnthropicModel",
     "AnthropicModelModel",
     "AnthropicModelToolsItem",
-    "AnthropicModelToolsItem_Dtmf",
-    "AnthropicModelToolsItem_EndCall",
-    "AnthropicModelToolsItem_Function",
-    "AnthropicModelToolsItem_Ghl",
-    "AnthropicModelToolsItem_Make",
-    "AnthropicModelToolsItem_TransferCall",
-    "AnthropicModelToolsItem_Voicemail",
     "AnyscaleCredential",
     "AnyscaleModel",
     "AnyscaleModelToolsItem",
-    "AnyscaleModelToolsItem_Dtmf",
-    "AnyscaleModelToolsItem_EndCall",
-    "AnyscaleModelToolsItem_Function",
-    "AnyscaleModelToolsItem_Ghl",
-    "AnyscaleModelToolsItem_Make",
-    "AnyscaleModelToolsItem_TransferCall",
-    "AnyscaleModelToolsItem_Voicemail",
     "Artifact",
     "ArtifactMessagesItem",
     "ArtifactPlan",
     "AssignmentMutation",
     "AssignmentMutationConditionsItem",
-    "AssignmentMutationConditionsItem_ModelBased",
-    "AssignmentMutationConditionsItem_RuleBased",
     "Assistant",
     "AssistantBackgroundSound",
     "AssistantClientMessagesItem",
     "AssistantFirstMessageMode",
     "AssistantModel",
-    "AssistantModel_Anthropic",
-    "AssistantModel_Anyscale",
-    "AssistantModel_CustomLlm",
-    "AssistantModel_Deepinfra",
-    "AssistantModel_Groq",
-    "AssistantModel_Openai",
-    "AssistantModel_Openrouter",
-    "AssistantModel_PerplexityAi",
-    "AssistantModel_TogetherAi",
-    "AssistantModel_Vapi",
     "AssistantOverrides",
     "AssistantOverridesBackgroundSound",
     "AssistantOverridesClientMessagesItem",
     "AssistantOverridesFirstMessageMode",
     "AssistantOverridesModel",
-    "AssistantOverridesModel_Anthropic",
-    "AssistantOverridesModel_Anyscale",
-    "AssistantOverridesModel_CustomLlm",
-    "AssistantOverridesModel_Deepinfra",
-    "AssistantOverridesModel_Groq",
-    "AssistantOverridesModel_Openai",
-    "AssistantOverridesModel_Openrouter",
-    "AssistantOverridesModel_PerplexityAi",
-    "AssistantOverridesModel_TogetherAi",
-    "AssistantOverridesModel_Vapi",
     "AssistantOverridesServerMessagesItem",
     "AssistantOverridesTranscriber",
-    "AssistantOverridesTranscriber_Deepgram",
-    "AssistantOverridesTranscriber_Gladia",
-    "AssistantOverridesTranscriber_Talkscriber",
     "AssistantOverridesVoice",
-    "AssistantOverridesVoice_11Labs",
-    "AssistantOverridesVoice_Azure",
-    "AssistantOverridesVoice_Cartesia",
-    "AssistantOverridesVoice_Deepgram",
-    "AssistantOverridesVoice_Lmnt",
-    "AssistantOverridesVoice_Neets",
-    "AssistantOverridesVoice_Openai",
-    "AssistantOverridesVoice_Playht",
-    "AssistantOverridesVoice_RimeAi",
     "AssistantServerMessagesItem",
     "AssistantTranscriber",
-    "AssistantTranscriber_Deepgram",
-    "AssistantTranscriber_Gladia",
-    "AssistantTranscriber_Talkscriber",
     "AssistantVoice",
-    "AssistantVoice_11Labs",
-    "AssistantVoice_Azure",
-    "AssistantVoice_Cartesia",
-    "AssistantVoice_Deepgram",
-    "AssistantVoice_Lmnt",
-    "AssistantVoice_Neets",
-    "AssistantVoice_Openai",
-    "AssistantVoice_Playht",
-    "AssistantVoice_RimeAi",
     "AzureOpenAiCredential",
     "AzureOpenAiCredentialModelsItem",
     "AzureOpenAiCredentialRegion",
@@ -1242,34 +538,18 @@ __all__ = [
     "AzureVoiceVoiceId",
     "BlockCompleteMessage",
     "BlockCompleteMessageConditionsItem",
-    "BlockCompleteMessageConditionsItem_ModelBased",
-    "BlockCompleteMessageConditionsItem_RuleBased",
     "BlockStartMessage",
     "BlockStartMessageConditionsItem",
-    "BlockStartMessageConditionsItem_ModelBased",
-    "BlockStartMessageConditionsItem_RuleBased",
     "BotMessage",
     "BucketPlan",
     "BuyPhoneNumberDto",
     "BuyPhoneNumberDtoFallbackDestination",
-    "BuyPhoneNumberDtoFallbackDestination_Number",
-    "BuyPhoneNumberDtoFallbackDestination_Sip",
     "ByoPhoneNumber",
     "ByoPhoneNumberFallbackDestination",
-    "ByoPhoneNumberFallbackDestination_Number",
-    "ByoPhoneNumberFallbackDestination_Sip",
     "ByoSipTrunkCredential",
     "Call",
     "CallCostsItem",
-    "CallCostsItem_Analysis",
-    "CallCostsItem_Model",
-    "CallCostsItem_Transcriber",
-    "CallCostsItem_Transport",
-    "CallCostsItem_Vapi",
-    "CallCostsItem_Voice",
     "CallDestination",
-    "CallDestination_Number",
-    "CallDestination_Sip",
     "CallEndedReason",
     "CallMessagesItem",
     "CallPaginatedResponse",
@@ -1279,23 +559,16 @@ __all__ = [
     "CallType",
     "CallbackStep",
     "CallbackStepBlock",
-    "CallbackStepBlock_Conversation",
-    "CallbackStepBlock_ToolCall",
-    "CallbackStepBlock_Workflow",
     "CartesiaCredential",
     "CartesiaVoice",
     "CartesiaVoiceLanguage",
     "CartesiaVoiceModel",
     "ChunkPlan",
-    "ChunkPlanPunctuationBoundariesItem",
     "ClientInboundMessage",
     "ClientInboundMessageAddMessage",
     "ClientInboundMessageControl",
     "ClientInboundMessageControlControl",
     "ClientInboundMessageMessage",
-    "ClientInboundMessageMessage_AddMessage",
-    "ClientInboundMessageMessage_Control",
-    "ClientInboundMessageMessage_Say",
     "ClientInboundMessageSay",
     "ClientMessage",
     "ClientMessageConversationUpdate",
@@ -1303,17 +576,6 @@ __all__ = [
     "ClientMessageHang",
     "ClientMessageLanguageChanged",
     "ClientMessageMessage",
-    "ClientMessageMessage_ConversationUpdate",
-    "ClientMessageMessage_Hang",
-    "ClientMessageMessage_LanguageChanged",
-    "ClientMessageMessage_Metadata",
-    "ClientMessageMessage_ModelOutput",
-    "ClientMessageMessage_SpeechUpdate",
-    "ClientMessageMessage_ToolCalls",
-    "ClientMessageMessage_ToolCallsResult",
-    "ClientMessageMessage_Transcript",
-    "ClientMessageMessage_UserInterrupted",
-    "ClientMessageMessage_VoiceInput",
     "ClientMessageMetadata",
     "ClientMessageModelOutput",
     "ClientMessageSpeechUpdate",
@@ -1322,9 +584,6 @@ __all__ = [
     "ClientMessageToolCalls",
     "ClientMessageToolCallsResult",
     "ClientMessageToolCallsToolWithToolCallListItem",
-    "ClientMessageToolCallsToolWithToolCallListItem_Function",
-    "ClientMessageToolCallsToolWithToolCallListItem_Ghl",
-    "ClientMessageToolCallsToolWithToolCallListItem_Make",
     "ClientMessageTranscript",
     "ClientMessageTranscriptRole",
     "ClientMessageTranscriptTranscriptType",
@@ -1335,8 +594,6 @@ __all__ = [
     "ConditionOperator",
     "ConversationBlock",
     "ConversationBlockMessagesItem",
-    "ConversationBlockMessagesItem_BlockComplete",
-    "ConversationBlockMessagesItem_BlockStart",
     "CostBreakdown",
     "CreateAnthropicCredentialDto",
     "CreateAnyscaleCredentialDto",
@@ -1345,74 +602,32 @@ __all__ = [
     "CreateAssistantDtoClientMessagesItem",
     "CreateAssistantDtoFirstMessageMode",
     "CreateAssistantDtoModel",
-    "CreateAssistantDtoModel_Anthropic",
-    "CreateAssistantDtoModel_Anyscale",
-    "CreateAssistantDtoModel_CustomLlm",
-    "CreateAssistantDtoModel_Deepinfra",
-    "CreateAssistantDtoModel_Groq",
-    "CreateAssistantDtoModel_Openai",
-    "CreateAssistantDtoModel_Openrouter",
-    "CreateAssistantDtoModel_PerplexityAi",
-    "CreateAssistantDtoModel_TogetherAi",
-    "CreateAssistantDtoModel_Vapi",
     "CreateAssistantDtoServerMessagesItem",
     "CreateAssistantDtoTranscriber",
-    "CreateAssistantDtoTranscriber_Deepgram",
-    "CreateAssistantDtoTranscriber_Gladia",
-    "CreateAssistantDtoTranscriber_Talkscriber",
     "CreateAssistantDtoVoice",
-    "CreateAssistantDtoVoice_11Labs",
-    "CreateAssistantDtoVoice_Azure",
-    "CreateAssistantDtoVoice_Cartesia",
-    "CreateAssistantDtoVoice_Deepgram",
-    "CreateAssistantDtoVoice_Lmnt",
-    "CreateAssistantDtoVoice_Neets",
-    "CreateAssistantDtoVoice_Openai",
-    "CreateAssistantDtoVoice_Playht",
-    "CreateAssistantDtoVoice_RimeAi",
     "CreateAzureOpenAiCredentialDto",
     "CreateAzureOpenAiCredentialDtoModelsItem",
     "CreateAzureOpenAiCredentialDtoRegion",
     "CreateByoPhoneNumberDto",
     "CreateByoPhoneNumberDtoFallbackDestination",
-    "CreateByoPhoneNumberDtoFallbackDestination_Number",
-    "CreateByoPhoneNumberDtoFallbackDestination_Sip",
     "CreateByoSipTrunkCredentialDto",
     "CreateCartesiaCredentialDto",
     "CreateConversationBlockDto",
     "CreateConversationBlockDtoMessagesItem",
-    "CreateConversationBlockDtoMessagesItem_BlockComplete",
-    "CreateConversationBlockDtoMessagesItem_BlockStart",
     "CreateCustomLlmCredentialDto",
     "CreateCustomerDto",
     "CreateDeepInfraCredentialDto",
     "CreateDeepgramCredentialDto",
     "CreateDtmfToolDto",
     "CreateDtmfToolDtoMessagesItem",
-    "CreateDtmfToolDtoMessagesItem_RequestComplete",
-    "CreateDtmfToolDtoMessagesItem_RequestFailed",
-    "CreateDtmfToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateDtmfToolDtoMessagesItem_RequestStart",
     "CreateElevenLabsCredentialDto",
     "CreateEndCallToolDto",
     "CreateEndCallToolDtoMessagesItem",
-    "CreateEndCallToolDtoMessagesItem_RequestComplete",
-    "CreateEndCallToolDtoMessagesItem_RequestFailed",
-    "CreateEndCallToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateEndCallToolDtoMessagesItem_RequestStart",
     "CreateFunctionToolDto",
     "CreateFunctionToolDtoMessagesItem",
-    "CreateFunctionToolDtoMessagesItem_RequestComplete",
-    "CreateFunctionToolDtoMessagesItem_RequestFailed",
-    "CreateFunctionToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateFunctionToolDtoMessagesItem_RequestStart",
     "CreateGcpCredentialDto",
     "CreateGhlToolDto",
     "CreateGhlToolDtoMessagesItem",
-    "CreateGhlToolDtoMessagesItem_RequestComplete",
-    "CreateGhlToolDtoMessagesItem_RequestFailed",
-    "CreateGhlToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateGhlToolDtoMessagesItem_RequestStart",
     "CreateGladiaCredentialDto",
     "CreateGoHighLevelCredentialDto",
     "CreateGroqCredentialDto",
@@ -1420,20 +635,12 @@ __all__ = [
     "CreateMakeCredentialDto",
     "CreateMakeToolDto",
     "CreateMakeToolDtoMessagesItem",
-    "CreateMakeToolDtoMessagesItem_RequestComplete",
-    "CreateMakeToolDtoMessagesItem_RequestFailed",
-    "CreateMakeToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateMakeToolDtoMessagesItem_RequestStart",
     "CreateOpenAiCredentialDto",
     "CreateOpenRouterCredentialDto",
     "CreateOrgDto",
     "CreateOutboundCallDto",
     "CreateOutputToolDto",
     "CreateOutputToolDtoMessagesItem",
-    "CreateOutputToolDtoMessagesItem_RequestComplete",
-    "CreateOutputToolDtoMessagesItem_RequestFailed",
-    "CreateOutputToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateOutputToolDtoMessagesItem_RequestStart",
     "CreatePerplexityAiCredentialDto",
     "CreatePlayHtCredentialDto",
     "CreateRimeAiCredentialDto",
@@ -1445,91 +652,36 @@ __all__ = [
     "CreateTokenDtoTag",
     "CreateToolCallBlockDto",
     "CreateToolCallBlockDtoMessagesItem",
-    "CreateToolCallBlockDtoMessagesItem_BlockComplete",
-    "CreateToolCallBlockDtoMessagesItem_BlockStart",
     "CreateToolCallBlockDtoTool",
-    "CreateToolCallBlockDtoTool_Dtmf",
-    "CreateToolCallBlockDtoTool_EndCall",
-    "CreateToolCallBlockDtoTool_Function",
-    "CreateToolCallBlockDtoTool_Ghl",
-    "CreateToolCallBlockDtoTool_Make",
-    "CreateToolCallBlockDtoTool_TransferCall",
-    "CreateToolCallBlockDtoTool_Voicemail",
     "CreateToolTemplateDto",
     "CreateToolTemplateDtoDetails",
-    "CreateToolTemplateDtoDetails_Dtmf",
-    "CreateToolTemplateDtoDetails_EndCall",
-    "CreateToolTemplateDtoDetails_Function",
-    "CreateToolTemplateDtoDetails_Ghl",
-    "CreateToolTemplateDtoDetails_Make",
-    "CreateToolTemplateDtoDetails_TransferCall",
-    "CreateToolTemplateDtoDetails_Voicemail",
     "CreateToolTemplateDtoProvider",
     "CreateToolTemplateDtoProviderDetails",
-    "CreateToolTemplateDtoProviderDetails_Function",
-    "CreateToolTemplateDtoProviderDetails_Ghl",
-    "CreateToolTemplateDtoProviderDetails_Make",
     "CreateToolTemplateDtoVisibility",
     "CreateTransferCallToolDto",
     "CreateTransferCallToolDtoDestinationsItem",
-    "CreateTransferCallToolDtoDestinationsItem_Assistant",
-    "CreateTransferCallToolDtoDestinationsItem_Number",
-    "CreateTransferCallToolDtoDestinationsItem_Sip",
-    "CreateTransferCallToolDtoDestinationsItem_Step",
     "CreateTransferCallToolDtoMessagesItem",
-    "CreateTransferCallToolDtoMessagesItem_RequestComplete",
-    "CreateTransferCallToolDtoMessagesItem_RequestFailed",
-    "CreateTransferCallToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateTransferCallToolDtoMessagesItem_RequestStart",
     "CreateTwilioCredentialDto",
     "CreateTwilioPhoneNumberDto",
     "CreateTwilioPhoneNumberDtoFallbackDestination",
-    "CreateTwilioPhoneNumberDtoFallbackDestination_Number",
-    "CreateTwilioPhoneNumberDtoFallbackDestination_Sip",
     "CreateVapiPhoneNumberDto",
     "CreateVapiPhoneNumberDtoFallbackDestination",
-    "CreateVapiPhoneNumberDtoFallbackDestination_Number",
-    "CreateVapiPhoneNumberDtoFallbackDestination_Sip",
     "CreateVoicemailToolDto",
     "CreateVoicemailToolDtoMessagesItem",
-    "CreateVoicemailToolDtoMessagesItem_RequestComplete",
-    "CreateVoicemailToolDtoMessagesItem_RequestFailed",
-    "CreateVoicemailToolDtoMessagesItem_RequestResponseDelayed",
-    "CreateVoicemailToolDtoMessagesItem_RequestStart",
     "CreateVonageCredentialDto",
     "CreateVonagePhoneNumberDto",
     "CreateVonagePhoneNumberDtoFallbackDestination",
-    "CreateVonagePhoneNumberDtoFallbackDestination_Number",
-    "CreateVonagePhoneNumberDtoFallbackDestination_Sip",
     "CreateWebCallDto",
     "CreateWorkflowBlockDto",
     "CreateWorkflowBlockDtoMessagesItem",
-    "CreateWorkflowBlockDtoMessagesItem_BlockComplete",
-    "CreateWorkflowBlockDtoMessagesItem_BlockStart",
     "CreateWorkflowBlockDtoStepsItem",
-    "CreateWorkflowBlockDtoStepsItem_Callback",
-    "CreateWorkflowBlockDtoStepsItem_Handoff",
     "CustomLlmCredential",
     "CustomLlmModel",
     "CustomLlmModelMetadataSendMode",
     "CustomLlmModelToolsItem",
-    "CustomLlmModelToolsItem_Dtmf",
-    "CustomLlmModelToolsItem_EndCall",
-    "CustomLlmModelToolsItem_Function",
-    "CustomLlmModelToolsItem_Ghl",
-    "CustomLlmModelToolsItem_Make",
-    "CustomLlmModelToolsItem_TransferCall",
-    "CustomLlmModelToolsItem_Voicemail",
     "DeepInfraCredential",
     "DeepInfraModel",
     "DeepInfraModelToolsItem",
-    "DeepInfraModelToolsItem_Dtmf",
-    "DeepInfraModelToolsItem_EndCall",
-    "DeepInfraModelToolsItem_Function",
-    "DeepInfraModelToolsItem_Ghl",
-    "DeepInfraModelToolsItem_Make",
-    "DeepInfraModelToolsItem_TransferCall",
-    "DeepInfraModelToolsItem_Voicemail",
     "DeepgramCredential",
     "DeepgramTranscriber",
     "DeepgramTranscriberLanguage",
@@ -1538,57 +690,31 @@ __all__ = [
     "DeepgramVoiceVoiceId",
     "DtmfTool",
     "DtmfToolMessagesItem",
-    "DtmfToolMessagesItem_RequestComplete",
-    "DtmfToolMessagesItem_RequestFailed",
-    "DtmfToolMessagesItem_RequestResponseDelayed",
-    "DtmfToolMessagesItem_RequestStart",
     "ElevenLabsCredential",
     "ElevenLabsVoice",
     "ElevenLabsVoiceModel",
     "ElevenLabsVoiceVoiceId",
     "EndCallTool",
     "EndCallToolMessagesItem",
-    "EndCallToolMessagesItem_RequestComplete",
-    "EndCallToolMessagesItem_RequestFailed",
-    "EndCallToolMessagesItem_RequestResponseDelayed",
-    "EndCallToolMessagesItem_RequestStart",
     "Error",
     "ExactReplacement",
     "File",
     "FileStatus",
     "FormatPlan",
     "FormatPlanReplacementsItem",
-    "FormatPlanReplacementsItem_Exact",
-    "FormatPlanReplacementsItem_Regex",
     "FunctionTool",
     "FunctionToolMessagesItem",
-    "FunctionToolMessagesItem_RequestComplete",
-    "FunctionToolMessagesItem_RequestFailed",
-    "FunctionToolMessagesItem_RequestResponseDelayed",
-    "FunctionToolMessagesItem_RequestStart",
     "FunctionToolProviderDetails",
     "FunctionToolWithToolCall",
     "FunctionToolWithToolCallMessagesItem",
-    "FunctionToolWithToolCallMessagesItem_RequestComplete",
-    "FunctionToolWithToolCallMessagesItem_RequestFailed",
-    "FunctionToolWithToolCallMessagesItem_RequestResponseDelayed",
-    "FunctionToolWithToolCallMessagesItem_RequestStart",
     "GcpCredential",
     "GcpKey",
     "GhlTool",
     "GhlToolMessagesItem",
-    "GhlToolMessagesItem_RequestComplete",
-    "GhlToolMessagesItem_RequestFailed",
-    "GhlToolMessagesItem_RequestResponseDelayed",
-    "GhlToolMessagesItem_RequestStart",
     "GhlToolMetadata",
     "GhlToolProviderDetails",
     "GhlToolWithToolCall",
     "GhlToolWithToolCallMessagesItem",
-    "GhlToolWithToolCallMessagesItem_RequestComplete",
-    "GhlToolWithToolCallMessagesItem_RequestFailed",
-    "GhlToolWithToolCallMessagesItem_RequestResponseDelayed",
-    "GhlToolWithToolCallMessagesItem_RequestStart",
     "GladiaCredential",
     "GladiaTranscriber",
     "GladiaTranscriberLanguage",
@@ -1599,26 +725,12 @@ __all__ = [
     "GroqModel",
     "GroqModelModel",
     "GroqModelToolsItem",
-    "GroqModelToolsItem_Dtmf",
-    "GroqModelToolsItem_EndCall",
-    "GroqModelToolsItem_Function",
-    "GroqModelToolsItem_Ghl",
-    "GroqModelToolsItem_Make",
-    "GroqModelToolsItem_TransferCall",
-    "GroqModelToolsItem_Voicemail",
     "HandoffStep",
     "HandoffStepBlock",
-    "HandoffStepBlock_Conversation",
-    "HandoffStepBlock_ToolCall",
-    "HandoffStepBlock_Workflow",
     "ImportTwilioPhoneNumberDto",
     "ImportTwilioPhoneNumberDtoFallbackDestination",
-    "ImportTwilioPhoneNumberDtoFallbackDestination_Number",
-    "ImportTwilioPhoneNumberDtoFallbackDestination_Sip",
     "ImportVonagePhoneNumberDto",
     "ImportVonagePhoneNumberDtoFallbackDestination",
-    "ImportVonagePhoneNumberDtoFallbackDestination_Number",
-    "ImportVonagePhoneNumberDtoFallbackDestination_Sip",
     "InviteUserDto",
     "InviteUserDtoRole",
     "JsonSchema",
@@ -1635,18 +747,10 @@ __all__ = [
     "MakeCredential",
     "MakeTool",
     "MakeToolMessagesItem",
-    "MakeToolMessagesItem_RequestComplete",
-    "MakeToolMessagesItem_RequestFailed",
-    "MakeToolMessagesItem_RequestResponseDelayed",
-    "MakeToolMessagesItem_RequestStart",
     "MakeToolMetadata",
     "MakeToolProviderDetails",
     "MakeToolWithToolCall",
     "MakeToolWithToolCallMessagesItem",
-    "MakeToolWithToolCallMessagesItem_RequestComplete",
-    "MakeToolWithToolCallMessagesItem_RequestFailed",
-    "MakeToolWithToolCallMessagesItem_RequestResponseDelayed",
-    "MakeToolWithToolCallMessagesItem_RequestStart",
     "MessagePlan",
     "Metrics",
     "ModelBasedCondition",
@@ -1664,48 +768,24 @@ __all__ = [
     "OpenAiModelFallbackModelsItem",
     "OpenAiModelModel",
     "OpenAiModelToolsItem",
-    "OpenAiModelToolsItem_Dtmf",
-    "OpenAiModelToolsItem_EndCall",
-    "OpenAiModelToolsItem_Function",
-    "OpenAiModelToolsItem_Ghl",
-    "OpenAiModelToolsItem_Make",
-    "OpenAiModelToolsItem_TransferCall",
-    "OpenAiModelToolsItem_Voicemail",
     "OpenAiVoice",
     "OpenAiVoiceVoiceId",
     "OpenRouterCredential",
     "OpenRouterModel",
     "OpenRouterModelToolsItem",
-    "OpenRouterModelToolsItem_Dtmf",
-    "OpenRouterModelToolsItem_EndCall",
-    "OpenRouterModelToolsItem_Function",
-    "OpenRouterModelToolsItem_Ghl",
-    "OpenRouterModelToolsItem_Make",
-    "OpenRouterModelToolsItem_TransferCall",
-    "OpenRouterModelToolsItem_Voicemail",
     "Org",
     "OrgPlan",
     "OutputTool",
     "OutputToolMessagesItem",
-    "OutputToolMessagesItem_RequestComplete",
-    "OutputToolMessagesItem_RequestFailed",
-    "OutputToolMessagesItem_RequestResponseDelayed",
-    "OutputToolMessagesItem_RequestStart",
     "PaginationMeta",
     "PerplexityAiCredential",
     "PerplexityAiModel",
     "PerplexityAiModelToolsItem",
-    "PerplexityAiModelToolsItem_Dtmf",
-    "PerplexityAiModelToolsItem_EndCall",
-    "PerplexityAiModelToolsItem_Function",
-    "PerplexityAiModelToolsItem_Ghl",
-    "PerplexityAiModelToolsItem_Make",
-    "PerplexityAiModelToolsItem_TransferCall",
-    "PerplexityAiModelToolsItem_Voicemail",
     "PlayHtCredential",
     "PlayHtVoice",
     "PlayHtVoiceEmotion",
     "PlayHtVoiceVoiceId",
+    "PunctuationBoundary",
     "RegexOption",
     "RegexOptionType",
     "RegexReplacement",
@@ -1722,163 +802,60 @@ __all__ = [
     "ServerMessage",
     "ServerMessageAssistantRequest",
     "ServerMessageAssistantRequestPhoneNumber",
-    "ServerMessageAssistantRequestPhoneNumber_ByoPhoneNumber",
-    "ServerMessageAssistantRequestPhoneNumber_Twilio",
-    "ServerMessageAssistantRequestPhoneNumber_Vapi",
-    "ServerMessageAssistantRequestPhoneNumber_Vonage",
     "ServerMessageConversationUpdate",
     "ServerMessageConversationUpdateMessagesItem",
     "ServerMessageConversationUpdatePhoneNumber",
-    "ServerMessageConversationUpdatePhoneNumber_ByoPhoneNumber",
-    "ServerMessageConversationUpdatePhoneNumber_Twilio",
-    "ServerMessageConversationUpdatePhoneNumber_Vapi",
-    "ServerMessageConversationUpdatePhoneNumber_Vonage",
     "ServerMessageEndOfCallReport",
     "ServerMessageEndOfCallReportCostsItem",
-    "ServerMessageEndOfCallReportCostsItem_Analysis",
-    "ServerMessageEndOfCallReportCostsItem_Model",
-    "ServerMessageEndOfCallReportCostsItem_Transcriber",
-    "ServerMessageEndOfCallReportCostsItem_Transport",
-    "ServerMessageEndOfCallReportCostsItem_Vapi",
-    "ServerMessageEndOfCallReportCostsItem_Voice",
     "ServerMessageEndOfCallReportEndedReason",
     "ServerMessageEndOfCallReportPhoneNumber",
-    "ServerMessageEndOfCallReportPhoneNumber_ByoPhoneNumber",
-    "ServerMessageEndOfCallReportPhoneNumber_Twilio",
-    "ServerMessageEndOfCallReportPhoneNumber_Vapi",
-    "ServerMessageEndOfCallReportPhoneNumber_Vonage",
     "ServerMessageHang",
     "ServerMessageHangPhoneNumber",
-    "ServerMessageHangPhoneNumber_ByoPhoneNumber",
-    "ServerMessageHangPhoneNumber_Twilio",
-    "ServerMessageHangPhoneNumber_Vapi",
-    "ServerMessageHangPhoneNumber_Vonage",
     "ServerMessageLanguageChanged",
     "ServerMessageLanguageChangedPhoneNumber",
-    "ServerMessageLanguageChangedPhoneNumber_ByoPhoneNumber",
-    "ServerMessageLanguageChangedPhoneNumber_Twilio",
-    "ServerMessageLanguageChangedPhoneNumber_Vapi",
-    "ServerMessageLanguageChangedPhoneNumber_Vonage",
     "ServerMessageMessage",
-    "ServerMessageMessage_AssistantRequest",
-    "ServerMessageMessage_ConversationUpdate",
-    "ServerMessageMessage_EndOfCallReport",
-    "ServerMessageMessage_Hang",
-    "ServerMessageMessage_LanguageChanged",
-    "ServerMessageMessage_ModelOutput",
-    "ServerMessageMessage_PhoneCallControl",
-    "ServerMessageMessage_SpeechUpdate",
-    "ServerMessageMessage_StatusUpdate",
-    "ServerMessageMessage_ToolCalls",
-    "ServerMessageMessage_Transcript",
-    "ServerMessageMessage_TransferDestinationRequest",
-    "ServerMessageMessage_TransferUpdate",
-    "ServerMessageMessage_UserInterrupted",
-    "ServerMessageMessage_VoiceInput",
-    "ServerMessageMessage_VoiceRequest",
     "ServerMessageModelOutput",
     "ServerMessageModelOutputPhoneNumber",
-    "ServerMessageModelOutputPhoneNumber_ByoPhoneNumber",
-    "ServerMessageModelOutputPhoneNumber_Twilio",
-    "ServerMessageModelOutputPhoneNumber_Vapi",
-    "ServerMessageModelOutputPhoneNumber_Vonage",
     "ServerMessagePhoneCallControl",
     "ServerMessagePhoneCallControlDestination",
-    "ServerMessagePhoneCallControlDestination_Number",
-    "ServerMessagePhoneCallControlDestination_Sip",
     "ServerMessagePhoneCallControlPhoneNumber",
-    "ServerMessagePhoneCallControlPhoneNumber_ByoPhoneNumber",
-    "ServerMessagePhoneCallControlPhoneNumber_Twilio",
-    "ServerMessagePhoneCallControlPhoneNumber_Vapi",
-    "ServerMessagePhoneCallControlPhoneNumber_Vonage",
     "ServerMessagePhoneCallControlRequest",
     "ServerMessageResponse",
     "ServerMessageResponseAssistantRequest",
     "ServerMessageResponseAssistantRequestDestination",
-    "ServerMessageResponseAssistantRequestDestination_Number",
-    "ServerMessageResponseAssistantRequestDestination_Sip",
     "ServerMessageResponseMessageResponse",
     "ServerMessageResponseToolCalls",
     "ServerMessageResponseTransferDestinationRequest",
     "ServerMessageResponseTransferDestinationRequestDestination",
-    "ServerMessageResponseTransferDestinationRequestDestination_Assistant",
-    "ServerMessageResponseTransferDestinationRequestDestination_Number",
-    "ServerMessageResponseTransferDestinationRequestDestination_Sip",
-    "ServerMessageResponseTransferDestinationRequestDestination_Step",
     "ServerMessageResponseVoiceRequest",
     "ServerMessageSpeechUpdate",
     "ServerMessageSpeechUpdatePhoneNumber",
-    "ServerMessageSpeechUpdatePhoneNumber_ByoPhoneNumber",
-    "ServerMessageSpeechUpdatePhoneNumber_Twilio",
-    "ServerMessageSpeechUpdatePhoneNumber_Vapi",
-    "ServerMessageSpeechUpdatePhoneNumber_Vonage",
     "ServerMessageSpeechUpdateRole",
     "ServerMessageSpeechUpdateStatus",
     "ServerMessageStatusUpdate",
     "ServerMessageStatusUpdateDestination",
-    "ServerMessageStatusUpdateDestination_Number",
-    "ServerMessageStatusUpdateDestination_Sip",
     "ServerMessageStatusUpdateEndedReason",
     "ServerMessageStatusUpdateMessagesItem",
     "ServerMessageStatusUpdatePhoneNumber",
-    "ServerMessageStatusUpdatePhoneNumber_ByoPhoneNumber",
-    "ServerMessageStatusUpdatePhoneNumber_Twilio",
-    "ServerMessageStatusUpdatePhoneNumber_Vapi",
-    "ServerMessageStatusUpdatePhoneNumber_Vonage",
     "ServerMessageStatusUpdateStatus",
     "ServerMessageToolCalls",
     "ServerMessageToolCallsPhoneNumber",
-    "ServerMessageToolCallsPhoneNumber_ByoPhoneNumber",
-    "ServerMessageToolCallsPhoneNumber_Twilio",
-    "ServerMessageToolCallsPhoneNumber_Vapi",
-    "ServerMessageToolCallsPhoneNumber_Vonage",
     "ServerMessageToolCallsToolWithToolCallListItem",
-    "ServerMessageToolCallsToolWithToolCallListItem_Function",
-    "ServerMessageToolCallsToolWithToolCallListItem_Ghl",
-    "ServerMessageToolCallsToolWithToolCallListItem_Make",
     "ServerMessageTranscript",
     "ServerMessageTranscriptPhoneNumber",
-    "ServerMessageTranscriptPhoneNumber_ByoPhoneNumber",
-    "ServerMessageTranscriptPhoneNumber_Twilio",
-    "ServerMessageTranscriptPhoneNumber_Vapi",
-    "ServerMessageTranscriptPhoneNumber_Vonage",
     "ServerMessageTranscriptRole",
     "ServerMessageTranscriptTranscriptType",
     "ServerMessageTransferDestinationRequest",
     "ServerMessageTransferDestinationRequestPhoneNumber",
-    "ServerMessageTransferDestinationRequestPhoneNumber_ByoPhoneNumber",
-    "ServerMessageTransferDestinationRequestPhoneNumber_Twilio",
-    "ServerMessageTransferDestinationRequestPhoneNumber_Vapi",
-    "ServerMessageTransferDestinationRequestPhoneNumber_Vonage",
     "ServerMessageTransferUpdate",
     "ServerMessageTransferUpdateDestination",
-    "ServerMessageTransferUpdateDestination_Assistant",
-    "ServerMessageTransferUpdateDestination_Number",
-    "ServerMessageTransferUpdateDestination_Sip",
-    "ServerMessageTransferUpdateDestination_Step",
     "ServerMessageTransferUpdatePhoneNumber",
-    "ServerMessageTransferUpdatePhoneNumber_ByoPhoneNumber",
-    "ServerMessageTransferUpdatePhoneNumber_Twilio",
-    "ServerMessageTransferUpdatePhoneNumber_Vapi",
-    "ServerMessageTransferUpdatePhoneNumber_Vonage",
     "ServerMessageUserInterrupted",
     "ServerMessageUserInterruptedPhoneNumber",
-    "ServerMessageUserInterruptedPhoneNumber_ByoPhoneNumber",
-    "ServerMessageUserInterruptedPhoneNumber_Twilio",
-    "ServerMessageUserInterruptedPhoneNumber_Vapi",
-    "ServerMessageUserInterruptedPhoneNumber_Vonage",
     "ServerMessageVoiceInput",
     "ServerMessageVoiceInputPhoneNumber",
-    "ServerMessageVoiceInputPhoneNumber_ByoPhoneNumber",
-    "ServerMessageVoiceInputPhoneNumber_Twilio",
-    "ServerMessageVoiceInputPhoneNumber_Vapi",
-    "ServerMessageVoiceInputPhoneNumber_Vonage",
     "ServerMessageVoiceRequest",
     "ServerMessageVoiceRequestPhoneNumber",
-    "ServerMessageVoiceRequestPhoneNumber_ByoPhoneNumber",
-    "ServerMessageVoiceRequestPhoneNumber_Twilio",
-    "ServerMessageVoiceRequestPhoneNumber_Vapi",
-    "ServerMessageVoiceRequestPhoneNumber_Vonage",
     "SipTrunkGateway",
     "SipTrunkGatewayOutboundProtocol",
     "SipTrunkOutboundAuthenticationPlan",
@@ -1888,8 +865,6 @@ __all__ = [
     "StartSpeakingPlan",
     "StepDestination",
     "StepDestinationConditionsItem",
-    "StepDestinationConditionsItem_ModelBased",
-    "StepDestinationConditionsItem_RuleBased",
     "StopSpeakingPlan",
     "StructuredDataPlan",
     "SuccessEvaluationPlan",
@@ -1902,54 +877,26 @@ __all__ = [
     "TalkscriberTranscriberLanguage",
     "Template",
     "TemplateDetails",
-    "TemplateDetails_Dtmf",
-    "TemplateDetails_EndCall",
-    "TemplateDetails_Function",
-    "TemplateDetails_Ghl",
-    "TemplateDetails_Make",
-    "TemplateDetails_TransferCall",
-    "TemplateDetails_Voicemail",
     "TemplateProvider",
     "TemplateProviderDetails",
-    "TemplateProviderDetails_Function",
-    "TemplateProviderDetails_Ghl",
-    "TemplateProviderDetails_Make",
     "TemplateVisibility",
     "TimeRange",
     "TimeRangeStep",
     "TogetherAiCredential",
     "TogetherAiModel",
     "TogetherAiModelToolsItem",
-    "TogetherAiModelToolsItem_Dtmf",
-    "TogetherAiModelToolsItem_EndCall",
-    "TogetherAiModelToolsItem_Function",
-    "TogetherAiModelToolsItem_Ghl",
-    "TogetherAiModelToolsItem_Make",
-    "TogetherAiModelToolsItem_TransferCall",
-    "TogetherAiModelToolsItem_Voicemail",
     "Token",
     "TokenRestrictions",
     "TokenTag",
     "ToolCall",
     "ToolCallBlock",
     "ToolCallBlockMessagesItem",
-    "ToolCallBlockMessagesItem_BlockComplete",
-    "ToolCallBlockMessagesItem_BlockStart",
     "ToolCallBlockTool",
-    "ToolCallBlockTool_Dtmf",
-    "ToolCallBlockTool_EndCall",
-    "ToolCallBlockTool_Function",
-    "ToolCallBlockTool_Ghl",
-    "ToolCallBlockTool_Make",
-    "ToolCallBlockTool_TransferCall",
-    "ToolCallBlockTool_Voicemail",
     "ToolCallFunction",
     "ToolCallMessage",
     "ToolCallResult",
     "ToolCallResultMessage",
     "ToolCallResultMessageItem",
-    "ToolCallResultMessageItem_RequestComplete",
-    "ToolCallResultMessageItem_RequestFailed",
     "ToolMessageComplete",
     "ToolMessageCompleteRole",
     "ToolMessageDelayed",
@@ -1962,28 +909,18 @@ __all__ = [
     "TranscriptionEndpointingPlan",
     "TransferCallTool",
     "TransferCallToolDestinationsItem",
-    "TransferCallToolDestinationsItem_Assistant",
-    "TransferCallToolDestinationsItem_Number",
-    "TransferCallToolDestinationsItem_Sip",
-    "TransferCallToolDestinationsItem_Step",
     "TransferCallToolMessagesItem",
-    "TransferCallToolMessagesItem_RequestComplete",
-    "TransferCallToolMessagesItem_RequestFailed",
-    "TransferCallToolMessagesItem_RequestResponseDelayed",
-    "TransferCallToolMessagesItem_RequestStart",
     "TransferDestinationAssistant",
-    "TransferDestinationAssistantTransferMode",
     "TransferDestinationNumber",
     "TransferDestinationSip",
     "TransferDestinationStep",
+    "TransferMode",
     "TransportConfigurationTwilio",
     "TransportConfigurationTwilioRecordingChannels",
     "TransportCost",
     "TwilioCredential",
     "TwilioPhoneNumber",
     "TwilioPhoneNumberFallbackDestination",
-    "TwilioPhoneNumberFallbackDestination_Number",
-    "TwilioPhoneNumberFallbackDestination_Sip",
     "TwilioVoicemailDetection",
     "TwilioVoicemailDetectionVoicemailDetectionTypesItem",
     "UpdateAnthropicCredentialDto",
@@ -2014,18 +951,8 @@ __all__ = [
     "UpdateTogetherAiCredentialDto",
     "UpdateToolTemplateDto",
     "UpdateToolTemplateDtoDetails",
-    "UpdateToolTemplateDtoDetails_Dtmf",
-    "UpdateToolTemplateDtoDetails_EndCall",
-    "UpdateToolTemplateDtoDetails_Function",
-    "UpdateToolTemplateDtoDetails_Ghl",
-    "UpdateToolTemplateDtoDetails_Make",
-    "UpdateToolTemplateDtoDetails_TransferCall",
-    "UpdateToolTemplateDtoDetails_Voicemail",
     "UpdateToolTemplateDtoProvider",
     "UpdateToolTemplateDtoProviderDetails",
-    "UpdateToolTemplateDtoProviderDetails_Function",
-    "UpdateToolTemplateDtoProviderDetails_Ghl",
-    "UpdateToolTemplateDtoProviderDetails_Make",
     "UpdateToolTemplateDtoVisibility",
     "UpdateTwilioCredentialDto",
     "UpdateUserRoleDto",
@@ -2036,20 +963,9 @@ __all__ = [
     "VapiCost",
     "VapiModel",
     "VapiModelStepsItem",
-    "VapiModelStepsItem_Callback",
-    "VapiModelStepsItem_Handoff",
     "VapiModelToolsItem",
-    "VapiModelToolsItem_Dtmf",
-    "VapiModelToolsItem_EndCall",
-    "VapiModelToolsItem_Function",
-    "VapiModelToolsItem_Ghl",
-    "VapiModelToolsItem_Make",
-    "VapiModelToolsItem_TransferCall",
-    "VapiModelToolsItem_Voicemail",
     "VapiPhoneNumber",
     "VapiPhoneNumberFallbackDestination",
-    "VapiPhoneNumberFallbackDestination_Number",
-    "VapiPhoneNumberFallbackDestination_Sip",
     "VoiceCost",
     "VoiceLibrary",
     "VoiceLibraryGender",
@@ -2057,13 +973,7 @@ __all__ = [
     "VonageCredential",
     "VonagePhoneNumber",
     "VonagePhoneNumberFallbackDestination",
-    "VonagePhoneNumberFallbackDestination_Number",
-    "VonagePhoneNumberFallbackDestination_Sip",
     "WorkflowBlock",
     "WorkflowBlockMessagesItem",
-    "WorkflowBlockMessagesItem_BlockComplete",
-    "WorkflowBlockMessagesItem_BlockStart",
     "WorkflowBlockStepsItem",
-    "WorkflowBlockStepsItem_Callback",
-    "WorkflowBlockStepsItem_Handoff",
 ]

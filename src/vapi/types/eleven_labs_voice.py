@@ -21,6 +21,11 @@ class ElevenLabsVoice(UniversalBaseModel):
     Default `false` because you can achieve better results with prompting the model.
     """
 
+    provider: typing.Literal["11labs"] = pydantic.Field(default="11labs")
+    """
+    This is the voice provider that will be used.
+    """
+
     voice_id: typing_extensions.Annotated[ElevenLabsVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library.

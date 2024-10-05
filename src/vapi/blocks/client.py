@@ -139,14 +139,15 @@ class BlocksClient:
 
         Examples
         --------
-        from vapi import Vapi
-        from vapi.blocks import BlocksCreateRequest_Workflow
+        from vapi import CreateConversationBlockDto, Vapi
 
         client = Vapi(
             token="YOUR_TOKEN",
         )
         client.blocks.create(
-            request=BlocksCreateRequest_Workflow(),
+            request=CreateConversationBlockDto(
+                instruction="instruction",
+            ),
         )
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -517,8 +518,7 @@ class AsyncBlocksClient:
         --------
         import asyncio
 
-        from vapi import AsyncVapi
-        from vapi.blocks import BlocksCreateRequest_Workflow
+        from vapi import AsyncVapi, CreateConversationBlockDto
 
         client = AsyncVapi(
             token="YOUR_TOKEN",
@@ -527,7 +527,9 @@ class AsyncBlocksClient:
 
         async def main() -> None:
             await client.blocks.create(
-                request=BlocksCreateRequest_Workflow(),
+                request=CreateConversationBlockDto(
+                    instruction="instruction",
+                ),
             )
 
 

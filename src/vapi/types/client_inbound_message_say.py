@@ -9,6 +9,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ClientInboundMessageSay(UniversalBaseModel):
+    type: typing.Optional[typing.Literal["say"]] = pydantic.Field(default=None)
+    """
+    This is the type of the message. Send "say" message to make the assistant say something.
+    """
+
     content: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the content to say.

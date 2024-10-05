@@ -40,6 +40,7 @@ class VapiModel(UniversalBaseModel):
     """
 
     steps: typing.Optional[typing.List[VapiModelStepsItem]] = None
+    provider: typing.Literal["vapi"] = "vapi"
     model: str = pydantic.Field()
     """
     This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b

@@ -31,6 +31,11 @@ class ServerMessageModelOutput(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["model-output"] = pydantic.Field(default="model-output")
+    """
+    This is the type of the message. "model-output" is sent as the model outputs tokens.
+    """
+
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the ISO-8601 formatted timestamp of when the message was sent.

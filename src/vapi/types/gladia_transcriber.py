@@ -2,16 +2,21 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+import pydantic
 from .gladia_transcriber_model import GladiaTranscriberModel
 import typing_extensions
 from .gladia_transcriber_language_behaviour import GladiaTranscriberLanguageBehaviour
 from ..core.serialization import FieldMetadata
 from .gladia_transcriber_language import GladiaTranscriberLanguage
-import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class GladiaTranscriber(UniversalBaseModel):
+    provider: typing.Literal["gladia"] = pydantic.Field(default="gladia")
+    """
+    This is the transcription provider that will be used.
+    """
+
     model: typing.Optional[GladiaTranscriberModel] = None
     language_behaviour: typing_extensions.Annotated[
         typing.Optional[GladiaTranscriberLanguageBehaviour], FieldMetadata(alias="languageBehaviour")

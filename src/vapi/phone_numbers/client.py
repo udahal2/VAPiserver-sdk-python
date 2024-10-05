@@ -136,15 +136,14 @@ class PhoneNumbersClient:
 
         Examples
         --------
-        from vapi import Vapi
-        from vapi.phone_numbers import PhoneNumbersCreateRequest_Vapi
+        from vapi import CreateByoPhoneNumberDto, Vapi
 
         client = Vapi(
             token="YOUR_TOKEN",
         )
         client.phone_numbers.create(
-            request=PhoneNumbersCreateRequest_Vapi(
-                sip_uri="string",
+            request=CreateByoPhoneNumberDto(
+                credential_id="credentialId",
             ),
         )
         """
@@ -482,8 +481,7 @@ class AsyncPhoneNumbersClient:
         --------
         import asyncio
 
-        from vapi import AsyncVapi
-        from vapi.phone_numbers import PhoneNumbersCreateRequest_Vapi
+        from vapi import AsyncVapi, CreateByoPhoneNumberDto
 
         client = AsyncVapi(
             token="YOUR_TOKEN",
@@ -492,8 +490,8 @@ class AsyncPhoneNumbersClient:
 
         async def main() -> None:
             await client.phone_numbers.create(
-                request=PhoneNumbersCreateRequest_Vapi(
-                    sip_uri="string",
+                request=CreateByoPhoneNumberDto(
+                    credential_id="credentialId",
                 ),
             )
 

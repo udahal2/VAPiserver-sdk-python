@@ -36,6 +36,11 @@ class ServerMessageStatusUpdate(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["status-update"] = pydantic.Field(default="status-update")
+    """
+    This is the type of the message. "status-update" is sent whenever the `call.status` changes.
+    """
+
     status: ServerMessageStatusUpdateStatus = pydantic.Field()
     """
     This is the status of the call.

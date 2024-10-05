@@ -33,6 +33,7 @@ class CreateTransferCallToolDto(UniversalBaseModel):
     For some tools, this is auto-filled based on special fields like `tool.destinations`. For others like the function tool, these can be custom configured.
     """
 
+    type: typing.Literal["transferCall"] = "transferCall"
     destinations: typing.Optional[typing.List[CreateTransferCallToolDtoDestinationsItem]] = pydantic.Field(default=None)
     """
     These are the destinations that the call can be transferred to. If no destinations are provided, server.url will be used to get the transfer destination once the tool is called.

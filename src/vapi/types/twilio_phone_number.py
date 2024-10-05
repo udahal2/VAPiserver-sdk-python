@@ -24,6 +24,7 @@ class TwilioPhoneNumber(UniversalBaseModel):
     If this is not set and above conditions are met, the inbound call is hung up with an error message.
     """
 
+    provider: typing.Literal["twilio"] = "twilio"
     id: str = pydantic.Field()
     """
     This is the unique identifier for the phone number.

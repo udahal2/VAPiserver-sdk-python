@@ -32,6 +32,11 @@ class ServerMessageTransferUpdate(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
+    type: typing.Literal["transfer-update"] = pydantic.Field(default="transfer-update")
+    """
+    This is the type of the message. "transfer-update" is sent whenever a transfer happens.
+    """
+
     destination: typing.Optional[ServerMessageTransferUpdateDestination] = pydantic.Field(default=None)
     """
     This is the destination of the transfer.

@@ -1587,15 +1587,14 @@ client.phone_numbers.list()
 <dd>
 
 ```python
-from vapi import Vapi
-from vapi.phone_numbers import PhoneNumbersCreateRequest_Vapi
+from vapi import CreateByoPhoneNumberDto, Vapi
 
 client = Vapi(
     token="YOUR_TOKEN",
 )
 client.phone_numbers.create(
-    request=PhoneNumbersCreateRequest_Vapi(
-        sip_uri="string",
+    request=CreateByoPhoneNumberDto(
+        credential_id="credentialId",
     ),
 )
 
@@ -2406,14 +2405,15 @@ client.blocks.list()
 <dd>
 
 ```python
-from vapi import Vapi
-from vapi.blocks import BlocksCreateRequest_Workflow
+from vapi import CreateConversationBlockDto, Vapi
 
 client = Vapi(
     token="YOUR_TOKEN",
 )
 client.blocks.create(
-    request=BlocksCreateRequest_Workflow(),
+    request=CreateConversationBlockDto(
+        instruction="instruction",
+    ),
 )
 
 ```
@@ -2851,16 +2851,13 @@ client.tools.list()
 <dd>
 
 ```python
-from vapi import Vapi
-from vapi.tools import ToolsCreateRequest_Output
+from vapi import CreateDtmfToolDto, Vapi
 
 client = Vapi(
     token="YOUR_TOKEN",
 )
 client.tools.create(
-    request=ToolsCreateRequest_Output(
-        async_=False,
-    ),
+    request=CreateDtmfToolDto(),
 )
 
 ```

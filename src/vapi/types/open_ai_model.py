@@ -35,6 +35,11 @@ class OpenAiModel(UniversalBaseModel):
     Both `tools` and `toolIds` can be used together.
     """
 
+    provider: typing.Literal["openai"] = pydantic.Field(default="openai")
+    """
+    This is the provider that will be used for the model.
+    """
+
     model: OpenAiModelModel = pydantic.Field()
     """
     This is the OpenAI model that will be used.

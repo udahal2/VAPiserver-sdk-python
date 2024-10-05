@@ -2,6 +2,6 @@
 
 import typing
 
-ChunkPlanPunctuationBoundariesItem = typing.Union[
+PunctuationBoundary = typing.Union[
     typing.Literal["。", "，", ".", "!", "?", ";", ")", "،", "۔", "।", "॥", "|", "||", ",", ":"], typing.Any
 ]

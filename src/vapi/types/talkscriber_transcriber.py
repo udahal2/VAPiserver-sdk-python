@@ -8,6 +8,11 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class TalkscriberTranscriber(UniversalBaseModel):
+    provider: typing.Literal["talkscriber"] = pydantic.Field(default="talkscriber")
+    """
+    This is the transcription provider that will be used.
+    """
+
     model: typing.Optional[typing.Literal["whisper"]] = pydantic.Field(default=None)
     """
     This is the model that will be used for the transcription.

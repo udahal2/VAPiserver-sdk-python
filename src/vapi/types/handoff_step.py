@@ -17,6 +17,15 @@ class HandoffStep(UniversalBaseModel):
     This is the block to use. To use an existing block, use `blockId`.
     """
 
+    type: typing.Literal["handoff"] = pydantic.Field(default="handoff")
+    """
+    This is a step that takes a handoff from the previous step. This means it won't return to the calling step. The workflow execution will continue linearly.
+    
+    Use case:
+    
+    - You want to collect information linearly (e.g. a form, provide information, etc).
+    """
+
     destinations: typing.Optional[typing.List[StepDestination]] = pydantic.Field(default=None)
     """
     These are the destinations that the step can go to after it's done.
