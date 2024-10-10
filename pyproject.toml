@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "Vapi"
-version = "0.0.0-alpha4"
+name = "vapi_server_sdk"
+version = "0.0.0-alpha6"
 description = ""
 readme = "README.md"
 authors = []
@@ -28,7 +28,7 @@ packages = [
 ]
 
 [project.urls]
-Repository = 'https://github.com/fern-demo/vapi-python-sdk'
+Repository = 'https://github.com/VapiAI/server-sdk-python'
 
 [tool.poetry.dependencies]
 python = "^3.8"

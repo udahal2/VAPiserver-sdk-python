@@ -5,7 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
-from .eleven_labs_voice_voice_id import ElevenLabsVoiceVoiceId
+from .eleven_labs_voice_id import ElevenLabsVoiceId
 from .eleven_labs_voice_model import ElevenLabsVoiceModel
 from .chunk_plan import ChunkPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
@@ -26,7 +26,7 @@ class ElevenLabsVoice(UniversalBaseModel):
     This is the voice provider that will be used.
     """
 
-    voice_id: typing_extensions.Annotated[ElevenLabsVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
+    voice_id: typing_extensions.Annotated[ElevenLabsVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used. Ensure the Voice is present in your 11Labs Voice Library.
     """

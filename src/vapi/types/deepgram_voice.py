@@ -5,7 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
-from .deepgram_voice_voice_id import DeepgramVoiceVoiceId
+from .deepgram_voice_id import DeepgramVoiceId
 from .chunk_plan import ChunkPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -25,7 +25,7 @@ class DeepgramVoice(UniversalBaseModel):
     This is the voice provider that will be used.
     """
 
-    voice_id: typing_extensions.Annotated[DeepgramVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
+    voice_id: typing_extensions.Annotated[DeepgramVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.
     """

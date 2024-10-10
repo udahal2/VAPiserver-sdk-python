@@ -5,7 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
-from .play_ht_voice_voice_id import PlayHtVoiceVoiceId
+from .play_ht_voice_id import PlayHtVoiceId
 from .play_ht_voice_emotion import PlayHtVoiceEmotion
 from .chunk_plan import ChunkPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
@@ -26,7 +26,7 @@ class PlayHtVoice(UniversalBaseModel):
     This is the voice provider that will be used.
     """
 
-    voice_id: typing_extensions.Annotated[PlayHtVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
+    voice_id: typing_extensions.Annotated[PlayHtVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.
     """
