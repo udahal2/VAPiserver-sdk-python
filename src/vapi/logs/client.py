@@ -31,7 +31,7 @@ class LogsClient:
         customer_id: typing.Optional[str] = None,
         squad_id: typing.Optional[str] = None,
         call_id: typing.Optional[str] = None,
-        page: typing.Optional[float] = None,
+        page: typing.Optional[int] = None,
         sort_order: typing.Optional[LogsGetRequestSortOrder] = None,
         limit: typing.Optional[float] = None,
         created_at_gt: typing.Optional[dt.datetime] = None,
@@ -68,7 +68,7 @@ class LogsClient:
         call_id : typing.Optional[str]
             This is the ID of the call.
 
-        page : typing.Optional[float]
+        page : typing.Optional[int]
             This is the page number to return. Defaults to 1.
 
         sort_order : typing.Optional[LogsGetRequestSortOrder]
@@ -202,7 +202,7 @@ class AsyncLogsClient:
         customer_id: typing.Optional[str] = None,
         squad_id: typing.Optional[str] = None,
         call_id: typing.Optional[str] = None,
-        page: typing.Optional[float] = None,
+        page: typing.Optional[int] = None,
         sort_order: typing.Optional[LogsGetRequestSortOrder] = None,
         limit: typing.Optional[float] = None,
         created_at_gt: typing.Optional[dt.datetime] = None,
@@ -239,7 +239,7 @@ class AsyncLogsClient:
         call_id : typing.Optional[str]
             This is the ID of the call.
 
-        page : typing.Optional[float]
+        page : typing.Optional[int]
             This is the page number to return. Defaults to 1.
 
         sort_order : typing.Optional[LogsGetRequestSortOrder]

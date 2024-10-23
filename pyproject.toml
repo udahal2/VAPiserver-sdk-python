@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vapi_server_sdk"
-version = "0.0.0-alpha6"
+version = "0.0.0-alpha7"
 description = ""
 readme = "README.md"
 authors = []

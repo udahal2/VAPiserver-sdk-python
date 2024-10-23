@@ -3560,7 +3560,7 @@ for page in response.iter_pages():
 <dl>
 <dd>
 
-**page:** `typing.Optional[float]` — This is the page number to return. Defaults to 1.
+**page:** `typing.Optional[int]` — This is the page number to return. Defaults to 1.
     
 </dd>
 </dl>
