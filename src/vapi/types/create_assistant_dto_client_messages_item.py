@@ -16,6 +16,7 @@ CreateAssistantDtoClientMessagesItem = typing.Union[
         "transcript",
         "tool-calls",
         "tool-calls-result",
+        "transfer-update",
         "user-interrupted",
         "voice-input",
     ],

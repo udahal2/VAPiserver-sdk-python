@@ -41,6 +41,11 @@ class UpdateS3CredentialDto(UniversalBaseModel):
     The path prefix for the uploaded recording. Ex. "recordings/"
     """
 
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

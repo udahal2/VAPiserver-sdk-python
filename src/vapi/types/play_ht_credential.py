@@ -36,6 +36,11 @@ class PlayHtCredential(UniversalBaseModel):
     This is the ISO 8601 date-time string of when the assistant was last updated.
     """
 
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
+    """
+
     user_id: typing_extensions.Annotated[str, FieldMetadata(alias="userId")]
 
     if IS_PYDANTIC_V2:

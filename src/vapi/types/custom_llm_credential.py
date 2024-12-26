@@ -5,7 +5,9 @@ import typing
 import typing_extensions
 from ..core.serialization import FieldMetadata
 import pydantic
+from .o_auth_2_authentication_plan import OAuth2AuthenticationPlan
 import datetime as dt
+from .oauth_2_authentication_session import Oauth2AuthenticationSession
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -14,6 +16,13 @@ class CustomLlmCredential(UniversalBaseModel):
     api_key: typing_extensions.Annotated[str, FieldMetadata(alias="apiKey")] = pydantic.Field()
     """
     This is not returned in the API.
+    """
+
+    authentication_plan: typing_extensions.Annotated[
+        typing.Optional[OAuth2AuthenticationPlan], FieldMetadata(alias="authenticationPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is the authentication plan. Currently supports OAuth2 RFC 6749. To use Bearer authentication, use apiKey
     """
 
     id: str = pydantic.Field()
@@ -34,6 +43,18 @@ class CustomLlmCredential(UniversalBaseModel):
     updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
     """
     This is the ISO 8601 date-time string of when the assistant was last updated.
+    """
+
+    authentication_session: typing_extensions.Annotated[
+        typing.Optional[Oauth2AuthenticationSession], FieldMetadata(alias="authenticationSession")
+    ] = pydantic.Field(default=None)
+    """
+    This is the authentication session for the credential. Available for credentials that have an authentication plan.
+    """
+
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
     """
 
     if IS_PYDANTIC_V2:

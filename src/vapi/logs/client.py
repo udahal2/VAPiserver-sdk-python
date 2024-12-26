@@ -26,12 +26,13 @@ class LogsClient:
         *,
         org_id: typing.Optional[str] = None,
         type: typing.Optional[LogsGetRequestType] = None,
+        webhook_type: typing.Optional[str] = None,
         assistant_id: typing.Optional[str] = None,
         phone_number_id: typing.Optional[str] = None,
         customer_id: typing.Optional[str] = None,
         squad_id: typing.Optional[str] = None,
         call_id: typing.Optional[str] = None,
-        page: typing.Optional[int] = None,
+        page: typing.Optional[float] = None,
         sort_order: typing.Optional[LogsGetRequestSortOrder] = None,
         limit: typing.Optional[float] = None,
         created_at_gt: typing.Optional[dt.datetime] = None,
@@ -53,6 +54,9 @@ class LogsClient:
         type : typing.Optional[LogsGetRequestType]
             This is the type of the log.
 
+        webhook_type : typing.Optional[str]
+            This is the type of the webhook, given the log is from a webhook.
+
         assistant_id : typing.Optional[str]
             This is the ID of the assistant.
 
@@ -68,7 +72,7 @@ class LogsClient:
         call_id : typing.Optional[str]
             This is the ID of the call.
 
-        page : typing.Optional[int]
+        page : typing.Optional[float]
             This is the page number to return. Defaults to 1.
 
         sort_order : typing.Optional[LogsGetRequestSortOrder]
@@ -108,20 +112,6 @@ class LogsClient:
         -------
         SyncPager[Log]
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        response = client.logs.get()
-        for item in response:
-            yield item
-        # alternatively, you can paginate page-by-page
-        for page in response.iter_pages():
-            yield page
         """
         page = page if page is not None else 1
         _response = self._client_wrapper.httpx_client.request(
@@ -130,6 +120,7 @@ class LogsClient:
             params={
                 "orgId": org_id,
                 "type": type,
+                "webhookType": webhook_type,
                 "assistantId": assistant_id,
                 "phoneNumberId": phone_number_id,
                 "customerId": customer_id,
@@ -162,6 +153,7 @@ class LogsClient:
                 _get_next = lambda: self.get(
                     org_id=org_id,
                     type=type,
+                    webhook_type=webhook_type,
                     assistant_id=assistant_id,
                     phone_number_id=phone_number_id,
                     customer_id=customer_id,
@@ -197,12 +189,13 @@ class AsyncLogsClient:
         *,
         org_id: typing.Optional[str] = None,
         type: typing.Optional[LogsGetRequestType] = None,
+        webhook_type: typing.Optional[str] = None,
         assistant_id: typing.Optional[str] = None,
         phone_number_id: typing.Optional[str] = None,
         customer_id: typing.Optional[str] = None,
         squad_id: typing.Optional[str] = None,
         call_id: typing.Optional[str] = None,
-        page: typing.Optional[int] = None,
+        page: typing.Optional[float] = None,
         sort_order: typing.Optional[LogsGetRequestSortOrder] = None,
         limit: typing.Optional[float] = None,
         created_at_gt: typing.Optional[dt.datetime] = None,
@@ -224,6 +217,9 @@ class AsyncLogsClient:
         type : typing.Optional[LogsGetRequestType]
             This is the type of the log.
 
+        webhook_type : typing.Optional[str]
+            This is the type of the webhook, given the log is from a webhook.
+
         assistant_id : typing.Optional[str]
             This is the ID of the assistant.
 
@@ -239,7 +235,7 @@ class AsyncLogsClient:
         call_id : typing.Optional[str]
             This is the ID of the call.
 
-        page : typing.Optional[int]
+        page : typing.Optional[float]
             This is the page number to return. Defaults to 1.
 
         sort_order : typing.Optional[LogsGetRequestSortOrder]
@@ -279,28 +275,6 @@ class AsyncLogsClient:
         -------
         AsyncPager[Log]
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            response = await client.logs.get()
-            async for item in response:
-                yield item
-            # alternatively, you can paginate page-by-page
-            async for page in response.iter_pages():
-                yield page
-
-
-        asyncio.run(main())
         """
         page = page if page is not None else 1
         _response = await self._client_wrapper.httpx_client.request(
@@ -309,6 +283,7 @@ class AsyncLogsClient:
             params={
                 "orgId": org_id,
                 "type": type,
+                "webhookType": webhook_type,
                 "assistantId": assistant_id,
                 "phoneNumberId": phone_number_id,
                 "customerId": customer_id,
@@ -341,6 +316,7 @@ class AsyncLogsClient:
                 _get_next = lambda: self.get(
                     org_id=org_id,
                     type=type,
+                    webhook_type=webhook_type,
                     assistant_id=assistant_id,
                     phone_number_id=phone_number_id,
                     customer_id=customer_id,

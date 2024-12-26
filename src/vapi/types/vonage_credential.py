@@ -52,6 +52,11 @@ class VonageCredential(UniversalBaseModel):
     Only relevant for Vonage credentials.
     """
 
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
+    """
+
     api_key: typing_extensions.Annotated[str, FieldMetadata(alias="apiKey")]
 
     if IS_PYDANTIC_V2:

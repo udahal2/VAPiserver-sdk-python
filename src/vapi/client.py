@@ -8,6 +8,7 @@ from .calls.client import CallsClient
 from .assistants.client import AssistantsClient
 from .phone_numbers.client import PhoneNumbersClient
 from .squads.client import SquadsClient
+from .knowledge_bases.client import KnowledgeBasesClient
 from .blocks.client import BlocksClient
 from .tools.client import ToolsClient
 from .files.client import FilesClient
@@ -18,6 +19,7 @@ from .calls.client import AsyncCallsClient
 from .assistants.client import AsyncAssistantsClient
 from .phone_numbers.client import AsyncPhoneNumbersClient
 from .squads.client import AsyncSquadsClient
+from .knowledge_bases.client import AsyncKnowledgeBasesClient
 from .blocks.client import AsyncBlocksClient
 from .tools.client import AsyncToolsClient
 from .files.client import AsyncFilesClient
@@ -43,7 +45,7 @@ class Vapi:
 
 
 
-    token : typing.Union[str, typing.Callable[[], str]]
+    token : typing.Optional[typing.Union[str, typing.Callable[[], str]]]
     timeout : typing.Optional[float]
         The timeout to be used, in seconds, for requests. By default the timeout is 60 seconds, unless a custom httpx client is used, in which case this default is not enforced.
 
@@ -67,7 +69,7 @@ class Vapi:
         *,
         base_url: typing.Optional[str] = None,
         environment: VapiEnvironment = VapiEnvironment.DEFAULT,
-        token: typing.Union[str, typing.Callable[[], str]],
+        token: typing.Optional[typing.Union[str, typing.Callable[[], str]]] = None,
         timeout: typing.Optional[float] = None,
         follow_redirects: typing.Optional[bool] = True,
         httpx_client: typing.Optional[httpx.Client] = None,
@@ -87,6 +89,7 @@ class Vapi:
         self.assistants = AssistantsClient(client_wrapper=self._client_wrapper)
         self.phone_numbers = PhoneNumbersClient(client_wrapper=self._client_wrapper)
         self.squads = SquadsClient(client_wrapper=self._client_wrapper)
+        self.knowledge_bases = KnowledgeBasesClient(client_wrapper=self._client_wrapper)
         self.blocks = BlocksClient(client_wrapper=self._client_wrapper)
         self.tools = ToolsClient(client_wrapper=self._client_wrapper)
         self.files = FilesClient(client_wrapper=self._client_wrapper)
@@ -112,7 +115,7 @@ class AsyncVapi:
 
 
 
-    token : typing.Union[str, typing.Callable[[], str]]
+    token : typing.Optional[typing.Union[str, typing.Callable[[], str]]]
     timeout : typing.Optional[float]
         The timeout to be used, in seconds, for requests. By default the timeout is 60 seconds, unless a custom httpx client is used, in which case this default is not enforced.
 
@@ -136,7 +139,7 @@ class AsyncVapi:
         *,
         base_url: typing.Optional[str] = None,
         environment: VapiEnvironment = VapiEnvironment.DEFAULT,
-        token: typing.Union[str, typing.Callable[[], str]],
+        token: typing.Optional[typing.Union[str, typing.Callable[[], str]]] = None,
         timeout: typing.Optional[float] = None,
         follow_redirects: typing.Optional[bool] = True,
         httpx_client: typing.Optional[httpx.AsyncClient] = None,
@@ -156,6 +159,7 @@ class AsyncVapi:
         self.assistants = AsyncAssistantsClient(client_wrapper=self._client_wrapper)
         self.phone_numbers = AsyncPhoneNumbersClient(client_wrapper=self._client_wrapper)
         self.squads = AsyncSquadsClient(client_wrapper=self._client_wrapper)
+        self.knowledge_bases = AsyncKnowledgeBasesClient(client_wrapper=self._client_wrapper)
         self.blocks = AsyncBlocksClient(client_wrapper=self._client_wrapper)
         self.tools = AsyncToolsClient(client_wrapper=self._client_wrapper)
         self.files = AsyncFilesClient(client_wrapper=self._client_wrapper)

@@ -26,7 +26,6 @@ class ServerMessageVoiceRequest(UniversalBaseModel):
     This is the phone number associated with the call.
     
     This matches one of the following:
-    
     - `call.phoneNumber`,
     - `call.phoneNumberId`.
     """
@@ -41,16 +40,15 @@ class ServerMessageVoiceRequest(UniversalBaseModel):
     Content-Type: application/json
     
     {
-    "messsage": {
-    "type": "voice-request",
-    "text": "Hello, world!",
-    "sampleRate": 24000,
-    ...other metadata about the call...
-    }
+      "messsage": {
+        "type": "voice-request",
+        "text": "Hello, world!",
+        "sampleRate": 24000,
+        ...other metadata about the call...
+      }
     }
     
     The expected response is 1-channel 16-bit raw PCM audio at the sample rate specified in the request. Here is how the response will be piped to the transport:
-    
     ```
     response.on('data', (chunk: Buffer) => {
       outputStream.write(chunk);
@@ -75,7 +73,6 @@ class ServerMessageVoiceRequest(UniversalBaseModel):
     This is the assistant that is currently active. This is provided for convenience.
     
     This matches one of the following:
-    
     - `call.assistant`,
     - `call.assistantId`,
     - `call.squad[n].assistant`,
@@ -89,7 +86,6 @@ class ServerMessageVoiceRequest(UniversalBaseModel):
     This is the customer associated with the call.
     
     This matches one of the following:
-    
     - `call.customer`,
     - `call.customerId`.
     """

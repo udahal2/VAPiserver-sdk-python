@@ -5,6 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
+from .update_org_dto_channel import UpdateOrgDtoChannel
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -18,9 +19,21 @@ class UpdateOrgDto(UniversalBaseModel):
     This is due to the compliance requirements of HIPAA. Other providers may not meet these requirements.
     """
 
+    subscription_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="subscriptionId")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the ID of the subscription the org belongs to.
+    """
+
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the name of the org. This is just for your own reference.
+    """
+
+    channel: typing.Optional[UpdateOrgDtoChannel] = pydantic.Field(default=None)
+    """
+    This is the channel of the org. There is the cluster the API traffic for the org will be directed.
     """
 
     billing_limit: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="billingLimit")] = (

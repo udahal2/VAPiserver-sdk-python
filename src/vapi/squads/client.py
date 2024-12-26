@@ -74,15 +74,6 @@ class SquadsClient:
         -------
         typing.List[Squad]
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.squads.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "squad",
@@ -145,17 +136,6 @@ class SquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        from vapi import SquadMemberDto, Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.squads.create(
-            members=[SquadMemberDto()],
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "squad",
@@ -199,17 +179,6 @@ class SquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.squads.get(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"squad/{jsonable_encoder(id)}",
@@ -243,17 +212,6 @@ class SquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.squads.delete(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"squad/{jsonable_encoder(id)}",
@@ -308,18 +266,6 @@ class SquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        from vapi import SquadMemberDto, Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.squads.update(
-            id="id",
-            members=[SquadMemberDto()],
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"squad/{jsonable_encoder(id)}",
@@ -332,6 +278,9 @@ class SquadsClient:
                 "membersOverrides": convert_and_respect_annotation_metadata(
                     object_=members_overrides, annotation=AssistantOverrides, direction="write"
                 ),
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,
@@ -406,23 +355,6 @@ class AsyncSquadsClient:
         -------
         typing.List[Squad]
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.squads.list()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "squad",
@@ -485,25 +417,6 @@ class AsyncSquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi, SquadMemberDto
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.squads.create(
-                members=[SquadMemberDto()],
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "squad",
@@ -547,25 +460,6 @@ class AsyncSquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.squads.get(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"squad/{jsonable_encoder(id)}",
@@ -599,25 +493,6 @@ class AsyncSquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.squads.delete(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"squad/{jsonable_encoder(id)}",
@@ -672,26 +547,6 @@ class AsyncSquadsClient:
         -------
         Squad
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi, SquadMemberDto
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.squads.update(
-                id="id",
-                members=[SquadMemberDto()],
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"squad/{jsonable_encoder(id)}",
@@ -704,6 +559,9 @@ class AsyncSquadsClient:
                 "membersOverrides": convert_and_respect_annotation_metadata(
                     object_=members_overrides, annotation=AssistantOverrides, direction="write"
                 ),
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,

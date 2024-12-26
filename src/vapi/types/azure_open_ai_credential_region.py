@@ -11,6 +11,7 @@ AzureOpenAiCredentialRegion = typing.Union[
         "france",
         "india",
         "japan",
+        "uaenorth",
         "northcentralus",
         "norway",
         "southcentralus",

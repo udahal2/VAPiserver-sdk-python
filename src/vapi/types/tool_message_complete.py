@@ -2,6 +2,7 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .text_content import TextContent
 import pydantic
 from .tool_message_complete_role import ToolMessageCompleteRole
 import typing_extensions
@@ -11,6 +12,17 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ToolMessageComplete(UniversalBaseModel):
+    contents: typing.Optional[typing.List[TextContent]] = pydantic.Field(default=None)
+    """
+    This is an alternative to the `content` property. It allows to specify variants of the same content, one per language.
+    
+    Usage:
+    - If your assistants are multilingual, you can provide content for each language.
+    - If you don't provide content for a language, the first item in the array will be automatically translated to the active language at that moment.
+    
+    This will override the `content` property.
+    """
+
     type: typing.Literal["request-complete"] = pydantic.Field(default="request-complete")
     """
     This message is triggered when the tool call is complete.
@@ -29,17 +41,17 @@ class ToolMessageComplete(UniversalBaseModel):
     When role=assistant, `content` is said out loud.
     
     When role=system, `content` is passed to the model in a system message. Example:
-    system: default one
-    assistant:
-    user:
-    assistant:
-    user:
-    assistant:
-    user:
-    assistant: tool called
-    tool: your server response
-    <--- system prompt as hint
-    ---> model generates response which is spoken
+        system: default one
+        assistant:
+        user:
+        assistant:
+        user:
+        assistant:
+        user:
+        assistant: tool called
+        tool: your server response
+        <--- system prompt as hint
+        ---> model generates response which is spoken
     This is useful when you want to provide a hint to the model about what to say next.
     """
 
@@ -54,7 +66,7 @@ class ToolMessageComplete(UniversalBaseModel):
     @default false
     """
 
-    content: str = pydantic.Field()
+    content: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the content that the assistant says when this message is triggered.
     """

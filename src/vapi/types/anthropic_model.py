@@ -7,8 +7,8 @@ import pydantic
 from .anthropic_model_tools_item import AnthropicModelToolsItem
 import typing_extensions
 from ..core.serialization import FieldMetadata
+from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
 from .anthropic_model_model import AnthropicModelModel
-from .knowledge_base import KnowledgeBase
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -34,6 +34,20 @@ class AnthropicModel(UniversalBaseModel):
     Both `tools` and `toolIds` can be used together.
     """
 
+    knowledge_base: typing_extensions.Annotated[
+        typing.Optional[CreateCustomKnowledgeBaseDto], FieldMetadata(alias="knowledgeBase")
+    ] = pydantic.Field(default=None)
+    """
+    These are the options for the knowledge base.
+    """
+
+    knowledge_base_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="knowledgeBaseId")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the ID of the knowledge base the model will use.
+    """
+
     model: AnthropicModelModel = pydantic.Field()
     """
     This is the Anthropic/Claude models that will be used.
@@ -43,13 +57,6 @@ class AnthropicModel(UniversalBaseModel):
     temperature: typing.Optional[float] = pydantic.Field(default=None)
     """
     This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.
-    """
-
-    knowledge_base: typing_extensions.Annotated[
-        typing.Optional[KnowledgeBase], FieldMetadata(alias="knowledgeBase")
-    ] = pydantic.Field(default=None)
-    """
-    These are the options for the knowledge base.
     """
 
     max_tokens: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="maxTokens")] = pydantic.Field(

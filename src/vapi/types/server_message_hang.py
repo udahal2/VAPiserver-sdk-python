@@ -26,7 +26,6 @@ class ServerMessageHang(UniversalBaseModel):
     This is the phone number associated with the call.
     
     This matches one of the following:
-    
     - `call.phoneNumber`,
     - `call.phoneNumberId`.
     """
@@ -34,7 +33,6 @@ class ServerMessageHang(UniversalBaseModel):
     type: typing.Literal["hang"] = pydantic.Field(default="hang")
     """
     This is the type of the message. "hang" is sent when the assistant is hanging due to a delay. The delay can be caused by many factors, such as:
-    
     - the model is too slow to respond
     - the voice is too slow to respond
     - the tool call is still waiting for a response from your server
@@ -58,7 +56,6 @@ class ServerMessageHang(UniversalBaseModel):
     This is the assistant that is currently active. This is provided for convenience.
     
     This matches one of the following:
-    
     - `call.assistant`,
     - `call.assistantId`,
     - `call.squad[n].assistant`,
@@ -72,7 +69,6 @@ class ServerMessageHang(UniversalBaseModel):
     This is the customer associated with the call.
     
     This matches one of the following:
-    
     - `call.customer`,
     - `call.customerId`.
     """

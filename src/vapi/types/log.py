@@ -13,7 +13,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class Log(UniversalBaseModel):
-    time: float = pydantic.Field()
+    time: str = pydantic.Field()
     """
     This is the timestamp at which the log was written.
     """
@@ -26,6 +26,13 @@ class Log(UniversalBaseModel):
     type: LogType = pydantic.Field()
     """
     This is the type of the log.
+    """
+
+    webhook_type: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="webhookType")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the type of the webhook, given the log is from a webhook.
     """
 
     resource: typing.Optional[LogResource] = pydantic.Field(default=None)

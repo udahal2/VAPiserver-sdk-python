@@ -5,6 +5,7 @@ import typing
 import typing_extensions
 from ..core.serialization import FieldMetadata
 import pydantic
+from .o_auth_2_authentication_plan import OAuth2AuthenticationPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -13,6 +14,18 @@ class CreateCustomLlmCredentialDto(UniversalBaseModel):
     api_key: typing_extensions.Annotated[str, FieldMetadata(alias="apiKey")] = pydantic.Field()
     """
     This is not returned in the API.
+    """
+
+    authentication_plan: typing_extensions.Annotated[
+        typing.Optional[OAuth2AuthenticationPlan], FieldMetadata(alias="authenticationPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is the authentication plan. Currently supports OAuth2 RFC 6749. To use Bearer authentication, use apiKey
+    """
+
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
     """
 
     if IS_PYDANTIC_V2:

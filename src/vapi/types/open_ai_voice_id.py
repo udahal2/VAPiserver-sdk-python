@@ -2,4 +2,7 @@
 
 import typing
 
-OpenAiVoiceId = typing.Union[typing.Literal["alloy", "echo", "fable", "onyx", "nova", "shimmer"], typing.Any]
+OpenAiVoiceId = typing.Union[
+    typing.Literal["alloy", "echo", "fable", "onyx", "nova", "shimmer", "ash", "ballad", "coral", "sage", "verse"],
+    typing.Any,
+]

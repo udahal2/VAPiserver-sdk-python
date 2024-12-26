@@ -12,7 +12,6 @@ class ExactReplacement(UniversalBaseModel):
     This is the exact replacement type. You can use this to replace a specific word or phrase with a different word or phrase.
     
     Usage:
-    
     - Replace "hello" with "hi": { type: 'exact', key: 'hello', value: 'hi' }
     - Replace "good morning" with "good day": { type: 'exact', key: 'good morning', value: 'good day' }
     - Replace a specific name: { type: 'exact', key: 'John Doe', value: 'Jane Smith' }

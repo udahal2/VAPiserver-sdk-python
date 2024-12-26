@@ -9,6 +9,7 @@ AssistantOverridesServerMessagesItem = typing.Union[
         "function-call",
         "hang",
         "language-changed",
+        "language-change-detected",
         "model-output",
         "phone-call-control",
         "speech-update",

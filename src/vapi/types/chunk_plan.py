@@ -16,7 +16,6 @@ class ChunkPlan(UniversalBaseModel):
     This determines whether the model output is chunked before being sent to the voice provider. Default `true`.
     
     Usage:
-    
     - To rely on the voice provider's audio generation logic, set this to `false`.
     - If seeing issues with quality, set this to `true`.
     
@@ -32,7 +31,6 @@ class ChunkPlan(UniversalBaseModel):
     This is the minimum number of characters in a chunk.
     
     Usage:
-    
     - To increase quality, set this to a higher value.
     - To decrease latency, set this to a lower value.
     
@@ -46,7 +44,6 @@ class ChunkPlan(UniversalBaseModel):
     These are the punctuations that are considered valid boundaries for a chunk to be created.
     
     Usage:
-    
     - To increase quality, constrain to fewer boundaries.
     - To decrease latency, enable all.
     

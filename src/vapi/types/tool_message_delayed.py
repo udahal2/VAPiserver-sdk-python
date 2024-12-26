@@ -2,6 +2,7 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .text_content import TextContent
 import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
@@ -10,12 +11,22 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ToolMessageDelayed(UniversalBaseModel):
+    contents: typing.Optional[typing.List[TextContent]] = pydantic.Field(default=None)
+    """
+    This is an alternative to the `content` property. It allows to specify variants of the same content, one per language.
+    
+    Usage:
+    - If your assistants are multilingual, you can provide content for each language.
+    - If you don't provide content for a language, the first item in the array will be automatically translated to the active language at that moment.
+    
+    This will override the `content` property.
+    """
+
     type: typing.Literal["request-response-delayed"] = pydantic.Field(default="request-response-delayed")
     """
     This message is triggered when the tool call is delayed.
     
     There are the two things that can trigger this message:
-    
     1. The user talks with the assistant while your server is processing the request. Default is "Sorry, a few more seconds."
     2. The server doesn't respond within `timingMilliseconds`.
     
@@ -29,7 +40,7 @@ class ToolMessageDelayed(UniversalBaseModel):
     The number of milliseconds to wait for the server response before saying this message.
     """
 
-    content: str = pydantic.Field()
+    content: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the content that the assistant says when this message is triggered.
     """

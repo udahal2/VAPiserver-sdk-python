@@ -4,6 +4,8 @@ from ..core.pydantic_utilities import UniversalBaseModel
 import typing
 import pydantic
 from .open_ai_message import OpenAiMessage
+import typing_extensions
+from ..core.serialization import FieldMetadata
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -16,6 +18,19 @@ class ClientInboundMessageAddMessage(UniversalBaseModel):
     message: OpenAiMessage = pydantic.Field()
     """
     This is the message to add to the conversation.
+    """
+
+    trigger_response_enabled: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="triggerResponseEnabled")
+    ] = pydantic.Field(default=None)
+    """
+    This is the flag to trigger a response, or to insert the message into the conversation history silently. Defaults to `true`.
+    
+    Usage:
+    - Use `true` to trigger a response.
+    - Use `false` to insert the message into the conversation history silently.
+    
+    @default true
     """
 
     if IS_PYDANTIC_V2:

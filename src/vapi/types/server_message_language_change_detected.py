@@ -7,7 +7,7 @@ from .create_workflow_block_dto import CreateWorkflowBlockDto
 from .handoff_step import HandoffStep
 import typing_extensions
 import typing
-from .server_message_language_changed_phone_number import ServerMessageLanguageChangedPhoneNumber
+from .server_message_language_change_detected_phone_number import ServerMessageLanguageChangeDetectedPhoneNumber
 from ..core.serialization import FieldMetadata
 import pydantic
 from .artifact import Artifact
@@ -18,22 +18,21 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.pydantic_utilities import update_forward_refs
 
 
-class ServerMessageLanguageChanged(UniversalBaseModel):
+class ServerMessageLanguageChangeDetected(UniversalBaseModel):
     phone_number: typing_extensions.Annotated[
-        typing.Optional[ServerMessageLanguageChangedPhoneNumber], FieldMetadata(alias="phoneNumber")
+        typing.Optional[ServerMessageLanguageChangeDetectedPhoneNumber], FieldMetadata(alias="phoneNumber")
     ] = pydantic.Field(default=None)
     """
     This is the phone number associated with the call.
     
     This matches one of the following:
-    
     - `call.phoneNumber`,
     - `call.phoneNumberId`.
     """
 
-    type: typing.Literal["language-changed"] = pydantic.Field(default="language-changed")
+    type: typing.Literal["language-change-detected"] = pydantic.Field(default="language-change-detected")
     """
-    This is the type of the message. "language-switched" is sent when the transcriber is automatically switched based on the detected language.
+    This is the type of the message. "language-change-detected" is sent when the transcriber is automatically switched based on the detected language.
     """
 
     timestamp: typing.Optional[str] = pydantic.Field(default=None)
@@ -53,7 +52,6 @@ class ServerMessageLanguageChanged(UniversalBaseModel):
     This is the assistant that is currently active. This is provided for convenience.
     
     This matches one of the following:
-    
     - `call.assistant`,
     - `call.assistantId`,
     - `call.squad[n].assistant`,
@@ -67,7 +65,6 @@ class ServerMessageLanguageChanged(UniversalBaseModel):
     This is the customer associated with the call.
     
     This matches one of the following:
-    
     - `call.customer`,
     - `call.customerId`.
     """
@@ -96,6 +93,6 @@ class ServerMessageLanguageChanged(UniversalBaseModel):
             extra = pydantic.Extra.allow
 
 
-update_forward_refs(CallbackStep, ServerMessageLanguageChanged=ServerMessageLanguageChanged)
-update_forward_refs(CreateWorkflowBlockDto, ServerMessageLanguageChanged=ServerMessageLanguageChanged)
-update_forward_refs(HandoffStep, ServerMessageLanguageChanged=ServerMessageLanguageChanged)
+update_forward_refs(CallbackStep, ServerMessageLanguageChangeDetected=ServerMessageLanguageChangeDetected)
+update_forward_refs(CreateWorkflowBlockDto, ServerMessageLanguageChangeDetected=ServerMessageLanguageChangeDetected)
+update_forward_refs(HandoffStep, ServerMessageLanguageChangeDetected=ServerMessageLanguageChangeDetected)

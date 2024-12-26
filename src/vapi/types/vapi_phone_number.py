@@ -7,6 +7,7 @@ from .vapi_phone_number_fallback_destination import VapiPhoneNumberFallbackDesti
 from ..core.serialization import FieldMetadata
 import pydantic
 import datetime as dt
+from .sip_authentication import SipAuthentication
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -16,7 +17,6 @@ class VapiPhoneNumber(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     This is the fallback destination an inbound call will be transferred to if:
-    
     1. `assistantId` is not set
     2. `squadId` is not set
     3. and, `assistant-request` message to the `serverUrl` fails
@@ -93,6 +93,13 @@ class VapiPhoneNumber(UniversalBaseModel):
     This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.
     
     This is case-insensitive.
+    """
+
+    authentication: typing.Optional[SipAuthentication] = pydantic.Field(default=None)
+    """
+    This enables authentication for incoming SIP INVITE requests to the `sipUri`.
+    
+    If not set, any username/password to the 401 challenge of the SIP INVITE will be accepted.
     """
 
     if IS_PYDANTIC_V2:

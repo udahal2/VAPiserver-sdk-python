@@ -10,6 +10,7 @@ from .analytics_operation import AnalyticsOperation
 from .analytics_operation_column import AnalyticsOperationColumn
 from .analytics_operation_operation import AnalyticsOperationOperation
 from .analytics_query import AnalyticsQuery
+from .analytics_query_dto import AnalyticsQueryDto
 from .analytics_query_group_by_item import AnalyticsQueryGroupByItem
 from .analytics_query_result import AnalyticsQueryResult
 from .anthropic_credential import AnthropicCredential
@@ -22,11 +23,14 @@ from .anyscale_model_tools_item import AnyscaleModelToolsItem
 from .artifact import Artifact
 from .artifact_messages_item import ArtifactMessagesItem
 from .artifact_plan import ArtifactPlan
+from .assembly_ai_credential import AssemblyAiCredential
+from .assembly_ai_transcriber import AssemblyAiTranscriber
 from .assignment_mutation import AssignmentMutation
 from .assignment_mutation_conditions_item import AssignmentMutationConditionsItem
 from .assistant import Assistant
 from .assistant_background_sound import AssistantBackgroundSound
 from .assistant_client_messages_item import AssistantClientMessagesItem
+from .assistant_custom_endpointing_rule import AssistantCustomEndpointingRule
 from .assistant_first_message_mode import AssistantFirstMessageMode
 from .assistant_model import AssistantModel
 from .assistant_overrides import AssistantOverrides
@@ -40,17 +44,24 @@ from .assistant_overrides_voice import AssistantOverridesVoice
 from .assistant_server_messages_item import AssistantServerMessagesItem
 from .assistant_transcriber import AssistantTranscriber
 from .assistant_voice import AssistantVoice
+from .auto_reload_plan import AutoReloadPlan
+from .auto_reload_plan_dto import AutoReloadPlanDto
+from .azure_credential import AzureCredential
+from .azure_credential_region import AzureCredentialRegion
 from .azure_open_ai_credential import AzureOpenAiCredential
 from .azure_open_ai_credential_models_item import AzureOpenAiCredentialModelsItem
 from .azure_open_ai_credential_region import AzureOpenAiCredentialRegion
 from .azure_voice import AzureVoice
 from .azure_voice_id import AzureVoiceId
 from .azure_voice_id_enum import AzureVoiceIdEnum
+from .bash_tool import BashTool
+from .bash_tool_messages_item import BashToolMessagesItem
 from .block_complete_message import BlockCompleteMessage
 from .block_complete_message_conditions_item import BlockCompleteMessageConditionsItem
 from .block_start_message import BlockStartMessage
 from .block_start_message_conditions_item import BlockStartMessageConditionsItem
 from .bot_message import BotMessage
+from .both_custom_endpointing_rule import BothCustomEndpointingRule
 from .bucket_plan import BucketPlan
 from .buy_phone_number_dto import BuyPhoneNumberDto
 from .buy_phone_number_dto_fallback_destination import BuyPhoneNumberDtoFallbackDestination
@@ -61,6 +72,9 @@ from .call import Call
 from .call_costs_item import CallCostsItem
 from .call_destination import CallDestination
 from .call_ended_reason import CallEndedReason
+from .call_log_privileged import CallLogPrivileged
+from .call_log_privileged_level import CallLogPrivilegedLevel
+from .call_logs_paginated_response import CallLogsPaginatedResponse
 from .call_messages_item import CallMessagesItem
 from .call_paginated_response import CallPaginatedResponse
 from .call_phone_call_provider import CallPhoneCallProvider
@@ -80,11 +94,13 @@ from .client_inbound_message_control import ClientInboundMessageControl
 from .client_inbound_message_control_control import ClientInboundMessageControlControl
 from .client_inbound_message_message import ClientInboundMessageMessage
 from .client_inbound_message_say import ClientInboundMessageSay
+from .client_inbound_message_transfer import ClientInboundMessageTransfer
+from .client_inbound_message_transfer_destination import ClientInboundMessageTransferDestination
 from .client_message import ClientMessage
 from .client_message_conversation_update import ClientMessageConversationUpdate
 from .client_message_conversation_update_messages_item import ClientMessageConversationUpdateMessagesItem
 from .client_message_hang import ClientMessageHang
-from .client_message_language_changed import ClientMessageLanguageChanged
+from .client_message_language_change_detected import ClientMessageLanguageChangeDetected
 from .client_message_message import ClientMessageMessage
 from .client_message_metadata import ClientMessageMetadata
 from .client_message_model_output import ClientMessageModelOutput
@@ -97,9 +113,13 @@ from .client_message_tool_calls_tool_with_tool_call_list_item import ClientMessa
 from .client_message_transcript import ClientMessageTranscript
 from .client_message_transcript_role import ClientMessageTranscriptRole
 from .client_message_transcript_transcript_type import ClientMessageTranscriptTranscriptType
+from .client_message_transfer_update import ClientMessageTransferUpdate
+from .client_message_transfer_update_destination import ClientMessageTransferUpdateDestination
 from .client_message_user_interrupted import ClientMessageUserInterrupted
 from .client_message_voice_input import ClientMessageVoiceInput
 from .clone_voice_dto import CloneVoiceDto
+from .computer_tool import ComputerTool
+from .computer_tool_messages_item import ComputerToolMessagesItem
 from .condition import Condition
 from .condition_operator import ConditionOperator
 from .conversation_block import ConversationBlock
@@ -107,6 +127,7 @@ from .conversation_block_messages_item import ConversationBlockMessagesItem
 from .cost_breakdown import CostBreakdown
 from .create_anthropic_credential_dto import CreateAnthropicCredentialDto
 from .create_anyscale_credential_dto import CreateAnyscaleCredentialDto
+from .create_assembly_ai_credential_dto import CreateAssemblyAiCredentialDto
 from .create_assistant_dto import CreateAssistantDto
 from .create_assistant_dto_background_sound import CreateAssistantDtoBackgroundSound
 from .create_assistant_dto_client_messages_item import CreateAssistantDtoClientMessagesItem
@@ -115,15 +136,22 @@ from .create_assistant_dto_model import CreateAssistantDtoModel
 from .create_assistant_dto_server_messages_item import CreateAssistantDtoServerMessagesItem
 from .create_assistant_dto_transcriber import CreateAssistantDtoTranscriber
 from .create_assistant_dto_voice import CreateAssistantDtoVoice
+from .create_azure_credential_dto import CreateAzureCredentialDto
+from .create_azure_credential_dto_region import CreateAzureCredentialDtoRegion
 from .create_azure_open_ai_credential_dto import CreateAzureOpenAiCredentialDto
 from .create_azure_open_ai_credential_dto_models_item import CreateAzureOpenAiCredentialDtoModelsItem
 from .create_azure_open_ai_credential_dto_region import CreateAzureOpenAiCredentialDtoRegion
+from .create_bash_tool_dto import CreateBashToolDto
+from .create_bash_tool_dto_messages_item import CreateBashToolDtoMessagesItem
 from .create_byo_phone_number_dto import CreateByoPhoneNumberDto
 from .create_byo_phone_number_dto_fallback_destination import CreateByoPhoneNumberDtoFallbackDestination
 from .create_byo_sip_trunk_credential_dto import CreateByoSipTrunkCredentialDto
 from .create_cartesia_credential_dto import CreateCartesiaCredentialDto
+from .create_computer_tool_dto import CreateComputerToolDto
+from .create_computer_tool_dto_messages_item import CreateComputerToolDtoMessagesItem
 from .create_conversation_block_dto import CreateConversationBlockDto
 from .create_conversation_block_dto_messages_item import CreateConversationBlockDtoMessagesItem
+from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
 from .create_custom_llm_credential_dto import CreateCustomLlmCredentialDto
 from .create_customer_dto import CreateCustomerDto
 from .create_deep_infra_credential_dto import CreateDeepInfraCredentialDto
@@ -140,7 +168,10 @@ from .create_ghl_tool_dto import CreateGhlToolDto
 from .create_ghl_tool_dto_messages_item import CreateGhlToolDtoMessagesItem
 from .create_gladia_credential_dto import CreateGladiaCredentialDto
 from .create_go_high_level_credential_dto import CreateGoHighLevelCredentialDto
+from .create_google_credential_dto import CreateGoogleCredentialDto
 from .create_groq_credential_dto import CreateGroqCredentialDto
+from .create_inflection_ai_credential_dto import CreateInflectionAiCredentialDto
+from .create_langfuse_credential_dto import CreateLangfuseCredentialDto
 from .create_lmnt_credential_dto import CreateLmntCredentialDto
 from .create_make_credential_dto import CreateMakeCredentialDto
 from .create_make_tool_dto import CreateMakeToolDto
@@ -148,6 +179,7 @@ from .create_make_tool_dto_messages_item import CreateMakeToolDtoMessagesItem
 from .create_open_ai_credential_dto import CreateOpenAiCredentialDto
 from .create_open_router_credential_dto import CreateOpenRouterCredentialDto
 from .create_org_dto import CreateOrgDto
+from .create_org_dto_channel import CreateOrgDtoChannel
 from .create_outbound_call_dto import CreateOutboundCallDto
 from .create_output_tool_dto import CreateOutputToolDto
 from .create_output_tool_dto_messages_item import CreateOutputToolDtoMessagesItem
@@ -157,6 +189,9 @@ from .create_rime_ai_credential_dto import CreateRimeAiCredentialDto
 from .create_runpod_credential_dto import CreateRunpodCredentialDto
 from .create_s_3_credential_dto import CreateS3CredentialDto
 from .create_squad_dto import CreateSquadDto
+from .create_tavus_credential_dto import CreateTavusCredentialDto
+from .create_text_editor_tool_dto import CreateTextEditorToolDto
+from .create_text_editor_tool_dto_messages_item import CreateTextEditorToolDtoMessagesItem
 from .create_together_ai_credential_dto import CreateTogetherAiCredentialDto
 from .create_token_dto import CreateTokenDto
 from .create_token_dto_tag import CreateTokenDtoTag
@@ -171,6 +206,7 @@ from .create_tool_template_dto_visibility import CreateToolTemplateDtoVisibility
 from .create_transfer_call_tool_dto import CreateTransferCallToolDto
 from .create_transfer_call_tool_dto_destinations_item import CreateTransferCallToolDtoDestinationsItem
 from .create_transfer_call_tool_dto_messages_item import CreateTransferCallToolDtoMessagesItem
+from .create_trieve_knowledge_base_dto import CreateTrieveKnowledgeBaseDto
 from .create_twilio_credential_dto import CreateTwilioCredentialDto
 from .create_twilio_phone_number_dto import CreateTwilioPhoneNumberDto
 from .create_twilio_phone_number_dto_fallback_destination import CreateTwilioPhoneNumberDtoFallbackDestination
@@ -182,13 +218,21 @@ from .create_vonage_credential_dto import CreateVonageCredentialDto
 from .create_vonage_phone_number_dto import CreateVonagePhoneNumberDto
 from .create_vonage_phone_number_dto_fallback_destination import CreateVonagePhoneNumberDtoFallbackDestination
 from .create_web_call_dto import CreateWebCallDto
+from .create_webhook_credential_dto import CreateWebhookCredentialDto
 from .create_workflow_block_dto import CreateWorkflowBlockDto
 from .create_workflow_block_dto_messages_item import CreateWorkflowBlockDtoMessagesItem
 from .create_workflow_block_dto_steps_item import CreateWorkflowBlockDtoStepsItem
+from .create_x_ai_credential_dto import CreateXAiCredentialDto
+from .credits_buy_dto import CreditsBuyDto
+from .custom_knowledge_base import CustomKnowledgeBase
 from .custom_llm_credential import CustomLlmCredential
 from .custom_llm_model import CustomLlmModel
 from .custom_llm_model_metadata_send_mode import CustomLlmModelMetadataSendMode
 from .custom_llm_model_tools_item import CustomLlmModelToolsItem
+from .custom_message import CustomMessage
+from .custom_transcriber import CustomTranscriber
+from .custom_voice import CustomVoice
+from .customer_custom_endpointing_rule import CustomerCustomEndpointingRule
 from .deep_infra_credential import DeepInfraCredential
 from .deep_infra_model import DeepInfraModel
 from .deep_infra_model_tools_item import DeepInfraModelToolsItem
@@ -210,6 +254,42 @@ from .end_call_tool import EndCallTool
 from .end_call_tool_messages_item import EndCallToolMessagesItem
 from .error import Error
 from .exact_replacement import ExactReplacement
+from .fallback_azure_voice import FallbackAzureVoice
+from .fallback_azure_voice_id import FallbackAzureVoiceId
+from .fallback_azure_voice_voice_id import FallbackAzureVoiceVoiceId
+from .fallback_cartesia_voice import FallbackCartesiaVoice
+from .fallback_cartesia_voice_language import FallbackCartesiaVoiceLanguage
+from .fallback_cartesia_voice_model import FallbackCartesiaVoiceModel
+from .fallback_custom_voice import FallbackCustomVoice
+from .fallback_deepgram_voice import FallbackDeepgramVoice
+from .fallback_deepgram_voice_id import FallbackDeepgramVoiceId
+from .fallback_deepgram_voice_id_enum import FallbackDeepgramVoiceIdEnum
+from .fallback_eleven_labs_voice import FallbackElevenLabsVoice
+from .fallback_eleven_labs_voice_id import FallbackElevenLabsVoiceId
+from .fallback_eleven_labs_voice_id_enum import FallbackElevenLabsVoiceIdEnum
+from .fallback_eleven_labs_voice_model import FallbackElevenLabsVoiceModel
+from .fallback_lmnt_voice import FallbackLmntVoice
+from .fallback_lmnt_voice_id import FallbackLmntVoiceId
+from .fallback_lmnt_voice_id_enum import FallbackLmntVoiceIdEnum
+from .fallback_neets_voice import FallbackNeetsVoice
+from .fallback_neets_voice_id import FallbackNeetsVoiceId
+from .fallback_neets_voice_id_enum import FallbackNeetsVoiceIdEnum
+from .fallback_open_ai_voice import FallbackOpenAiVoice
+from .fallback_open_ai_voice_id import FallbackOpenAiVoiceId
+from .fallback_plan import FallbackPlan
+from .fallback_plan_voices_item import FallbackPlanVoicesItem
+from .fallback_play_ht_voice import FallbackPlayHtVoice
+from .fallback_play_ht_voice_emotion import FallbackPlayHtVoiceEmotion
+from .fallback_play_ht_voice_id import FallbackPlayHtVoiceId
+from .fallback_play_ht_voice_id_enum import FallbackPlayHtVoiceIdEnum
+from .fallback_play_ht_voice_language import FallbackPlayHtVoiceLanguage
+from .fallback_play_ht_voice_model import FallbackPlayHtVoiceModel
+from .fallback_rime_ai_voice import FallbackRimeAiVoice
+from .fallback_rime_ai_voice_id import FallbackRimeAiVoiceId
+from .fallback_rime_ai_voice_id_enum import FallbackRimeAiVoiceIdEnum
+from .fallback_rime_ai_voice_model import FallbackRimeAiVoiceModel
+from .fallback_tavus_voice import FallbackTavusVoice
+from .fallback_tavus_voice_voice_id import FallbackTavusVoiceVoiceId
 from .file import File
 from .file_status import FileStatus
 from .format_plan import FormatPlan
@@ -233,21 +313,30 @@ from .gladia_transcriber_language import GladiaTranscriberLanguage
 from .gladia_transcriber_language_behaviour import GladiaTranscriberLanguageBehaviour
 from .gladia_transcriber_model import GladiaTranscriberModel
 from .go_high_level_credential import GoHighLevelCredential
+from .google_credential import GoogleCredential
+from .google_model import GoogleModel
+from .google_model_model import GoogleModelModel
+from .google_model_tools_item import GoogleModelToolsItem
 from .groq_credential import GroqCredential
 from .groq_model import GroqModel
 from .groq_model_model import GroqModelModel
 from .groq_model_tools_item import GroqModelToolsItem
 from .handoff_step import HandoffStep
 from .handoff_step_block import HandoffStepBlock
+from .hipaa_buy_dto import HipaaBuyDto
 from .import_twilio_phone_number_dto import ImportTwilioPhoneNumberDto
 from .import_twilio_phone_number_dto_fallback_destination import ImportTwilioPhoneNumberDtoFallbackDestination
 from .import_vonage_phone_number_dto import ImportVonagePhoneNumberDto
 from .import_vonage_phone_number_dto_fallback_destination import ImportVonagePhoneNumberDtoFallbackDestination
+from .inflection_ai_credential import InflectionAiCredential
+from .inflection_ai_model import InflectionAiModel
+from .inflection_ai_model_tools_item import InflectionAiModelToolsItem
 from .invite_user_dto import InviteUserDto
 from .invite_user_dto_role import InviteUserDtoRole
 from .json_schema import JsonSchema
 from .json_schema_type import JsonSchemaType
-from .knowledge_base import KnowledgeBase
+from .knowledge_base_response_document import KnowledgeBaseResponseDocument
+from .langfuse_credential import LangfuseCredential
 from .lmnt_credential import LmntCredential
 from .lmnt_voice import LmntVoice
 from .lmnt_voice_id import LmntVoiceId
@@ -273,6 +362,8 @@ from .monitor_plan import MonitorPlan
 from .neets_voice import NeetsVoice
 from .neets_voice_id import NeetsVoiceId
 from .neets_voice_id_enum import NeetsVoiceIdEnum
+from .o_auth_2_authentication_plan import OAuth2AuthenticationPlan
+from .oauth_2_authentication_session import Oauth2AuthenticationSession
 from .open_ai_credential import OpenAiCredential
 from .open_ai_function import OpenAiFunction
 from .open_ai_function_parameters import OpenAiFunctionParameters
@@ -288,18 +379,30 @@ from .open_router_credential import OpenRouterCredential
 from .open_router_model import OpenRouterModel
 from .open_router_model_tools_item import OpenRouterModelToolsItem
 from .org import Org
+from .org_channel import OrgChannel
 from .org_plan import OrgPlan
+from .org_with_org_user import OrgWithOrgUser
+from .org_with_org_user_channel import OrgWithOrgUserChannel
+from .org_with_org_user_role import OrgWithOrgUserRole
 from .output_tool import OutputTool
 from .output_tool_messages_item import OutputToolMessagesItem
 from .pagination_meta import PaginationMeta
+from .payment import Payment
+from .payment_retry_dto import PaymentRetryDto
+from .payment_status import PaymentStatus
+from .payments_paginated_response import PaymentsPaginatedResponse
 from .perplexity_ai_credential import PerplexityAiCredential
 from .perplexity_ai_model import PerplexityAiModel
 from .perplexity_ai_model_tools_item import PerplexityAiModelToolsItem
+from .phone_number_paginated_response import PhoneNumberPaginatedResponse
+from .phone_number_paginated_response_results_item import PhoneNumberPaginatedResponseResultsItem
 from .play_ht_credential import PlayHtCredential
 from .play_ht_voice import PlayHtVoice
 from .play_ht_voice_emotion import PlayHtVoiceEmotion
 from .play_ht_voice_id import PlayHtVoiceId
 from .play_ht_voice_id_enum import PlayHtVoiceIdEnum
+from .play_ht_voice_language import PlayHtVoiceLanguage
+from .play_ht_voice_model import PlayHtVoiceModel
 from .punctuation_boundary import PunctuationBoundary
 from .regex_option import RegexOption
 from .regex_option_type import RegexOptionType
@@ -327,8 +430,11 @@ from .server_message_end_of_call_report_ended_reason import ServerMessageEndOfCa
 from .server_message_end_of_call_report_phone_number import ServerMessageEndOfCallReportPhoneNumber
 from .server_message_hang import ServerMessageHang
 from .server_message_hang_phone_number import ServerMessageHangPhoneNumber
-from .server_message_language_changed import ServerMessageLanguageChanged
-from .server_message_language_changed_phone_number import ServerMessageLanguageChangedPhoneNumber
+from .server_message_knowledge_base_request import ServerMessageKnowledgeBaseRequest
+from .server_message_knowledge_base_request_messages_item import ServerMessageKnowledgeBaseRequestMessagesItem
+from .server_message_knowledge_base_request_phone_number import ServerMessageKnowledgeBaseRequestPhoneNumber
+from .server_message_language_change_detected import ServerMessageLanguageChangeDetected
+from .server_message_language_change_detected_phone_number import ServerMessageLanguageChangeDetectedPhoneNumber
 from .server_message_message import ServerMessageMessage
 from .server_message_model_output import ServerMessageModelOutput
 from .server_message_model_output_phone_number import ServerMessageModelOutputPhoneNumber
@@ -339,6 +445,7 @@ from .server_message_phone_call_control_request import ServerMessagePhoneCallCon
 from .server_message_response import ServerMessageResponse
 from .server_message_response_assistant_request import ServerMessageResponseAssistantRequest
 from .server_message_response_assistant_request_destination import ServerMessageResponseAssistantRequestDestination
+from .server_message_response_knowledge_base_request import ServerMessageResponseKnowledgeBaseRequest
 from .server_message_response_message_response import ServerMessageResponseMessageResponse
 from .server_message_response_tool_calls import ServerMessageResponseToolCalls
 from .server_message_response_transfer_destination_request import ServerMessageResponseTransferDestinationRequest
@@ -374,6 +481,7 @@ from .server_message_voice_input import ServerMessageVoiceInput
 from .server_message_voice_input_phone_number import ServerMessageVoiceInputPhoneNumber
 from .server_message_voice_request import ServerMessageVoiceRequest
 from .server_message_voice_request_phone_number import ServerMessageVoiceRequestPhoneNumber
+from .sip_authentication import SipAuthentication
 from .sip_trunk_gateway import SipTrunkGateway
 from .sip_trunk_gateway_outbound_protocol import SipTrunkGatewayOutboundProtocol
 from .sip_trunk_outbound_authentication_plan import SipTrunkOutboundAuthenticationPlan
@@ -381,10 +489,18 @@ from .sip_trunk_outbound_sip_register_plan import SipTrunkOutboundSipRegisterPla
 from .squad import Squad
 from .squad_member_dto import SquadMemberDto
 from .start_speaking_plan import StartSpeakingPlan
+from .start_speaking_plan_custom_endpointing_rules_item import StartSpeakingPlanCustomEndpointingRulesItem
 from .step_destination import StepDestination
 from .step_destination_conditions_item import StepDestinationConditionsItem
 from .stop_speaking_plan import StopSpeakingPlan
 from .structured_data_plan import StructuredDataPlan
+from .subscription import Subscription
+from .subscription_concurrency_line_buy_dto import SubscriptionConcurrencyLineBuyDto
+from .subscription_concurrency_line_remove_dto import SubscriptionConcurrencyLineRemoveDto
+from .subscription_coupon_add_dto import SubscriptionCouponAddDto
+from .subscription_monthly_charge import SubscriptionMonthlyCharge
+from .subscription_status import SubscriptionStatus
+from .subscription_type import SubscriptionType
 from .success_evaluation_plan import SuccessEvaluationPlan
 from .success_evaluation_plan_rubric import SuccessEvaluationPlanRubric
 from .summary_plan import SummaryPlan
@@ -393,11 +509,19 @@ from .sync_voice_library_dto_providers_item import SyncVoiceLibraryDtoProvidersI
 from .system_message import SystemMessage
 from .talkscriber_transcriber import TalkscriberTranscriber
 from .talkscriber_transcriber_language import TalkscriberTranscriberLanguage
+from .tavus_conversation_properties import TavusConversationProperties
+from .tavus_credential import TavusCredential
+from .tavus_voice import TavusVoice
+from .tavus_voice_voice_id import TavusVoiceVoiceId
 from .template import Template
 from .template_details import TemplateDetails
 from .template_provider import TemplateProvider
 from .template_provider_details import TemplateProviderDetails
 from .template_visibility import TemplateVisibility
+from .text_content import TextContent
+from .text_content_language import TextContentLanguage
+from .text_editor_tool import TextEditorTool
+from .text_editor_tool_messages_item import TextEditorToolMessagesItem
 from .time_range import TimeRange
 from .time_range_step import TimeRangeStep
 from .together_ai_credential import TogetherAiCredential
@@ -429,13 +553,29 @@ from .transfer_call_tool import TransferCallTool
 from .transfer_call_tool_destinations_item import TransferCallToolDestinationsItem
 from .transfer_call_tool_messages_item import TransferCallToolMessagesItem
 from .transfer_destination_assistant import TransferDestinationAssistant
+from .transfer_destination_assistant_message import TransferDestinationAssistantMessage
 from .transfer_destination_number import TransferDestinationNumber
+from .transfer_destination_number_message import TransferDestinationNumberMessage
 from .transfer_destination_sip import TransferDestinationSip
+from .transfer_destination_sip_message import TransferDestinationSipMessage
 from .transfer_destination_step import TransferDestinationStep
+from .transfer_destination_step_message import TransferDestinationStepMessage
 from .transfer_mode import TransferMode
+from .transfer_plan import TransferPlan
+from .transfer_plan_message import TransferPlanMessage
+from .transfer_plan_mode import TransferPlanMode
+from .transport import Transport
 from .transport_configuration_twilio import TransportConfigurationTwilio
 from .transport_configuration_twilio_recording_channels import TransportConfigurationTwilioRecordingChannels
 from .transport_cost import TransportCost
+from .transport_cost_provider import TransportCostProvider
+from .transport_provider import TransportProvider
+from .trieve_knowledge_base import TrieveKnowledgeBase
+from .trieve_knowledge_base_vector_store_create_plan import TrieveKnowledgeBaseVectorStoreCreatePlan
+from .trieve_knowledge_base_vector_store_search_plan import TrieveKnowledgeBaseVectorStoreSearchPlan
+from .trieve_knowledge_base_vector_store_search_plan_search_type import (
+    TrieveKnowledgeBaseVectorStoreSearchPlanSearchType,
+)
 from .twilio_credential import TwilioCredential
 from .twilio_phone_number import TwilioPhoneNumber
 from .twilio_phone_number_fallback_destination import TwilioPhoneNumberFallbackDestination
@@ -445,6 +585,9 @@ from .twilio_voicemail_detection_voicemail_detection_types_item import (
 )
 from .update_anthropic_credential_dto import UpdateAnthropicCredentialDto
 from .update_anyscale_credential_dto import UpdateAnyscaleCredentialDto
+from .update_assembly_ai_credential_dto import UpdateAssemblyAiCredentialDto
+from .update_azure_credential_dto import UpdateAzureCredentialDto
+from .update_azure_credential_dto_region import UpdateAzureCredentialDtoRegion
 from .update_azure_open_ai_credential_dto import UpdateAzureOpenAiCredentialDto
 from .update_azure_open_ai_credential_dto_models_item import UpdateAzureOpenAiCredentialDtoModelsItem
 from .update_azure_open_ai_credential_dto_region import UpdateAzureOpenAiCredentialDtoRegion
@@ -457,17 +600,22 @@ from .update_eleven_labs_credential_dto import UpdateElevenLabsCredentialDto
 from .update_gcp_credential_dto import UpdateGcpCredentialDto
 from .update_gladia_credential_dto import UpdateGladiaCredentialDto
 from .update_go_high_level_credential_dto import UpdateGoHighLevelCredentialDto
+from .update_google_credential_dto import UpdateGoogleCredentialDto
 from .update_groq_credential_dto import UpdateGroqCredentialDto
+from .update_inflection_ai_credential_dto import UpdateInflectionAiCredentialDto
+from .update_langfuse_credential_dto import UpdateLangfuseCredentialDto
 from .update_lmnt_credential_dto import UpdateLmntCredentialDto
 from .update_make_credential_dto import UpdateMakeCredentialDto
 from .update_open_ai_credential_dto import UpdateOpenAiCredentialDto
 from .update_open_router_credential_dto import UpdateOpenRouterCredentialDto
 from .update_org_dto import UpdateOrgDto
+from .update_org_dto_channel import UpdateOrgDtoChannel
 from .update_perplexity_ai_credential_dto import UpdatePerplexityAiCredentialDto
 from .update_play_ht_credential_dto import UpdatePlayHtCredentialDto
 from .update_rime_ai_credential_dto import UpdateRimeAiCredentialDto
 from .update_runpod_credential_dto import UpdateRunpodCredentialDto
 from .update_s_3_credential_dto import UpdateS3CredentialDto
+from .update_tavus_credential_dto import UpdateTavusCredentialDto
 from .update_together_ai_credential_dto import UpdateTogetherAiCredentialDto
 from .update_tool_template_dto import UpdateToolTemplateDto
 from .update_tool_template_dto_details import UpdateToolTemplateDtoDetails
@@ -478,9 +626,11 @@ from .update_twilio_credential_dto import UpdateTwilioCredentialDto
 from .update_user_role_dto import UpdateUserRoleDto
 from .update_user_role_dto_role import UpdateUserRoleDtoRole
 from .update_vonage_credential_dto import UpdateVonageCredentialDto
+from .update_x_ai_credential_dto import UpdateXAiCredentialDto
 from .user import User
 from .user_message import UserMessage
 from .vapi_cost import VapiCost
+from .vapi_cost_sub_type import VapiCostSubType
 from .vapi_model import VapiModel
 from .vapi_model_steps_item import VapiModelStepsItem
 from .vapi_model_tools_item import VapiModelToolsItem
@@ -493,9 +643,13 @@ from .voice_library_voice_response import VoiceLibraryVoiceResponse
 from .vonage_credential import VonageCredential
 from .vonage_phone_number import VonagePhoneNumber
 from .vonage_phone_number_fallback_destination import VonagePhoneNumberFallbackDestination
+from .webhook_credential import WebhookCredential
 from .workflow_block import WorkflowBlock
 from .workflow_block_messages_item import WorkflowBlockMessagesItem
 from .workflow_block_steps_item import WorkflowBlockStepsItem
+from .x_ai_credential import XAiCredential
+from .xai_model import XaiModel
+from .xai_model_tools_item import XaiModelToolsItem
 
 __all__ = [
     "AddVoiceToProviderDto",
@@ -508,6 +662,7 @@ __all__ = [
     "AnalyticsOperationColumn",
     "AnalyticsOperationOperation",
     "AnalyticsQuery",
+    "AnalyticsQueryDto",
     "AnalyticsQueryGroupByItem",
     "AnalyticsQueryResult",
     "AnthropicCredential",
@@ -520,11 +675,14 @@ __all__ = [
     "Artifact",
     "ArtifactMessagesItem",
     "ArtifactPlan",
+    "AssemblyAiCredential",
+    "AssemblyAiTranscriber",
     "AssignmentMutation",
     "AssignmentMutationConditionsItem",
     "Assistant",
     "AssistantBackgroundSound",
     "AssistantClientMessagesItem",
+    "AssistantCustomEndpointingRule",
     "AssistantFirstMessageMode",
     "AssistantModel",
     "AssistantOverrides",
@@ -538,17 +696,24 @@ __all__ = [
     "AssistantServerMessagesItem",
     "AssistantTranscriber",
     "AssistantVoice",
+    "AutoReloadPlan",
+    "AutoReloadPlanDto",
+    "AzureCredential",
+    "AzureCredentialRegion",
     "AzureOpenAiCredential",
     "AzureOpenAiCredentialModelsItem",
     "AzureOpenAiCredentialRegion",
     "AzureVoice",
     "AzureVoiceId",
     "AzureVoiceIdEnum",
+    "BashTool",
+    "BashToolMessagesItem",
     "BlockCompleteMessage",
     "BlockCompleteMessageConditionsItem",
     "BlockStartMessage",
     "BlockStartMessageConditionsItem",
     "BotMessage",
+    "BothCustomEndpointingRule",
     "BucketPlan",
     "BuyPhoneNumberDto",
     "BuyPhoneNumberDtoFallbackDestination",
@@ -559,6 +724,9 @@ __all__ = [
     "CallCostsItem",
     "CallDestination",
     "CallEndedReason",
+    "CallLogPrivileged",
+    "CallLogPrivilegedLevel",
+    "CallLogsPaginatedResponse",
     "CallMessagesItem",
     "CallPaginatedResponse",
     "CallPhoneCallProvider",
@@ -578,11 +746,13 @@ __all__ = [
     "ClientInboundMessageControlControl",
     "ClientInboundMessageMessage",
     "ClientInboundMessageSay",
+    "ClientInboundMessageTransfer",
+    "ClientInboundMessageTransferDestination",
     "ClientMessage",
     "ClientMessageConversationUpdate",
     "ClientMessageConversationUpdateMessagesItem",
     "ClientMessageHang",
-    "ClientMessageLanguageChanged",
+    "ClientMessageLanguageChangeDetected",
     "ClientMessageMessage",
     "ClientMessageMetadata",
     "ClientMessageModelOutput",
@@ -595,9 +765,13 @@ __all__ = [
     "ClientMessageTranscript",
     "ClientMessageTranscriptRole",
     "ClientMessageTranscriptTranscriptType",
+    "ClientMessageTransferUpdate",
+    "ClientMessageTransferUpdateDestination",
     "ClientMessageUserInterrupted",
     "ClientMessageVoiceInput",
     "CloneVoiceDto",
+    "ComputerTool",
+    "ComputerToolMessagesItem",
     "Condition",
     "ConditionOperator",
     "ConversationBlock",
@@ -605,6 +779,7 @@ __all__ = [
     "CostBreakdown",
     "CreateAnthropicCredentialDto",
     "CreateAnyscaleCredentialDto",
+    "CreateAssemblyAiCredentialDto",
     "CreateAssistantDto",
     "CreateAssistantDtoBackgroundSound",
     "CreateAssistantDtoClientMessagesItem",
@@ -613,15 +788,22 @@ __all__ = [
     "CreateAssistantDtoServerMessagesItem",
     "CreateAssistantDtoTranscriber",
     "CreateAssistantDtoVoice",
+    "CreateAzureCredentialDto",
+    "CreateAzureCredentialDtoRegion",
     "CreateAzureOpenAiCredentialDto",
     "CreateAzureOpenAiCredentialDtoModelsItem",
     "CreateAzureOpenAiCredentialDtoRegion",
+    "CreateBashToolDto",
+    "CreateBashToolDtoMessagesItem",
     "CreateByoPhoneNumberDto",
     "CreateByoPhoneNumberDtoFallbackDestination",
     "CreateByoSipTrunkCredentialDto",
     "CreateCartesiaCredentialDto",
+    "CreateComputerToolDto",
+    "CreateComputerToolDtoMessagesItem",
     "CreateConversationBlockDto",
     "CreateConversationBlockDtoMessagesItem",
+    "CreateCustomKnowledgeBaseDto",
     "CreateCustomLlmCredentialDto",
     "CreateCustomerDto",
     "CreateDeepInfraCredentialDto",
@@ -638,7 +820,10 @@ __all__ = [
     "CreateGhlToolDtoMessagesItem",
     "CreateGladiaCredentialDto",
     "CreateGoHighLevelCredentialDto",
+    "CreateGoogleCredentialDto",
     "CreateGroqCredentialDto",
+    "CreateInflectionAiCredentialDto",
+    "CreateLangfuseCredentialDto",
     "CreateLmntCredentialDto",
     "CreateMakeCredentialDto",
     "CreateMakeToolDto",
@@ -646,6 +831,7 @@ __all__ = [
     "CreateOpenAiCredentialDto",
     "CreateOpenRouterCredentialDto",
     "CreateOrgDto",
+    "CreateOrgDtoChannel",
     "CreateOutboundCallDto",
     "CreateOutputToolDto",
     "CreateOutputToolDtoMessagesItem",
@@ -655,6 +841,9 @@ __all__ = [
     "CreateRunpodCredentialDto",
     "CreateS3CredentialDto",
     "CreateSquadDto",
+    "CreateTavusCredentialDto",
+    "CreateTextEditorToolDto",
+    "CreateTextEditorToolDtoMessagesItem",
     "CreateTogetherAiCredentialDto",
     "CreateTokenDto",
     "CreateTokenDtoTag",
@@ -669,6 +858,7 @@ __all__ = [
     "CreateTransferCallToolDto",
     "CreateTransferCallToolDtoDestinationsItem",
     "CreateTransferCallToolDtoMessagesItem",
+    "CreateTrieveKnowledgeBaseDto",
     "CreateTwilioCredentialDto",
     "CreateTwilioPhoneNumberDto",
     "CreateTwilioPhoneNumberDtoFallbackDestination",
@@ -680,13 +870,21 @@ __all__ = [
     "CreateVonagePhoneNumberDto",
     "CreateVonagePhoneNumberDtoFallbackDestination",
     "CreateWebCallDto",
+    "CreateWebhookCredentialDto",
     "CreateWorkflowBlockDto",
     "CreateWorkflowBlockDtoMessagesItem",
     "CreateWorkflowBlockDtoStepsItem",
+    "CreateXAiCredentialDto",
+    "CreditsBuyDto",
+    "CustomKnowledgeBase",
     "CustomLlmCredential",
     "CustomLlmModel",
     "CustomLlmModelMetadataSendMode",
     "CustomLlmModelToolsItem",
+    "CustomMessage",
+    "CustomTranscriber",
+    "CustomVoice",
+    "CustomerCustomEndpointingRule",
     "DeepInfraCredential",
     "DeepInfraModel",
     "DeepInfraModelToolsItem",
@@ -708,6 +906,42 @@ __all__ = [
     "EndCallToolMessagesItem",
     "Error",
     "ExactReplacement",
+    "FallbackAzureVoice",
+    "FallbackAzureVoiceId",
+    "FallbackAzureVoiceVoiceId",
+    "FallbackCartesiaVoice",
+    "FallbackCartesiaVoiceLanguage",
+    "FallbackCartesiaVoiceModel",
+    "FallbackCustomVoice",
+    "FallbackDeepgramVoice",
+    "FallbackDeepgramVoiceId",
+    "FallbackDeepgramVoiceIdEnum",
+    "FallbackElevenLabsVoice",
+    "FallbackElevenLabsVoiceId",
+    "FallbackElevenLabsVoiceIdEnum",
+    "FallbackElevenLabsVoiceModel",
+    "FallbackLmntVoice",
+    "FallbackLmntVoiceId",
+    "FallbackLmntVoiceIdEnum",
+    "FallbackNeetsVoice",
+    "FallbackNeetsVoiceId",
+    "FallbackNeetsVoiceIdEnum",
+    "FallbackOpenAiVoice",
+    "FallbackOpenAiVoiceId",
+    "FallbackPlan",
+    "FallbackPlanVoicesItem",
+    "FallbackPlayHtVoice",
+    "FallbackPlayHtVoiceEmotion",
+    "FallbackPlayHtVoiceId",
+    "FallbackPlayHtVoiceIdEnum",
+    "FallbackPlayHtVoiceLanguage",
+    "FallbackPlayHtVoiceModel",
+    "FallbackRimeAiVoice",
+    "FallbackRimeAiVoiceId",
+    "FallbackRimeAiVoiceIdEnum",
+    "FallbackRimeAiVoiceModel",
+    "FallbackTavusVoice",
+    "FallbackTavusVoiceVoiceId",
     "File",
     "FileStatus",
     "FormatPlan",
@@ -731,21 +965,30 @@ __all__ = [
     "GladiaTranscriberLanguageBehaviour",
     "GladiaTranscriberModel",
     "GoHighLevelCredential",
+    "GoogleCredential",
+    "GoogleModel",
+    "GoogleModelModel",
+    "GoogleModelToolsItem",
     "GroqCredential",
     "GroqModel",
     "GroqModelModel",
     "GroqModelToolsItem",
     "HandoffStep",
     "HandoffStepBlock",
+    "HipaaBuyDto",
     "ImportTwilioPhoneNumberDto",
     "ImportTwilioPhoneNumberDtoFallbackDestination",
     "ImportVonagePhoneNumberDto",
     "ImportVonagePhoneNumberDtoFallbackDestination",
+    "InflectionAiCredential",
+    "InflectionAiModel",
+    "InflectionAiModelToolsItem",
     "InviteUserDto",
     "InviteUserDtoRole",
     "JsonSchema",
     "JsonSchemaType",
-    "KnowledgeBase",
+    "KnowledgeBaseResponseDocument",
+    "LangfuseCredential",
     "LmntCredential",
     "LmntVoice",
     "LmntVoiceId",
@@ -771,6 +1014,8 @@ __all__ = [
     "NeetsVoice",
     "NeetsVoiceId",
     "NeetsVoiceIdEnum",
+    "OAuth2AuthenticationPlan",
+    "Oauth2AuthenticationSession",
     "OpenAiCredential",
     "OpenAiFunction",
     "OpenAiFunctionParameters",
@@ -786,18 +1031,30 @@ __all__ = [
     "OpenRouterModel",
     "OpenRouterModelToolsItem",
     "Org",
+    "OrgChannel",
     "OrgPlan",
+    "OrgWithOrgUser",
+    "OrgWithOrgUserChannel",
+    "OrgWithOrgUserRole",
     "OutputTool",
     "OutputToolMessagesItem",
     "PaginationMeta",
+    "Payment",
+    "PaymentRetryDto",
+    "PaymentStatus",
+    "PaymentsPaginatedResponse",
     "PerplexityAiCredential",
     "PerplexityAiModel",
     "PerplexityAiModelToolsItem",
+    "PhoneNumberPaginatedResponse",
+    "PhoneNumberPaginatedResponseResultsItem",
     "PlayHtCredential",
     "PlayHtVoice",
     "PlayHtVoiceEmotion",
     "PlayHtVoiceId",
     "PlayHtVoiceIdEnum",
+    "PlayHtVoiceLanguage",
+    "PlayHtVoiceModel",
     "PunctuationBoundary",
     "RegexOption",
     "RegexOptionType",
@@ -825,8 +1082,11 @@ __all__ = [
     "ServerMessageEndOfCallReportPhoneNumber",
     "ServerMessageHang",
     "ServerMessageHangPhoneNumber",
-    "ServerMessageLanguageChanged",
-    "ServerMessageLanguageChangedPhoneNumber",
+    "ServerMessageKnowledgeBaseRequest",
+    "ServerMessageKnowledgeBaseRequestMessagesItem",
+    "ServerMessageKnowledgeBaseRequestPhoneNumber",
+    "ServerMessageLanguageChangeDetected",
+    "ServerMessageLanguageChangeDetectedPhoneNumber",
     "ServerMessageMessage",
     "ServerMessageModelOutput",
     "ServerMessageModelOutputPhoneNumber",
@@ -837,6 +1097,7 @@ __all__ = [
     "ServerMessageResponse",
     "ServerMessageResponseAssistantRequest",
     "ServerMessageResponseAssistantRequestDestination",
+    "ServerMessageResponseKnowledgeBaseRequest",
     "ServerMessageResponseMessageResponse",
     "ServerMessageResponseToolCalls",
     "ServerMessageResponseTransferDestinationRequest",
@@ -870,6 +1131,7 @@ __all__ = [
     "ServerMessageVoiceInputPhoneNumber",
     "ServerMessageVoiceRequest",
     "ServerMessageVoiceRequestPhoneNumber",
+    "SipAuthentication",
     "SipTrunkGateway",
     "SipTrunkGatewayOutboundProtocol",
     "SipTrunkOutboundAuthenticationPlan",
@@ -877,10 +1139,18 @@ __all__ = [
     "Squad",
     "SquadMemberDto",
     "StartSpeakingPlan",
+    "StartSpeakingPlanCustomEndpointingRulesItem",
     "StepDestination",
     "StepDestinationConditionsItem",
     "StopSpeakingPlan",
     "StructuredDataPlan",
+    "Subscription",
+    "SubscriptionConcurrencyLineBuyDto",
+    "SubscriptionConcurrencyLineRemoveDto",
+    "SubscriptionCouponAddDto",
+    "SubscriptionMonthlyCharge",
+    "SubscriptionStatus",
+    "SubscriptionType",
     "SuccessEvaluationPlan",
     "SuccessEvaluationPlanRubric",
     "SummaryPlan",
@@ -889,11 +1159,19 @@ __all__ = [
     "SystemMessage",
     "TalkscriberTranscriber",
     "TalkscriberTranscriberLanguage",
+    "TavusConversationProperties",
+    "TavusCredential",
+    "TavusVoice",
+    "TavusVoiceVoiceId",
     "Template",
     "TemplateDetails",
     "TemplateProvider",
     "TemplateProviderDetails",
     "TemplateVisibility",
+    "TextContent",
+    "TextContentLanguage",
+    "TextEditorTool",
+    "TextEditorToolMessagesItem",
     "TimeRange",
     "TimeRangeStep",
     "TogetherAiCredential",
@@ -925,13 +1203,27 @@ __all__ = [
     "TransferCallToolDestinationsItem",
     "TransferCallToolMessagesItem",
     "TransferDestinationAssistant",
+    "TransferDestinationAssistantMessage",
     "TransferDestinationNumber",
+    "TransferDestinationNumberMessage",
     "TransferDestinationSip",
+    "TransferDestinationSipMessage",
     "TransferDestinationStep",
+    "TransferDestinationStepMessage",
     "TransferMode",
+    "TransferPlan",
+    "TransferPlanMessage",
+    "TransferPlanMode",
+    "Transport",
     "TransportConfigurationTwilio",
     "TransportConfigurationTwilioRecordingChannels",
     "TransportCost",
+    "TransportCostProvider",
+    "TransportProvider",
+    "TrieveKnowledgeBase",
+    "TrieveKnowledgeBaseVectorStoreCreatePlan",
+    "TrieveKnowledgeBaseVectorStoreSearchPlan",
+    "TrieveKnowledgeBaseVectorStoreSearchPlanSearchType",
     "TwilioCredential",
     "TwilioPhoneNumber",
     "TwilioPhoneNumberFallbackDestination",
@@ -939,6 +1231,9 @@ __all__ = [
     "TwilioVoicemailDetectionVoicemailDetectionTypesItem",
     "UpdateAnthropicCredentialDto",
     "UpdateAnyscaleCredentialDto",
+    "UpdateAssemblyAiCredentialDto",
+    "UpdateAzureCredentialDto",
+    "UpdateAzureCredentialDtoRegion",
     "UpdateAzureOpenAiCredentialDto",
     "UpdateAzureOpenAiCredentialDtoModelsItem",
     "UpdateAzureOpenAiCredentialDtoRegion",
@@ -951,17 +1246,22 @@ __all__ = [
     "UpdateGcpCredentialDto",
     "UpdateGladiaCredentialDto",
     "UpdateGoHighLevelCredentialDto",
+    "UpdateGoogleCredentialDto",
     "UpdateGroqCredentialDto",
+    "UpdateInflectionAiCredentialDto",
+    "UpdateLangfuseCredentialDto",
     "UpdateLmntCredentialDto",
     "UpdateMakeCredentialDto",
     "UpdateOpenAiCredentialDto",
     "UpdateOpenRouterCredentialDto",
     "UpdateOrgDto",
+    "UpdateOrgDtoChannel",
     "UpdatePerplexityAiCredentialDto",
     "UpdatePlayHtCredentialDto",
     "UpdateRimeAiCredentialDto",
     "UpdateRunpodCredentialDto",
     "UpdateS3CredentialDto",
+    "UpdateTavusCredentialDto",
     "UpdateTogetherAiCredentialDto",
     "UpdateToolTemplateDto",
     "UpdateToolTemplateDtoDetails",
@@ -972,9 +1272,11 @@ __all__ = [
     "UpdateUserRoleDto",
     "UpdateUserRoleDtoRole",
     "UpdateVonageCredentialDto",
+    "UpdateXAiCredentialDto",
     "User",
     "UserMessage",
     "VapiCost",
+    "VapiCostSubType",
     "VapiModel",
     "VapiModelStepsItem",
     "VapiModelToolsItem",
@@ -987,7 +1289,11 @@ __all__ = [
     "VonageCredential",
     "VonagePhoneNumber",
     "VonagePhoneNumberFallbackDestination",
+    "WebhookCredential",
     "WorkflowBlock",
     "WorkflowBlockMessagesItem",
     "WorkflowBlockStepsItem",
+    "XAiCredential",
+    "XaiModel",
+    "XaiModelToolsItem",
 ]

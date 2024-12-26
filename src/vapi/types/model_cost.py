@@ -19,7 +19,6 @@ class ModelCost(UniversalBaseModel):
     This is the model that was used during the call.
     
     This matches one of the following:
-    
     - `call.assistant.model`,
     - `call.assistantId->model`,
     - `call.squad[n].assistant.model`,

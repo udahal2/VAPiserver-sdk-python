@@ -20,6 +20,10 @@ class CreateAzureOpenAiCredentialDto(UniversalBaseModel):
     """
 
     open_ai_endpoint: typing_extensions.Annotated[str, FieldMetadata(alias="openAIEndpoint")]
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

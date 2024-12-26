@@ -2,13 +2,26 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .transfer_destination_number_message import TransferDestinationNumberMessage
+import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
-import pydantic
+from .transfer_plan import TransferPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class TransferDestinationNumber(UniversalBaseModel):
+    message: typing.Optional[TransferDestinationNumberMessage] = pydantic.Field(default=None)
+    """
+    This is spoken to the customer before connecting them to the destination.
+    
+    Usage:
+    - If this is not provided and transfer tool messages is not provided, default is "Transferring the call now".
+    - If set to "", nothing is spoken. This is useful when you want to silently transfer. This is especially useful when transferring between assistants in a squad. In this scenario, you likely also want to set `assistant.firstMessageMode=assistant-speaks-first-with-model-generated-message` for the destination assistant.
+    
+    This accepts a string or a ToolMessageStart class. Latter is useful if you want to specify multiple messages for different languages through the `contents` field.
+    """
+
     type: typing.Literal["number"] = "number"
     number_e_164_check_enabled: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="numberE164CheckEnabled")
@@ -17,7 +30,6 @@ class TransferDestinationNumber(UniversalBaseModel):
     This is the flag to toggle the E164 check for the `number` field. This is an advanced property which should be used if you know your use case requires it.
     
     Use cases:
-    
     - `false`: To allow non-E164 numbers like `+001234567890`, `1234`, or `abc`. This is useful for dialing out to non-E164 numbers on your SIP trunks.
     - `true` (default): To allow only E164 numbers like `+14155551234`. This is standard for PSTN calls.
     
@@ -43,7 +55,6 @@ class TransferDestinationNumber(UniversalBaseModel):
     This is the caller ID to use when transferring the call to the `number`.
     
     Usage:
-    
     - If not provided, the caller ID will be the number the call is coming from. Example, +14151111111 calls in to and the assistant transfers out to +16470000000. +16470000000 will see +14151111111 as the caller.
     - To change this behavior, provide a `callerId`.
     - Set to '{{customer.number}}' to always use the customer's number as the caller ID.
@@ -53,13 +64,13 @@ class TransferDestinationNumber(UniversalBaseModel):
     For Twilio, you can read up more here: https://www.twilio.com/docs/voice/twiml/dial#callerid
     """
 
-    message: typing.Optional[str] = pydantic.Field(default=None)
+    transfer_plan: typing_extensions.Annotated[typing.Optional[TransferPlan], FieldMetadata(alias="transferPlan")] = (
+        pydantic.Field(default=None)
+    )
     """
-    This is the message to say before transferring the call to the destination.
+    This configures how transfer is executed and the experience of the destination party receiving the call. Defaults to `blind-transfer`.
     
-    If this is not provided and transfer tool messages is not provided, default is "Transferring the call now".
-    
-    If set to "", nothing is spoken. This is useful when you want to silently transfer. This is especially useful when transferring between assistants in a squad. In this scenario, you likely also want to set `assistant.firstMessageMode=assistant-speaks-first-with-model-generated-message` for the destination assistant.
+    @default `transferPlan.mode='blind-transfer'`
     """
 
     description: typing.Optional[str] = pydantic.Field(default=None)

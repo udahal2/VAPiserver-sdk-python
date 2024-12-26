@@ -2,12 +2,24 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .text_content import TextContent
 import pydantic
 from .condition import Condition
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class ToolMessageStart(UniversalBaseModel):
+    contents: typing.Optional[typing.List[TextContent]] = pydantic.Field(default=None)
+    """
+    This is an alternative to the `content` property. It allows to specify variants of the same content, one per language.
+    
+    Usage:
+    - If your assistants are multilingual, you can provide content for each language.
+    - If you don't provide content for a language, the first item in the array will be automatically translated to the active language at that moment.
+    
+    This will override the `content` property.
+    """
+
     type: typing.Literal["request-start"] = pydantic.Field(default="request-start")
     """
     This message is triggered when the tool call starts.
@@ -17,7 +29,7 @@ class ToolMessageStart(UniversalBaseModel):
     If this message is not provided, one of the default filler messages "Hold on a sec", "One moment", "Just a sec", "Give me a moment" or "This'll just take a sec" will be used.
     """
 
-    content: str = pydantic.Field()
+    content: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the content that the assistant says when this message is triggered.
     """

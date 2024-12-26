@@ -38,14 +38,14 @@ class ByoSipTrunkCredential(UniversalBaseModel):
     This is the ISO 8601 date-time string of when the assistant was last updated.
     """
 
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
+    """
+
     gateways: typing.List[SipTrunkGateway] = pydantic.Field()
     """
     This is the list of SIP trunk's gateways.
-    """
-
-    name: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    This is the name of the SIP trunk. This is just for your reference.
     """
 
     outbound_authentication_plan: typing_extensions.Annotated[
@@ -62,10 +62,23 @@ class ByoSipTrunkCredential(UniversalBaseModel):
     This ensures the outbound origination attempts have a leading plus. Defaults to false to match conventional telecom behavior.
     
     Usage:
-    
     - Vonage/Twilio requires leading plus for all outbound calls. Set this to true.
     
     @default false
+    """
+
+    tech_prefix: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="techPrefix")] = pydantic.Field(
+        default=None
+    )
+    """
+    This can be used to configure the tech prefix on outbound calls. This is an advanced property.
+    """
+
+    sip_diversion_header: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="sipDiversionHeader")
+    ] = pydantic.Field(default=None)
+    """
+    This can be used to enable the SIP diversion header for authenticating the calling number if the SIP trunk supports it. This is an advanced property.
     """
 
     sbc_configuration: typing_extensions.Annotated[

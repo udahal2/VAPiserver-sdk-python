@@ -5,22 +5,28 @@ from ...types.anyscale_model import AnyscaleModel
 from ...types.anthropic_model import AnthropicModel
 from ...types.custom_llm_model import CustomLlmModel
 from ...types.deep_infra_model import DeepInfraModel
+from ...types.google_model import GoogleModel
 from ...types.groq_model import GroqModel
+from ...types.inflection_ai_model import InflectionAiModel
 from ...types.open_ai_model import OpenAiModel
 from ...types.open_router_model import OpenRouterModel
 from ...types.perplexity_ai_model import PerplexityAiModel
 from ...types.together_ai_model import TogetherAiModel
 from ...types.vapi_model import VapiModel
+from ...types.xai_model import XaiModel
 
 UpdateAssistantDtoModel = typing.Union[
     AnyscaleModel,
     AnthropicModel,
     CustomLlmModel,
     DeepInfraModel,
+    GoogleModel,
     GroqModel,
+    InflectionAiModel,
     OpenAiModel,
     OpenRouterModel,
     PerplexityAiModel,
     TogetherAiModel,
     VapiModel,
+    XaiModel,
 ]

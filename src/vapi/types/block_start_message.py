@@ -2,12 +2,24 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
-from .block_start_message_conditions_item import BlockStartMessageConditionsItem
+from .text_content import TextContent
 import pydantic
+from .block_start_message_conditions_item import BlockStartMessageConditionsItem
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class BlockStartMessage(UniversalBaseModel):
+    contents: typing.Optional[typing.List[TextContent]] = pydantic.Field(default=None)
+    """
+    This is an alternative to the `content` property. It allows to specify variants of the same content, one per language.
+    
+    Usage:
+    - If your assistants are multilingual, you can provide content for each language.
+    - If you don't provide content for a language, the first item in the array will be automatically translated to the active language at that moment.
+    
+    This will override the `content` property.
+    """
+
     conditions: typing.Optional[typing.List[BlockStartMessageConditionsItem]] = pydantic.Field(default=None)
     """
     This is an optional array of conditions that must be met for this message to be triggered.
@@ -18,7 +30,7 @@ class BlockStartMessage(UniversalBaseModel):
     This is the message type that is triggered when the block starts.
     """
 
-    content: str = pydantic.Field()
+    content: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the content that the assistant will say when this message is triggered.
     """

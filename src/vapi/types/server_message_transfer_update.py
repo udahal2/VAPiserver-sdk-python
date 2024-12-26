@@ -27,7 +27,6 @@ class ServerMessageTransferUpdate(UniversalBaseModel):
     This is the phone number associated with the call.
     
     This matches one of the following:
-    
     - `call.phoneNumber`,
     - `call.phoneNumberId`.
     """
@@ -59,7 +58,6 @@ class ServerMessageTransferUpdate(UniversalBaseModel):
     This is the assistant that is currently active. This is provided for convenience.
     
     This matches one of the following:
-    
     - `call.assistant`,
     - `call.assistantId`,
     - `call.squad[n].assistant`,
@@ -73,7 +71,6 @@ class ServerMessageTransferUpdate(UniversalBaseModel):
     This is the customer associated with the call.
     
     This matches one of the following:
-    
     - `call.customer`,
     - `call.customerId`.
     """
@@ -99,6 +96,20 @@ class ServerMessageTransferUpdate(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     This is the assistant that the call is being transferred from. This is only sent if `destination.type` is "assistant".
+    """
+
+    to_step_record: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="toStepRecord")
+    ] = pydantic.Field(default=None)
+    """
+    This is the step that the conversation moved to.
+    """
+
+    from_step_record: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="fromStepRecord")
+    ] = pydantic.Field(default=None)
+    """
+    This is the step that the conversation moved from. =
     """
 
     if IS_PYDANTIC_V2:

@@ -2,26 +2,46 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .transfer_destination_sip_message import TransferDestinationSipMessage
+import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
-import pydantic
+from .transfer_plan import TransferPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class TransferDestinationSip(UniversalBaseModel):
+    message: typing.Optional[TransferDestinationSipMessage] = pydantic.Field(default=None)
+    """
+    This is spoken to the customer before connecting them to the destination.
+    
+    Usage:
+    - If this is not provided and transfer tool messages is not provided, default is "Transferring the call now".
+    - If set to "", nothing is spoken. This is useful when you want to silently transfer. This is especially useful when transferring between assistants in a squad. In this scenario, you likely also want to set `assistant.firstMessageMode=assistant-speaks-first-with-model-generated-message` for the destination assistant.
+    
+    This accepts a string or a ToolMessageStart class. Latter is useful if you want to specify multiple messages for different languages through the `contents` field.
+    """
+
     type: typing.Literal["sip"] = "sip"
     sip_uri: typing_extensions.Annotated[str, FieldMetadata(alias="sipUri")] = pydantic.Field()
     """
     This is the SIP URI to transfer the call to.
     """
 
-    message: typing.Optional[str] = pydantic.Field(default=None)
+    transfer_plan: typing_extensions.Annotated[typing.Optional[TransferPlan], FieldMetadata(alias="transferPlan")] = (
+        pydantic.Field(default=None)
+    )
     """
-    This is the message to say before transferring the call to the destination.
+    This configures how transfer is executed and the experience of the destination party receiving the call. Defaults to `blind-transfer`.
     
-    If this is not provided and transfer tool messages is not provided, default is "Transferring the call now".
-    
-    If set to "", nothing is spoken. This is useful when you want to silently transfer. This is especially useful when transferring between assistants in a squad. In this scenario, you likely also want to set `assistant.firstMessageMode=assistant-speaks-first-with-model-generated-message` for the destination assistant.
+    @default `transferPlan.mode='blind-transfer'`
+    """
+
+    sip_headers: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="sipHeaders")
+    ] = pydantic.Field(default=None)
+    """
+    These are custom headers to be added to SIP refer during transfer call.
     """
 
     description: typing.Optional[str] = pydantic.Field(default=None)

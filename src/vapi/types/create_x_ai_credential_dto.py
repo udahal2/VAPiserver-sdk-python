@@ -2,16 +2,27 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
-import pydantic
 
 
-class KnowledgeBase(UniversalBaseModel):
-    provider: typing.Literal["canonical"] = "canonical"
-    top_k: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="topK")] = None
-    file_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="fileIds")]
+class CreateXAiCredentialDto(UniversalBaseModel):
+    provider: typing.Literal["xai"] = pydantic.Field(default="xai")
+    """
+    This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai
+    """
+
+    api_key: typing_extensions.Annotated[str, FieldMetadata(alias="apiKey")] = pydantic.Field()
+    """
+    This is not returned in the API.
+    """
+
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -13,7 +13,6 @@ class RegexReplacement(UniversalBaseModel):
     This is the regex replacement type. You can use this to replace a word or phrase that matches a pattern.
     
     Usage:
-    
     - Replace all numbers with "some number": { type: 'regex', regex: '\\d+', value: 'some number' }
     - Replace email addresses with "[EMAIL]": { type: 'regex', regex: '\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b', value: '[EMAIL]' }
     - Replace phone numbers with a formatted version: { type: 'regex', regex: '(\\d{3})(\\d{3})(\\d{4})', value: '($1) $2-$3' }
@@ -24,11 +23,17 @@ class RegexReplacement(UniversalBaseModel):
     regex: str = pydantic.Field()
     """
     This is the regex pattern to replace.
+    
+    Note:
+    - This works by using the `string.replace` method in Node.JS. Eg. `"hello there".replace(/hello/g, "hi")` will return `"hi there"`.
+    
+    Hot tip:
+    - In JavaScript, escape `\` when sending the regex pattern. Eg. `"hello\sthere"` will be sent over the wire as `"hellosthere"`. Send `"hello\\sthere"` instead.
     """
 
     options: typing.Optional[typing.List[RegexOption]] = pydantic.Field(default=None)
     """
-    These are the options for the regex replacement. Default all options are disabled.
+    These are the options for the regex replacement. Defaults to all disabled.
     
     @default []
     """

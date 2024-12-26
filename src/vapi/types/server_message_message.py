@@ -5,6 +5,7 @@ from .server_message_assistant_request import ServerMessageAssistantRequest
 from .server_message_conversation_update import ServerMessageConversationUpdate
 from .server_message_end_of_call_report import ServerMessageEndOfCallReport
 from .server_message_hang import ServerMessageHang
+from .server_message_knowledge_base_request import ServerMessageKnowledgeBaseRequest
 from .server_message_model_output import ServerMessageModelOutput
 from .server_message_phone_call_control import ServerMessagePhoneCallControl
 from .server_message_speech_update import ServerMessageSpeechUpdate
@@ -14,7 +15,7 @@ from .server_message_transfer_destination_request import ServerMessageTransferDe
 from .server_message_transfer_update import ServerMessageTransferUpdate
 from .server_message_transcript import ServerMessageTranscript
 from .server_message_user_interrupted import ServerMessageUserInterrupted
-from .server_message_language_changed import ServerMessageLanguageChanged
+from .server_message_language_change_detected import ServerMessageLanguageChangeDetected
 from .server_message_voice_input import ServerMessageVoiceInput
 from .server_message_voice_request import ServerMessageVoiceRequest
 
@@ -23,6 +24,7 @@ ServerMessageMessage = typing.Union[
     ServerMessageConversationUpdate,
     ServerMessageEndOfCallReport,
     ServerMessageHang,
+    ServerMessageKnowledgeBaseRequest,
     ServerMessageModelOutput,
     ServerMessagePhoneCallControl,
     ServerMessageSpeechUpdate,
@@ -32,7 +34,7 @@ ServerMessageMessage = typing.Union[
     ServerMessageTransferUpdate,
     ServerMessageTranscript,
     ServerMessageUserInterrupted,
-    ServerMessageLanguageChanged,
+    ServerMessageLanguageChangeDetected,
     ServerMessageVoiceInput,
     ServerMessageVoiceRequest,
 ]

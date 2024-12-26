@@ -6,6 +6,6 @@ from .create_twilio_phone_number_dto import CreateTwilioPhoneNumberDto
 from .create_vonage_phone_number_dto import CreateVonagePhoneNumberDto
 from .create_vapi_phone_number_dto import CreateVapiPhoneNumberDto
 
-ServerMessageLanguageChangedPhoneNumber = typing.Union[
+ServerMessageLanguageChangeDetectedPhoneNumber = typing.Union[
     CreateByoPhoneNumberDto, CreateTwilioPhoneNumberDto, CreateVonagePhoneNumberDto, CreateVapiPhoneNumberDto
 ]

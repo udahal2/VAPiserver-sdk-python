@@ -17,7 +17,6 @@ class ArtifactPlan(UniversalBaseModel):
     This determines whether assistant's calls are recorded. Defaults to true.
     
     Usage:
-    
     - If you don't want to record the calls, set this to false.
     - If you want to record the calls when `assistant.hipaaEnabled`, explicity set this to true and make sure to provide S3 or GCP credentials on the Provider Credentials page in the Dashboard.
     
@@ -53,7 +52,6 @@ class ArtifactPlan(UniversalBaseModel):
     If credential.s3PathPrefix or credential.bucketPlan.path is set, this will append to it.
     
     Usage:
-    
     - If you want to upload the recording to a specific path, set this to the path. Example: `/my-assistant-recordings`.
     - If you want to upload the recording to the root of the bucket, set this to `/`.
     

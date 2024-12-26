@@ -2,21 +2,16 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
-import pydantic
 import typing_extensions
 from .gcp_key import GcpKey
 from ..core.serialization import FieldMetadata
+import pydantic
 from .bucket_plan import BucketPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class CreateGcpCredentialDto(UniversalBaseModel):
     provider: typing.Literal["gcp"] = "gcp"
-    name: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    This is the name of the GCP credential. This is just for your reference.
-    """
-
     gcp_key: typing_extensions.Annotated[GcpKey, FieldMetadata(alias="gcpKey")] = pydantic.Field()
     """
     This is the GCP key. This is the JSON that can be generated in the Google Cloud Console at https://console.cloud.google.com/iam-admin/serviceaccounts/details/<service-account-id>/keys.
@@ -29,6 +24,11 @@ class CreateGcpCredentialDto(UniversalBaseModel):
     )
     """
     This is the bucket plan that can be provided to store call artifacts in GCP.
+    """
+
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
     """
 
     if IS_PYDANTIC_V2:

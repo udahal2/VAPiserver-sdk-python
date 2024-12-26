@@ -33,11 +33,41 @@ class DeepgramTranscriber(UniversalBaseModel):
     This will be use smart format option provided by Deepgram. It's default disabled because it can sometimes format numbers as times but it's getting better.
     """
 
-    language_detection_enabled: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="languageDetectionEnabled")
+    code_switching_enabled: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="codeSwitchingEnabled")
     ] = pydantic.Field(default=None)
     """
-    This enables or disables language detection. If true, swaps transcribers to detected language automatically. Defaults to false.
+    This automatically switches the transcriber's language when the customer's language changes. Defaults to false.
+    
+    Usage:
+    - If your customers switch languages mid-call, you can set this to true.
+    
+    Note:
+    - To detect language changes, Vapi uses a custom trained model. Languages supported (X = limited support):
+      1. Arabic
+      2. Bengali
+      3. Cantonese
+      4. Chinese
+      5. Chinese Simplified (X)
+      6. Chinese Traditional (X)
+      7. English
+      8. Farsi (X)
+      9. French
+      10. German
+      11. Haitian Creole (X)
+      12. Hindi
+      13. Italian
+      14. Japanese
+      15. Korean
+      16. Portuguese
+      17. Russian
+      18. Spanish
+      19. Thai
+      20. Urdu
+      21. Vietnamese
+    - To receive `language-change-detected` webhook events, add it to `assistant.serverMessages`.
+    
+    @default false
     """
 
     keywords: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
@@ -50,7 +80,6 @@ class DeepgramTranscriber(UniversalBaseModel):
     This is the timeout after which Deepgram will send transcription on user silence. You can read in-depth documentation here: https://developers.deepgram.com/docs/endpointing.
     
     Here are the most important bits:
-    
     - Defaults to 10. This is recommended for most use cases to optimize for latency.
     - 10 can cause some missing transcriptions since because of the shorter context. This mostly happens for one-word utterances. For those uses cases, it's recommended to try 300. It will add a bit of latency but the quality and reliability of the experience will be better.
     - If neither 10 nor 300 work, contact support@vapi.ai and we'll find another solution.

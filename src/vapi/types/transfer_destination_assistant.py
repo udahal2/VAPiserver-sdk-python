@@ -2,77 +2,101 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .transfer_destination_assistant_message import TransferDestinationAssistantMessage
+import pydantic
 import typing_extensions
 from .transfer_mode import TransferMode
 from ..core.serialization import FieldMetadata
-import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class TransferDestinationAssistant(UniversalBaseModel):
+    message: typing.Optional[TransferDestinationAssistantMessage] = pydantic.Field(default=None)
+    """
+    This is spoken to the customer before connecting them to the destination.
+    
+    Usage:
+    - If this is not provided and transfer tool messages is not provided, default is "Transferring the call now".
+    - If set to "", nothing is spoken. This is useful when you want to silently transfer. This is especially useful when transferring between assistants in a squad. In this scenario, you likely also want to set `assistant.firstMessageMode=assistant-speaks-first-with-model-generated-message` for the destination assistant.
+    
+    This accepts a string or a ToolMessageStart class. Latter is useful if you want to specify multiple messages for different languages through the `contents` field.
+    """
+
     type: typing.Literal["assistant"] = "assistant"
     transfer_mode: typing_extensions.Annotated[typing.Optional[TransferMode], FieldMetadata(alias="transferMode")] = (
         pydantic.Field(default=None)
     )
     """
-    This is the mode to use for the transfer. Default is `rolling-history`.
+    This is the mode to use for the transfer. Defaults to `rolling-history`.
     
     - `rolling-history`: This is the default mode. It keeps the entire conversation history and appends the new assistant's system message on transfer.
     
       Example:
     
       Pre-transfer:
-      system: assistant1 system message
-      assistant: assistant1 first message
-      user: hey, good morning
-      assistant: how can i help?
-      user: i need help with my account
-      assistant: (destination.message)
+        system: assistant1 system message
+        assistant: assistant1 first message
+        user: hey, good morning
+        assistant: how can i help?
+        user: i need help with my account
+        assistant: (destination.message)
     
       Post-transfer:
-      system: assistant1 system message
-      assistant: assistant1 first message
-      user: hey, good morning
-      assistant: how can i help?
-      user: i need help with my account
-      assistant: (destination.message)
-      system: assistant2 system message
-      assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)
+        system: assistant1 system message
+        assistant: assistant1 first message
+        user: hey, good morning
+        assistant: how can i help?
+        user: i need help with my account
+        assistant: (destination.message)
+        system: assistant2 system message
+        assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)
     
     - `swap-system-message-in-history`: This replaces the original system message with the new assistant's system message on transfer.
     
       Example:
     
       Pre-transfer:
-      system: assistant1 system message
-      assistant: assistant1 first message
-      user: hey, good morning
-      assistant: how can i help?
-      user: i need help with my account
-      assistant: (destination.message)
+        system: assistant1 system message
+        assistant: assistant1 first message
+        user: hey, good morning
+        assistant: how can i help?
+        user: i need help with my account
+        assistant: (destination.message)
     
       Post-transfer:
-      system: assistant2 system message
-      assistant: assistant1 first message
-      user: hey, good morning
-      assistant: how can i help?
-      user: i need help with my account
-      assistant: (destination.message)
-      assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)
+        system: assistant2 system message
+        assistant: assistant1 first message
+        user: hey, good morning
+        assistant: how can i help?
+        user: i need help with my account
+        assistant: (destination.message)
+        assistant: assistant2 first message (or model generated if firstMessageMode is set to `assistant-speaks-first-with-model-generated-message`)
+    
+    - `delete-history`: This deletes the entire conversation history on transfer.
+    
+      Example:
+    
+      Pre-transfer:
+        system: assistant1 system message
+        assistant: assistant1 first message
+        user: hey, good morning
+        assistant: how can i help?
+        user: i need help with my account
+        assistant: (destination.message)
+    
+      Post-transfer:
+        system: assistant2 system message
+        assistant: assistant2 first message
+        user: Yes, please
+        assistant: how can i help?
+        user: i need help with my account
+    
+    @default 'rolling-history'
     """
 
     assistant_name: typing_extensions.Annotated[str, FieldMetadata(alias="assistantName")] = pydantic.Field()
     """
     This is the assistant to transfer the call to.
-    """
-
-    message: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    This is the message to say before transferring the call to the destination.
-    
-    If this is not provided and transfer tool messages is not provided, default is "Transferring the call now".
-    
-    If set to "", nothing is spoken. This is useful when you want to silently transfer. This is especially useful when transferring between assistants in a squad. In this scenario, you likely also want to set `assistant.firstMessageMode=assistant-speaks-first-with-model-generated-message` for the destination assistant.
     """
 
     description: typing.Optional[str] = pydantic.Field(default=None)

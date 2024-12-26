@@ -17,7 +17,6 @@ class TranscriberCost(UniversalBaseModel):
     This is the transcriber that was used during the call.
     
     This matches one of the below:
-    
     - `call.assistant.transcriber`,
     - `call.assistantId->transcriber`,
     - `call.squad[n].assistant.transcriber`,

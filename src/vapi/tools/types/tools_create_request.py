@@ -8,6 +8,9 @@ from ...types.create_ghl_tool_dto import CreateGhlToolDto
 from ...types.create_make_tool_dto import CreateMakeToolDto
 from ...types.create_transfer_call_tool_dto import CreateTransferCallToolDto
 from ...types.create_output_tool_dto import CreateOutputToolDto
+from ...types.create_bash_tool_dto import CreateBashToolDto
+from ...types.create_computer_tool_dto import CreateComputerToolDto
+from ...types.create_text_editor_tool_dto import CreateTextEditorToolDto
 
 ToolsCreateRequest = typing.Union[
     CreateDtmfToolDto,
@@ -17,4 +20,7 @@ ToolsCreateRequest = typing.Union[
     CreateMakeToolDto,
     CreateTransferCallToolDto,
     CreateOutputToolDto,
+    CreateBashToolDto,
+    CreateComputerToolDto,
+    CreateTextEditorToolDto,
 ]

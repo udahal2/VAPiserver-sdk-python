@@ -8,7 +8,19 @@ from ...types.ghl_tool import GhlTool
 from ...types.make_tool import MakeTool
 from ...types.transfer_call_tool import TransferCallTool
 from ...types.output_tool import OutputTool
+from ...types.bash_tool import BashTool
+from ...types.computer_tool import ComputerTool
+from ...types.text_editor_tool import TextEditorTool
 
 ToolsListResponseItem = typing.Union[
-    DtmfTool, EndCallTool, FunctionTool, GhlTool, MakeTool, TransferCallTool, OutputTool
+    DtmfTool,
+    EndCallTool,
+    FunctionTool,
+    GhlTool,
+    MakeTool,
+    TransferCallTool,
+    OutputTool,
+    BashTool,
+    ComputerTool,
+    TextEditorTool,
 ]

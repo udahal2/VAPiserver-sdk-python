@@ -81,15 +81,6 @@ class BlocksClient:
         -------
         typing.List[BlocksListResponseItem]
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.blocks.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "block",
@@ -136,19 +127,6 @@ class BlocksClient:
         -------
         BlocksCreateResponse
 
-
-        Examples
-        --------
-        from vapi import CreateConversationBlockDto, Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.blocks.create(
-            request=CreateConversationBlockDto(
-                instruction="instruction",
-            ),
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             "block",
@@ -186,17 +164,6 @@ class BlocksClient:
         -------
         BlocksGetResponse
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.blocks.get(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
@@ -230,17 +197,6 @@ class BlocksClient:
         -------
         BlocksDeleteResponse
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.blocks.delete(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
@@ -342,17 +298,6 @@ class BlocksClient:
         -------
         BlocksUpdateResponse
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.blocks.update(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
@@ -376,6 +321,9 @@ class BlocksClient:
                 "name": name,
                 "instruction": instruction,
                 "toolId": tool_id,
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,
@@ -450,23 +398,6 @@ class AsyncBlocksClient:
         -------
         typing.List[BlocksListResponseItem]
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.blocks.list()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "block",
@@ -513,27 +444,6 @@ class AsyncBlocksClient:
         -------
         BlocksCreateResponse
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi, CreateConversationBlockDto
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.blocks.create(
-                request=CreateConversationBlockDto(
-                    instruction="instruction",
-                ),
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "block",
@@ -571,25 +481,6 @@ class AsyncBlocksClient:
         -------
         BlocksGetResponse
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.blocks.get(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
@@ -623,25 +514,6 @@ class AsyncBlocksClient:
         -------
         BlocksDeleteResponse
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.blocks.delete(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
@@ -743,25 +615,6 @@ class AsyncBlocksClient:
         -------
         BlocksUpdateResponse
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.blocks.update(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
@@ -785,6 +638,9 @@ class AsyncBlocksClient:
                 "name": name,
                 "instruction": instruction,
                 "toolId": tool_id,
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,

@@ -29,7 +29,9 @@ class CallsClient:
     def list(
         self,
         *,
+        id: typing.Optional[str] = None,
         assistant_id: typing.Optional[str] = None,
+        phone_number_id: typing.Optional[str] = None,
         limit: typing.Optional[float] = None,
         created_at_gt: typing.Optional[dt.datetime] = None,
         created_at_lt: typing.Optional[dt.datetime] = None,
@@ -44,8 +46,16 @@ class CallsClient:
         """
         Parameters
         ----------
+        id : typing.Optional[str]
+            This is the unique identifier for the call.
+
         assistant_id : typing.Optional[str]
             This will return calls with the specified assistantId.
+
+        phone_number_id : typing.Optional[str]
+            This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.
+
+            Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
 
         limit : typing.Optional[float]
             This is the maximum number of items to return. Defaults to 100.
@@ -81,21 +91,14 @@ class CallsClient:
         -------
         typing.List[Call]
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.calls.list()
         """
         _response = self._client_wrapper.httpx_client.request(
             "call",
             method="GET",
             params={
+                "id": id,
                 "assistantId": assistant_id,
+                "phoneNumberId": phone_number_id,
                 "limit": limit,
                 "createdAtGt": serialize_datetime(created_at_gt) if created_at_gt is not None else None,
                 "createdAtLt": serialize_datetime(created_at_lt) if created_at_lt is not None else None,
@@ -185,15 +188,6 @@ class CallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.calls.create()
         """
         _response = self._client_wrapper.httpx_client.request(
             "call",
@@ -219,6 +213,9 @@ class CallsClient:
                 "customer": convert_and_respect_annotation_metadata(
                     object_=customer, annotation=CreateCustomerDto, direction="write"
                 ),
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,
@@ -250,17 +247,6 @@ class CallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.calls.get(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -294,17 +280,6 @@ class CallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.calls.delete(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -343,23 +318,15 @@ class CallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        from vapi import Vapi
-
-        client = Vapi(
-            token="YOUR_TOKEN",
-        )
-        client.calls.update(
-            id="id",
-        )
         """
         _response = self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
             method="PATCH",
             json={
                 "name": name,
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,
@@ -386,7 +353,9 @@ class AsyncCallsClient:
     async def list(
         self,
         *,
+        id: typing.Optional[str] = None,
         assistant_id: typing.Optional[str] = None,
+        phone_number_id: typing.Optional[str] = None,
         limit: typing.Optional[float] = None,
         created_at_gt: typing.Optional[dt.datetime] = None,
         created_at_lt: typing.Optional[dt.datetime] = None,
@@ -401,8 +370,16 @@ class AsyncCallsClient:
         """
         Parameters
         ----------
+        id : typing.Optional[str]
+            This is the unique identifier for the call.
+
         assistant_id : typing.Optional[str]
             This will return calls with the specified assistantId.
+
+        phone_number_id : typing.Optional[str]
+            This is the phone number that will be used for the call. To use a transient number, use `phoneNumber` instead.
+
+            Only relevant for `outboundPhoneCall` and `inboundPhoneCall` type.
 
         limit : typing.Optional[float]
             This is the maximum number of items to return. Defaults to 100.
@@ -438,29 +415,14 @@ class AsyncCallsClient:
         -------
         typing.List[Call]
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.calls.list()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "call",
             method="GET",
             params={
+                "id": id,
                 "assistantId": assistant_id,
+                "phoneNumberId": phone_number_id,
                 "limit": limit,
                 "createdAtGt": serialize_datetime(created_at_gt) if created_at_gt is not None else None,
                 "createdAtLt": serialize_datetime(created_at_lt) if created_at_lt is not None else None,
@@ -550,23 +512,6 @@ class AsyncCallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.calls.create()
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             "call",
@@ -592,6 +537,9 @@ class AsyncCallsClient:
                 "customer": convert_and_respect_annotation_metadata(
                     object_=customer, annotation=CreateCustomerDto, direction="write"
                 ),
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,
@@ -623,25 +571,6 @@ class AsyncCallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.calls.get(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -675,25 +604,6 @@ class AsyncCallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.calls.delete(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
@@ -732,31 +642,15 @@ class AsyncCallsClient:
         -------
         Call
 
-
-        Examples
-        --------
-        import asyncio
-
-        from vapi import AsyncVapi
-
-        client = AsyncVapi(
-            token="YOUR_TOKEN",
-        )
-
-
-        async def main() -> None:
-            await client.calls.update(
-                id="id",
-            )
-
-
-        asyncio.run(main())
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"call/{jsonable_encoder(id)}",
             method="PATCH",
             json={
                 "name": name,
+            },
+            headers={
+                "content-type": "application/json",
             },
             request_options=request_options,
             omit=OMIT,

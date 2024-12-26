@@ -3,6 +3,9 @@
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
 import pydantic
+import typing_extensions
+from .vapi_cost_sub_type import VapiCostSubType
+from ..core.serialization import FieldMetadata
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -10,6 +13,11 @@ class VapiCost(UniversalBaseModel):
     type: typing.Literal["vapi"] = pydantic.Field(default="vapi")
     """
     This is the type of cost, always 'vapi' for this class.
+    """
+
+    sub_type: typing_extensions.Annotated[VapiCostSubType, FieldMetadata(alias="subType")] = pydantic.Field()
+    """
+    This is the sub type of the cost.
     """
 
     minutes: float = pydantic.Field()

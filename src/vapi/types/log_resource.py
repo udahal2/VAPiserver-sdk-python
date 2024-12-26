@@ -3,5 +3,23 @@
 import typing
 
 LogResource = typing.Union[
-    typing.Literal["assistant", "phone-number", "tool", "squad", "call", "file", "metric", "log"], typing.Any
+    typing.Literal[
+        "org",
+        "assistant",
+        "analytics",
+        "credential",
+        "phone-number",
+        "block",
+        "voice-library",
+        "provider",
+        "tool",
+        "token",
+        "template",
+        "squad",
+        "call",
+        "file",
+        "metric",
+        "log",
+    ],
+    typing.Any,
 ]

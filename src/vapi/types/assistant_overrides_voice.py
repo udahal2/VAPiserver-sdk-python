@@ -3,6 +3,7 @@
 import typing
 from .azure_voice import AzureVoice
 from .cartesia_voice import CartesiaVoice
+from .custom_voice import CustomVoice
 from .deepgram_voice import DeepgramVoice
 from .eleven_labs_voice import ElevenLabsVoice
 from .lmnt_voice import LmntVoice
@@ -10,10 +11,12 @@ from .neets_voice import NeetsVoice
 from .open_ai_voice import OpenAiVoice
 from .play_ht_voice import PlayHtVoice
 from .rime_ai_voice import RimeAiVoice
+from .tavus_voice import TavusVoice
 
 AssistantOverridesVoice = typing.Union[
     AzureVoice,
     CartesiaVoice,
+    CustomVoice,
     DeepgramVoice,
     ElevenLabsVoice,
     LmntVoice,
@@ -21,4 +24,5 @@ AssistantOverridesVoice = typing.Union[
     OpenAiVoice,
     PlayHtVoice,
     RimeAiVoice,
+    TavusVoice,
 ]

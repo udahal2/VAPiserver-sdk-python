@@ -9,8 +9,9 @@ from .client_message_speech_update import ClientMessageSpeechUpdate
 from .client_message_transcript import ClientMessageTranscript
 from .client_message_tool_calls import ClientMessageToolCalls
 from .client_message_tool_calls_result import ClientMessageToolCallsResult
+from .client_message_transfer_update import ClientMessageTransferUpdate
 from .client_message_user_interrupted import ClientMessageUserInterrupted
-from .client_message_language_changed import ClientMessageLanguageChanged
+from .client_message_language_change_detected import ClientMessageLanguageChangeDetected
 from .client_message_voice_input import ClientMessageVoiceInput
 
 ClientMessageMessage = typing.Union[
@@ -22,7 +23,8 @@ ClientMessageMessage = typing.Union[
     ClientMessageTranscript,
     ClientMessageToolCalls,
     ClientMessageToolCallsResult,
+    ClientMessageTransferUpdate,
     ClientMessageUserInterrupted,
-    ClientMessageLanguageChanged,
+    ClientMessageLanguageChangeDetected,
     ClientMessageVoiceInput,
 ]

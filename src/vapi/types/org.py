@@ -5,8 +5,10 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
+from .subscription import Subscription
 import datetime as dt
 from .org_plan import OrgPlan
+from .org_channel import OrgChannel
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -18,6 +20,14 @@ class Org(UniversalBaseModel):
     When this is enabled, no logs, recordings, or transcriptions will be stored. At the end of the call, you will still receive an end-of-call-report message to store on your server. Defaults to false.
     When HIPAA is enabled, only OpenAI/Custom LLM or Azure Providers will be available for LLM and Voice respectively.
     This is due to the compliance requirements of HIPAA. Other providers may not meet these requirements.
+    """
+
+    subscription: typing.Optional[Subscription] = None
+    subscription_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="subscriptionId")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the ID of the subscription the org belongs to.
     """
 
     id: str = pydantic.Field()
@@ -78,6 +88,11 @@ class Org(UniversalBaseModel):
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the name of the org. This is just for your own reference.
+    """
+
+    channel: typing.Optional[OrgChannel] = pydantic.Field(default=None)
+    """
+    This is the channel of the org. There is the cluster the API traffic for the org will be directed.
     """
 
     billing_limit: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="billingLimit")] = (

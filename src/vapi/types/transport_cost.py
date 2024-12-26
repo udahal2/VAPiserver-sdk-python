@@ -3,6 +3,7 @@
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
 import pydantic
+from .transport_cost_provider import TransportCostProvider
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -12,6 +13,7 @@ class TransportCost(UniversalBaseModel):
     This is the type of cost, always 'transport' for this class.
     """
 
+    provider: typing.Optional[TransportCostProvider] = None
     minutes: float = pydantic.Field()
     """
     This is the minutes of `transport` usage. This should match `call.endedAt` - `call.startedAt`.

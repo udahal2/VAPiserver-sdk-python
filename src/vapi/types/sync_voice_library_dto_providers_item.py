@@ -4,7 +4,17 @@ import typing
 
 SyncVoiceLibraryDtoProvidersItem = typing.Union[
     typing.Literal[
-        "11labs", "azure", "cartesia", "custom-voice", "deepgram", "lmnt", "neets", "openai", "playht", "rime-ai"
+        "11labs",
+        "azure",
+        "cartesia",
+        "custom-voice",
+        "deepgram",
+        "lmnt",
+        "neets",
+        "openai",
+        "playht",
+        "rime-ai",
+        "tavus",
     ],
     typing.Any,
 ]

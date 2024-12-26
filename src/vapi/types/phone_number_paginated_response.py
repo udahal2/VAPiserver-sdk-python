@@ -2,19 +2,21 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .phone_number_paginated_response_results_item import PhoneNumberPaginatedResponseResultsItem
 import pydantic
+from .pagination_meta import PaginationMeta
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
-class ClientMessageLanguageChanged(UniversalBaseModel):
-    type: typing.Literal["language-changed"] = pydantic.Field(default="language-changed")
+class PhoneNumberPaginatedResponse(UniversalBaseModel):
+    results: typing.List[PhoneNumberPaginatedResponseResultsItem] = pydantic.Field()
     """
-    This is the type of the message. "language-switched" is sent when the transcriber is automatically switched based on the detected language.
+    A list of phone numbers, which can be of any provider type.
     """
 
-    language: str = pydantic.Field()
+    metadata: PaginationMeta = pydantic.Field()
     """
-    This is the language the transcriber is switched to.
+    Metadata about the pagination.
     """
 
     if IS_PYDANTIC_V2:

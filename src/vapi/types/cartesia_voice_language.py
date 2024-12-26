@@ -2,4 +2,6 @@
 
 import typing
 
-CartesiaVoiceLanguage = typing.Union[typing.Literal["de", "en", "es", "fr", "ja", "pt", "zh"], typing.Any]
+CartesiaVoiceLanguage = typing.Union[
+    typing.Literal["en", "de", "es", "fr", "ja", "pt", "zh", "hi", "it", "ko", "nl", "pl", "ru", "sv", "tr"], typing.Any
+]

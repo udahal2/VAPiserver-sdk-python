@@ -28,7 +28,6 @@ class ServerMessageSpeechUpdate(UniversalBaseModel):
     This is the phone number associated with the call.
     
     This matches one of the following:
-    
     - `call.phoneNumber`,
     - `call.phoneNumberId`.
     """
@@ -65,7 +64,6 @@ class ServerMessageSpeechUpdate(UniversalBaseModel):
     This is the assistant that is currently active. This is provided for convenience.
     
     This matches one of the following:
-    
     - `call.assistant`,
     - `call.assistantId`,
     - `call.squad[n].assistant`,
@@ -79,7 +77,6 @@ class ServerMessageSpeechUpdate(UniversalBaseModel):
     This is the customer associated with the call.
     
     This matches one of the following:
-    
     - `call.customer`,
     - `call.customerId`.
     """

@@ -6,5 +6,10 @@ from .ghl_tool_with_tool_call import GhlToolWithToolCall
 from .make_tool_with_tool_call import MakeToolWithToolCall
 
 ClientMessageToolCallsToolWithToolCallListItem = typing.Union[
-    FunctionToolWithToolCall, GhlToolWithToolCall, MakeToolWithToolCall
+    FunctionToolWithToolCall,
+    GhlToolWithToolCall,
+    MakeToolWithToolCall,
+    typing.Optional[typing.Any],
+    typing.Optional[typing.Any],
+    typing.Optional[typing.Any],
 ]

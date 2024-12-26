@@ -40,6 +40,11 @@ class AzureOpenAiCredential(UniversalBaseModel):
     This is the ISO 8601 date-time string of when the assistant was last updated.
     """
 
+    name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the name of credential. This is just for your reference.
+    """
+
     open_ai_endpoint: typing_extensions.Annotated[str, FieldMetadata(alias="openAIEndpoint")]
 
     if IS_PYDANTIC_V2:

@@ -35,7 +35,7 @@ class GcpCredential(UniversalBaseModel):
 
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
-    This is the name of the GCP credential. This is just for your reference.
+    This is the name of credential. This is just for your reference.
     """
 
     gcp_key: typing_extensions.Annotated[GcpKey, FieldMetadata(alias="gcpKey")] = pydantic.Field()

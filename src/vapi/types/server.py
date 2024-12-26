@@ -30,6 +30,13 @@ class Server(UniversalBaseModel):
     Same precedence logic as server.
     """
 
+    headers: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    """
+    These are the custom headers to include in the request sent to your server.
+    
+    Each key-value pair represents a header name and its value.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:
