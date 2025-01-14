@@ -6,6 +6,7 @@ from .types import (
     KnowledgeBasesDeleteResponse,
     KnowledgeBasesGetResponse,
     KnowledgeBasesListResponseItem,
+    KnowledgeBasesUpdateRequest,
     KnowledgeBasesUpdateResponse,
 )
 
@@ -15,5 +16,6 @@ __all__ = [
     "KnowledgeBasesDeleteResponse",
     "KnowledgeBasesGetResponse",
     "KnowledgeBasesListResponseItem",
+    "KnowledgeBasesUpdateRequest",
     "KnowledgeBasesUpdateResponse",
 ]

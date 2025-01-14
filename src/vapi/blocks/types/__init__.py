@@ -5,10 +5,8 @@ from .blocks_create_response import BlocksCreateResponse
 from .blocks_delete_response import BlocksDeleteResponse
 from .blocks_get_response import BlocksGetResponse
 from .blocks_list_response_item import BlocksListResponseItem
+from .blocks_update_request import BlocksUpdateRequest
 from .blocks_update_response import BlocksUpdateResponse
-from .update_block_dto_messages_item import UpdateBlockDtoMessagesItem
-from .update_block_dto_steps_item import UpdateBlockDtoStepsItem
-from .update_block_dto_tool import UpdateBlockDtoTool
 
 __all__ = [
     "BlocksCreateRequest",
@@ -16,8 +14,6 @@ __all__ = [
     "BlocksDeleteResponse",
     "BlocksGetResponse",
     "BlocksListResponseItem",
+    "BlocksUpdateRequest",
     "BlocksUpdateResponse",
-    "UpdateBlockDtoMessagesItem",
-    "UpdateBlockDtoStepsItem",
-    "UpdateBlockDtoTool",
 ]

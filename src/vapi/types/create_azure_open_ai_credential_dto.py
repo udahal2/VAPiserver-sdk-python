@@ -19,6 +19,13 @@ class CreateAzureOpenAiCredentialDto(UniversalBaseModel):
     This is not returned in the API.
     """
 
+    ocp_apim_subscription_key: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="ocpApimSubscriptionKey")
+    ] = pydantic.Field(default=None)
+    """
+    This is not returned in the API.
+    """
+
     open_ai_endpoint: typing_extensions.Annotated[str, FieldMetadata(alias="openAIEndpoint")]
     name: typing.Optional[str] = pydantic.Field(default=None)
     """

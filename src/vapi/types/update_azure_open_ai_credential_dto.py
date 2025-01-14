@@ -11,19 +11,28 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class UpdateAzureOpenAiCredentialDto(UniversalBaseModel):
-    provider: typing.Literal["azure-openai"] = "azure-openai"
-    region: UpdateAzureOpenAiCredentialDtoRegion
-    models: typing.List[UpdateAzureOpenAiCredentialDtoModelsItem]
-    open_ai_key: typing_extensions.Annotated[str, FieldMetadata(alias="openAIKey")] = pydantic.Field()
+    region: typing.Optional[UpdateAzureOpenAiCredentialDtoRegion] = None
+    models: typing.Optional[typing.List[UpdateAzureOpenAiCredentialDtoModelsItem]] = None
+    open_ai_key: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="openAIKey")] = pydantic.Field(
+        default=None
+    )
     """
     This is not returned in the API.
     """
 
-    open_ai_endpoint: typing_extensions.Annotated[str, FieldMetadata(alias="openAIEndpoint")]
+    ocp_apim_subscription_key: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="ocpApimSubscriptionKey")
+    ] = pydantic.Field(default=None)
+    """
+    This is not returned in the API.
+    """
+
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the name of credential. This is just for your reference.
     """
+
+    open_ai_endpoint: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="openAIEndpoint")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

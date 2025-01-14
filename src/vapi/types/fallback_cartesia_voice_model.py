@@ -2,4 +2,6 @@
 
 import typing
 
-FallbackCartesiaVoiceModel = typing.Union[typing.Literal["sonic-english", "sonic-multilingual"], typing.Any]
+FallbackCartesiaVoiceModel = typing.Union[
+    typing.Literal["sonic-english", "sonic-multilingual", "sonic-preview", "sonic"], typing.Any
+]

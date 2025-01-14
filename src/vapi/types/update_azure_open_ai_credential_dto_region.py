@@ -15,7 +15,7 @@ UpdateAzureOpenAiCredentialDtoRegion = typing.Union[
         "northcentralus",
         "norway",
         "southcentralus",
-        "sweden",
+        "swedencentral",
         "switzerland",
         "uk",
         "westus",

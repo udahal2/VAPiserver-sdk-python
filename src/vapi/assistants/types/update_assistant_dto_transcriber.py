@@ -2,11 +2,17 @@
 
 import typing
 from ...types.assembly_ai_transcriber import AssemblyAiTranscriber
+from ...types.azure_speech_transcriber import AzureSpeechTranscriber
 from ...types.custom_transcriber import CustomTranscriber
 from ...types.deepgram_transcriber import DeepgramTranscriber
 from ...types.gladia_transcriber import GladiaTranscriber
 from ...types.talkscriber_transcriber import TalkscriberTranscriber
 
 UpdateAssistantDtoTranscriber = typing.Union[
-    AssemblyAiTranscriber, CustomTranscriber, DeepgramTranscriber, GladiaTranscriber, TalkscriberTranscriber
+    AssemblyAiTranscriber,
+    AzureSpeechTranscriber,
+    CustomTranscriber,
+    DeepgramTranscriber,
+    GladiaTranscriber,
+    TalkscriberTranscriber,
 ]

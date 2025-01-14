@@ -6,6 +6,7 @@ import typing
 from .import_vonage_phone_number_dto_fallback_destination import ImportVonagePhoneNumberDtoFallbackDestination
 from ..core.serialization import FieldMetadata
 import pydantic
+from .server import Server
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -57,24 +58,15 @@ class ImportVonagePhoneNumberDto(UniversalBaseModel):
     If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
     """
 
-    server_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serverUrl")] = pydantic.Field(
-        default=None
-    )
+    server: typing.Optional[Server] = pydantic.Field(default=None)
     """
-    This is the server URL where messages will be sent for calls on this number. This includes the `assistant-request` message.
+    This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
     
-    You can see the shape of the messages sent in `ServerMessage`.
+    The order of precedence is:
     
-    This overrides the `org.serverUrl`. Order of precedence: tool.server.url > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl.
-    """
-
-    server_url_secret: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serverUrlSecret")] = (
-        pydantic.Field(default=None)
-    )
-    """
-    This is the secret Vapi will send with every message to your server. It's sent as a header called x-vapi-secret.
-    
-    Same precedence logic as serverUrl.
+    1. assistant.server
+    2. phoneNumber.server
+    3. org.server
     """
 
     if IS_PYDANTIC_V2:

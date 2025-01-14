@@ -17,6 +17,7 @@ from .assistant_client_messages_item import AssistantClientMessagesItem
 from .assistant_server_messages_item import AssistantServerMessagesItem
 from .assistant_background_sound import AssistantBackgroundSound
 from .transport_configuration_twilio import TransportConfigurationTwilio
+from .assistant_credentials_item import AssistantCredentialsItem
 from .twilio_voicemail_detection import TwilioVoicemailDetection
 from .analysis_plan import AnalysisPlan
 from .artifact_plan import ArtifactPlan
@@ -142,6 +143,11 @@ class Assistant(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
+    """
+
+    credentials: typing.Optional[typing.List[AssistantCredentialsItem]] = pydantic.Field(default=None)
+    """
+    These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)

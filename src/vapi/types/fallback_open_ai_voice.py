@@ -19,7 +19,7 @@ class FallbackOpenAiVoice(UniversalBaseModel):
     voice_id: typing_extensions.Annotated[FallbackOpenAiVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.
-    Please note that ash, ballad, coral, sage, and verse may only be used with the `gpt-4o-realtime-preview-2024-10-01` model.
+    Please note that ash, ballad, coral, sage, and verse may only be used with realtime models.
     """
 
     speed: typing.Optional[float] = pydantic.Field(default=None)

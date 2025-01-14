@@ -14,6 +14,7 @@ SyncVoiceLibraryDtoProvidersItem = typing.Union[
         "openai",
         "playht",
         "rime-ai",
+        "smallest-ai",
         "tavus",
     ],
     typing.Any,

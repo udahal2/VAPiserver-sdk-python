@@ -17,6 +17,7 @@ from ..types.create_assistant_dto_client_messages_item import CreateAssistantDto
 from ..types.create_assistant_dto_server_messages_item import CreateAssistantDtoServerMessagesItem
 from ..types.create_assistant_dto_background_sound import CreateAssistantDtoBackgroundSound
 from ..types.transport_configuration_twilio import TransportConfigurationTwilio
+from ..types.create_assistant_dto_credentials_item import CreateAssistantDtoCredentialsItem
 from ..types.twilio_voicemail_detection import TwilioVoicemailDetection
 from ..types.analysis_plan import AnalysisPlan
 from ..types.artifact_plan import ArtifactPlan
@@ -34,6 +35,7 @@ from .types.update_assistant_dto_first_message_mode import UpdateAssistantDtoFir
 from .types.update_assistant_dto_client_messages_item import UpdateAssistantDtoClientMessagesItem
 from .types.update_assistant_dto_server_messages_item import UpdateAssistantDtoServerMessagesItem
 from .types.update_assistant_dto_background_sound import UpdateAssistantDtoBackgroundSound
+from .types.update_assistant_dto_credentials_item import UpdateAssistantDtoCredentialsItem
 from ..core.client_wrapper import AsyncClientWrapper
 
 # this is used as the default value for optional parameters
@@ -143,6 +145,7 @@ class AssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        credentials: typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
         voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
@@ -224,6 +227,9 @@ class AssistantsClient:
 
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
+
+        credentials : typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]]
+            These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
         name : typing.Optional[str]
             This is the name of the assistant.
@@ -337,6 +343,11 @@ class AssistantsClient:
                 "transportConfigurations": convert_and_respect_annotation_metadata(
                     object_=transport_configurations,
                     annotation=typing.Sequence[TransportConfigurationTwilio],
+                    direction="write",
+                ),
+                "credentials": convert_and_respect_annotation_metadata(
+                    object_=credentials,
+                    annotation=typing.Sequence[CreateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,
@@ -469,6 +480,7 @@ class AssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        credentials: typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
         voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
@@ -552,6 +564,9 @@ class AssistantsClient:
 
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
+
+        credentials : typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]]
+            These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
         name : typing.Optional[str]
             This is the name of the assistant.
@@ -665,6 +680,11 @@ class AssistantsClient:
                 "transportConfigurations": convert_and_respect_annotation_metadata(
                     object_=transport_configurations,
                     annotation=typing.Sequence[TransportConfigurationTwilio],
+                    direction="write",
+                ),
+                "credentials": convert_and_respect_annotation_metadata(
+                    object_=credentials,
+                    annotation=typing.Sequence[UpdateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,
@@ -820,6 +840,7 @@ class AsyncAssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        credentials: typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
         voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
@@ -901,6 +922,9 @@ class AsyncAssistantsClient:
 
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
+
+        credentials : typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]]
+            These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
         name : typing.Optional[str]
             This is the name of the assistant.
@@ -1014,6 +1038,11 @@ class AsyncAssistantsClient:
                 "transportConfigurations": convert_and_respect_annotation_metadata(
                     object_=transport_configurations,
                     annotation=typing.Sequence[TransportConfigurationTwilio],
+                    direction="write",
+                ),
+                "credentials": convert_and_respect_annotation_metadata(
+                    object_=credentials,
+                    annotation=typing.Sequence[CreateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,
@@ -1146,6 +1175,7 @@ class AsyncAssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        credentials: typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
         voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
@@ -1229,6 +1259,9 @@ class AsyncAssistantsClient:
 
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
+
+        credentials : typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]]
+            These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
         name : typing.Optional[str]
             This is the name of the assistant.
@@ -1342,6 +1375,11 @@ class AsyncAssistantsClient:
                 "transportConfigurations": convert_and_respect_annotation_metadata(
                     object_=transport_configurations,
                     annotation=typing.Sequence[TransportConfigurationTwilio],
+                    direction="write",
+                ),
+                "credentials": convert_and_respect_annotation_metadata(
+                    object_=credentials,
+                    annotation=typing.Sequence[UpdateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,

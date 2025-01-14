@@ -30,12 +30,14 @@ from .assignment_mutation_conditions_item import AssignmentMutationConditionsIte
 from .assistant import Assistant
 from .assistant_background_sound import AssistantBackgroundSound
 from .assistant_client_messages_item import AssistantClientMessagesItem
+from .assistant_credentials_item import AssistantCredentialsItem
 from .assistant_custom_endpointing_rule import AssistantCustomEndpointingRule
 from .assistant_first_message_mode import AssistantFirstMessageMode
 from .assistant_model import AssistantModel
 from .assistant_overrides import AssistantOverrides
 from .assistant_overrides_background_sound import AssistantOverridesBackgroundSound
 from .assistant_overrides_client_messages_item import AssistantOverridesClientMessagesItem
+from .assistant_overrides_credentials_item import AssistantOverridesCredentialsItem
 from .assistant_overrides_first_message_mode import AssistantOverridesFirstMessageMode
 from .assistant_overrides_model import AssistantOverridesModel
 from .assistant_overrides_server_messages_item import AssistantOverridesServerMessagesItem
@@ -45,12 +47,15 @@ from .assistant_server_messages_item import AssistantServerMessagesItem
 from .assistant_transcriber import AssistantTranscriber
 from .assistant_voice import AssistantVoice
 from .auto_reload_plan import AutoReloadPlan
-from .auto_reload_plan_dto import AutoReloadPlanDto
+from .azure_blob_storage_bucket_plan import AzureBlobStorageBucketPlan
 from .azure_credential import AzureCredential
 from .azure_credential_region import AzureCredentialRegion
+from .azure_credential_service import AzureCredentialService
 from .azure_open_ai_credential import AzureOpenAiCredential
 from .azure_open_ai_credential_models_item import AzureOpenAiCredentialModelsItem
 from .azure_open_ai_credential_region import AzureOpenAiCredentialRegion
+from .azure_speech_transcriber import AzureSpeechTranscriber
+from .azure_speech_transcriber_language import AzureSpeechTranscriberLanguage
 from .azure_voice import AzureVoice
 from .azure_voice_id import AzureVoiceId
 from .azure_voice_id_enum import AzureVoiceIdEnum
@@ -87,6 +92,9 @@ from .cartesia_credential import CartesiaCredential
 from .cartesia_voice import CartesiaVoice
 from .cartesia_voice_language import CartesiaVoiceLanguage
 from .cartesia_voice_model import CartesiaVoiceModel
+from .cerebras_credential import CerebrasCredential
+from .chat_dto import ChatDto
+from .chat_service_response import ChatServiceResponse
 from .chunk_plan import ChunkPlan
 from .client_inbound_message import ClientInboundMessage
 from .client_inbound_message_add_message import ClientInboundMessageAddMessage
@@ -118,6 +126,8 @@ from .client_message_transfer_update_destination import ClientMessageTransferUpd
 from .client_message_user_interrupted import ClientMessageUserInterrupted
 from .client_message_voice_input import ClientMessageVoiceInput
 from .clone_voice_dto import CloneVoiceDto
+from .cloudflare_credential import CloudflareCredential
+from .cloudflare_r_2_bucket_plan import CloudflareR2BucketPlan
 from .computer_tool import ComputerTool
 from .computer_tool_messages_item import ComputerToolMessagesItem
 from .condition import Condition
@@ -131,6 +141,7 @@ from .create_assembly_ai_credential_dto import CreateAssemblyAiCredentialDto
 from .create_assistant_dto import CreateAssistantDto
 from .create_assistant_dto_background_sound import CreateAssistantDtoBackgroundSound
 from .create_assistant_dto_client_messages_item import CreateAssistantDtoClientMessagesItem
+from .create_assistant_dto_credentials_item import CreateAssistantDtoCredentialsItem
 from .create_assistant_dto_first_message_mode import CreateAssistantDtoFirstMessageMode
 from .create_assistant_dto_model import CreateAssistantDtoModel
 from .create_assistant_dto_server_messages_item import CreateAssistantDtoServerMessagesItem
@@ -138,6 +149,7 @@ from .create_assistant_dto_transcriber import CreateAssistantDtoTranscriber
 from .create_assistant_dto_voice import CreateAssistantDtoVoice
 from .create_azure_credential_dto import CreateAzureCredentialDto
 from .create_azure_credential_dto_region import CreateAzureCredentialDtoRegion
+from .create_azure_credential_dto_service import CreateAzureCredentialDtoService
 from .create_azure_open_ai_credential_dto import CreateAzureOpenAiCredentialDto
 from .create_azure_open_ai_credential_dto_models_item import CreateAzureOpenAiCredentialDtoModelsItem
 from .create_azure_open_ai_credential_dto_region import CreateAzureOpenAiCredentialDtoRegion
@@ -147,6 +159,8 @@ from .create_byo_phone_number_dto import CreateByoPhoneNumberDto
 from .create_byo_phone_number_dto_fallback_destination import CreateByoPhoneNumberDtoFallbackDestination
 from .create_byo_sip_trunk_credential_dto import CreateByoSipTrunkCredentialDto
 from .create_cartesia_credential_dto import CreateCartesiaCredentialDto
+from .create_cerebras_credential_dto import CreateCerebrasCredentialDto
+from .create_cloudflare_credential_dto import CreateCloudflareCredentialDto
 from .create_computer_tool_dto import CreateComputerToolDto
 from .create_computer_tool_dto_messages_item import CreateComputerToolDtoMessagesItem
 from .create_conversation_block_dto import CreateConversationBlockDto
@@ -155,6 +169,7 @@ from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
 from .create_custom_llm_credential_dto import CreateCustomLlmCredentialDto
 from .create_customer_dto import CreateCustomerDto
 from .create_deep_infra_credential_dto import CreateDeepInfraCredentialDto
+from .create_deep_seek_credential_dto import CreateDeepSeekCredentialDto
 from .create_deepgram_credential_dto import CreateDeepgramCredentialDto
 from .create_dtmf_tool_dto import CreateDtmfToolDto
 from .create_dtmf_tool_dto_messages_item import CreateDtmfToolDtoMessagesItem
@@ -188,6 +203,7 @@ from .create_play_ht_credential_dto import CreatePlayHtCredentialDto
 from .create_rime_ai_credential_dto import CreateRimeAiCredentialDto
 from .create_runpod_credential_dto import CreateRunpodCredentialDto
 from .create_s_3_credential_dto import CreateS3CredentialDto
+from .create_smallest_ai_credential_dto import CreateSmallestAiCredentialDto
 from .create_squad_dto import CreateSquadDto
 from .create_tavus_credential_dto import CreateTavusCredentialDto
 from .create_text_editor_tool_dto import CreateTextEditorToolDto
@@ -223,7 +239,6 @@ from .create_workflow_block_dto import CreateWorkflowBlockDto
 from .create_workflow_block_dto_messages_item import CreateWorkflowBlockDtoMessagesItem
 from .create_workflow_block_dto_steps_item import CreateWorkflowBlockDtoStepsItem
 from .create_x_ai_credential_dto import CreateXAiCredentialDto
-from .credits_buy_dto import CreditsBuyDto
 from .custom_knowledge_base import CustomKnowledgeBase
 from .custom_llm_credential import CustomLlmCredential
 from .custom_llm_model import CustomLlmModel
@@ -236,6 +251,9 @@ from .customer_custom_endpointing_rule import CustomerCustomEndpointingRule
 from .deep_infra_credential import DeepInfraCredential
 from .deep_infra_model import DeepInfraModel
 from .deep_infra_model_tools_item import DeepInfraModelToolsItem
+from .deep_seek_credential import DeepSeekCredential
+from .deep_seek_model import DeepSeekModel
+from .deep_seek_model_tools_item import DeepSeekModelToolsItem
 from .deepgram_credential import DeepgramCredential
 from .deepgram_transcriber import DeepgramTranscriber
 from .deepgram_transcriber_language import DeepgramTranscriberLanguage
@@ -288,6 +306,9 @@ from .fallback_rime_ai_voice import FallbackRimeAiVoice
 from .fallback_rime_ai_voice_id import FallbackRimeAiVoiceId
 from .fallback_rime_ai_voice_id_enum import FallbackRimeAiVoiceIdEnum
 from .fallback_rime_ai_voice_model import FallbackRimeAiVoiceModel
+from .fallback_smallest_ai_voice import FallbackSmallestAiVoice
+from .fallback_smallest_ai_voice_id import FallbackSmallestAiVoiceId
+from .fallback_smallest_ai_voice_id_enum import FallbackSmallestAiVoiceIdEnum
 from .fallback_tavus_voice import FallbackTavusVoice
 from .fallback_tavus_voice_voice_id import FallbackTavusVoiceVoiceId
 from .file import File
@@ -301,6 +322,10 @@ from .function_tool_with_tool_call import FunctionToolWithToolCall
 from .function_tool_with_tool_call_messages_item import FunctionToolWithToolCallMessagesItem
 from .gcp_credential import GcpCredential
 from .gcp_key import GcpKey
+from .gemini_multimodal_live_prebuilt_voice_config import GeminiMultimodalLivePrebuiltVoiceConfig
+from .gemini_multimodal_live_prebuilt_voice_config_voice_name import GeminiMultimodalLivePrebuiltVoiceConfigVoiceName
+from .gemini_multimodal_live_speech_config import GeminiMultimodalLiveSpeechConfig
+from .gemini_multimodal_live_voice_config import GeminiMultimodalLiveVoiceConfig
 from .ghl_tool import GhlTool
 from .ghl_tool_messages_item import GhlToolMessagesItem
 from .ghl_tool_metadata import GhlToolMetadata
@@ -317,13 +342,13 @@ from .google_credential import GoogleCredential
 from .google_model import GoogleModel
 from .google_model_model import GoogleModelModel
 from .google_model_tools_item import GoogleModelToolsItem
+from .google_realtime_config import GoogleRealtimeConfig
 from .groq_credential import GroqCredential
 from .groq_model import GroqModel
 from .groq_model_model import GroqModelModel
 from .groq_model_tools_item import GroqModelToolsItem
 from .handoff_step import HandoffStep
 from .handoff_step_block import HandoffStepBlock
-from .hipaa_buy_dto import HipaaBuyDto
 from .import_twilio_phone_number_dto import ImportTwilioPhoneNumberDto
 from .import_twilio_phone_number_dto_fallback_destination import ImportTwilioPhoneNumberDtoFallbackDestination
 from .import_vonage_phone_number_dto import ImportVonagePhoneNumberDto
@@ -387,10 +412,6 @@ from .org_with_org_user_role import OrgWithOrgUserRole
 from .output_tool import OutputTool
 from .output_tool_messages_item import OutputToolMessagesItem
 from .pagination_meta import PaginationMeta
-from .payment import Payment
-from .payment_retry_dto import PaymentRetryDto
-from .payment_status import PaymentStatus
-from .payments_paginated_response import PaymentsPaginatedResponse
 from .perplexity_ai_credential import PerplexityAiCredential
 from .perplexity_ai_model import PerplexityAiModel
 from .perplexity_ai_model_tools_item import PerplexityAiModelToolsItem
@@ -486,6 +507,10 @@ from .sip_trunk_gateway import SipTrunkGateway
 from .sip_trunk_gateway_outbound_protocol import SipTrunkGatewayOutboundProtocol
 from .sip_trunk_outbound_authentication_plan import SipTrunkOutboundAuthenticationPlan
 from .sip_trunk_outbound_sip_register_plan import SipTrunkOutboundSipRegisterPlan
+from .smallest_ai_credential import SmallestAiCredential
+from .smallest_ai_voice import SmallestAiVoice
+from .smallest_ai_voice_id import SmallestAiVoiceId
+from .smallest_ai_voice_id_enum import SmallestAiVoiceIdEnum
 from .squad import Squad
 from .squad_member_dto import SquadMemberDto
 from .start_speaking_plan import StartSpeakingPlan
@@ -495,10 +520,6 @@ from .step_destination_conditions_item import StepDestinationConditionsItem
 from .stop_speaking_plan import StopSpeakingPlan
 from .structured_data_plan import StructuredDataPlan
 from .subscription import Subscription
-from .subscription_concurrency_line_buy_dto import SubscriptionConcurrencyLineBuyDto
-from .subscription_concurrency_line_remove_dto import SubscriptionConcurrencyLineRemoveDto
-from .subscription_coupon_add_dto import SubscriptionCouponAddDto
-from .subscription_monthly_charge import SubscriptionMonthlyCharge
 from .subscription_status import SubscriptionStatus
 from .subscription_type import SubscriptionType
 from .success_evaluation_plan import SuccessEvaluationPlan
@@ -588,16 +609,37 @@ from .update_anyscale_credential_dto import UpdateAnyscaleCredentialDto
 from .update_assembly_ai_credential_dto import UpdateAssemblyAiCredentialDto
 from .update_azure_credential_dto import UpdateAzureCredentialDto
 from .update_azure_credential_dto_region import UpdateAzureCredentialDtoRegion
+from .update_azure_credential_dto_service import UpdateAzureCredentialDtoService
 from .update_azure_open_ai_credential_dto import UpdateAzureOpenAiCredentialDto
 from .update_azure_open_ai_credential_dto_models_item import UpdateAzureOpenAiCredentialDtoModelsItem
 from .update_azure_open_ai_credential_dto_region import UpdateAzureOpenAiCredentialDtoRegion
+from .update_bash_tool_dto import UpdateBashToolDto
+from .update_bash_tool_dto_messages_item import UpdateBashToolDtoMessagesItem
+from .update_byo_phone_number_dto import UpdateByoPhoneNumberDto
+from .update_byo_phone_number_dto_fallback_destination import UpdateByoPhoneNumberDtoFallbackDestination
 from .update_byo_sip_trunk_credential_dto import UpdateByoSipTrunkCredentialDto
 from .update_cartesia_credential_dto import UpdateCartesiaCredentialDto
+from .update_cerebras_credential_dto import UpdateCerebrasCredentialDto
+from .update_cloudflare_credential_dto import UpdateCloudflareCredentialDto
+from .update_computer_tool_dto import UpdateComputerToolDto
+from .update_computer_tool_dto_messages_item import UpdateComputerToolDtoMessagesItem
+from .update_conversation_block_dto import UpdateConversationBlockDto
+from .update_conversation_block_dto_messages_item import UpdateConversationBlockDtoMessagesItem
+from .update_custom_knowledge_base_dto import UpdateCustomKnowledgeBaseDto
 from .update_custom_llm_credential_dto import UpdateCustomLlmCredentialDto
 from .update_deep_infra_credential_dto import UpdateDeepInfraCredentialDto
+from .update_deep_seek_credential_dto import UpdateDeepSeekCredentialDto
 from .update_deepgram_credential_dto import UpdateDeepgramCredentialDto
+from .update_dtmf_tool_dto import UpdateDtmfToolDto
+from .update_dtmf_tool_dto_messages_item import UpdateDtmfToolDtoMessagesItem
 from .update_eleven_labs_credential_dto import UpdateElevenLabsCredentialDto
+from .update_end_call_tool_dto import UpdateEndCallToolDto
+from .update_end_call_tool_dto_messages_item import UpdateEndCallToolDtoMessagesItem
+from .update_function_tool_dto import UpdateFunctionToolDto
+from .update_function_tool_dto_messages_item import UpdateFunctionToolDtoMessagesItem
 from .update_gcp_credential_dto import UpdateGcpCredentialDto
+from .update_ghl_tool_dto import UpdateGhlToolDto
+from .update_ghl_tool_dto_messages_item import UpdateGhlToolDtoMessagesItem
 from .update_gladia_credential_dto import UpdateGladiaCredentialDto
 from .update_go_high_level_credential_dto import UpdateGoHighLevelCredentialDto
 from .update_google_credential_dto import UpdateGoogleCredentialDto
@@ -606,26 +648,51 @@ from .update_inflection_ai_credential_dto import UpdateInflectionAiCredentialDto
 from .update_langfuse_credential_dto import UpdateLangfuseCredentialDto
 from .update_lmnt_credential_dto import UpdateLmntCredentialDto
 from .update_make_credential_dto import UpdateMakeCredentialDto
+from .update_make_tool_dto import UpdateMakeToolDto
+from .update_make_tool_dto_messages_item import UpdateMakeToolDtoMessagesItem
 from .update_open_ai_credential_dto import UpdateOpenAiCredentialDto
 from .update_open_router_credential_dto import UpdateOpenRouterCredentialDto
 from .update_org_dto import UpdateOrgDto
 from .update_org_dto_channel import UpdateOrgDtoChannel
+from .update_output_tool_dto import UpdateOutputToolDto
+from .update_output_tool_dto_messages_item import UpdateOutputToolDtoMessagesItem
 from .update_perplexity_ai_credential_dto import UpdatePerplexityAiCredentialDto
 from .update_play_ht_credential_dto import UpdatePlayHtCredentialDto
 from .update_rime_ai_credential_dto import UpdateRimeAiCredentialDto
 from .update_runpod_credential_dto import UpdateRunpodCredentialDto
 from .update_s_3_credential_dto import UpdateS3CredentialDto
+from .update_smallest_ai_credential_dto import UpdateSmallestAiCredentialDto
 from .update_tavus_credential_dto import UpdateTavusCredentialDto
+from .update_text_editor_tool_dto import UpdateTextEditorToolDto
+from .update_text_editor_tool_dto_messages_item import UpdateTextEditorToolDtoMessagesItem
 from .update_together_ai_credential_dto import UpdateTogetherAiCredentialDto
+from .update_token_dto import UpdateTokenDto
+from .update_token_dto_tag import UpdateTokenDtoTag
+from .update_tool_call_block_dto import UpdateToolCallBlockDto
+from .update_tool_call_block_dto_messages_item import UpdateToolCallBlockDtoMessagesItem
+from .update_tool_call_block_dto_tool import UpdateToolCallBlockDtoTool
 from .update_tool_template_dto import UpdateToolTemplateDto
 from .update_tool_template_dto_details import UpdateToolTemplateDtoDetails
 from .update_tool_template_dto_provider import UpdateToolTemplateDtoProvider
 from .update_tool_template_dto_provider_details import UpdateToolTemplateDtoProviderDetails
 from .update_tool_template_dto_visibility import UpdateToolTemplateDtoVisibility
+from .update_transfer_call_tool_dto import UpdateTransferCallToolDto
+from .update_transfer_call_tool_dto_destinations_item import UpdateTransferCallToolDtoDestinationsItem
+from .update_transfer_call_tool_dto_messages_item import UpdateTransferCallToolDtoMessagesItem
+from .update_trieve_knowledge_base_dto import UpdateTrieveKnowledgeBaseDto
 from .update_twilio_credential_dto import UpdateTwilioCredentialDto
+from .update_twilio_phone_number_dto import UpdateTwilioPhoneNumberDto
+from .update_twilio_phone_number_dto_fallback_destination import UpdateTwilioPhoneNumberDtoFallbackDestination
 from .update_user_role_dto import UpdateUserRoleDto
 from .update_user_role_dto_role import UpdateUserRoleDtoRole
+from .update_vapi_phone_number_dto import UpdateVapiPhoneNumberDto
+from .update_vapi_phone_number_dto_fallback_destination import UpdateVapiPhoneNumberDtoFallbackDestination
 from .update_vonage_credential_dto import UpdateVonageCredentialDto
+from .update_vonage_phone_number_dto import UpdateVonagePhoneNumberDto
+from .update_vonage_phone_number_dto_fallback_destination import UpdateVonagePhoneNumberDtoFallbackDestination
+from .update_workflow_block_dto import UpdateWorkflowBlockDto
+from .update_workflow_block_dto_messages_item import UpdateWorkflowBlockDtoMessagesItem
+from .update_workflow_block_dto_steps_item import UpdateWorkflowBlockDtoStepsItem
 from .update_x_ai_credential_dto import UpdateXAiCredentialDto
 from .user import User
 from .user_message import UserMessage
@@ -682,12 +749,14 @@ __all__ = [
     "Assistant",
     "AssistantBackgroundSound",
     "AssistantClientMessagesItem",
+    "AssistantCredentialsItem",
     "AssistantCustomEndpointingRule",
     "AssistantFirstMessageMode",
     "AssistantModel",
     "AssistantOverrides",
     "AssistantOverridesBackgroundSound",
     "AssistantOverridesClientMessagesItem",
+    "AssistantOverridesCredentialsItem",
     "AssistantOverridesFirstMessageMode",
     "AssistantOverridesModel",
     "AssistantOverridesServerMessagesItem",
@@ -697,12 +766,15 @@ __all__ = [
     "AssistantTranscriber",
     "AssistantVoice",
     "AutoReloadPlan",
-    "AutoReloadPlanDto",
+    "AzureBlobStorageBucketPlan",
     "AzureCredential",
     "AzureCredentialRegion",
+    "AzureCredentialService",
     "AzureOpenAiCredential",
     "AzureOpenAiCredentialModelsItem",
     "AzureOpenAiCredentialRegion",
+    "AzureSpeechTranscriber",
+    "AzureSpeechTranscriberLanguage",
     "AzureVoice",
     "AzureVoiceId",
     "AzureVoiceIdEnum",
@@ -739,6 +811,9 @@ __all__ = [
     "CartesiaVoice",
     "CartesiaVoiceLanguage",
     "CartesiaVoiceModel",
+    "CerebrasCredential",
+    "ChatDto",
+    "ChatServiceResponse",
     "ChunkPlan",
     "ClientInboundMessage",
     "ClientInboundMessageAddMessage",
@@ -770,6 +845,8 @@ __all__ = [
     "ClientMessageUserInterrupted",
     "ClientMessageVoiceInput",
     "CloneVoiceDto",
+    "CloudflareCredential",
+    "CloudflareR2BucketPlan",
     "ComputerTool",
     "ComputerToolMessagesItem",
     "Condition",
@@ -783,6 +860,7 @@ __all__ = [
     "CreateAssistantDto",
     "CreateAssistantDtoBackgroundSound",
     "CreateAssistantDtoClientMessagesItem",
+    "CreateAssistantDtoCredentialsItem",
     "CreateAssistantDtoFirstMessageMode",
     "CreateAssistantDtoModel",
     "CreateAssistantDtoServerMessagesItem",
@@ -790,6 +868,7 @@ __all__ = [
     "CreateAssistantDtoVoice",
     "CreateAzureCredentialDto",
     "CreateAzureCredentialDtoRegion",
+    "CreateAzureCredentialDtoService",
     "CreateAzureOpenAiCredentialDto",
     "CreateAzureOpenAiCredentialDtoModelsItem",
     "CreateAzureOpenAiCredentialDtoRegion",
@@ -799,6 +878,8 @@ __all__ = [
     "CreateByoPhoneNumberDtoFallbackDestination",
     "CreateByoSipTrunkCredentialDto",
     "CreateCartesiaCredentialDto",
+    "CreateCerebrasCredentialDto",
+    "CreateCloudflareCredentialDto",
     "CreateComputerToolDto",
     "CreateComputerToolDtoMessagesItem",
     "CreateConversationBlockDto",
@@ -807,6 +888,7 @@ __all__ = [
     "CreateCustomLlmCredentialDto",
     "CreateCustomerDto",
     "CreateDeepInfraCredentialDto",
+    "CreateDeepSeekCredentialDto",
     "CreateDeepgramCredentialDto",
     "CreateDtmfToolDto",
     "CreateDtmfToolDtoMessagesItem",
@@ -840,6 +922,7 @@ __all__ = [
     "CreateRimeAiCredentialDto",
     "CreateRunpodCredentialDto",
     "CreateS3CredentialDto",
+    "CreateSmallestAiCredentialDto",
     "CreateSquadDto",
     "CreateTavusCredentialDto",
     "CreateTextEditorToolDto",
@@ -875,7 +958,6 @@ __all__ = [
     "CreateWorkflowBlockDtoMessagesItem",
     "CreateWorkflowBlockDtoStepsItem",
     "CreateXAiCredentialDto",
-    "CreditsBuyDto",
     "CustomKnowledgeBase",
     "CustomLlmCredential",
     "CustomLlmModel",
@@ -888,6 +970,9 @@ __all__ = [
     "DeepInfraCredential",
     "DeepInfraModel",
     "DeepInfraModelToolsItem",
+    "DeepSeekCredential",
+    "DeepSeekModel",
+    "DeepSeekModelToolsItem",
     "DeepgramCredential",
     "DeepgramTranscriber",
     "DeepgramTranscriberLanguage",
@@ -940,6 +1025,9 @@ __all__ = [
     "FallbackRimeAiVoiceId",
     "FallbackRimeAiVoiceIdEnum",
     "FallbackRimeAiVoiceModel",
+    "FallbackSmallestAiVoice",
+    "FallbackSmallestAiVoiceId",
+    "FallbackSmallestAiVoiceIdEnum",
     "FallbackTavusVoice",
     "FallbackTavusVoiceVoiceId",
     "File",
@@ -953,6 +1041,10 @@ __all__ = [
     "FunctionToolWithToolCallMessagesItem",
     "GcpCredential",
     "GcpKey",
+    "GeminiMultimodalLivePrebuiltVoiceConfig",
+    "GeminiMultimodalLivePrebuiltVoiceConfigVoiceName",
+    "GeminiMultimodalLiveSpeechConfig",
+    "GeminiMultimodalLiveVoiceConfig",
     "GhlTool",
     "GhlToolMessagesItem",
     "GhlToolMetadata",
@@ -969,13 +1061,13 @@ __all__ = [
     "GoogleModel",
     "GoogleModelModel",
     "GoogleModelToolsItem",
+    "GoogleRealtimeConfig",
     "GroqCredential",
     "GroqModel",
     "GroqModelModel",
     "GroqModelToolsItem",
     "HandoffStep",
     "HandoffStepBlock",
-    "HipaaBuyDto",
     "ImportTwilioPhoneNumberDto",
     "ImportTwilioPhoneNumberDtoFallbackDestination",
     "ImportVonagePhoneNumberDto",
@@ -1039,10 +1131,6 @@ __all__ = [
     "OutputTool",
     "OutputToolMessagesItem",
     "PaginationMeta",
-    "Payment",
-    "PaymentRetryDto",
-    "PaymentStatus",
-    "PaymentsPaginatedResponse",
     "PerplexityAiCredential",
     "PerplexityAiModel",
     "PerplexityAiModelToolsItem",
@@ -1136,6 +1224,10 @@ __all__ = [
     "SipTrunkGatewayOutboundProtocol",
     "SipTrunkOutboundAuthenticationPlan",
     "SipTrunkOutboundSipRegisterPlan",
+    "SmallestAiCredential",
+    "SmallestAiVoice",
+    "SmallestAiVoiceId",
+    "SmallestAiVoiceIdEnum",
     "Squad",
     "SquadMemberDto",
     "StartSpeakingPlan",
@@ -1145,10 +1237,6 @@ __all__ = [
     "StopSpeakingPlan",
     "StructuredDataPlan",
     "Subscription",
-    "SubscriptionConcurrencyLineBuyDto",
-    "SubscriptionConcurrencyLineRemoveDto",
-    "SubscriptionCouponAddDto",
-    "SubscriptionMonthlyCharge",
     "SubscriptionStatus",
     "SubscriptionType",
     "SuccessEvaluationPlan",
@@ -1234,16 +1322,37 @@ __all__ = [
     "UpdateAssemblyAiCredentialDto",
     "UpdateAzureCredentialDto",
     "UpdateAzureCredentialDtoRegion",
+    "UpdateAzureCredentialDtoService",
     "UpdateAzureOpenAiCredentialDto",
     "UpdateAzureOpenAiCredentialDtoModelsItem",
     "UpdateAzureOpenAiCredentialDtoRegion",
+    "UpdateBashToolDto",
+    "UpdateBashToolDtoMessagesItem",
+    "UpdateByoPhoneNumberDto",
+    "UpdateByoPhoneNumberDtoFallbackDestination",
     "UpdateByoSipTrunkCredentialDto",
     "UpdateCartesiaCredentialDto",
+    "UpdateCerebrasCredentialDto",
+    "UpdateCloudflareCredentialDto",
+    "UpdateComputerToolDto",
+    "UpdateComputerToolDtoMessagesItem",
+    "UpdateConversationBlockDto",
+    "UpdateConversationBlockDtoMessagesItem",
+    "UpdateCustomKnowledgeBaseDto",
     "UpdateCustomLlmCredentialDto",
     "UpdateDeepInfraCredentialDto",
+    "UpdateDeepSeekCredentialDto",
     "UpdateDeepgramCredentialDto",
+    "UpdateDtmfToolDto",
+    "UpdateDtmfToolDtoMessagesItem",
     "UpdateElevenLabsCredentialDto",
+    "UpdateEndCallToolDto",
+    "UpdateEndCallToolDtoMessagesItem",
+    "UpdateFunctionToolDto",
+    "UpdateFunctionToolDtoMessagesItem",
     "UpdateGcpCredentialDto",
+    "UpdateGhlToolDto",
+    "UpdateGhlToolDtoMessagesItem",
     "UpdateGladiaCredentialDto",
     "UpdateGoHighLevelCredentialDto",
     "UpdateGoogleCredentialDto",
@@ -1252,26 +1361,51 @@ __all__ = [
     "UpdateLangfuseCredentialDto",
     "UpdateLmntCredentialDto",
     "UpdateMakeCredentialDto",
+    "UpdateMakeToolDto",
+    "UpdateMakeToolDtoMessagesItem",
     "UpdateOpenAiCredentialDto",
     "UpdateOpenRouterCredentialDto",
     "UpdateOrgDto",
     "UpdateOrgDtoChannel",
+    "UpdateOutputToolDto",
+    "UpdateOutputToolDtoMessagesItem",
     "UpdatePerplexityAiCredentialDto",
     "UpdatePlayHtCredentialDto",
     "UpdateRimeAiCredentialDto",
     "UpdateRunpodCredentialDto",
     "UpdateS3CredentialDto",
+    "UpdateSmallestAiCredentialDto",
     "UpdateTavusCredentialDto",
+    "UpdateTextEditorToolDto",
+    "UpdateTextEditorToolDtoMessagesItem",
     "UpdateTogetherAiCredentialDto",
+    "UpdateTokenDto",
+    "UpdateTokenDtoTag",
+    "UpdateToolCallBlockDto",
+    "UpdateToolCallBlockDtoMessagesItem",
+    "UpdateToolCallBlockDtoTool",
     "UpdateToolTemplateDto",
     "UpdateToolTemplateDtoDetails",
     "UpdateToolTemplateDtoProvider",
     "UpdateToolTemplateDtoProviderDetails",
     "UpdateToolTemplateDtoVisibility",
+    "UpdateTransferCallToolDto",
+    "UpdateTransferCallToolDtoDestinationsItem",
+    "UpdateTransferCallToolDtoMessagesItem",
+    "UpdateTrieveKnowledgeBaseDto",
     "UpdateTwilioCredentialDto",
+    "UpdateTwilioPhoneNumberDto",
+    "UpdateTwilioPhoneNumberDtoFallbackDestination",
     "UpdateUserRoleDto",
     "UpdateUserRoleDtoRole",
+    "UpdateVapiPhoneNumberDto",
+    "UpdateVapiPhoneNumberDtoFallbackDestination",
     "UpdateVonageCredentialDto",
+    "UpdateVonagePhoneNumberDto",
+    "UpdateVonagePhoneNumberDtoFallbackDestination",
+    "UpdateWorkflowBlockDto",
+    "UpdateWorkflowBlockDtoMessagesItem",
+    "UpdateWorkflowBlockDtoStepsItem",
     "UpdateXAiCredentialDto",
     "User",
     "UserMessage",

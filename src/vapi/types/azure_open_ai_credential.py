@@ -20,6 +20,13 @@ class AzureOpenAiCredential(UniversalBaseModel):
     This is not returned in the API.
     """
 
+    ocp_apim_subscription_key: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="ocpApimSubscriptionKey")
+    ] = pydantic.Field(default=None)
+    """
+    This is not returned in the API.
+    """
+
     id: str = pydantic.Field()
     """
     This is the unique identifier for the credential.

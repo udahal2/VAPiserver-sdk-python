@@ -179,6 +179,66 @@ class LogsClient:
             raise ApiError(status_code=_response.status_code, body=_response.text)
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
+    def logging_controller_logs_delete_query(
+        self,
+        *,
+        org_id: typing.Optional[str] = None,
+        assistant_id: typing.Optional[str] = None,
+        phone_number_id: typing.Optional[str] = None,
+        customer_id: typing.Optional[str] = None,
+        squad_id: typing.Optional[str] = None,
+        call_id: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> None:
+        """
+        Parameters
+        ----------
+        org_id : typing.Optional[str]
+            This is the unique identifier for the org that this log belongs to.
+
+        assistant_id : typing.Optional[str]
+            This is the ID of the assistant.
+
+        phone_number_id : typing.Optional[str]
+            This is the ID of the phone number.
+
+        customer_id : typing.Optional[str]
+            This is the ID of the customer.
+
+        squad_id : typing.Optional[str]
+            This is the ID of the squad.
+
+        call_id : typing.Optional[str]
+            This is the ID of the call.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "logs",
+            method="DELETE",
+            params={
+                "orgId": org_id,
+                "assistantId": assistant_id,
+                "phoneNumberId": phone_number_id,
+                "customerId": customer_id,
+                "squadId": squad_id,
+                "callId": call_id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
 
 class AsyncLogsClient:
     def __init__(self, *, client_wrapper: AsyncClientWrapper):
@@ -337,6 +397,66 @@ class AsyncLogsClient:
                 )
                 _items = _parsed_response.results
                 return AsyncPager(has_next=_has_next, items=_items, get_next=_get_next)
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, body=_response.text)
+        raise ApiError(status_code=_response.status_code, body=_response_json)
+
+    async def logging_controller_logs_delete_query(
+        self,
+        *,
+        org_id: typing.Optional[str] = None,
+        assistant_id: typing.Optional[str] = None,
+        phone_number_id: typing.Optional[str] = None,
+        customer_id: typing.Optional[str] = None,
+        squad_id: typing.Optional[str] = None,
+        call_id: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> None:
+        """
+        Parameters
+        ----------
+        org_id : typing.Optional[str]
+            This is the unique identifier for the org that this log belongs to.
+
+        assistant_id : typing.Optional[str]
+            This is the ID of the assistant.
+
+        phone_number_id : typing.Optional[str]
+            This is the ID of the phone number.
+
+        customer_id : typing.Optional[str]
+            This is the ID of the customer.
+
+        squad_id : typing.Optional[str]
+            This is the ID of the squad.
+
+        call_id : typing.Optional[str]
+            This is the ID of the call.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        None
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "logs",
+            method="DELETE",
+            params={
+                "orgId": org_id,
+                "assistantId": assistant_id,
+                "phoneNumberId": phone_number_id,
+                "customerId": customer_id,
+                "squadId": squad_id,
+                "callId": call_id,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                return
             _response_json = _response.json()
         except JSONDecodeError:
             raise ApiError(status_code=_response.status_code, body=_response.text)

@@ -6,10 +6,8 @@ from .types import (
     BlocksDeleteResponse,
     BlocksGetResponse,
     BlocksListResponseItem,
+    BlocksUpdateRequest,
     BlocksUpdateResponse,
-    UpdateBlockDtoMessagesItem,
-    UpdateBlockDtoStepsItem,
-    UpdateBlockDtoTool,
 )
 
 __all__ = [
@@ -18,8 +16,6 @@ __all__ = [
     "BlocksDeleteResponse",
     "BlocksGetResponse",
     "BlocksListResponseItem",
+    "BlocksUpdateRequest",
     "BlocksUpdateResponse",
-    "UpdateBlockDtoMessagesItem",
-    "UpdateBlockDtoStepsItem",
-    "UpdateBlockDtoTool",
 ]

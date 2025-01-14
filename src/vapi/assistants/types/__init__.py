@@ -2,6 +2,7 @@
 
 from .update_assistant_dto_background_sound import UpdateAssistantDtoBackgroundSound
 from .update_assistant_dto_client_messages_item import UpdateAssistantDtoClientMessagesItem
+from .update_assistant_dto_credentials_item import UpdateAssistantDtoCredentialsItem
 from .update_assistant_dto_first_message_mode import UpdateAssistantDtoFirstMessageMode
 from .update_assistant_dto_model import UpdateAssistantDtoModel
 from .update_assistant_dto_server_messages_item import UpdateAssistantDtoServerMessagesItem
@@ -11,6 +12,7 @@ from .update_assistant_dto_voice import UpdateAssistantDtoVoice
 __all__ = [
     "UpdateAssistantDtoBackgroundSound",
     "UpdateAssistantDtoClientMessagesItem",
+    "UpdateAssistantDtoCredentialsItem",
     "UpdateAssistantDtoFirstMessageMode",
     "UpdateAssistantDtoModel",
     "UpdateAssistantDtoServerMessagesItem",

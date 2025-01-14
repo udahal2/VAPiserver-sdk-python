@@ -8,6 +8,7 @@ from .deep_infra_model import DeepInfraModel
 from .google_model import GoogleModel
 from .groq_model import GroqModel
 from .inflection_ai_model import InflectionAiModel
+from .deep_seek_model import DeepSeekModel
 from .open_ai_model import OpenAiModel
 from .open_router_model import OpenRouterModel
 from .perplexity_ai_model import PerplexityAiModel
@@ -23,6 +24,7 @@ CreateAssistantDtoModel = typing.Union[
     GoogleModel,
     GroqModel,
     InflectionAiModel,
+    DeepSeekModel,
     OpenAiModel,
     OpenRouterModel,
     PerplexityAiModel,

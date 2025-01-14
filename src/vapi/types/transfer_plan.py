@@ -6,8 +6,8 @@ import pydantic
 import typing
 from .transfer_plan_message import TransferPlanMessage
 import typing_extensions
-from .summary_plan import SummaryPlan
 from ..core.serialization import FieldMetadata
+from .summary_plan import SummaryPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -32,7 +32,16 @@ class TransferPlan(UniversalBaseModel):
     This is the message the assistant will deliver to the destination party before connecting the customer.
     
     Usage:
-    - Used only when `mode` is `warm-transfer-say-message` or `warm-transfer-wait-for-operator-to-speak-first-and-then-say-message`.
+    - Used only when `mode` is `blind-transfer-add-summary-to-sip-header`, `warm-transfer-say-message` or `warm-transfer-wait-for-operator-to-speak-first-and-then-say-message`.
+    """
+
+    sip_verb: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="sipVerb")
+    ] = pydantic.Field(default=None)
+    """
+    This specifies the SIP verb to use while transferring the call.
+    - 'refer': Uses SIP REFER to transfer the call (default)
+    - 'bye': Ends current call with SIP BYE
     """
 
     summary_plan: typing_extensions.Annotated[typing.Optional[SummaryPlan], FieldMetadata(alias="summaryPlan")] = (
@@ -42,7 +51,7 @@ class TransferPlan(UniversalBaseModel):
     This is the plan for generating a summary of the call to present to the destination party.
     
     Usage:
-    - Used only when `mode` is `warm-transfer-say-summary` or `warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary`.
+    - Used only when `mode` is `blind-transfer-add-summary-to-sip-header` or `warm-transfer-say-summary` or `warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary`.
     """
 
     if IS_PYDANTIC_V2:

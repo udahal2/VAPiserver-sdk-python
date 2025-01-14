@@ -11,6 +11,7 @@ from .fallback_neets_voice import FallbackNeetsVoice
 from .fallback_open_ai_voice import FallbackOpenAiVoice
 from .fallback_play_ht_voice import FallbackPlayHtVoice
 from .fallback_rime_ai_voice import FallbackRimeAiVoice
+from .fallback_smallest_ai_voice import FallbackSmallestAiVoice
 from .fallback_tavus_voice import FallbackTavusVoice
 
 FallbackPlanVoicesItem = typing.Union[
@@ -24,5 +25,6 @@ FallbackPlanVoicesItem = typing.Union[
     FallbackOpenAiVoice,
     FallbackPlayHtVoice,
     FallbackRimeAiVoice,
+    FallbackSmallestAiVoice,
     FallbackTavusVoice,
 ]

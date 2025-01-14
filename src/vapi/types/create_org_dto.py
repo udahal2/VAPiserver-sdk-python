@@ -6,6 +6,7 @@ import typing
 from ..core.serialization import FieldMetadata
 import pydantic
 from .create_org_dto_channel import CreateOrgDtoChannel
+from .server import Server
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -43,20 +44,15 @@ class CreateOrgDto(UniversalBaseModel):
     This is the monthly billing limit for the org. To go beyond $1000/mo, please contact us at support@vapi.ai.
     """
 
-    server_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serverUrl")] = pydantic.Field(
-        default=None
-    )
+    server: typing.Optional[Server] = pydantic.Field(default=None)
     """
-    This is the URL Vapi will communicate with via HTTP GET and POST Requests. This is used for retrieving context, function calling, and end-of-call reports.
+    This is where Vapi will send webhooks. You can find all webhooks available along with their shape in ServerMessage schema.
     
-    All requests will be sent with the call object among other things relevant to that message. You can find more details in the Server URL documentation.
-    """
-
-    server_url_secret: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="serverUrlSecret")] = (
-        pydantic.Field(default=None)
-    )
-    """
-    This is the secret you can set that Vapi will send with every request to your server. Will be sent as a header called x-vapi-secret.
+    The order of precedence is:
+    
+    1. assistant.server
+    2. phoneNumber.server
+    3. org.server
     """
 
     concurrency_limit: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="concurrencyLimit")] = (

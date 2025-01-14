@@ -15,7 +15,7 @@ from ..core.serialization import convert_and_respect_annotation_metadata
 from .types.phone_numbers_get_response import PhoneNumbersGetResponse
 from ..core.jsonable_encoder import jsonable_encoder
 from .types.phone_numbers_delete_response import PhoneNumbersDeleteResponse
-from .types.update_phone_number_dto_fallback_destination import UpdatePhoneNumberDtoFallbackDestination
+from .types.phone_numbers_update_request import PhoneNumbersUpdateRequest
 from .types.phone_numbers_update_response import PhoneNumbersUpdateResponse
 from ..core.client_wrapper import AsyncClientWrapper
 
@@ -215,54 +215,14 @@ class PhoneNumbersClient:
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
     def update(
-        self,
-        id: str,
-        *,
-        fallback_destination: typing.Optional[UpdatePhoneNumberDtoFallbackDestination] = OMIT,
-        name: typing.Optional[str] = OMIT,
-        assistant_id: typing.Optional[str] = OMIT,
-        squad_id: typing.Optional[str] = OMIT,
-        server_url: typing.Optional[str] = OMIT,
-        server_url_secret: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
+        self, id: str, *, request: PhoneNumbersUpdateRequest, request_options: typing.Optional[RequestOptions] = None
     ) -> PhoneNumbersUpdateResponse:
         """
         Parameters
         ----------
         id : str
 
-        fallback_destination : typing.Optional[UpdatePhoneNumberDtoFallbackDestination]
-            This is the fallback destination an inbound call will be transferred to if:
-            1. `assistantId` is not set
-            2. `squadId` is not set
-            3. and, `assistant-request` message to the `serverUrl` fails
-
-            If this is not set and above conditions are met, the inbound call is hung up with an error message.
-
-        name : typing.Optional[str]
-            This is the name of the phone number. This is just for your own reference.
-
-        assistant_id : typing.Optional[str]
-            This is the assistant that will be used for incoming calls to this phone number.
-
-            If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
-
-        squad_id : typing.Optional[str]
-            This is the squad that will be used for incoming calls to this phone number.
-
-            If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
-
-        server_url : typing.Optional[str]
-            This is the server URL where messages will be sent for calls on this number. This includes the `assistant-request` message.
-
-            You can see the shape of the messages sent in `ServerMessage`.
-
-            This overrides the `org.serverUrl`. Order of precedence: tool.server.url > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl.
-
-        server_url_secret : typing.Optional[str]
-            This is the secret Vapi will send with every message to your server. It's sent as a header called x-vapi-secret.
-
-            Same precedence logic as serverUrl.
+        request : PhoneNumbersUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -275,19 +235,9 @@ class PhoneNumbersClient:
         _response = self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",
             method="PATCH",
-            json={
-                "fallbackDestination": convert_and_respect_annotation_metadata(
-                    object_=fallback_destination, annotation=UpdatePhoneNumberDtoFallbackDestination, direction="write"
-                ),
-                "name": name,
-                "assistantId": assistant_id,
-                "squadId": squad_id,
-                "serverUrl": server_url,
-                "serverUrlSecret": server_url_secret,
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=PhoneNumbersUpdateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )
@@ -500,54 +450,14 @@ class AsyncPhoneNumbersClient:
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
     async def update(
-        self,
-        id: str,
-        *,
-        fallback_destination: typing.Optional[UpdatePhoneNumberDtoFallbackDestination] = OMIT,
-        name: typing.Optional[str] = OMIT,
-        assistant_id: typing.Optional[str] = OMIT,
-        squad_id: typing.Optional[str] = OMIT,
-        server_url: typing.Optional[str] = OMIT,
-        server_url_secret: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
+        self, id: str, *, request: PhoneNumbersUpdateRequest, request_options: typing.Optional[RequestOptions] = None
     ) -> PhoneNumbersUpdateResponse:
         """
         Parameters
         ----------
         id : str
 
-        fallback_destination : typing.Optional[UpdatePhoneNumberDtoFallbackDestination]
-            This is the fallback destination an inbound call will be transferred to if:
-            1. `assistantId` is not set
-            2. `squadId` is not set
-            3. and, `assistant-request` message to the `serverUrl` fails
-
-            If this is not set and above conditions are met, the inbound call is hung up with an error message.
-
-        name : typing.Optional[str]
-            This is the name of the phone number. This is just for your own reference.
-
-        assistant_id : typing.Optional[str]
-            This is the assistant that will be used for incoming calls to this phone number.
-
-            If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
-
-        squad_id : typing.Optional[str]
-            This is the squad that will be used for incoming calls to this phone number.
-
-            If neither `assistantId` nor `squadId` is set, `assistant-request` will be sent to your Server URL. Check `ServerMessage` and `ServerMessageResponse` for the shape of the message and response that is expected.
-
-        server_url : typing.Optional[str]
-            This is the server URL where messages will be sent for calls on this number. This includes the `assistant-request` message.
-
-            You can see the shape of the messages sent in `ServerMessage`.
-
-            This overrides the `org.serverUrl`. Order of precedence: tool.server.url > assistant.serverUrl > phoneNumber.serverUrl > org.serverUrl.
-
-        server_url_secret : typing.Optional[str]
-            This is the secret Vapi will send with every message to your server. It's sent as a header called x-vapi-secret.
-
-            Same precedence logic as serverUrl.
+        request : PhoneNumbersUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -560,19 +470,9 @@ class AsyncPhoneNumbersClient:
         _response = await self._client_wrapper.httpx_client.request(
             f"phone-number/{jsonable_encoder(id)}",
             method="PATCH",
-            json={
-                "fallbackDestination": convert_and_respect_annotation_metadata(
-                    object_=fallback_destination, annotation=UpdatePhoneNumberDtoFallbackDestination, direction="write"
-                ),
-                "name": name,
-                "assistantId": assistant_id,
-                "squadId": squad_id,
-                "serverUrl": server_url,
-                "serverUrlSecret": server_url_secret,
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=PhoneNumbersUpdateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )

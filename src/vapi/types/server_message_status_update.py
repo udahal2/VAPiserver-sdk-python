@@ -117,6 +117,11 @@ class ServerMessageStatusUpdate(UniversalBaseModel):
     This is the transcript of the call. This is only sent if the status is "forwarding".
     """
 
+    summary: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the summary of the call. This is only sent if the status is "forwarding".
+    """
+
     inbound_phone_call_debugging_artifacts: typing_extensions.Annotated[
         typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]],
         FieldMetadata(alias="inboundPhoneCallDebuggingArtifacts"),

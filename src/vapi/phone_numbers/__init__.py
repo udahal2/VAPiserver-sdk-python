@@ -6,8 +6,8 @@ from .types import (
     PhoneNumbersDeleteResponse,
     PhoneNumbersGetResponse,
     PhoneNumbersListResponseItem,
+    PhoneNumbersUpdateRequest,
     PhoneNumbersUpdateResponse,
-    UpdatePhoneNumberDtoFallbackDestination,
 )
 
 __all__ = [
@@ -16,6 +16,6 @@ __all__ = [
     "PhoneNumbersDeleteResponse",
     "PhoneNumbersGetResponse",
     "PhoneNumbersListResponseItem",
+    "PhoneNumbersUpdateRequest",
     "PhoneNumbersUpdateResponse",
-    "UpdatePhoneNumberDtoFallbackDestination",
 ]

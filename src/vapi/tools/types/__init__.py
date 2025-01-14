@@ -5,8 +5,8 @@ from .tools_create_response import ToolsCreateResponse
 from .tools_delete_response import ToolsDeleteResponse
 from .tools_get_response import ToolsGetResponse
 from .tools_list_response_item import ToolsListResponseItem
+from .tools_update_request import ToolsUpdateRequest
 from .tools_update_response import ToolsUpdateResponse
-from .update_tool_dto_messages_item import UpdateToolDtoMessagesItem
 
 __all__ = [
     "ToolsCreateRequest",
@@ -14,6 +14,6 @@ __all__ = [
     "ToolsDeleteResponse",
     "ToolsGetResponse",
     "ToolsListResponseItem",
+    "ToolsUpdateRequest",
     "ToolsUpdateResponse",
-    "UpdateToolDtoMessagesItem",
 ]

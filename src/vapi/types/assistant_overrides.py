@@ -17,6 +17,7 @@ from .assistant_overrides_client_messages_item import AssistantOverridesClientMe
 from .assistant_overrides_server_messages_item import AssistantOverridesServerMessagesItem
 from .assistant_overrides_background_sound import AssistantOverridesBackgroundSound
 from .transport_configuration_twilio import TransportConfigurationTwilio
+from .assistant_overrides_credentials_item import AssistantOverridesCredentialsItem
 from .twilio_voicemail_detection import TwilioVoicemailDetection
 from .analysis_plan import AnalysisPlan
 from .artifact_plan import ArtifactPlan
@@ -141,6 +142,11 @@ class AssistantOverrides(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
+    """
+
+    credentials: typing.Optional[typing.List[AssistantOverridesCredentialsItem]] = pydantic.Field(default=None)
+    """
+    These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
     """
 
     variable_values: typing_extensions.Annotated[

@@ -3,6 +3,7 @@
 from .types import (
     UpdateAssistantDtoBackgroundSound,
     UpdateAssistantDtoClientMessagesItem,
+    UpdateAssistantDtoCredentialsItem,
     UpdateAssistantDtoFirstMessageMode,
     UpdateAssistantDtoModel,
     UpdateAssistantDtoServerMessagesItem,
@@ -13,6 +14,7 @@ from .types import (
 __all__ = [
     "UpdateAssistantDtoBackgroundSound",
     "UpdateAssistantDtoClientMessagesItem",
+    "UpdateAssistantDtoCredentialsItem",
     "UpdateAssistantDtoFirstMessageMode",
     "UpdateAssistantDtoModel",
     "UpdateAssistantDtoServerMessagesItem",

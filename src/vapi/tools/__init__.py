@@ -6,8 +6,8 @@ from .types import (
     ToolsDeleteResponse,
     ToolsGetResponse,
     ToolsListResponseItem,
+    ToolsUpdateRequest,
     ToolsUpdateResponse,
-    UpdateToolDtoMessagesItem,
 )
 
 __all__ = [
@@ -16,6 +16,6 @@ __all__ = [
     "ToolsDeleteResponse",
     "ToolsGetResponse",
     "ToolsListResponseItem",
+    "ToolsUpdateRequest",
     "ToolsUpdateResponse",
-    "UpdateToolDtoMessagesItem",
 ]

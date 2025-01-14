@@ -135,7 +135,7 @@ class Subscription(UniversalBaseModel):
         typing.Optional[str], FieldMetadata(alias="stripeCustomerEmail")
     ] = pydantic.Field(default=None)
     """
-    This is the stripe customer's email.
+    This is the customer's email on Stripe.
     """
 
     referred_by_email: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="referredByEmail")] = (

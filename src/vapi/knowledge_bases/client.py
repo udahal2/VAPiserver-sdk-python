@@ -15,6 +15,7 @@ from ..core.serialization import convert_and_respect_annotation_metadata
 from .types.knowledge_bases_get_response import KnowledgeBasesGetResponse
 from ..core.jsonable_encoder import jsonable_encoder
 from .types.knowledge_bases_delete_response import KnowledgeBasesDeleteResponse
+from .types.knowledge_bases_update_request import KnowledgeBasesUpdateRequest
 from .types.knowledge_bases_update_response import KnowledgeBasesUpdateResponse
 from ..core.client_wrapper import AsyncClientWrapper
 
@@ -216,12 +217,14 @@ class KnowledgeBasesClient:
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
     def update(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, id: str, *, request: KnowledgeBasesUpdateRequest, request_options: typing.Optional[RequestOptions] = None
     ) -> KnowledgeBasesUpdateResponse:
         """
         Parameters
         ----------
         id : str
+
+        request : KnowledgeBasesUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -234,7 +237,11 @@ class KnowledgeBasesClient:
         _response = self._client_wrapper.httpx_client.request(
             f"knowledge-base/{jsonable_encoder(id)}",
             method="PATCH",
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=KnowledgeBasesUpdateRequest, direction="write"
+            ),
             request_options=request_options,
+            omit=OMIT,
         )
         try:
             if 200 <= _response.status_code < 300:
@@ -447,12 +454,14 @@ class AsyncKnowledgeBasesClient:
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
     async def update(
-        self, id: str, *, request_options: typing.Optional[RequestOptions] = None
+        self, id: str, *, request: KnowledgeBasesUpdateRequest, request_options: typing.Optional[RequestOptions] = None
     ) -> KnowledgeBasesUpdateResponse:
         """
         Parameters
         ----------
         id : str
+
+        request : KnowledgeBasesUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -465,7 +474,11 @@ class AsyncKnowledgeBasesClient:
         _response = await self._client_wrapper.httpx_client.request(
             f"knowledge-base/{jsonable_encoder(id)}",
             method="PATCH",
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=KnowledgeBasesUpdateRequest, direction="write"
+            ),
             request_options=request_options,
+            omit=OMIT,
         )
         try:
             if 200 <= _response.status_code < 300:

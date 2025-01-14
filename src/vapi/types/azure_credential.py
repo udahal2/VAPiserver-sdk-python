@@ -2,17 +2,19 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .azure_credential_service import AzureCredentialService
 import pydantic
 from .azure_credential_region import AzureCredentialRegion
 import typing_extensions
 from ..core.serialization import FieldMetadata
 import datetime as dt
+from .azure_blob_storage_bucket_plan import AzureBlobStorageBucketPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class AzureCredential(UniversalBaseModel):
     provider: typing.Literal["azure"] = "azure"
-    service: typing.Literal["speech"] = pydantic.Field(default="speech")
+    service: AzureCredentialService = pydantic.Field()
     """
     This is the service being used in Azure.
     """
@@ -52,6 +54,13 @@ class AzureCredential(UniversalBaseModel):
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the name of credential. This is just for your reference.
+    """
+
+    bucket_plan: typing_extensions.Annotated[
+        typing.Optional[AzureBlobStorageBucketPlan], FieldMetadata(alias="bucketPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is the bucket plan that can be provided to store call artifacts in Azure Blob Storage.
     """
 
     if IS_PYDANTIC_V2:

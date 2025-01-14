@@ -12,12 +12,12 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class UpdateByoSipTrunkCredentialDto(UniversalBaseModel):
-    provider: typing.Optional[typing.Literal["byo-sip-trunk"]] = pydantic.Field(default=None)
+    name: typing.Optional[str] = pydantic.Field(default=None)
     """
-    This can be used to bring your own SIP trunks or to connect to a Carrier.
+    This is the name of credential. This is just for your reference.
     """
 
-    gateways: typing.List[SipTrunkGateway] = pydantic.Field()
+    gateways: typing.Optional[typing.List[SipTrunkGateway]] = pydantic.Field(default=None)
     """
     This is the list of SIP trunk's gateways.
     """
@@ -60,11 +60,6 @@ class UpdateByoSipTrunkCredentialDto(UniversalBaseModel):
     ] = pydantic.Field(default=None)
     """
     This is an advanced configuration for enterprise deployments. This uses the onprem SBC to trunk into the SIP trunk's `gateways`, rather than the managed SBC provided by Vapi.
-    """
-
-    name: typing.Optional[str] = pydantic.Field(default=None)
-    """
-    This is the name of credential. This is just for your reference.
     """
 
     if IS_PYDANTIC_V2:

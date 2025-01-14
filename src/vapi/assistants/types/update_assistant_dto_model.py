@@ -8,6 +8,7 @@ from ...types.deep_infra_model import DeepInfraModel
 from ...types.google_model import GoogleModel
 from ...types.groq_model import GroqModel
 from ...types.inflection_ai_model import InflectionAiModel
+from ...types.deep_seek_model import DeepSeekModel
 from ...types.open_ai_model import OpenAiModel
 from ...types.open_router_model import OpenRouterModel
 from ...types.perplexity_ai_model import PerplexityAiModel
@@ -23,6 +24,7 @@ UpdateAssistantDtoModel = typing.Union[
     GoogleModel,
     GroqModel,
     InflectionAiModel,
+    DeepSeekModel,
     OpenAiModel,
     OpenRouterModel,
     PerplexityAiModel,

@@ -15,10 +15,7 @@ from ..core.serialization import convert_and_respect_annotation_metadata
 from .types.blocks_get_response import BlocksGetResponse
 from ..core.jsonable_encoder import jsonable_encoder
 from .types.blocks_delete_response import BlocksDeleteResponse
-from .types.update_block_dto_messages_item import UpdateBlockDtoMessagesItem
-from ..types.json_schema import JsonSchema
-from .types.update_block_dto_tool import UpdateBlockDtoTool
-from .types.update_block_dto_steps_item import UpdateBlockDtoStepsItem
+from .types.blocks_update_request import BlocksUpdateRequest
 from .types.blocks_update_response import BlocksUpdateResponse
 from ..core.client_wrapper import AsyncClientWrapper
 
@@ -218,78 +215,14 @@ class BlocksClient:
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
     def update(
-        self,
-        id: str,
-        *,
-        messages: typing.Optional[typing.Sequence[UpdateBlockDtoMessagesItem]] = OMIT,
-        input_schema: typing.Optional[JsonSchema] = OMIT,
-        output_schema: typing.Optional[JsonSchema] = OMIT,
-        tool: typing.Optional[UpdateBlockDtoTool] = OMIT,
-        steps: typing.Optional[typing.Sequence[UpdateBlockDtoStepsItem]] = OMIT,
-        name: typing.Optional[str] = OMIT,
-        instruction: typing.Optional[str] = OMIT,
-        tool_id: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
+        self, id: str, *, request: BlocksUpdateRequest, request_options: typing.Optional[RequestOptions] = None
     ) -> BlocksUpdateResponse:
         """
         Parameters
         ----------
         id : str
 
-        messages : typing.Optional[typing.Sequence[UpdateBlockDtoMessagesItem]]
-            These are the pre-configured messages that will be spoken to the user while the block is running.
-
-        input_schema : typing.Optional[JsonSchema]
-            This is the input schema for the block. This is the input the block needs to run. It's given to the block as `steps[0].input`
-
-            These are accessible as variables:
-            - ({{input.propertyName}}) in context of the block execution (step)
-            - ({{stepName.input.propertyName}}) in context of the workflow
-
-        output_schema : typing.Optional[JsonSchema]
-            This is the output schema for the block. This is the output the block will return to the workflow (`{{stepName.output}}`).
-
-            These are accessible as variables:
-            - ({{output.propertyName}}) in context of the block execution (step)
-            - ({{stepName.output.propertyName}}) in context of the workflow (read caveat #1)
-            - ({{blockName.output.propertyName}}) in context of the workflow (read caveat #2)
-
-            Caveats:
-            1. a workflow can execute a step multiple times. example, if a loop is used in the graph. {{stepName.output.propertyName}} will reference the latest usage of the step.
-            2. a workflow can execute a block multiple times. example, if a step is called multiple times or if a block is used in multiple steps. {{blockName.output.propertyName}} will reference the latest usage of the block. this liquid variable is just provided for convenience when creating blocks outside of a workflow with steps.
-
-        tool : typing.Optional[UpdateBlockDtoTool]
-            This is the tool that the block will call. To use an existing tool, use `toolId`.
-
-        steps : typing.Optional[typing.Sequence[UpdateBlockDtoStepsItem]]
-            These are the steps in the workflow.
-
-        name : typing.Optional[str]
-            This is the name of the block. This is just for your reference.
-
-        instruction : typing.Optional[str]
-            This is the instruction to the model.
-
-            You can reference any variable in the context of the current block execution (step):
-            - "{{input.your-property-name}}" for the current step's input
-            - "{{your-step-name.output.your-property-name}}" for another step's output (in the same workflow; read caveat #1)
-            - "{{your-step-name.input.your-property-name}}" for another step's input (in the same workflow; read caveat #1)
-            - "{{your-block-name.output.your-property-name}}" for another block's output (in the same workflow; read caveat #2)
-            - "{{your-block-name.input.your-property-name}}" for another block's input (in the same workflow; read caveat #2)
-            - "{{workflow.input.your-property-name}}" for the current workflow's input
-            - "{{global.your-property-name}}" for the global context
-
-            This can be as simple or as complex as you want it to be.
-            - "say hello and ask the user about their day!"
-            - "collect the user's first and last name"
-            - "user is {{input.firstName}} {{input.lastName}}. their age is {{input.age}}. ask them about their salary and if they might be interested in buying a house. we offer {{input.offer}}"
-
-            Caveats:
-            1. a workflow can execute a step multiple times. example, if a loop is used in the graph. {{stepName.output/input.propertyName}} will reference the latest usage of the step.
-            2. a workflow can execute a block multiple times. example, if a step is called multiple times or if a block is used in multiple steps. {{blockName.output/input.propertyName}} will reference the latest usage of the block. this liquid variable is just provided for convenience when creating blocks outside of a workflow with steps.
-
-        tool_id : typing.Optional[str]
-            This is the id of the tool that the block will call. To use a transient tool, use `tool`.
+        request : BlocksUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -302,29 +235,9 @@ class BlocksClient:
         _response = self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
             method="PATCH",
-            json={
-                "messages": convert_and_respect_annotation_metadata(
-                    object_=messages, annotation=typing.Sequence[UpdateBlockDtoMessagesItem], direction="write"
-                ),
-                "inputSchema": convert_and_respect_annotation_metadata(
-                    object_=input_schema, annotation=JsonSchema, direction="write"
-                ),
-                "outputSchema": convert_and_respect_annotation_metadata(
-                    object_=output_schema, annotation=JsonSchema, direction="write"
-                ),
-                "tool": convert_and_respect_annotation_metadata(
-                    object_=tool, annotation=UpdateBlockDtoTool, direction="write"
-                ),
-                "steps": convert_and_respect_annotation_metadata(
-                    object_=steps, annotation=typing.Sequence[UpdateBlockDtoStepsItem], direction="write"
-                ),
-                "name": name,
-                "instruction": instruction,
-                "toolId": tool_id,
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=BlocksUpdateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )
@@ -535,78 +448,14 @@ class AsyncBlocksClient:
         raise ApiError(status_code=_response.status_code, body=_response_json)
 
     async def update(
-        self,
-        id: str,
-        *,
-        messages: typing.Optional[typing.Sequence[UpdateBlockDtoMessagesItem]] = OMIT,
-        input_schema: typing.Optional[JsonSchema] = OMIT,
-        output_schema: typing.Optional[JsonSchema] = OMIT,
-        tool: typing.Optional[UpdateBlockDtoTool] = OMIT,
-        steps: typing.Optional[typing.Sequence[UpdateBlockDtoStepsItem]] = OMIT,
-        name: typing.Optional[str] = OMIT,
-        instruction: typing.Optional[str] = OMIT,
-        tool_id: typing.Optional[str] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
+        self, id: str, *, request: BlocksUpdateRequest, request_options: typing.Optional[RequestOptions] = None
     ) -> BlocksUpdateResponse:
         """
         Parameters
         ----------
         id : str
 
-        messages : typing.Optional[typing.Sequence[UpdateBlockDtoMessagesItem]]
-            These are the pre-configured messages that will be spoken to the user while the block is running.
-
-        input_schema : typing.Optional[JsonSchema]
-            This is the input schema for the block. This is the input the block needs to run. It's given to the block as `steps[0].input`
-
-            These are accessible as variables:
-            - ({{input.propertyName}}) in context of the block execution (step)
-            - ({{stepName.input.propertyName}}) in context of the workflow
-
-        output_schema : typing.Optional[JsonSchema]
-            This is the output schema for the block. This is the output the block will return to the workflow (`{{stepName.output}}`).
-
-            These are accessible as variables:
-            - ({{output.propertyName}}) in context of the block execution (step)
-            - ({{stepName.output.propertyName}}) in context of the workflow (read caveat #1)
-            - ({{blockName.output.propertyName}}) in context of the workflow (read caveat #2)
-
-            Caveats:
-            1. a workflow can execute a step multiple times. example, if a loop is used in the graph. {{stepName.output.propertyName}} will reference the latest usage of the step.
-            2. a workflow can execute a block multiple times. example, if a step is called multiple times or if a block is used in multiple steps. {{blockName.output.propertyName}} will reference the latest usage of the block. this liquid variable is just provided for convenience when creating blocks outside of a workflow with steps.
-
-        tool : typing.Optional[UpdateBlockDtoTool]
-            This is the tool that the block will call. To use an existing tool, use `toolId`.
-
-        steps : typing.Optional[typing.Sequence[UpdateBlockDtoStepsItem]]
-            These are the steps in the workflow.
-
-        name : typing.Optional[str]
-            This is the name of the block. This is just for your reference.
-
-        instruction : typing.Optional[str]
-            This is the instruction to the model.
-
-            You can reference any variable in the context of the current block execution (step):
-            - "{{input.your-property-name}}" for the current step's input
-            - "{{your-step-name.output.your-property-name}}" for another step's output (in the same workflow; read caveat #1)
-            - "{{your-step-name.input.your-property-name}}" for another step's input (in the same workflow; read caveat #1)
-            - "{{your-block-name.output.your-property-name}}" for another block's output (in the same workflow; read caveat #2)
-            - "{{your-block-name.input.your-property-name}}" for another block's input (in the same workflow; read caveat #2)
-            - "{{workflow.input.your-property-name}}" for the current workflow's input
-            - "{{global.your-property-name}}" for the global context
-
-            This can be as simple or as complex as you want it to be.
-            - "say hello and ask the user about their day!"
-            - "collect the user's first and last name"
-            - "user is {{input.firstName}} {{input.lastName}}. their age is {{input.age}}. ask them about their salary and if they might be interested in buying a house. we offer {{input.offer}}"
-
-            Caveats:
-            1. a workflow can execute a step multiple times. example, if a loop is used in the graph. {{stepName.output/input.propertyName}} will reference the latest usage of the step.
-            2. a workflow can execute a block multiple times. example, if a step is called multiple times or if a block is used in multiple steps. {{blockName.output/input.propertyName}} will reference the latest usage of the block. this liquid variable is just provided for convenience when creating blocks outside of a workflow with steps.
-
-        tool_id : typing.Optional[str]
-            This is the id of the tool that the block will call. To use a transient tool, use `tool`.
+        request : BlocksUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -619,29 +468,9 @@ class AsyncBlocksClient:
         _response = await self._client_wrapper.httpx_client.request(
             f"block/{jsonable_encoder(id)}",
             method="PATCH",
-            json={
-                "messages": convert_and_respect_annotation_metadata(
-                    object_=messages, annotation=typing.Sequence[UpdateBlockDtoMessagesItem], direction="write"
-                ),
-                "inputSchema": convert_and_respect_annotation_metadata(
-                    object_=input_schema, annotation=JsonSchema, direction="write"
-                ),
-                "outputSchema": convert_and_respect_annotation_metadata(
-                    object_=output_schema, annotation=JsonSchema, direction="write"
-                ),
-                "tool": convert_and_respect_annotation_metadata(
-                    object_=tool, annotation=UpdateBlockDtoTool, direction="write"
-                ),
-                "steps": convert_and_respect_annotation_metadata(
-                    object_=steps, annotation=typing.Sequence[UpdateBlockDtoStepsItem], direction="write"
-                ),
-                "name": name,
-                "instruction": instruction,
-                "toolId": tool_id,
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=BlocksUpdateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )

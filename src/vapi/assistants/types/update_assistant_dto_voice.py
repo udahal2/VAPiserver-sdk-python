@@ -11,6 +11,7 @@ from ...types.neets_voice import NeetsVoice
 from ...types.open_ai_voice import OpenAiVoice
 from ...types.play_ht_voice import PlayHtVoice
 from ...types.rime_ai_voice import RimeAiVoice
+from ...types.smallest_ai_voice import SmallestAiVoice
 from ...types.tavus_voice import TavusVoice
 
 UpdateAssistantDtoVoice = typing.Union[
@@ -24,5 +25,6 @@ UpdateAssistantDtoVoice = typing.Union[
     OpenAiVoice,
     PlayHtVoice,
     RimeAiVoice,
+    SmallestAiVoice,
     TavusVoice,
 ]

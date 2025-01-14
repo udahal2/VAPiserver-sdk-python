@@ -9,6 +9,7 @@ import typing_extensions
 from ..core.serialization import FieldMetadata
 from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
 from .google_model_model import GoogleModelModel
+from .google_realtime_config import GoogleRealtimeConfig
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -54,6 +55,14 @@ class GoogleModel(UniversalBaseModel):
     """
 
     provider: typing.Literal["google"] = "google"
+    realtime_config: typing_extensions.Annotated[
+        typing.Optional[GoogleRealtimeConfig], FieldMetadata(alias="realtimeConfig")
+    ] = pydantic.Field(default=None)
+    """
+    This is the session configuration for the Gemini Flash 2.0 Multimodal Live API.
+    Only applicable if the model `gemini-2.0-flash-realtime-exp` is selected.
+    """
+
     temperature: typing.Optional[float] = pydantic.Field(default=None)
     """
     This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.

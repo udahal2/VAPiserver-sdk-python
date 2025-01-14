@@ -5,6 +5,7 @@ from .knowledge_bases_create_response import KnowledgeBasesCreateResponse
 from .knowledge_bases_delete_response import KnowledgeBasesDeleteResponse
 from .knowledge_bases_get_response import KnowledgeBasesGetResponse
 from .knowledge_bases_list_response_item import KnowledgeBasesListResponseItem
+from .knowledge_bases_update_request import KnowledgeBasesUpdateRequest
 from .knowledge_bases_update_response import KnowledgeBasesUpdateResponse
 
 __all__ = [
@@ -13,5 +14,6 @@ __all__ = [
     "KnowledgeBasesDeleteResponse",
     "KnowledgeBasesGetResponse",
     "KnowledgeBasesListResponseItem",
+    "KnowledgeBasesUpdateRequest",
     "KnowledgeBasesUpdateResponse",
 ]
