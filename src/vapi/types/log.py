@@ -40,43 +40,51 @@ class Log(UniversalBaseModel):
     This is the specific resource, relevant only to API logs.
     """
 
-    request_duration_seconds: typing_extensions.Annotated[float, FieldMetadata(alias="requestDurationSeconds")] = (
-        pydantic.Field()
-    )
+    request_duration_seconds: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="requestDurationSeconds")
+    ] = pydantic.Field(default=None)
     """
     'This is how long the request took.
     """
 
-    request_started_at: typing_extensions.Annotated[str, FieldMetadata(alias="requestStartedAt")] = pydantic.Field()
+    request_started_at: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="requestStartedAt")] = (
+        pydantic.Field(default=None)
+    )
     """
     This is the timestamp at which the request began.
     """
 
-    request_finished_at: typing_extensions.Annotated[str, FieldMetadata(alias="requestFinishedAt")] = pydantic.Field()
+    request_finished_at: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="requestFinishedAt")] = (
+        pydantic.Field(default=None)
+    )
     """
     This is the timestamp at which the request finished.
     """
 
     request_body: typing_extensions.Annotated[
-        typing.Dict[str, typing.Optional[typing.Any]], FieldMetadata(alias="requestBody")
-    ] = pydantic.Field()
+        typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]], FieldMetadata(alias="requestBody")
+    ] = pydantic.Field(default=None)
     """
     This is the body of the request.
     """
 
-    request_http_method: typing_extensions.Annotated[LogRequestHttpMethod, FieldMetadata(alias="requestHttpMethod")] = (
-        pydantic.Field()
-    )
+    request_http_method: typing_extensions.Annotated[
+        typing.Optional[LogRequestHttpMethod], FieldMetadata(alias="requestHttpMethod")
+    ] = pydantic.Field(default=None)
     """
     This is the request method.
     """
 
-    request_url: typing_extensions.Annotated[str, FieldMetadata(alias="requestUrl")] = pydantic.Field()
+    request_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="requestUrl")] = pydantic.Field(
+        default=None
+    )
     """
     This is the request URL.
     """
 
-    request_path: typing_extensions.Annotated[str, FieldMetadata(alias="requestPath")] = pydantic.Field()
+    request_path: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="requestPath")] = (
+        pydantic.Field(default=None)
+    )
     """
     This is the request path.
     """
@@ -88,7 +96,9 @@ class Log(UniversalBaseModel):
     This is the request query.
     """
 
-    response_http_code: typing_extensions.Annotated[float, FieldMetadata(alias="responseHttpCode")] = pydantic.Field()
+    response_http_code: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="responseHttpCode")] = (
+        pydantic.Field(default=None)
+    )
     """
     This the HTTP status code of the response.
     """

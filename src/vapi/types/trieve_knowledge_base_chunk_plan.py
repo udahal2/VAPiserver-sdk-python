@@ -8,10 +8,17 @@ import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
-class TrieveKnowledgeBaseVectorStoreCreatePlan(UniversalBaseModel):
-    file_ids: typing_extensions.Annotated[typing.List[str], FieldMetadata(alias="fileIds")] = pydantic.Field()
+class TrieveKnowledgeBaseChunkPlan(UniversalBaseModel):
+    file_ids: typing_extensions.Annotated[typing.Optional[typing.List[str]], FieldMetadata(alias="fileIds")] = (
+        pydantic.Field(default=None)
+    )
     """
     These are the file ids that will be used to create the vector store. To upload files, use the `POST /files` endpoint.
+    """
+
+    websites: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    """
+    These are the websites that will be used to create the vector store.
     """
 
     target_splits_per_chunk: typing_extensions.Annotated[

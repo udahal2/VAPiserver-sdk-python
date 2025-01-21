@@ -4,12 +4,15 @@ import typing
 from .function_tool_with_tool_call import FunctionToolWithToolCall
 from .ghl_tool_with_tool_call import GhlToolWithToolCall
 from .make_tool_with_tool_call import MakeToolWithToolCall
+from .bash_tool_with_tool_call import BashToolWithToolCall
+from .computer_tool_with_tool_call import ComputerToolWithToolCall
+from .text_editor_tool_with_tool_call import TextEditorToolWithToolCall
 
 ServerMessageToolCallsToolWithToolCallListItem = typing.Union[
     FunctionToolWithToolCall,
     GhlToolWithToolCall,
     MakeToolWithToolCall,
-    typing.Optional[typing.Any],
-    typing.Optional[typing.Any],
-    typing.Optional[typing.Any],
+    BashToolWithToolCall,
+    ComputerToolWithToolCall,
+    TextEditorToolWithToolCall,
 ]

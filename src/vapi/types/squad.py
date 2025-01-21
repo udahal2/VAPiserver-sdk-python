@@ -4,6 +4,7 @@ from __future__ import annotations
 from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
+from .create_workflow_dto import CreateWorkflowDto
 from .handoff_step import HandoffStep
 import typing
 import pydantic
@@ -70,4 +71,5 @@ class Squad(UniversalBaseModel):
 
 update_forward_refs(CallbackStep, Squad=Squad)
 update_forward_refs(CreateWorkflowBlockDto, Squad=Squad)
+update_forward_refs(CreateWorkflowDto, Squad=Squad)
 update_forward_refs(HandoffStep, Squad=Squad)

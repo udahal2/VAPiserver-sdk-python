@@ -46,9 +46,11 @@ class Subscription(UniversalBaseModel):
     Note: This is a string to avoid floating point precision issues.
     """
 
-    concurrency_limit: typing_extensions.Annotated[float, FieldMetadata(alias="concurrencyLimit")] = pydantic.Field()
+    concurrency_counter: typing_extensions.Annotated[float, FieldMetadata(alias="concurrencyCounter")] = (
+        pydantic.Field()
+    )
     """
-    This is the total concurrency limit for the subscription.
+    This is the total number of active calls (concurrency) across all orgs under this subscription.
     """
 
     concurrency_limit_included: typing_extensions.Annotated[float, FieldMetadata(alias="concurrencyLimitIncluded")] = (

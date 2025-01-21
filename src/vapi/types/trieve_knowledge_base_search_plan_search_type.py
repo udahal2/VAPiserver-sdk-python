@@ -2,6 +2,6 @@
 
 import typing
 
-TrieveKnowledgeBaseVectorStoreSearchPlanSearchType = typing.Union[
+TrieveKnowledgeBaseSearchPlanSearchType = typing.Union[
     typing.Literal["fulltext", "semantic", "hybrid", "bm25"], typing.Any
 ]

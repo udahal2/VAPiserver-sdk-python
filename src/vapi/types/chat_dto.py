@@ -4,6 +4,7 @@ from __future__ import annotations
 from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
+from .create_workflow_dto import CreateWorkflowDto
 from .handoff_step import HandoffStep
 import typing
 from .open_ai_message import OpenAiMessage
@@ -36,4 +37,5 @@ class ChatDto(UniversalBaseModel):
 
 update_forward_refs(CallbackStep, ChatDto=ChatDto)
 update_forward_refs(CreateWorkflowBlockDto, ChatDto=ChatDto)
+update_forward_refs(CreateWorkflowDto, ChatDto=ChatDto)
 update_forward_refs(HandoffStep, ChatDto=ChatDto)

@@ -5,6 +5,7 @@ from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
 from .handoff_step import HandoffStep
+from .create_workflow_dto import CreateWorkflowDto
 import typing
 from .open_ai_message import OpenAiMessage
 import pydantic
@@ -13,6 +14,7 @@ import typing_extensions
 from ..core.serialization import FieldMetadata
 from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
 from .vapi_model_steps_item import VapiModelStepsItem
+from .workflow import Workflow
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 from ..core.pydantic_utilities import update_forward_refs
 
@@ -55,6 +57,18 @@ class VapiModel(UniversalBaseModel):
 
     steps: typing.Optional[typing.List[VapiModelStepsItem]] = None
     provider: typing.Literal["vapi"] = "vapi"
+    workflow_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="workflowId")] = pydantic.Field(
+        default=None
+    )
+    """
+    This is the workflow that will be used for the call. To use a transient workflow, use `workflow` instead.
+    """
+
+    workflow: typing.Optional[Workflow] = pydantic.Field(default=None)
+    """
+    This is the workflow that will be used for the call. To use an existing workflow, use `workflowId` instead.
+    """
+
     model: str = pydantic.Field()
     """
     This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
@@ -107,3 +121,4 @@ class VapiModel(UniversalBaseModel):
 update_forward_refs(CallbackStep, VapiModel=VapiModel)
 update_forward_refs(CreateWorkflowBlockDto, VapiModel=VapiModel)
 update_forward_refs(HandoffStep, VapiModel=VapiModel)
+update_forward_refs(CreateWorkflowDto, VapiModel=VapiModel)

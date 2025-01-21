@@ -13,6 +13,7 @@ from ..types.logs_paginated_response import LogsPaginatedResponse
 from ..core.pydantic_utilities import parse_obj_as
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
+from .types.logging_controller_logs_delete_query_request_type import LoggingControllerLogsDeleteQueryRequestType
 from ..core.client_wrapper import AsyncClientWrapper
 from ..core.pagination import AsyncPager
 
@@ -24,7 +25,6 @@ class LogsClient:
     def get(
         self,
         *,
-        org_id: typing.Optional[str] = None,
         type: typing.Optional[LogsGetRequestType] = None,
         webhook_type: typing.Optional[str] = None,
         assistant_id: typing.Optional[str] = None,
@@ -48,9 +48,6 @@ class LogsClient:
         """
         Parameters
         ----------
-        org_id : typing.Optional[str]
-            This is the unique identifier for the org that this log belongs to.
-
         type : typing.Optional[LogsGetRequestType]
             This is the type of the log.
 
@@ -118,7 +115,6 @@ class LogsClient:
             "logs",
             method="GET",
             params={
-                "orgId": org_id,
                 "type": type,
                 "webhookType": webhook_type,
                 "assistantId": assistant_id,
@@ -151,7 +147,6 @@ class LogsClient:
                 )
                 _has_next = True
                 _get_next = lambda: self.get(
-                    org_id=org_id,
                     type=type,
                     webhook_type=webhook_type,
                     assistant_id=assistant_id,
@@ -182,7 +177,7 @@ class LogsClient:
     def logging_controller_logs_delete_query(
         self,
         *,
-        org_id: typing.Optional[str] = None,
+        type: typing.Optional[LoggingControllerLogsDeleteQueryRequestType] = None,
         assistant_id: typing.Optional[str] = None,
         phone_number_id: typing.Optional[str] = None,
         customer_id: typing.Optional[str] = None,
@@ -193,11 +188,10 @@ class LogsClient:
         """
         Parameters
         ----------
-        org_id : typing.Optional[str]
-            This is the unique identifier for the org that this log belongs to.
+        type : typing.Optional[LoggingControllerLogsDeleteQueryRequestType]
+            This is the type of the log.
 
         assistant_id : typing.Optional[str]
-            This is the ID of the assistant.
 
         phone_number_id : typing.Optional[str]
             This is the ID of the phone number.
@@ -222,7 +216,7 @@ class LogsClient:
             "logs",
             method="DELETE",
             params={
-                "orgId": org_id,
+                "type": type,
                 "assistantId": assistant_id,
                 "phoneNumberId": phone_number_id,
                 "customerId": customer_id,
@@ -247,7 +241,6 @@ class AsyncLogsClient:
     async def get(
         self,
         *,
-        org_id: typing.Optional[str] = None,
         type: typing.Optional[LogsGetRequestType] = None,
         webhook_type: typing.Optional[str] = None,
         assistant_id: typing.Optional[str] = None,
@@ -271,9 +264,6 @@ class AsyncLogsClient:
         """
         Parameters
         ----------
-        org_id : typing.Optional[str]
-            This is the unique identifier for the org that this log belongs to.
-
         type : typing.Optional[LogsGetRequestType]
             This is the type of the log.
 
@@ -341,7 +331,6 @@ class AsyncLogsClient:
             "logs",
             method="GET",
             params={
-                "orgId": org_id,
                 "type": type,
                 "webhookType": webhook_type,
                 "assistantId": assistant_id,
@@ -374,7 +363,6 @@ class AsyncLogsClient:
                 )
                 _has_next = True
                 _get_next = lambda: self.get(
-                    org_id=org_id,
                     type=type,
                     webhook_type=webhook_type,
                     assistant_id=assistant_id,
@@ -405,7 +393,7 @@ class AsyncLogsClient:
     async def logging_controller_logs_delete_query(
         self,
         *,
-        org_id: typing.Optional[str] = None,
+        type: typing.Optional[LoggingControllerLogsDeleteQueryRequestType] = None,
         assistant_id: typing.Optional[str] = None,
         phone_number_id: typing.Optional[str] = None,
         customer_id: typing.Optional[str] = None,
@@ -416,11 +404,10 @@ class AsyncLogsClient:
         """
         Parameters
         ----------
-        org_id : typing.Optional[str]
-            This is the unique identifier for the org that this log belongs to.
+        type : typing.Optional[LoggingControllerLogsDeleteQueryRequestType]
+            This is the type of the log.
 
         assistant_id : typing.Optional[str]
-            This is the ID of the assistant.
 
         phone_number_id : typing.Optional[str]
             This is the ID of the phone number.
@@ -445,7 +432,7 @@ class AsyncLogsClient:
             "logs",
             method="DELETE",
             params={
-                "orgId": org_id,
+                "type": type,
                 "assistantId": assistant_id,
                 "phoneNumberId": phone_number_id,
                 "customerId": customer_id,

@@ -5,13 +5,11 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
-from .trieve_knowledge_base_vector_store_search_plan_search_type import (
-    TrieveKnowledgeBaseVectorStoreSearchPlanSearchType,
-)
+from .trieve_knowledge_base_search_plan_search_type import TrieveKnowledgeBaseSearchPlanSearchType
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
-class TrieveKnowledgeBaseVectorStoreSearchPlan(UniversalBaseModel):
+class TrieveKnowledgeBaseSearchPlan(UniversalBaseModel):
     remove_stop_words: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="removeStopWords")] = (
         pydantic.Field(default=None)
     )
@@ -27,7 +25,7 @@ class TrieveKnowledgeBaseVectorStoreSearchPlan(UniversalBaseModel):
     """
 
     search_type: typing_extensions.Annotated[
-        TrieveKnowledgeBaseVectorStoreSearchPlanSearchType, FieldMetadata(alias="searchType")
+        TrieveKnowledgeBaseSearchPlanSearchType, FieldMetadata(alias="searchType")
     ] = pydantic.Field()
     """
     This is the search method used when searching for relevant chunks from the vector store.

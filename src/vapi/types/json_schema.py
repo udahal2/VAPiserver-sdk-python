@@ -47,6 +47,11 @@ class JsonSchema(UniversalBaseModel):
     This only makes sense if the type is "object".
     """
 
+    enum: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    """
+    This array specifies the allowed values that can be used to restrict the output of the model.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

@@ -61,6 +61,8 @@ from .azure_voice_id import AzureVoiceId
 from .azure_voice_id_enum import AzureVoiceIdEnum
 from .bash_tool import BashTool
 from .bash_tool_messages_item import BashToolMessagesItem
+from .bash_tool_with_tool_call import BashToolWithToolCall
+from .bash_tool_with_tool_call_messages_item import BashToolWithToolCallMessagesItem
 from .block_complete_message import BlockCompleteMessage
 from .block_complete_message_conditions_item import BlockCompleteMessageConditionsItem
 from .block_start_message import BlockStartMessage
@@ -100,6 +102,7 @@ from .client_inbound_message import ClientInboundMessage
 from .client_inbound_message_add_message import ClientInboundMessageAddMessage
 from .client_inbound_message_control import ClientInboundMessageControl
 from .client_inbound_message_control_control import ClientInboundMessageControlControl
+from .client_inbound_message_end_call import ClientInboundMessageEndCall
 from .client_inbound_message_message import ClientInboundMessageMessage
 from .client_inbound_message_say import ClientInboundMessageSay
 from .client_inbound_message_transfer import ClientInboundMessageTransfer
@@ -130,6 +133,8 @@ from .cloudflare_credential import CloudflareCredential
 from .cloudflare_r_2_bucket_plan import CloudflareR2BucketPlan
 from .computer_tool import ComputerTool
 from .computer_tool_messages_item import ComputerToolMessagesItem
+from .computer_tool_with_tool_call import ComputerToolWithToolCall
+from .computer_tool_with_tool_call_messages_item import ComputerToolWithToolCallMessagesItem
 from .condition import Condition
 from .condition_operator import ConditionOperator
 from .conversation_block import ConversationBlock
@@ -223,6 +228,7 @@ from .create_transfer_call_tool_dto import CreateTransferCallToolDto
 from .create_transfer_call_tool_dto_destinations_item import CreateTransferCallToolDtoDestinationsItem
 from .create_transfer_call_tool_dto_messages_item import CreateTransferCallToolDtoMessagesItem
 from .create_trieve_knowledge_base_dto import CreateTrieveKnowledgeBaseDto
+from .create_trieve_knowledge_base_dto_create_plan import CreateTrieveKnowledgeBaseDtoCreatePlan
 from .create_twilio_credential_dto import CreateTwilioCredentialDto
 from .create_twilio_phone_number_dto import CreateTwilioPhoneNumberDto
 from .create_twilio_phone_number_dto_fallback_destination import CreateTwilioPhoneNumberDtoFallbackDestination
@@ -238,6 +244,8 @@ from .create_webhook_credential_dto import CreateWebhookCredentialDto
 from .create_workflow_block_dto import CreateWorkflowBlockDto
 from .create_workflow_block_dto_messages_item import CreateWorkflowBlockDtoMessagesItem
 from .create_workflow_block_dto_steps_item import CreateWorkflowBlockDtoStepsItem
+from .create_workflow_dto import CreateWorkflowDto
+from .create_workflow_dto_nodes_item import CreateWorkflowDtoNodesItem
 from .create_x_ai_credential_dto import CreateXAiCredentialDto
 from .custom_knowledge_base import CustomKnowledgeBase
 from .custom_llm_credential import CustomLlmCredential
@@ -263,6 +271,8 @@ from .deepgram_voice_id import DeepgramVoiceId
 from .deepgram_voice_id_enum import DeepgramVoiceIdEnum
 from .dtmf_tool import DtmfTool
 from .dtmf_tool_messages_item import DtmfToolMessagesItem
+from .edge import Edge
+from .edge_condition import EdgeCondition
 from .eleven_labs_credential import ElevenLabsCredential
 from .eleven_labs_voice import ElevenLabsVoice
 from .eleven_labs_voice_id import ElevenLabsVoiceId
@@ -320,6 +330,7 @@ from .function_tool_messages_item import FunctionToolMessagesItem
 from .function_tool_provider_details import FunctionToolProviderDetails
 from .function_tool_with_tool_call import FunctionToolWithToolCall
 from .function_tool_with_tool_call_messages_item import FunctionToolWithToolCallMessagesItem
+from .gather import Gather
 from .gcp_credential import GcpCredential
 from .gcp_key import GcpKey
 from .gemini_multimodal_live_prebuilt_voice_config import GeminiMultimodalLivePrebuiltVoiceConfig
@@ -424,6 +435,7 @@ from .play_ht_voice_id import PlayHtVoiceId
 from .play_ht_voice_id_enum import PlayHtVoiceIdEnum
 from .play_ht_voice_language import PlayHtVoiceLanguage
 from .play_ht_voice_model import PlayHtVoiceModel
+from .programmatic_edge_condition import ProgrammaticEdgeCondition
 from .punctuation_boundary import PunctuationBoundary
 from .regex_option import RegexOption
 from .regex_option_type import RegexOptionType
@@ -437,7 +449,9 @@ from .rule_based_condition import RuleBasedCondition
 from .rule_based_condition_operator import RuleBasedConditionOperator
 from .runpod_credential import RunpodCredential
 from .s_3_credential import S3Credential
+from .say import Say
 from .sbc_configuration import SbcConfiguration
+from .semantic_edge_condition import SemanticEdgeCondition
 from .server import Server
 from .server_message import ServerMessage
 from .server_message_assistant_request import ServerMessageAssistantRequest
@@ -543,6 +557,8 @@ from .text_content import TextContent
 from .text_content_language import TextContentLanguage
 from .text_editor_tool import TextEditorTool
 from .text_editor_tool_messages_item import TextEditorToolMessagesItem
+from .text_editor_tool_with_tool_call import TextEditorToolWithToolCall
+from .text_editor_tool_with_tool_call_messages_item import TextEditorToolWithToolCallMessagesItem
 from .time_range import TimeRange
 from .time_range_step import TimeRangeStep
 from .together_ai_credential import TogetherAiCredential
@@ -592,11 +608,12 @@ from .transport_cost import TransportCost
 from .transport_cost_provider import TransportCostProvider
 from .transport_provider import TransportProvider
 from .trieve_knowledge_base import TrieveKnowledgeBase
-from .trieve_knowledge_base_vector_store_create_plan import TrieveKnowledgeBaseVectorStoreCreatePlan
-from .trieve_knowledge_base_vector_store_search_plan import TrieveKnowledgeBaseVectorStoreSearchPlan
-from .trieve_knowledge_base_vector_store_search_plan_search_type import (
-    TrieveKnowledgeBaseVectorStoreSearchPlanSearchType,
-)
+from .trieve_knowledge_base_chunk_plan import TrieveKnowledgeBaseChunkPlan
+from .trieve_knowledge_base_create import TrieveKnowledgeBaseCreate
+from .trieve_knowledge_base_create_plan import TrieveKnowledgeBaseCreatePlan
+from .trieve_knowledge_base_import import TrieveKnowledgeBaseImport
+from .trieve_knowledge_base_search_plan import TrieveKnowledgeBaseSearchPlan
+from .trieve_knowledge_base_search_plan_search_type import TrieveKnowledgeBaseSearchPlanSearchType
 from .twilio_credential import TwilioCredential
 from .twilio_phone_number import TwilioPhoneNumber
 from .twilio_phone_number_fallback_destination import TwilioPhoneNumberFallbackDestination
@@ -680,6 +697,7 @@ from .update_transfer_call_tool_dto import UpdateTransferCallToolDto
 from .update_transfer_call_tool_dto_destinations_item import UpdateTransferCallToolDtoDestinationsItem
 from .update_transfer_call_tool_dto_messages_item import UpdateTransferCallToolDtoMessagesItem
 from .update_trieve_knowledge_base_dto import UpdateTrieveKnowledgeBaseDto
+from .update_trieve_knowledge_base_dto_create_plan import UpdateTrieveKnowledgeBaseDtoCreatePlan
 from .update_twilio_credential_dto import UpdateTwilioCredentialDto
 from .update_twilio_phone_number_dto import UpdateTwilioPhoneNumberDto
 from .update_twilio_phone_number_dto_fallback_destination import UpdateTwilioPhoneNumberDtoFallbackDestination
@@ -711,9 +729,11 @@ from .vonage_credential import VonageCredential
 from .vonage_phone_number import VonagePhoneNumber
 from .vonage_phone_number_fallback_destination import VonagePhoneNumberFallbackDestination
 from .webhook_credential import WebhookCredential
+from .workflow import Workflow
 from .workflow_block import WorkflowBlock
 from .workflow_block_messages_item import WorkflowBlockMessagesItem
 from .workflow_block_steps_item import WorkflowBlockStepsItem
+from .workflow_nodes_item import WorkflowNodesItem
 from .x_ai_credential import XAiCredential
 from .xai_model import XaiModel
 from .xai_model_tools_item import XaiModelToolsItem
@@ -780,6 +800,8 @@ __all__ = [
     "AzureVoiceIdEnum",
     "BashTool",
     "BashToolMessagesItem",
+    "BashToolWithToolCall",
+    "BashToolWithToolCallMessagesItem",
     "BlockCompleteMessage",
     "BlockCompleteMessageConditionsItem",
     "BlockStartMessage",
@@ -819,6 +841,7 @@ __all__ = [
     "ClientInboundMessageAddMessage",
     "ClientInboundMessageControl",
     "ClientInboundMessageControlControl",
+    "ClientInboundMessageEndCall",
     "ClientInboundMessageMessage",
     "ClientInboundMessageSay",
     "ClientInboundMessageTransfer",
@@ -849,6 +872,8 @@ __all__ = [
     "CloudflareR2BucketPlan",
     "ComputerTool",
     "ComputerToolMessagesItem",
+    "ComputerToolWithToolCall",
+    "ComputerToolWithToolCallMessagesItem",
     "Condition",
     "ConditionOperator",
     "ConversationBlock",
@@ -942,6 +967,7 @@ __all__ = [
     "CreateTransferCallToolDtoDestinationsItem",
     "CreateTransferCallToolDtoMessagesItem",
     "CreateTrieveKnowledgeBaseDto",
+    "CreateTrieveKnowledgeBaseDtoCreatePlan",
     "CreateTwilioCredentialDto",
     "CreateTwilioPhoneNumberDto",
     "CreateTwilioPhoneNumberDtoFallbackDestination",
@@ -957,6 +983,8 @@ __all__ = [
     "CreateWorkflowBlockDto",
     "CreateWorkflowBlockDtoMessagesItem",
     "CreateWorkflowBlockDtoStepsItem",
+    "CreateWorkflowDto",
+    "CreateWorkflowDtoNodesItem",
     "CreateXAiCredentialDto",
     "CustomKnowledgeBase",
     "CustomLlmCredential",
@@ -982,6 +1010,8 @@ __all__ = [
     "DeepgramVoiceIdEnum",
     "DtmfTool",
     "DtmfToolMessagesItem",
+    "Edge",
+    "EdgeCondition",
     "ElevenLabsCredential",
     "ElevenLabsVoice",
     "ElevenLabsVoiceId",
@@ -1039,6 +1069,7 @@ __all__ = [
     "FunctionToolProviderDetails",
     "FunctionToolWithToolCall",
     "FunctionToolWithToolCallMessagesItem",
+    "Gather",
     "GcpCredential",
     "GcpKey",
     "GeminiMultimodalLivePrebuiltVoiceConfig",
@@ -1143,6 +1174,7 @@ __all__ = [
     "PlayHtVoiceIdEnum",
     "PlayHtVoiceLanguage",
     "PlayHtVoiceModel",
+    "ProgrammaticEdgeCondition",
     "PunctuationBoundary",
     "RegexOption",
     "RegexOptionType",
@@ -1156,7 +1188,9 @@ __all__ = [
     "RuleBasedConditionOperator",
     "RunpodCredential",
     "S3Credential",
+    "Say",
     "SbcConfiguration",
+    "SemanticEdgeCondition",
     "Server",
     "ServerMessage",
     "ServerMessageAssistantRequest",
@@ -1260,6 +1294,8 @@ __all__ = [
     "TextContentLanguage",
     "TextEditorTool",
     "TextEditorToolMessagesItem",
+    "TextEditorToolWithToolCall",
+    "TextEditorToolWithToolCallMessagesItem",
     "TimeRange",
     "TimeRangeStep",
     "TogetherAiCredential",
@@ -1309,9 +1345,12 @@ __all__ = [
     "TransportCostProvider",
     "TransportProvider",
     "TrieveKnowledgeBase",
-    "TrieveKnowledgeBaseVectorStoreCreatePlan",
-    "TrieveKnowledgeBaseVectorStoreSearchPlan",
-    "TrieveKnowledgeBaseVectorStoreSearchPlanSearchType",
+    "TrieveKnowledgeBaseChunkPlan",
+    "TrieveKnowledgeBaseCreate",
+    "TrieveKnowledgeBaseCreatePlan",
+    "TrieveKnowledgeBaseImport",
+    "TrieveKnowledgeBaseSearchPlan",
+    "TrieveKnowledgeBaseSearchPlanSearchType",
     "TwilioCredential",
     "TwilioPhoneNumber",
     "TwilioPhoneNumberFallbackDestination",
@@ -1393,6 +1432,7 @@ __all__ = [
     "UpdateTransferCallToolDtoDestinationsItem",
     "UpdateTransferCallToolDtoMessagesItem",
     "UpdateTrieveKnowledgeBaseDto",
+    "UpdateTrieveKnowledgeBaseDtoCreatePlan",
     "UpdateTwilioCredentialDto",
     "UpdateTwilioPhoneNumberDto",
     "UpdateTwilioPhoneNumberDtoFallbackDestination",
@@ -1424,9 +1464,11 @@ __all__ = [
     "VonagePhoneNumber",
     "VonagePhoneNumberFallbackDestination",
     "WebhookCredential",
+    "Workflow",
     "WorkflowBlock",
     "WorkflowBlockMessagesItem",
     "WorkflowBlockStepsItem",
+    "WorkflowNodesItem",
     "XAiCredential",
     "XaiModel",
     "XaiModelToolsItem",

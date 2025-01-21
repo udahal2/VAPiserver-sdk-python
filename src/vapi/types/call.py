@@ -4,6 +4,7 @@ from __future__ import annotations
 from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
+from .create_workflow_dto import CreateWorkflowDto
 from .handoff_step import HandoffStep
 import typing
 from .call_type import CallType
@@ -244,4 +245,5 @@ class Call(UniversalBaseModel):
 
 update_forward_refs(CallbackStep, Call=Call)
 update_forward_refs(CreateWorkflowBlockDto, Call=Call)
+update_forward_refs(CreateWorkflowDto, Call=Call)
 update_forward_refs(HandoffStep, Call=Call)

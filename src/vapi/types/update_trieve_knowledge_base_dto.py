@@ -4,9 +4,9 @@ from ..core.pydantic_utilities import UniversalBaseModel
 import typing
 import pydantic
 import typing_extensions
-from .trieve_knowledge_base_vector_store_search_plan import TrieveKnowledgeBaseVectorStoreSearchPlan
+from .trieve_knowledge_base_search_plan import TrieveKnowledgeBaseSearchPlan
 from ..core.serialization import FieldMetadata
-from .trieve_knowledge_base_vector_store_create_plan import TrieveKnowledgeBaseVectorStoreCreatePlan
+from .update_trieve_knowledge_base_dto_create_plan import UpdateTrieveKnowledgeBaseDtoCreatePlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -16,29 +16,22 @@ class UpdateTrieveKnowledgeBaseDto(UniversalBaseModel):
     This is the name of the knowledge base.
     """
 
-    vector_store_search_plan: typing_extensions.Annotated[
-        typing.Optional[TrieveKnowledgeBaseVectorStoreSearchPlan], FieldMetadata(alias="vectorStoreSearchPlan")
+    search_plan: typing_extensions.Annotated[
+        typing.Optional[TrieveKnowledgeBaseSearchPlan], FieldMetadata(alias="searchPlan")
     ] = pydantic.Field(default=None)
     """
-    This is the plan on how to search the vector store while a call is going on.
-    """
-
-    vector_store_create_plan: typing_extensions.Annotated[
-        typing.Optional[TrieveKnowledgeBaseVectorStoreCreatePlan], FieldMetadata(alias="vectorStoreCreatePlan")
-    ] = pydantic.Field(default=None)
-    """
-    This is the plan if you want us to create a new vector store on your behalf. To use an existing vector store from your account, use `vectoreStoreProviderId`
-    """
-
-    vector_store_provider_id: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="vectorStoreProviderId")
-    ] = pydantic.Field(default=None)
-    """
-    This is an vector store that you already have on your account with the provider. To create a new vector store, use vectorStoreCreatePlan.
+    This is the searching plan used when searching for relevant chunks from the vector store.
     
-    Usage:
-    - To bring your own vector store from Trieve, go to https://trieve.ai
-    - Create a dataset, and use the datasetId here.
+    You should configure this if you're running into these issues:
+    - Too much unnecessary context is being fed as knowledge base context.
+    - Not enough relevant context is being fed as knowledge base context.
+    """
+
+    create_plan: typing_extensions.Annotated[
+        typing.Optional[UpdateTrieveKnowledgeBaseDtoCreatePlan], FieldMetadata(alias="createPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is the plan if you want us to create/import a new vector store using Trieve.
     """
 
     if IS_PYDANTIC_V2:

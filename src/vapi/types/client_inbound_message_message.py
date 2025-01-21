@@ -4,8 +4,13 @@ import typing
 from .client_inbound_message_add_message import ClientInboundMessageAddMessage
 from .client_inbound_message_control import ClientInboundMessageControl
 from .client_inbound_message_say import ClientInboundMessageSay
+from .client_inbound_message_end_call import ClientInboundMessageEndCall
 from .client_inbound_message_transfer import ClientInboundMessageTransfer
 
 ClientInboundMessageMessage = typing.Union[
-    ClientInboundMessageAddMessage, ClientInboundMessageControl, ClientInboundMessageSay, ClientInboundMessageTransfer
+    ClientInboundMessageAddMessage,
+    ClientInboundMessageControl,
+    ClientInboundMessageSay,
+    ClientInboundMessageEndCall,
+    ClientInboundMessageTransfer,
 ]

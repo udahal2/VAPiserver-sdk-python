@@ -13,7 +13,6 @@ class CustomKnowledgeBase(UniversalBaseModel):
     provider: typing.Literal["custom-knowledge-base"] = "custom-knowledge-base"
     server: Server = pydantic.Field()
     """
-    /**
     This is where the knowledge base request will be sent.
     
     Request Example:

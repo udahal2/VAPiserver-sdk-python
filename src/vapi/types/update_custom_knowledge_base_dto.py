@@ -10,7 +10,6 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 class UpdateCustomKnowledgeBaseDto(UniversalBaseModel):
     server: typing.Optional[Server] = pydantic.Field(default=None)
     """
-    /**
     This is where the knowledge base request will be sent.
     
     Request Example:
