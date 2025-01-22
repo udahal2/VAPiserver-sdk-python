@@ -5,12 +5,14 @@ import typing
 CreateAzureCredentialDtoRegion = typing.Union[
     typing.Literal[
         "australia",
-        "canada",
+        "canadaeast",
+        "canadacentral",
         "eastus2",
         "eastus",
         "france",
         "india",
-        "japan",
+        "japaneast",
+        "japanwest",
         "uaenorth",
         "northcentralus",
         "norway",

@@ -711,6 +711,8 @@ from .update_vonage_phone_number_dto_fallback_destination import UpdateVonagePho
 from .update_workflow_block_dto import UpdateWorkflowBlockDto
 from .update_workflow_block_dto_messages_item import UpdateWorkflowBlockDtoMessagesItem
 from .update_workflow_block_dto_steps_item import UpdateWorkflowBlockDtoStepsItem
+from .update_workflow_dto import UpdateWorkflowDto
+from .update_workflow_dto_nodes_item import UpdateWorkflowDtoNodesItem
 from .update_x_ai_credential_dto import UpdateXAiCredentialDto
 from .user import User
 from .user_message import UserMessage
@@ -1446,6 +1448,8 @@ __all__ = [
     "UpdateWorkflowBlockDto",
     "UpdateWorkflowBlockDtoMessagesItem",
     "UpdateWorkflowBlockDtoStepsItem",
+    "UpdateWorkflowDto",
+    "UpdateWorkflowDtoNodesItem",
     "UpdateXAiCredentialDto",
     "User",
     "UserMessage",
