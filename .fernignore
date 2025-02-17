@@ -2,3 +2,4 @@
 
 README.md
 src/vapi/types/assistant_overrides_server_messages_item.py
+src/vapi/assistants/types/update_assistant_dto_server_messages_item.py
