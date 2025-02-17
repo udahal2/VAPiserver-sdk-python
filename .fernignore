@@ -1,5 +1,9 @@
 # Specify files that shouldn't be modified by Fern
 
 README.md
-src/vapi/types/assistant_overrides_server_messages_item.py
 src/vapi/assistants/types/update_assistant_dto_server_messages_item.py
+src/vapi/types/assistant_overrides_server_messages_item.py
+src/vapi/types/assistant_server_messages_item.py
+src/vapi/types/client_message_transcript_type.py
+src/vapi/types/create_assistant_dto_server_messages_item.py
+src/vapi/types/server_message_transcript_type.py
