@@ -8,6 +8,7 @@ from .deep_seek_model_tools_item import DeepSeekModelToolsItem
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
+from .deep_seek_model_model import DeepSeekModelModel
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -47,7 +48,7 @@ class DeepSeekModel(UniversalBaseModel):
     This is the ID of the knowledge base the model will use.
     """
 
-    model: typing.Literal["deepseek-chat"] = pydantic.Field(default="deepseek-chat")
+    model: DeepSeekModelModel = pydantic.Field()
     """
     This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
     """

@@ -8,6 +8,7 @@ from .xai_model_tools_item import XaiModelToolsItem
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
+from .xai_model_model import XaiModelModel
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -47,7 +48,7 @@ class XaiModel(UniversalBaseModel):
     This is the ID of the knowledge base the model will use.
     """
 
-    model: typing.Literal["grok-beta"] = pydantic.Field(default="grok-beta")
+    model: XaiModelModel = pydantic.Field()
     """
     This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b
     """

@@ -4,13 +4,13 @@ from __future__ import annotations
 from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
-from .create_workflow_dto import CreateWorkflowDto
 from .handoff_step import HandoffStep
 import typing_extensions
 import typing
 from .server_message_transcript_phone_number import ServerMessageTranscriptPhoneNumber
 from ..core.serialization import FieldMetadata
 import pydantic
+from .server_message_transcript_type import ServerMessageTranscriptType
 from .artifact import Artifact
 from .create_assistant_dto import CreateAssistantDto
 from .create_customer_dto import CreateCustomerDto
@@ -33,7 +33,7 @@ class ServerMessageTranscript(UniversalBaseModel):
     - `call.phoneNumberId`.
     """
 
-    type: typing.Literal["transcript"] = pydantic.Field(default="transcript")
+    type: ServerMessageTranscriptType = pydantic.Field()
     """
     This is the type of the message. "transcript" is sent as transcriber outputs partial or final transcript.
     """
@@ -110,5 +110,4 @@ class ServerMessageTranscript(UniversalBaseModel):
 
 update_forward_refs(CallbackStep, ServerMessageTranscript=ServerMessageTranscript)
 update_forward_refs(CreateWorkflowBlockDto, ServerMessageTranscript=ServerMessageTranscript)
-update_forward_refs(CreateWorkflowDto, ServerMessageTranscript=ServerMessageTranscript)
 update_forward_refs(HandoffStep, ServerMessageTranscript=ServerMessageTranscript)

@@ -60,6 +60,20 @@ class Subscription(UniversalBaseModel):
     This is the default concurrency limit for the subscription.
     """
 
+    phone_numbers_counter: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="phoneNumbersCounter")
+    ] = pydantic.Field(default=None)
+    """
+    This is the number of free phone numbers the subscription has
+    """
+
+    phone_numbers_included: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="phoneNumbersIncluded")
+    ] = pydantic.Field(default=None)
+    """
+    This is the maximum number of free phone numbers the subscription can have
+    """
+
     concurrency_limit_purchased: typing_extensions.Annotated[
         float, FieldMetadata(alias="concurrencyLimitPurchased")
     ] = pydantic.Field()
@@ -158,14 +172,21 @@ class Subscription(UniversalBaseModel):
         pydantic.Field(default=None)
     )
     """
-    The number of minutes included in the subscription. Enterprise only.
+    The number of minutes included in the subscription.
     """
 
     minutes_used: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="minutesUsed")] = (
         pydantic.Field(default=None)
     )
     """
-    The number of minutes used in the subscription. Enterprise only.
+    The number of minutes used in the subscription.
+    """
+
+    minutes_used_next_reset_at: typing_extensions.Annotated[
+        typing.Optional[dt.datetime], FieldMetadata(alias="minutesUsedNextResetAt")
+    ] = pydantic.Field(default=None)
+    """
+    This is the timestamp at which the number of monthly free minutes is scheduled to reset at.
     """
 
     minutes_overage_cost: typing_extensions.Annotated[

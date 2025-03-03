@@ -8,6 +8,7 @@ TransferPlanMode = typing.Union[
         "blind-transfer-add-summary-to-sip-header",
         "warm-transfer-say-message",
         "warm-transfer-say-summary",
+        "warm-transfer-twiml",
         "warm-transfer-wait-for-operator-to-speak-first-and-then-say-message",
         "warm-transfer-wait-for-operator-to-speak-first-and-then-say-summary",
     ],

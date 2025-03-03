@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from .format_plan_replacements_item import FormatPlanReplacementsItem
+from .format_plan_formatters_enabled_item import FormatPlanFormattersEnabledItem
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -47,6 +48,16 @@ class FormatPlan(UniversalBaseModel):
     - To replace a word or phrase that matches a pattern, use the `RegexReplacement` type. Eg. `{ type: 'regex', regex: '\\b[a-zA-Z]{5}\\b', value: 'hi' }`
     
     @default []
+    """
+
+    formatters_enabled: typing_extensions.Annotated[
+        typing.Optional[typing.List[FormatPlanFormattersEnabledItem]], FieldMetadata(alias="formattersEnabled")
+    ] = pydantic.Field(default=None)
+    """
+    List of formatters to apply. If not provided, all default formatters will be applied.
+    If provided, only the specified formatters will be applied.
+    Note: Some essential formatters like angle bracket removal will always be applied.
+    @default undefined
     """
 
     if IS_PYDANTIC_V2:

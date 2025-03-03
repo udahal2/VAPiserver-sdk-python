@@ -4,4 +4,4 @@ import typing
 from .transfer_destination_number import TransferDestinationNumber
 from .transfer_destination_sip import TransferDestinationSip
 
-BuyPhoneNumberDtoFallbackDestination = typing.Union[TransferDestinationNumber, TransferDestinationSip]
+TransferAssistantHookActionDestination = typing.Union[TransferDestinationNumber, TransferDestinationSip]

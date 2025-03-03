@@ -7,6 +7,7 @@ from .vapi_phone_number_fallback_destination import VapiPhoneNumberFallbackDesti
 from ..core.serialization import FieldMetadata
 import pydantic
 import datetime as dt
+from .vapi_phone_number_status import VapiPhoneNumberStatus
 from .server import Server
 from .sip_authentication import SipAuthentication
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
@@ -46,6 +47,16 @@ class VapiPhoneNumber(UniversalBaseModel):
     This is the ISO 8601 date-time string of when the phone number was last updated.
     """
 
+    status: typing.Optional[VapiPhoneNumberStatus] = pydantic.Field(default=None)
+    """
+    This is the status of the phone number.
+    """
+
+    number: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    These are the digits of the phone number you purchased from Vapi.
+    """
+
     name: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the name of the phone number. This is just for your own reference.
@@ -80,7 +91,16 @@ class VapiPhoneNumber(UniversalBaseModel):
     3. org.server
     """
 
-    sip_uri: typing_extensions.Annotated[str, FieldMetadata(alias="sipUri")] = pydantic.Field()
+    number_desired_area_code: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="numberDesiredAreaCode")
+    ] = pydantic.Field(default=None)
+    """
+    This is the area code of the phone number to purchase.
+    """
+
+    sip_uri: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sipUri")] = pydantic.Field(
+        default=None
+    )
     """
     This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.
     

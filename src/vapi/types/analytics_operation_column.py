@@ -14,6 +14,7 @@ AnalyticsOperationColumn = typing.Union[
         "costBreakdown.llmPromptTokens",
         "costBreakdown.llmCompletionTokens",
         "duration",
+        "concurrency",
     ],
     typing.Any,
 ]

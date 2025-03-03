@@ -22,6 +22,17 @@ class DeepgramVoice(UniversalBaseModel):
     This is the provider-specific ID that will be used.
     """
 
+    mip_opt_out: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="mipOptOut")] = pydantic.Field(
+        default=None
+    )
+    """
+    If set to true, this will add mip_opt_out=true as a query parameter of all API requests. See https://developers.deepgram.com/docs/the-deepgram-model-improvement-partnership-program#want-to-opt-out
+    
+    This will only be used if you are using your own Deepgram API key.
+    
+    @default false
+    """
+
     chunk_plan: typing_extensions.Annotated[typing.Optional[ChunkPlan], FieldMetadata(alias="chunkPlan")] = (
         pydantic.Field(default=None)
     )

@@ -4,6 +4,8 @@ import typing
 
 OpenAiModelFallbackModelsItem = typing.Union[
     typing.Literal[
+        "chatgpt-4o-latest",
+        "o3-mini",
         "o1-preview",
         "o1-preview-2024-09-12",
         "o1-mini",

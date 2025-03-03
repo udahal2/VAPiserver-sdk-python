@@ -4,7 +4,6 @@ from __future__ import annotations
 from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
-from .create_workflow_dto import CreateWorkflowDto
 from .handoff_step import HandoffStep
 import typing
 from .call import Call
@@ -30,5 +29,4 @@ class CallPaginatedResponse(UniversalBaseModel):
 
 update_forward_refs(CallbackStep, CallPaginatedResponse=CallPaginatedResponse)
 update_forward_refs(CreateWorkflowBlockDto, CallPaginatedResponse=CallPaginatedResponse)
-update_forward_refs(CreateWorkflowDto, CallPaginatedResponse=CallPaginatedResponse)
 update_forward_refs(HandoffStep, CallPaginatedResponse=CallPaginatedResponse)

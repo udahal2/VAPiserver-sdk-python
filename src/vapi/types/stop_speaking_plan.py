@@ -54,6 +54,22 @@ class StopSpeakingPlan(UniversalBaseModel):
     @default 1
     """
 
+    acknowledgement_phrases: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="acknowledgementPhrases")
+    ] = pydantic.Field(default=None)
+    """
+    These are the phrases that will never interrupt the assistant, even if numWords threshold is met.
+    These are typically acknowledgement or backchanneling phrases.
+    """
+
+    interruption_phrases: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]], FieldMetadata(alias="interruptionPhrases")
+    ] = pydantic.Field(default=None)
+    """
+    These are the phrases that will always interrupt the assistant immediately, regardless of numWords.
+    These are typically phrases indicating disagreement or desire to stop.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

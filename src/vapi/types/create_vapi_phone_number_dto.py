@@ -25,7 +25,16 @@ class CreateVapiPhoneNumberDto(UniversalBaseModel):
     """
 
     provider: typing.Literal["vapi"] = "vapi"
-    sip_uri: typing_extensions.Annotated[str, FieldMetadata(alias="sipUri")] = pydantic.Field()
+    number_desired_area_code: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="numberDesiredAreaCode")
+    ] = pydantic.Field(default=None)
+    """
+    This is the area code of the phone number to purchase.
+    """
+
+    sip_uri: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="sipUri")] = pydantic.Field(
+        default=None
+    )
     """
     This is the SIP URI of the phone number. You can SIP INVITE this. The assistant attached to this number will answer.
     

@@ -5,14 +5,18 @@ import typing
 from .edge_condition import EdgeCondition
 import typing_extensions
 from ..core.serialization import FieldMetadata
-from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
+from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class Edge(UniversalBaseModel):
     condition: typing.Optional[EdgeCondition] = None
     from_: typing_extensions.Annotated[str, FieldMetadata(alias="from")]
     to: str
+    metadata: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    """
+    This is for metadata you want to store on the edge.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

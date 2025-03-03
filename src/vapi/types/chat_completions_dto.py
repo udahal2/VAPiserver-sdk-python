@@ -2,17 +2,18 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
+from .chat_completion_message import ChatCompletionMessage
 import typing_extensions
 from ..core.serialization import FieldMetadata
+from .create_workflow_dto import CreateWorkflowDto
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
 
 
-class ProgrammaticEdgeCondition(UniversalBaseModel):
-    type: typing.Literal["programmatic"] = "programmatic"
-    boolean_expression: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="booleanExpression")] = (
-        None
-    )
+class ChatCompletionsDto(UniversalBaseModel):
+    messages: typing.List[ChatCompletionMessage]
+    workflow_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="workflowId")] = None
+    workflow: typing.Optional[CreateWorkflowDto] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

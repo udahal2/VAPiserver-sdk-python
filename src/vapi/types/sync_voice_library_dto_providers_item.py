@@ -11,6 +11,7 @@ SyncVoiceLibraryDtoProvidersItem = typing.Union[
         "deepgram",
         "lmnt",
         "neets",
+        "neuphonic",
         "openai",
         "playht",
         "rime-ai",

@@ -56,6 +56,13 @@ class Artifact(UniversalBaseModel):
     This is the transcript of the call. This is derived from `artifact.messages` but provided for convenience.
     """
 
+    pcap_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="pcapUrl")] = pydantic.Field(
+        default=None
+    )
+    """
+    This is the packet capture url for the call. This is only available for `phone` type calls where phone number's provider is `vapi` or `byo-phone-number`.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

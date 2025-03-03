@@ -7,6 +7,7 @@ from .byo_phone_number_fallback_destination import ByoPhoneNumberFallbackDestina
 from ..core.serialization import FieldMetadata
 import pydantic
 import datetime as dt
+from .byo_phone_number_status import ByoPhoneNumberStatus
 from .server import Server
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -58,6 +59,11 @@ class ByoPhoneNumber(UniversalBaseModel):
     updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
     """
     This is the ISO 8601 date-time string of when the phone number was last updated.
+    """
+
+    status: typing.Optional[ByoPhoneNumberStatus] = pydantic.Field(default=None)
+    """
+    This is the status of the phone number.
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)

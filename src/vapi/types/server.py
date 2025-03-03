@@ -5,6 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
+from .backoff_plan import BackoffPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -35,6 +36,13 @@ class Server(UniversalBaseModel):
     These are the custom headers to include in the request sent to your server.
     
     Each key-value pair represents a header name and its value.
+    """
+
+    backoff_plan: typing_extensions.Annotated[typing.Optional[BackoffPlan], FieldMetadata(alias="backoffPlan")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the backoff plan to use if the request fails.
     """
 
     if IS_PYDANTIC_V2:

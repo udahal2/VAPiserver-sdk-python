@@ -2,15 +2,20 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
-from .analytics_query import AnalyticsQuery
 import pydantic
+from .transfer_assistant_hook_action_destination import TransferAssistantHookActionDestination
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
-class AnalyticsQueryDto(UniversalBaseModel):
-    queries: typing.List[AnalyticsQuery] = pydantic.Field()
+class TransferAssistantHookAction(UniversalBaseModel):
+    type: typing.Literal["transfer"] = pydantic.Field(default="transfer")
     """
-    This is the list of metric queries you want to perform.
+    This is the type of action - must be "transfer"
+    """
+
+    destination: typing.Optional[TransferAssistantHookActionDestination] = pydantic.Field(default=None)
+    """
+    This is the destination details for the transfer - can be a phone number or SIP URI
     """
 
     if IS_PYDANTIC_V2:

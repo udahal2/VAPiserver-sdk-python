@@ -2,4 +2,4 @@
 
 import typing
 
-AnalyticsOperationOperation = typing.Union[typing.Literal["sum", "avg", "count", "min", "max"], typing.Any]
+AnalyticsOperationOperation = typing.Union[typing.Literal["sum", "avg", "count", "min", "max", "history"], typing.Any]

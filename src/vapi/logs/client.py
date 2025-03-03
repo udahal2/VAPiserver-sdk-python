@@ -73,7 +73,7 @@ class LogsClient:
             This is the page number to return. Defaults to 1.
 
         sort_order : typing.Optional[LogsGetRequestSortOrder]
-            This is the sort order for pagination. Defaults to 'ASC'.
+            This is the sort order for pagination. Defaults to 'DESC'.
 
         limit : typing.Optional[float]
             This is the maximum number of items to return. Defaults to 100.
@@ -289,7 +289,7 @@ class AsyncLogsClient:
             This is the page number to return. Defaults to 1.
 
         sort_order : typing.Optional[LogsGetRequestSortOrder]
-            This is the sort order for pagination. Defaults to 'ASC'.
+            This is the sort order for pagination. Defaults to 'DESC'.
 
         limit : typing.Optional[float]
             This is the maximum number of items to return. Defaults to 100.

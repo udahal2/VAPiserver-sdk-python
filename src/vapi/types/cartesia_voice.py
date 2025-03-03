@@ -3,11 +3,12 @@
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
 import pydantic
+import typing_extensions
+from ..core.serialization import FieldMetadata
 from .cartesia_voice_model import CartesiaVoiceModel
 from .cartesia_voice_language import CartesiaVoiceLanguage
-import typing_extensions
+from .cartesia_experimental_controls import CartesiaExperimentalControls
 from .chunk_plan import ChunkPlan
-from ..core.serialization import FieldMetadata
 from .fallback_plan import FallbackPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -16,6 +17,11 @@ class CartesiaVoice(UniversalBaseModel):
     provider: typing.Literal["cartesia"] = pydantic.Field(default="cartesia")
     """
     This is the voice provider that will be used.
+    """
+
+    voice_id: typing_extensions.Annotated[str, FieldMetadata(alias="voiceId")] = pydantic.Field()
+    """
+    The ID of the particular voice you want to use.
     """
 
     model: typing.Optional[CartesiaVoiceModel] = pydantic.Field(default=None)
@@ -28,16 +34,18 @@ class CartesiaVoice(UniversalBaseModel):
     This is the language that will be used. This is optional and will default to the correct language for the voiceId.
     """
 
+    experimental_controls: typing_extensions.Annotated[
+        typing.Optional[CartesiaExperimentalControls], FieldMetadata(alias="experimentalControls")
+    ] = pydantic.Field(default=None)
+    """
+    Experimental controls for Cartesia voice generation
+    """
+
     chunk_plan: typing_extensions.Annotated[typing.Optional[ChunkPlan], FieldMetadata(alias="chunkPlan")] = (
         pydantic.Field(default=None)
     )
     """
     This is the plan for chunking the model output before it is sent to the voice provider.
-    """
-
-    voice_id: typing_extensions.Annotated[str, FieldMetadata(alias="voiceId")] = pydantic.Field()
-    """
-    This is the provider-specific ID that will be used.
     """
 
     fallback_plan: typing_extensions.Annotated[typing.Optional[FallbackPlan], FieldMetadata(alias="fallbackPlan")] = (

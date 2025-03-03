@@ -47,6 +47,21 @@ class JsonSchema(UniversalBaseModel):
     This only makes sense if the type is "object".
     """
 
+    regex: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is a regex that will be used to validate data in question.
+    """
+
+    value: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This the value that will be used in filling the property.
+    """
+
+    target: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This the target variable that will be filled with the value of this property.
+    """
+
     enum: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
     This array specifies the allowed values that can be used to restrict the output of the model.

@@ -40,6 +40,15 @@ class MessagePlan(UniversalBaseModel):
     @default 10
     """
 
+    silence_timeout_message: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="silenceTimeoutMessage")
+    ] = pydantic.Field(default=None)
+    """
+    This is the message that the assistant will say if the call ends due to silence.
+    
+    If unspecified, it will hang up without saying anything.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

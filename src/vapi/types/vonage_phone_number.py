@@ -7,6 +7,7 @@ from .vonage_phone_number_fallback_destination import VonagePhoneNumberFallbackD
 from ..core.serialization import FieldMetadata
 import pydantic
 import datetime as dt
+from .vonage_phone_number_status import VonagePhoneNumberStatus
 from .server import Server
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -43,6 +44,11 @@ class VonagePhoneNumber(UniversalBaseModel):
     updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
     """
     This is the ISO 8601 date-time string of when the phone number was last updated.
+    """
+
+    status: typing.Optional[VonagePhoneNumberStatus] = pydantic.Field(default=None)
+    """
+    This is the status of the phone number.
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)

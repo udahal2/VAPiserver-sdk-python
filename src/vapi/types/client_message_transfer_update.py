@@ -4,7 +4,6 @@ from __future__ import annotations
 from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
-from .create_workflow_dto import CreateWorkflowDto
 from .handoff_step import HandoffStep
 import typing
 import pydantic
@@ -67,5 +66,4 @@ class ClientMessageTransferUpdate(UniversalBaseModel):
 
 update_forward_refs(CallbackStep, ClientMessageTransferUpdate=ClientMessageTransferUpdate)
 update_forward_refs(CreateWorkflowBlockDto, ClientMessageTransferUpdate=ClientMessageTransferUpdate)
-update_forward_refs(CreateWorkflowDto, ClientMessageTransferUpdate=ClientMessageTransferUpdate)
 update_forward_refs(HandoffStep, ClientMessageTransferUpdate=ClientMessageTransferUpdate)

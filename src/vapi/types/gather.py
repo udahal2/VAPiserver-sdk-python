@@ -2,18 +2,50 @@
 
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
-import typing_extensions
 from .json_schema import JsonSchema
+import typing_extensions
 from ..core.serialization import FieldMetadata
-from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
+from .hook import Hook
+from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class Gather(UniversalBaseModel):
     type: typing.Literal["gather"] = "gather"
-    schema_: typing_extensions.Annotated[typing.Optional[JsonSchema], FieldMetadata(alias="schema")] = None
-    instruction: str
+    output: JsonSchema
+    confirm_content: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="confirmContent")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is whether or not the workflow should read back the gathered data to the user, and ask about its correctness.
+    """
+
+    hooks: typing.Optional[typing.List[Hook]] = pydantic.Field(default=None)
+    """
+    This is a list of hooks for a task.
+    Each hook is a list of tasks to run on a trigger (such as on start, on failure, etc).
+    Only Say is supported for now.
+    """
+
+    max_retries: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="maxRetries")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the number of times we should try to gather the information from the user before we failover to the fail path. An example of this would be a user refusing to give their phone number for privacy reasons, and then going down a different path on account of this
+    """
+
+    literal_template: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="literalTemplate")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is a liquid templating string. On the first call to Gather, the template will be filled out with variables from the context, and will be spoken verbatim to the user. An example would be "Base on your zipcode, it looks like you could be in one of these counties: {{ counties | join: ", " }}. Which one do you live in?"
+    """
+
     name: str
+    metadata: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    """
+    This is for metadata you want to store on the task.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -3,6 +3,8 @@
 import typing
 from .say import Say
 from .gather import Gather
-from .create_workflow_dto import CreateWorkflowDto
+from .api_request import ApiRequest
+from .hangup import Hangup
+from .transfer import Transfer
 
-WorkflowNodesItem = typing.Union[Say, Gather, typing.Optional[typing.Any], CreateWorkflowDto]
+WorkflowNodesItem = typing.Union[Say, Gather, ApiRequest, Hangup, Transfer]

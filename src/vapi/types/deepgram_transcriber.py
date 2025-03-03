@@ -70,9 +70,25 @@ class DeepgramTranscriber(UniversalBaseModel):
     @default false
     """
 
+    mip_opt_out: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="mipOptOut")] = pydantic.Field(
+        default=None
+    )
+    """
+    If set to true, this will add mip_opt_out=true as a query parameter of all API requests. See https://developers.deepgram.com/docs/the-deepgram-model-improvement-partnership-program#want-to-opt-out
+    
+    This will only be used if you are using your own Deepgram API key.
+    
+    @default false
+    """
+
     keywords: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
     These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.
+    """
+
+    keyterm: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    """
+    Keyterm Prompting allows you improve Keyword Recall Rate (KRR) for important keyterms or phrases up to 90%.
     """
 
     endpointing: typing.Optional[float] = pydantic.Field(default=None)

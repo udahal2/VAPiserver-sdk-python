@@ -4,7 +4,6 @@ from __future__ import annotations
 from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
-from .create_workflow_dto import CreateWorkflowDto
 from .handoff_step import HandoffStep
 import typing_extensions
 import typing
@@ -145,5 +144,4 @@ class ServerMessageStatusUpdate(UniversalBaseModel):
 
 update_forward_refs(CallbackStep, ServerMessageStatusUpdate=ServerMessageStatusUpdate)
 update_forward_refs(CreateWorkflowBlockDto, ServerMessageStatusUpdate=ServerMessageStatusUpdate)
-update_forward_refs(CreateWorkflowDto, ServerMessageStatusUpdate=ServerMessageStatusUpdate)
 update_forward_refs(HandoffStep, ServerMessageStatusUpdate=ServerMessageStatusUpdate)

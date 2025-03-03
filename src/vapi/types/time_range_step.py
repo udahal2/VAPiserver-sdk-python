@@ -3,6 +3,8 @@
 import typing
 
 TimeRangeStep = typing.Union[
-    typing.Literal["minute", "hour", "day", "week", "month", "quarter", "year", "decade", "century", "millennium"],
+    typing.Literal[
+        "second", "minute", "hour", "day", "week", "month", "quarter", "year", "decade", "century", "millennium"
+    ],
     typing.Any,
 ]

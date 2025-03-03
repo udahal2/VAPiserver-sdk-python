@@ -7,6 +7,7 @@ from .twilio_phone_number_fallback_destination import TwilioPhoneNumberFallbackD
 from ..core.serialization import FieldMetadata
 import pydantic
 import datetime as dt
+from .twilio_phone_number_status import TwilioPhoneNumberStatus
 from .server import Server
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -43,6 +44,11 @@ class TwilioPhoneNumber(UniversalBaseModel):
     updated_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="updatedAt")] = pydantic.Field()
     """
     This is the ISO 8601 date-time string of when the phone number was last updated.
+    """
+
+    status: typing.Optional[TwilioPhoneNumberStatus] = pydantic.Field(default=None)
+    """
+    This is the status of the phone number.
     """
 
     name: typing.Optional[str] = pydantic.Field(default=None)

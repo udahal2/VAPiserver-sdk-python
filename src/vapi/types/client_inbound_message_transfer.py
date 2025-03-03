@@ -18,6 +18,11 @@ class ClientInboundMessageTransfer(UniversalBaseModel):
     This is the destination to transfer the call to.
     """
 
+    content: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the content to say.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

@@ -3,6 +3,8 @@
 from ..core.pydantic_utilities import UniversalBaseModel
 import typing
 from .invite_user_dto_role import InviteUserDtoRole
+import typing_extensions
+from ..core.serialization import FieldMetadata
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
 
@@ -10,6 +12,7 @@ import pydantic
 class InviteUserDto(UniversalBaseModel):
     emails: typing.List[str]
     role: InviteUserDtoRole
+    redirect_to: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="redirectTo")] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

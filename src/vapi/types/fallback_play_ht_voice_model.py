@@ -2,4 +2,6 @@
 
 import typing
 
-FallbackPlayHtVoiceModel = typing.Union[typing.Literal["PlayHT2.0", "PlayHT2.0-turbo", "Play3.0-mini"], typing.Any]
+FallbackPlayHtVoiceModel = typing.Union[
+    typing.Literal["PlayHT2.0", "PlayHT2.0-turbo", "Play3.0-mini", "PlayDialog"], typing.Any
+]

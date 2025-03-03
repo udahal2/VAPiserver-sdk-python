@@ -10,6 +10,13 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class TrieveKnowledgeBaseSearchPlan(UniversalBaseModel):
+    top_k: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="topK")] = pydantic.Field(
+        default=None
+    )
+    """
+    Specifies the number of top chunks to return. This corresponds to the `page_size` parameter in Trieve.
+    """
+
     remove_stop_words: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="removeStopWords")] = (
         pydantic.Field(default=None)
     )

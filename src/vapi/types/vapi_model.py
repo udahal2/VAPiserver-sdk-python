@@ -5,7 +5,6 @@ from ..core.pydantic_utilities import UniversalBaseModel
 from .callback_step import CallbackStep
 from .create_workflow_block_dto import CreateWorkflowBlockDto
 from .handoff_step import HandoffStep
-from .create_workflow_dto import CreateWorkflowDto
 import typing
 from .open_ai_message import OpenAiMessage
 import pydantic
@@ -121,4 +120,3 @@ class VapiModel(UniversalBaseModel):
 update_forward_refs(CallbackStep, VapiModel=VapiModel)
 update_forward_refs(CreateWorkflowBlockDto, VapiModel=VapiModel)
 update_forward_refs(HandoffStep, VapiModel=VapiModel)
-update_forward_refs(CreateWorkflowDto, VapiModel=VapiModel)

@@ -66,9 +66,6 @@ class OpenAiModel(UniversalBaseModel):
     These are the fallback models that will be used if the primary model fails. This shouldn't be specified unless you have a specific reason to do so. Vapi will automatically find the fastest fallbacks that make sense.
     """
 
-    semantic_caching_enabled: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="semanticCachingEnabled")
-    ] = None
     temperature: typing.Optional[float] = pydantic.Field(default=None)
     """
     This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.
