@@ -152,7 +152,7 @@ class AssistantOverrides(UniversalBaseModel):
     
     So for example, `{{ name }}` will be replaced with the value of `name` in `variableValues`.
     `{{"now" | date: "%b %d, %Y, %I:%M %p", "America/New_York"}}` will be replaced with the current date and time in New York.
-     Some VAPI reserved defaults:
+     Some Vapi reserved defaults:
      - *customer* - the customer object
     """
 
