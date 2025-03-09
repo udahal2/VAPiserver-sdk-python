@@ -28,6 +28,7 @@ from ...types.create_play_ht_credential_dto import CreatePlayHtCredentialDto
 from ...types.create_rime_ai_credential_dto import CreateRimeAiCredentialDto
 from ...types.create_runpod_credential_dto import CreateRunpodCredentialDto
 from ...types.create_s_3_credential_dto import CreateS3CredentialDto
+from ...types.create_supabase_credential_dto import CreateSupabaseCredentialDto
 from ...types.create_smallest_ai_credential_dto import CreateSmallestAiCredentialDto
 from ...types.create_tavus_credential_dto import CreateTavusCredentialDto
 from ...types.create_together_ai_credential_dto import CreateTogetherAiCredentialDto
@@ -64,6 +65,7 @@ UpdateAssistantDtoCredentialsItem = typing.Union[
     CreateRimeAiCredentialDto,
     CreateRunpodCredentialDto,
     CreateS3CredentialDto,
+    CreateSupabaseCredentialDto,
     CreateSmallestAiCredentialDto,
     CreateTavusCredentialDto,
     CreateTogetherAiCredentialDto,

@@ -2,4 +2,4 @@
 
 import typing
 
-TestSuiteRunStatus = typing.Union[typing.Literal["queued", "in-progress", "completed"], typing.Any]
+TestSuiteRunStatus = typing.Union[typing.Literal["queued", "in-progress", "completed", "failed"], typing.Any]

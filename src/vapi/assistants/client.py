@@ -28,6 +28,7 @@ from ..types.stop_speaking_plan import StopSpeakingPlan
 from ..types.monitor_plan import MonitorPlan
 from ..types.server import Server
 from ..types.assistant_hooks import AssistantHooks
+from ..types.keypad_input_plan import KeypadInputPlan
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.jsonable_encoder import jsonable_encoder
 from .types.update_assistant_dto_transcriber import UpdateAssistantDtoTranscriber
@@ -163,6 +164,7 @@ class AssistantsClient:
         credential_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         server: typing.Optional[Server] = OMIT,
         hooks: typing.Optional[typing.Sequence[AssistantHooks]] = OMIT,
+        keypad_input_plan: typing.Optional[KeypadInputPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> Assistant:
         """
@@ -314,6 +316,8 @@ class AssistantsClient:
         hooks : typing.Optional[typing.Sequence[AssistantHooks]]
             This is a set of actions that will be performed on certain events.
 
+        keypad_input_plan : typing.Optional[KeypadInputPlan]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -387,6 +391,9 @@ class AssistantsClient:
                 "server": convert_and_respect_annotation_metadata(object_=server, annotation=Server, direction="write"),
                 "hooks": convert_and_respect_annotation_metadata(
                     object_=hooks, annotation=typing.Sequence[AssistantHooks], direction="write"
+                ),
+                "keypadInputPlan": convert_and_respect_annotation_metadata(
+                    object_=keypad_input_plan, annotation=KeypadInputPlan, direction="write"
                 ),
             },
             request_options=request_options,
@@ -506,6 +513,7 @@ class AssistantsClient:
         credential_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         server: typing.Optional[Server] = OMIT,
         hooks: typing.Optional[typing.Sequence[AssistantHooks]] = OMIT,
+        keypad_input_plan: typing.Optional[KeypadInputPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> Assistant:
         """
@@ -659,6 +667,8 @@ class AssistantsClient:
         hooks : typing.Optional[typing.Sequence[AssistantHooks]]
             This is a set of actions that will be performed on certain events.
 
+        keypad_input_plan : typing.Optional[KeypadInputPlan]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -732,6 +742,9 @@ class AssistantsClient:
                 "server": convert_and_respect_annotation_metadata(object_=server, annotation=Server, direction="write"),
                 "hooks": convert_and_respect_annotation_metadata(
                     object_=hooks, annotation=typing.Sequence[AssistantHooks], direction="write"
+                ),
+                "keypadInputPlan": convert_and_respect_annotation_metadata(
+                    object_=keypad_input_plan, annotation=KeypadInputPlan, direction="write"
                 ),
             },
             headers={
@@ -874,6 +887,7 @@ class AsyncAssistantsClient:
         credential_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         server: typing.Optional[Server] = OMIT,
         hooks: typing.Optional[typing.Sequence[AssistantHooks]] = OMIT,
+        keypad_input_plan: typing.Optional[KeypadInputPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> Assistant:
         """
@@ -1025,6 +1039,8 @@ class AsyncAssistantsClient:
         hooks : typing.Optional[typing.Sequence[AssistantHooks]]
             This is a set of actions that will be performed on certain events.
 
+        keypad_input_plan : typing.Optional[KeypadInputPlan]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1098,6 +1114,9 @@ class AsyncAssistantsClient:
                 "server": convert_and_respect_annotation_metadata(object_=server, annotation=Server, direction="write"),
                 "hooks": convert_and_respect_annotation_metadata(
                     object_=hooks, annotation=typing.Sequence[AssistantHooks], direction="write"
+                ),
+                "keypadInputPlan": convert_and_respect_annotation_metadata(
+                    object_=keypad_input_plan, annotation=KeypadInputPlan, direction="write"
                 ),
             },
             request_options=request_options,
@@ -1217,6 +1236,7 @@ class AsyncAssistantsClient:
         credential_ids: typing.Optional[typing.Sequence[str]] = OMIT,
         server: typing.Optional[Server] = OMIT,
         hooks: typing.Optional[typing.Sequence[AssistantHooks]] = OMIT,
+        keypad_input_plan: typing.Optional[KeypadInputPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> Assistant:
         """
@@ -1370,6 +1390,8 @@ class AsyncAssistantsClient:
         hooks : typing.Optional[typing.Sequence[AssistantHooks]]
             This is a set of actions that will be performed on certain events.
 
+        keypad_input_plan : typing.Optional[KeypadInputPlan]
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -1443,6 +1465,9 @@ class AsyncAssistantsClient:
                 "server": convert_and_respect_annotation_metadata(object_=server, annotation=Server, direction="write"),
                 "hooks": convert_and_respect_annotation_metadata(
                     object_=hooks, annotation=typing.Sequence[AssistantHooks], direction="write"
+                ),
+                "keypadInputPlan": convert_and_respect_annotation_metadata(
+                    object_=keypad_input_plan, annotation=KeypadInputPlan, direction="write"
                 ),
             },
             headers={

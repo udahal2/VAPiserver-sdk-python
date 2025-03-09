@@ -18,6 +18,7 @@ from .anthropic_credential import AnthropicCredential
 from .anthropic_model import AnthropicModel
 from .anthropic_model_model import AnthropicModelModel
 from .anthropic_model_tools_item import AnthropicModelToolsItem
+from .anthropic_thinking_config import AnthropicThinkingConfig
 from .anyscale_credential import AnyscaleCredential
 from .anyscale_model import AnyscaleModel
 from .anyscale_model_tools_item import AnyscaleModelToolsItem
@@ -221,11 +222,14 @@ from .create_output_tool_dto import CreateOutputToolDto
 from .create_output_tool_dto_messages_item import CreateOutputToolDtoMessagesItem
 from .create_perplexity_ai_credential_dto import CreatePerplexityAiCredentialDto
 from .create_play_ht_credential_dto import CreatePlayHtCredentialDto
+from .create_query_tool_dto import CreateQueryToolDto
+from .create_query_tool_dto_messages_item import CreateQueryToolDtoMessagesItem
 from .create_rime_ai_credential_dto import CreateRimeAiCredentialDto
 from .create_runpod_credential_dto import CreateRunpodCredentialDto
 from .create_s_3_credential_dto import CreateS3CredentialDto
 from .create_smallest_ai_credential_dto import CreateSmallestAiCredentialDto
 from .create_squad_dto import CreateSquadDto
+from .create_supabase_credential_dto import CreateSupabaseCredentialDto
 from .create_tavus_credential_dto import CreateTavusCredentialDto
 from .create_text_editor_tool_dto import CreateTextEditorToolDto
 from .create_text_editor_tool_dto_messages_item import CreateTextEditorToolDtoMessagesItem
@@ -244,7 +248,6 @@ from .create_transfer_call_tool_dto import CreateTransferCallToolDto
 from .create_transfer_call_tool_dto_destinations_item import CreateTransferCallToolDtoDestinationsItem
 from .create_transfer_call_tool_dto_messages_item import CreateTransferCallToolDtoMessagesItem
 from .create_trieve_knowledge_base_dto import CreateTrieveKnowledgeBaseDto
-from .create_trieve_knowledge_base_dto_create_plan import CreateTrieveKnowledgeBaseDtoCreatePlan
 from .create_twilio_credential_dto import CreateTwilioCredentialDto
 from .create_twilio_phone_number_dto import CreateTwilioPhoneNumberDto
 from .create_twilio_phone_number_dto_fallback_destination import CreateTwilioPhoneNumberDtoFallbackDestination
@@ -314,6 +317,7 @@ from .fallback_eleven_labs_voice import FallbackElevenLabsVoice
 from .fallback_eleven_labs_voice_id import FallbackElevenLabsVoiceId
 from .fallback_eleven_labs_voice_id_enum import FallbackElevenLabsVoiceIdEnum
 from .fallback_eleven_labs_voice_model import FallbackElevenLabsVoiceModel
+from .fallback_hume_voice import FallbackHumeVoice
 from .fallback_lmnt_voice import FallbackLmntVoice
 from .fallback_lmnt_voice_id import FallbackLmntVoiceId
 from .fallback_lmnt_voice_id_enum import FallbackLmntVoiceIdEnum
@@ -339,6 +343,7 @@ from .fallback_smallest_ai_voice_id import FallbackSmallestAiVoiceId
 from .fallback_smallest_ai_voice_id_enum import FallbackSmallestAiVoiceIdEnum
 from .fallback_tavus_voice import FallbackTavusVoice
 from .fallback_tavus_voice_voice_id import FallbackTavusVoiceVoiceId
+from .fallback_vapi_voice import FallbackVapiVoice
 from .file import File
 from .file_status import FileStatus
 from .format_plan import FormatPlan
@@ -393,6 +398,9 @@ from .invite_user_dto import InviteUserDto
 from .invite_user_dto_role import InviteUserDtoRole
 from .json_schema import JsonSchema
 from .json_schema_type import JsonSchemaType
+from .keypad_input_plan import KeypadInputPlan
+from .keypad_input_plan_delimiters import KeypadInputPlanDelimiters
+from .knowledge_base import KnowledgeBase
 from .knowledge_base_response_document import KnowledgeBaseResponseDocument
 from .langfuse_credential import LangfuseCredential
 from .lmnt_credential import LmntCredential
@@ -456,6 +464,8 @@ from .play_ht_voice_id_enum import PlayHtVoiceIdEnum
 from .play_ht_voice_language import PlayHtVoiceLanguage
 from .play_ht_voice_model import PlayHtVoiceModel
 from .punctuation_boundary import PunctuationBoundary
+from .query_tool import QueryTool
+from .query_tool_messages_item import QueryToolMessagesItem
 from .regex_option import RegexOption
 from .regex_option_type import RegexOptionType
 from .regex_replacement import RegexReplacement
@@ -559,6 +569,9 @@ from .subscription_type import SubscriptionType
 from .success_evaluation_plan import SuccessEvaluationPlan
 from .success_evaluation_plan_rubric import SuccessEvaluationPlanRubric
 from .summary_plan import SummaryPlan
+from .supabase_bucket_plan import SupabaseBucketPlan
+from .supabase_bucket_plan_region import SupabaseBucketPlanRegion
+from .supabase_credential import SupabaseCredential
 from .sync_voice_library_dto import SyncVoiceLibraryDto
 from .sync_voice_library_dto_providers_item import SyncVoiceLibraryDtoProvidersItem
 from .system_message import SystemMessage
@@ -646,7 +659,6 @@ from .transport_provider import TransportProvider
 from .trieve_knowledge_base import TrieveKnowledgeBase
 from .trieve_knowledge_base_chunk_plan import TrieveKnowledgeBaseChunkPlan
 from .trieve_knowledge_base_create import TrieveKnowledgeBaseCreate
-from .trieve_knowledge_base_create_plan import TrieveKnowledgeBaseCreatePlan
 from .trieve_knowledge_base_import import TrieveKnowledgeBaseImport
 from .trieve_knowledge_base_search_plan import TrieveKnowledgeBaseSearchPlan
 from .trieve_knowledge_base_search_plan_search_type import TrieveKnowledgeBaseSearchPlanSearchType
@@ -712,10 +724,13 @@ from .update_output_tool_dto import UpdateOutputToolDto
 from .update_output_tool_dto_messages_item import UpdateOutputToolDtoMessagesItem
 from .update_perplexity_ai_credential_dto import UpdatePerplexityAiCredentialDto
 from .update_play_ht_credential_dto import UpdatePlayHtCredentialDto
+from .update_query_tool_dto import UpdateQueryToolDto
+from .update_query_tool_dto_messages_item import UpdateQueryToolDtoMessagesItem
 from .update_rime_ai_credential_dto import UpdateRimeAiCredentialDto
 from .update_runpod_credential_dto import UpdateRunpodCredentialDto
 from .update_s_3_credential_dto import UpdateS3CredentialDto
 from .update_smallest_ai_credential_dto import UpdateSmallestAiCredentialDto
+from .update_supabase_credential_dto import UpdateSupabaseCredentialDto
 from .update_tavus_credential_dto import UpdateTavusCredentialDto
 from .update_text_editor_tool_dto import UpdateTextEditorToolDto
 from .update_text_editor_tool_dto_messages_item import UpdateTextEditorToolDtoMessagesItem
@@ -734,7 +749,6 @@ from .update_transfer_call_tool_dto import UpdateTransferCallToolDto
 from .update_transfer_call_tool_dto_destinations_item import UpdateTransferCallToolDtoDestinationsItem
 from .update_transfer_call_tool_dto_messages_item import UpdateTransferCallToolDtoMessagesItem
 from .update_trieve_knowledge_base_dto import UpdateTrieveKnowledgeBaseDto
-from .update_trieve_knowledge_base_dto_create_plan import UpdateTrieveKnowledgeBaseDtoCreatePlan
 from .update_twilio_credential_dto import UpdateTwilioCredentialDto
 from .update_twilio_phone_number_dto import UpdateTwilioPhoneNumberDto
 from .update_twilio_phone_number_dto_fallback_destination import UpdateTwilioPhoneNumberDtoFallbackDestination
@@ -797,6 +811,7 @@ __all__ = [
     "AnthropicModel",
     "AnthropicModelModel",
     "AnthropicModelToolsItem",
+    "AnthropicThinkingConfig",
     "AnyscaleCredential",
     "AnyscaleModel",
     "AnyscaleModelToolsItem",
@@ -1000,11 +1015,14 @@ __all__ = [
     "CreateOutputToolDtoMessagesItem",
     "CreatePerplexityAiCredentialDto",
     "CreatePlayHtCredentialDto",
+    "CreateQueryToolDto",
+    "CreateQueryToolDtoMessagesItem",
     "CreateRimeAiCredentialDto",
     "CreateRunpodCredentialDto",
     "CreateS3CredentialDto",
     "CreateSmallestAiCredentialDto",
     "CreateSquadDto",
+    "CreateSupabaseCredentialDto",
     "CreateTavusCredentialDto",
     "CreateTextEditorToolDto",
     "CreateTextEditorToolDtoMessagesItem",
@@ -1023,7 +1041,6 @@ __all__ = [
     "CreateTransferCallToolDtoDestinationsItem",
     "CreateTransferCallToolDtoMessagesItem",
     "CreateTrieveKnowledgeBaseDto",
-    "CreateTrieveKnowledgeBaseDtoCreatePlan",
     "CreateTwilioCredentialDto",
     "CreateTwilioPhoneNumberDto",
     "CreateTwilioPhoneNumberDtoFallbackDestination",
@@ -1093,6 +1110,7 @@ __all__ = [
     "FallbackElevenLabsVoiceId",
     "FallbackElevenLabsVoiceIdEnum",
     "FallbackElevenLabsVoiceModel",
+    "FallbackHumeVoice",
     "FallbackLmntVoice",
     "FallbackLmntVoiceId",
     "FallbackLmntVoiceIdEnum",
@@ -1118,6 +1136,7 @@ __all__ = [
     "FallbackSmallestAiVoiceIdEnum",
     "FallbackTavusVoice",
     "FallbackTavusVoiceVoiceId",
+    "FallbackVapiVoice",
     "File",
     "FileStatus",
     "FormatPlan",
@@ -1172,6 +1191,9 @@ __all__ = [
     "InviteUserDtoRole",
     "JsonSchema",
     "JsonSchemaType",
+    "KeypadInputPlan",
+    "KeypadInputPlanDelimiters",
+    "KnowledgeBase",
     "KnowledgeBaseResponseDocument",
     "LangfuseCredential",
     "LmntCredential",
@@ -1235,6 +1257,8 @@ __all__ = [
     "PlayHtVoiceLanguage",
     "PlayHtVoiceModel",
     "PunctuationBoundary",
+    "QueryTool",
+    "QueryToolMessagesItem",
     "RegexOption",
     "RegexOptionType",
     "RegexReplacement",
@@ -1336,6 +1360,9 @@ __all__ = [
     "SuccessEvaluationPlan",
     "SuccessEvaluationPlanRubric",
     "SummaryPlan",
+    "SupabaseBucketPlan",
+    "SupabaseBucketPlanRegion",
+    "SupabaseCredential",
     "SyncVoiceLibraryDto",
     "SyncVoiceLibraryDtoProvidersItem",
     "SystemMessage",
@@ -1423,7 +1450,6 @@ __all__ = [
     "TrieveKnowledgeBase",
     "TrieveKnowledgeBaseChunkPlan",
     "TrieveKnowledgeBaseCreate",
-    "TrieveKnowledgeBaseCreatePlan",
     "TrieveKnowledgeBaseImport",
     "TrieveKnowledgeBaseSearchPlan",
     "TrieveKnowledgeBaseSearchPlanSearchType",
@@ -1487,10 +1513,13 @@ __all__ = [
     "UpdateOutputToolDtoMessagesItem",
     "UpdatePerplexityAiCredentialDto",
     "UpdatePlayHtCredentialDto",
+    "UpdateQueryToolDto",
+    "UpdateQueryToolDtoMessagesItem",
     "UpdateRimeAiCredentialDto",
     "UpdateRunpodCredentialDto",
     "UpdateS3CredentialDto",
     "UpdateSmallestAiCredentialDto",
+    "UpdateSupabaseCredentialDto",
     "UpdateTavusCredentialDto",
     "UpdateTextEditorToolDto",
     "UpdateTextEditorToolDtoMessagesItem",
@@ -1509,7 +1538,6 @@ __all__ = [
     "UpdateTransferCallToolDtoDestinationsItem",
     "UpdateTransferCallToolDtoMessagesItem",
     "UpdateTrieveKnowledgeBaseDto",
-    "UpdateTrieveKnowledgeBaseDtoCreatePlan",
     "UpdateTwilioCredentialDto",
     "UpdateTwilioPhoneNumberDto",
     "UpdateTwilioPhoneNumberDtoFallbackDestination",

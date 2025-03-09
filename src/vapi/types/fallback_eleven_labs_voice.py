@@ -46,6 +46,11 @@ class FallbackElevenLabsVoice(UniversalBaseModel):
     Defines the use speaker boost for voice settings.
     """
 
+    speed: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Defines the speed for voice settings.
+    """
+
     optimize_streaming_latency: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="optimizeStreamingLatency")
     ] = pydantic.Field(default=None)

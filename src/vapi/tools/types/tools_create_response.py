@@ -11,6 +11,7 @@ from ...types.output_tool import OutputTool
 from ...types.bash_tool import BashTool
 from ...types.computer_tool import ComputerTool
 from ...types.text_editor_tool import TextEditorTool
+from ...types.query_tool import QueryTool
 
 ToolsCreateResponse = typing.Union[
     DtmfTool,
@@ -23,4 +24,5 @@ ToolsCreateResponse = typing.Union[
     BashTool,
     ComputerTool,
     TextEditorTool,
+    QueryTool,
 ]

@@ -25,6 +25,11 @@ class OAuth2AuthenticationPlan(UniversalBaseModel):
     This is the OAuth2 client secret.
     """
 
+    scope: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is the scope of the OAuth2 token.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

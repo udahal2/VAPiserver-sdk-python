@@ -11,6 +11,7 @@ from ...types.create_output_tool_dto import CreateOutputToolDto
 from ...types.create_bash_tool_dto import CreateBashToolDto
 from ...types.create_computer_tool_dto import CreateComputerToolDto
 from ...types.create_text_editor_tool_dto import CreateTextEditorToolDto
+from ...types.create_query_tool_dto import CreateQueryToolDto
 
 ToolsCreateRequest = typing.Union[
     CreateDtmfToolDto,
@@ -23,4 +24,5 @@ ToolsCreateRequest = typing.Union[
     CreateBashToolDto,
     CreateComputerToolDto,
     CreateTextEditorToolDto,
+    CreateQueryToolDto,
 ]

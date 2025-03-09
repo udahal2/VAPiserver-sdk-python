@@ -6,7 +6,7 @@ import pydantic
 import typing_extensions
 from .trieve_knowledge_base_search_plan import TrieveKnowledgeBaseSearchPlan
 from ..core.serialization import FieldMetadata
-from .create_trieve_knowledge_base_dto_create_plan import CreateTrieveKnowledgeBaseDtoCreatePlan
+from .trieve_knowledge_base_import import TrieveKnowledgeBaseImport
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -29,7 +29,7 @@ class CreateTrieveKnowledgeBaseDto(UniversalBaseModel):
     """
 
     create_plan: typing_extensions.Annotated[
-        typing.Optional[CreateTrieveKnowledgeBaseDtoCreatePlan], FieldMetadata(alias="createPlan")
+        typing.Optional[TrieveKnowledgeBaseImport], FieldMetadata(alias="createPlan")
     ] = pydantic.Field(default=None)
     """
     This is the plan if you want us to create/import a new vector store using Trieve.

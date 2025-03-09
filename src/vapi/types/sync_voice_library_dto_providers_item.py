@@ -4,11 +4,13 @@ import typing
 
 SyncVoiceLibraryDtoProvidersItem = typing.Union[
     typing.Literal[
+        "vapi",
         "11labs",
         "azure",
         "cartesia",
         "custom-voice",
         "deepgram",
+        "hume",
         "lmnt",
         "neets",
         "neuphonic",

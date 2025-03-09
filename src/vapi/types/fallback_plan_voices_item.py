@@ -3,9 +3,11 @@
 import typing
 from .fallback_azure_voice import FallbackAzureVoice
 from .fallback_cartesia_voice import FallbackCartesiaVoice
+from .fallback_hume_voice import FallbackHumeVoice
 from .fallback_custom_voice import FallbackCustomVoice
 from .fallback_deepgram_voice import FallbackDeepgramVoice
 from .fallback_eleven_labs_voice import FallbackElevenLabsVoice
+from .fallback_vapi_voice import FallbackVapiVoice
 from .fallback_lmnt_voice import FallbackLmntVoice
 from .fallback_neets_voice import FallbackNeetsVoice
 from .fallback_open_ai_voice import FallbackOpenAiVoice
@@ -17,9 +19,11 @@ from .fallback_tavus_voice import FallbackTavusVoice
 FallbackPlanVoicesItem = typing.Union[
     FallbackAzureVoice,
     FallbackCartesiaVoice,
+    FallbackHumeVoice,
     FallbackCustomVoice,
     FallbackDeepgramVoice,
     FallbackElevenLabsVoice,
+    FallbackVapiVoice,
     FallbackLmntVoice,
     FallbackNeetsVoice,
     FallbackOpenAiVoice,

@@ -108,6 +108,4 @@ from .callback_step import CallbackStep  # noqa: E402
 from .create_workflow_block_dto import CreateWorkflowBlockDto  # noqa: E402
 from .handoff_step_block import HandoffStepBlock  # noqa: E402
 
-update_forward_refs(CallbackStep, HandoffStep=HandoffStep)
-update_forward_refs(CreateWorkflowBlockDto, HandoffStep=HandoffStep)
 update_forward_refs(HandoffStep)

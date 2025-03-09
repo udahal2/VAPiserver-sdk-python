@@ -43,6 +43,7 @@ class TransferPlan(UniversalBaseModel):
     This specifies the SIP verb to use while transferring the call.
     - 'refer': Uses SIP REFER to transfer the call (default)
     - 'bye': Ends current call with SIP BYE
+    - 'dial': Uses SIP DIAL to transfer the call
     """
 
     twiml: typing.Optional[str] = pydantic.Field(default=None)

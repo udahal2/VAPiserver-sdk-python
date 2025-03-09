@@ -11,6 +11,7 @@ from ...types.update_output_tool_dto import UpdateOutputToolDto
 from ...types.update_bash_tool_dto import UpdateBashToolDto
 from ...types.update_computer_tool_dto import UpdateComputerToolDto
 from ...types.update_text_editor_tool_dto import UpdateTextEditorToolDto
+from ...types.update_query_tool_dto import UpdateQueryToolDto
 
 ToolsUpdateRequest = typing.Union[
     UpdateDtmfToolDto,
@@ -23,4 +24,5 @@ ToolsUpdateRequest = typing.Union[
     UpdateBashToolDto,
     UpdateComputerToolDto,
     UpdateTextEditorToolDto,
+    UpdateQueryToolDto,
 ]

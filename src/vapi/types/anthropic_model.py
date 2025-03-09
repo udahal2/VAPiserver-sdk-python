@@ -9,6 +9,7 @@ import typing_extensions
 from ..core.serialization import FieldMetadata
 from .create_custom_knowledge_base_dto import CreateCustomKnowledgeBaseDto
 from .anthropic_model_model import AnthropicModelModel
+from .anthropic_thinking_config import AnthropicThinkingConfig
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -50,10 +51,21 @@ class AnthropicModel(UniversalBaseModel):
 
     model: AnthropicModelModel = pydantic.Field()
     """
-    This is the Anthropic/Claude models that will be used.
+    The specific Anthropic/Claude model that will be used.
     """
 
-    provider: typing.Literal["anthropic"] = "anthropic"
+    provider: typing.Literal["anthropic"] = pydantic.Field(default="anthropic")
+    """
+    The provider identifier for Anthropic.
+    """
+
+    thinking: typing.Optional[AnthropicThinkingConfig] = pydantic.Field(default=None)
+    """
+    Optional configuration for Anthropic's thinking feature.
+    Only applicable for claude-3-7-sonnet-20250219 model.
+    If provided, maxTokens must be greater than thinking.budgetTokens.
+    """
+
     temperature: typing.Optional[float] = pydantic.Field(default=None)
     """
     This is the temperature that will be used for calls. Default is 0 to leverage caching for lower latency.

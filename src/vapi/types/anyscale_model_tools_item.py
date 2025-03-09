@@ -8,6 +8,7 @@ from .create_function_tool_dto import CreateFunctionToolDto
 from .create_ghl_tool_dto import CreateGhlToolDto
 from .create_make_tool_dto import CreateMakeToolDto
 from .create_transfer_call_tool_dto import CreateTransferCallToolDto
+from .create_query_tool_dto import CreateQueryToolDto
 
 AnyscaleModelToolsItem = typing.Union[
     CreateDtmfToolDto,
@@ -17,4 +18,5 @@ AnyscaleModelToolsItem = typing.Union[
     CreateGhlToolDto,
     CreateMakeToolDto,
     CreateTransferCallToolDto,
+    CreateQueryToolDto,
 ]
