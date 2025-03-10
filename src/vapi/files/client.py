@@ -4,7 +4,7 @@ import typing
 from ..core.client_wrapper import SyncClientWrapper
 from ..core.request_options import RequestOptions
 from ..types.file import File
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from .. import core
@@ -41,7 +41,7 @@ class FilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[File],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[File],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -80,7 +80,7 @@ class FilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -89,7 +89,7 @@ class FilesClient:
                 raise BadRequestError(
                     typing.cast(
                         typing.Optional[typing.Any],
-                        parse_obj_as(
+                        construct_type(
                             type_=typing.Optional[typing.Any],  # type: ignore
                             object_=_response.json(),
                         ),
@@ -123,7 +123,7 @@ class FilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -156,7 +156,7 @@ class FilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -201,7 +201,7 @@ class FilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -237,7 +237,7 @@ class AsyncFilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[File],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[File],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -276,7 +276,7 @@ class AsyncFilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -285,7 +285,7 @@ class AsyncFilesClient:
                 raise BadRequestError(
                     typing.cast(
                         typing.Optional[typing.Any],
-                        parse_obj_as(
+                        construct_type(
                             type_=typing.Optional[typing.Any],  # type: ignore
                             object_=_response.json(),
                         ),
@@ -319,7 +319,7 @@ class AsyncFilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -352,7 +352,7 @@ class AsyncFilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -397,7 +397,7 @@ class AsyncFilesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     File,
-                    parse_obj_as(
+                    construct_type(
                         type_=File,  # type: ignore
                         object_=_response.json(),
                     ),

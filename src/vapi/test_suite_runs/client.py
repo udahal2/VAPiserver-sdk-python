@@ -10,7 +10,7 @@ from ..core.request_options import RequestOptions
 from ..types.test_suite_runs_paginated_response import TestSuiteRunsPaginatedResponse
 from ..core.jsonable_encoder import jsonable_encoder
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..types.test_suite_run import TestSuiteRun
@@ -109,7 +109,7 @@ class TestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRunsPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRunsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -158,7 +158,7 @@ class TestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -195,7 +195,7 @@ class TestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -232,7 +232,7 @@ class TestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -284,7 +284,7 @@ class TestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -384,7 +384,7 @@ class AsyncTestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRunsPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRunsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -433,7 +433,7 @@ class AsyncTestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -470,7 +470,7 @@ class AsyncTestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -507,7 +507,7 @@ class AsyncTestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -559,7 +559,7 @@ class AsyncTestSuiteRunsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteRun,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteRun,  # type: ignore
                         object_=_response.json(),
                     ),

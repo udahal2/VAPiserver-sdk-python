@@ -6,7 +6,7 @@ from ..types.analytics_query import AnalyticsQuery
 from ..core.request_options import RequestOptions
 from ..types.analytics_query_result import AnalyticsQueryResult
 from ..core.serialization import convert_and_respect_annotation_metadata
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..core.client_wrapper import AsyncClientWrapper
@@ -54,7 +54,7 @@ class AnalyticsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[AnalyticsQueryResult],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[AnalyticsQueryResult],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -104,7 +104,7 @@ class AsyncAnalyticsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[AnalyticsQueryResult],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[AnalyticsQueryResult],  # type: ignore
                         object_=_response.json(),
                     ),

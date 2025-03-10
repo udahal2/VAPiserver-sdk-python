@@ -6,7 +6,7 @@ import datetime as dt
 from ..core.request_options import RequestOptions
 from ..types.assistant import Assistant
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..types.create_assistant_dto_transcriber import CreateAssistantDtoTranscriber
@@ -121,7 +121,7 @@ class AssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[Assistant],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[Assistant],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -403,7 +403,7 @@ class AssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -436,7 +436,7 @@ class AssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -469,7 +469,7 @@ class AssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -757,7 +757,7 @@ class AssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -844,7 +844,7 @@ class AsyncAssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[Assistant],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[Assistant],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -1126,7 +1126,7 @@ class AsyncAssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -1159,7 +1159,7 @@ class AsyncAssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -1192,7 +1192,7 @@ class AsyncAssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -1480,7 +1480,7 @@ class AsyncAssistantsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Assistant,
-                    parse_obj_as(
+                    construct_type(
                         type_=Assistant,  # type: ignore
                         object_=_response.json(),
                     ),

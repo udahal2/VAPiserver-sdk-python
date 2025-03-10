@@ -6,7 +6,7 @@ import datetime as dt
 from ..core.request_options import RequestOptions
 from ..types.squad import Squad
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..types.squad_member_dto import SquadMemberDto
@@ -95,7 +95,7 @@ class SquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[Squad],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[Squad],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -156,7 +156,7 @@ class SquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -189,7 +189,7 @@ class SquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -222,7 +222,7 @@ class SquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -289,7 +289,7 @@ class SquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -376,7 +376,7 @@ class AsyncSquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[Squad],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[Squad],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -437,7 +437,7 @@ class AsyncSquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -470,7 +470,7 @@ class AsyncSquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -503,7 +503,7 @@ class AsyncSquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -570,7 +570,7 @@ class AsyncSquadsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Squad,
-                    parse_obj_as(
+                    construct_type(
                         type_=Squad,  # type: ignore
                         object_=_response.json(),
                     ),

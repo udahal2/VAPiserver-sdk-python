@@ -9,7 +9,7 @@ import datetime as dt
 from ..core.request_options import RequestOptions
 from ..types.test_suites_paginated_response import TestSuitesPaginatedResponse
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..types.test_suite import TestSuite
@@ -106,7 +106,7 @@ class TestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuitesPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuitesPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -157,7 +157,7 @@ class TestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -192,7 +192,7 @@ class TestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -227,7 +227,7 @@ class TestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -281,7 +281,7 @@ class TestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -378,7 +378,7 @@ class AsyncTestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuitesPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuitesPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -429,7 +429,7 @@ class AsyncTestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -464,7 +464,7 @@ class AsyncTestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -499,7 +499,7 @@ class AsyncTestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -553,7 +553,7 @@ class AsyncTestSuitesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuite,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuite,  # type: ignore
                         object_=_response.json(),
                     ),

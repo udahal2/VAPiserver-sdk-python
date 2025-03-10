@@ -6,7 +6,7 @@ import datetime as dt
 from ..core.request_options import RequestOptions
 from .types.phone_numbers_list_response_item import PhoneNumbersListResponseItem
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from .types.phone_numbers_create_request import PhoneNumbersCreateRequest
@@ -99,7 +99,7 @@ class PhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[PhoneNumbersListResponseItem],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[PhoneNumbersListResponseItem],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -138,7 +138,7 @@ class PhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersCreateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -171,7 +171,7 @@ class PhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersGetResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersGetResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -204,7 +204,7 @@ class PhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersDeleteResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -245,7 +245,7 @@ class PhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersUpdateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -332,7 +332,7 @@ class AsyncPhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[PhoneNumbersListResponseItem],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[PhoneNumbersListResponseItem],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -371,7 +371,7 @@ class AsyncPhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersCreateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -404,7 +404,7 @@ class AsyncPhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersGetResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersGetResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -439,7 +439,7 @@ class AsyncPhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersDeleteResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -480,7 +480,7 @@ class AsyncPhoneNumbersClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     PhoneNumbersUpdateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=PhoneNumbersUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),

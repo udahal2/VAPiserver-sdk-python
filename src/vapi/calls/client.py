@@ -6,7 +6,7 @@ import datetime as dt
 from ..core.request_options import RequestOptions
 from ..types.call import Call
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..types.create_assistant_dto import CreateAssistantDto
@@ -115,7 +115,7 @@ class CallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[Call],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[Call],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -224,7 +224,7 @@ class CallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -257,7 +257,7 @@ class CallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -290,7 +290,7 @@ class CallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -335,7 +335,7 @@ class CallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -439,7 +439,7 @@ class AsyncCallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[Call],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[Call],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -548,7 +548,7 @@ class AsyncCallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -581,7 +581,7 @@ class AsyncCallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -614,7 +614,7 @@ class AsyncCallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -659,7 +659,7 @@ class AsyncCallsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     Call,
-                    parse_obj_as(
+                    construct_type(
                         type_=Call,  # type: ignore
                         object_=_response.json(),
                     ),

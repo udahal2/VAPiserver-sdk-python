@@ -10,7 +10,7 @@ from ..core.request_options import RequestOptions
 from ..types.test_suite_tests_paginated_response import TestSuiteTestsPaginatedResponse
 from ..core.jsonable_encoder import jsonable_encoder
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..types.test_suite_test_scorer_ai import TestSuiteTestScorerAi
@@ -111,7 +111,7 @@ class TestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestsPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -178,7 +178,7 @@ class TestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -215,7 +215,7 @@ class TestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -252,7 +252,7 @@ class TestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -321,7 +321,7 @@ class TestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -421,7 +421,7 @@ class AsyncTestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestsPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -488,7 +488,7 @@ class AsyncTestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -525,7 +525,7 @@ class AsyncTestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -562,7 +562,7 @@ class AsyncTestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -631,7 +631,7 @@ class AsyncTestSuiteTestsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     TestSuiteTestVoice,
-                    parse_obj_as(
+                    construct_type(
                         type_=TestSuiteTestVoice,  # type: ignore
                         object_=_response.json(),
                     ),

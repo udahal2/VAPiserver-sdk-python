@@ -10,7 +10,7 @@ from ..core.pagination import SyncPager
 from ..types.log import Log
 from ..core.datetime_utils import serialize_datetime
 from ..types.logs_paginated_response import LogsPaginatedResponse
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from .types.logging_controller_logs_delete_query_request_type import LoggingControllerLogsDeleteQueryRequestType
@@ -140,7 +140,7 @@ class LogsClient:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
                     LogsPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=LogsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -356,7 +356,7 @@ class AsyncLogsClient:
             if 200 <= _response.status_code < 300:
                 _parsed_response = typing.cast(
                     LogsPaginatedResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=LogsPaginatedResponse,  # type: ignore
                         object_=_response.json(),
                     ),

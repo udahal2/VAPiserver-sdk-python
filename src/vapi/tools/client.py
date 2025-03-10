@@ -6,7 +6,7 @@ import datetime as dt
 from ..core.request_options import RequestOptions
 from .types.tools_list_response_item import ToolsListResponseItem
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from .types.tools_create_request import ToolsCreateRequest
@@ -99,7 +99,7 @@ class ToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[ToolsListResponseItem],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[ToolsListResponseItem],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -138,7 +138,7 @@ class ToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsCreateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -171,7 +171,7 @@ class ToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsGetResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsGetResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -204,7 +204,7 @@ class ToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsDeleteResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -245,7 +245,7 @@ class ToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsUpdateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -332,7 +332,7 @@ class AsyncToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[ToolsListResponseItem],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[ToolsListResponseItem],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -371,7 +371,7 @@ class AsyncToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsCreateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -404,7 +404,7 @@ class AsyncToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsGetResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsGetResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -437,7 +437,7 @@ class AsyncToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsDeleteResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -478,7 +478,7 @@ class AsyncToolsClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     ToolsUpdateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=ToolsUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),

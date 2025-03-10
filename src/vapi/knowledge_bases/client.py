@@ -6,7 +6,7 @@ import datetime as dt
 from ..core.request_options import RequestOptions
 from .types.knowledge_bases_list_response_item import KnowledgeBasesListResponseItem
 from ..core.datetime_utils import serialize_datetime
-from ..core.pydantic_utilities import parse_obj_as
+from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from .types.knowledge_bases_create_request import KnowledgeBasesCreateRequest
@@ -99,7 +99,7 @@ class KnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[KnowledgeBasesListResponseItem],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[KnowledgeBasesListResponseItem],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -138,7 +138,7 @@ class KnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesCreateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -171,7 +171,7 @@ class KnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesGetResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesGetResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -206,7 +206,7 @@ class KnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesDeleteResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -247,7 +247,7 @@ class KnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesUpdateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -334,7 +334,7 @@ class AsyncKnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     typing.List[KnowledgeBasesListResponseItem],
-                    parse_obj_as(
+                    construct_type(
                         type_=typing.List[KnowledgeBasesListResponseItem],  # type: ignore
                         object_=_response.json(),
                     ),
@@ -373,7 +373,7 @@ class AsyncKnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesCreateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -408,7 +408,7 @@ class AsyncKnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesGetResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesGetResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -443,7 +443,7 @@ class AsyncKnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesDeleteResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesDeleteResponse,  # type: ignore
                         object_=_response.json(),
                     ),
@@ -484,7 +484,7 @@ class AsyncKnowledgeBasesClient:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
                     KnowledgeBasesUpdateResponse,
-                    parse_obj_as(
+                    construct_type(
                         type_=KnowledgeBasesUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
