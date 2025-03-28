@@ -3,8 +3,8 @@
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
 import pydantic
-from .fallback_deepgram_transcriber_model import FallbackDeepgramTranscriberModel
-from .fallback_deepgram_transcriber_language import FallbackDeepgramTranscriberLanguage
+from .deepgram_transcriber_model import DeepgramTranscriberModel
+from .deepgram_transcriber_language import DeepgramTranscriberLanguage
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
@@ -16,12 +16,12 @@ class FallbackDeepgramTranscriber(UncheckedBaseModel):
     This is the transcription provider that will be used.
     """
 
-    model: typing.Optional[FallbackDeepgramTranscriberModel] = pydantic.Field(default=None)
+    model: typing.Optional[DeepgramTranscriberModel] = pydantic.Field(default=None)
     """
     This is the Deepgram model that will be used. A list of models can be found here: https://developers.deepgram.com/docs/models-languages-overview
     """
 
-    language: typing.Optional[FallbackDeepgramTranscriberLanguage] = pydantic.Field(default=None)
+    language: typing.Optional[DeepgramTranscriberLanguage] = pydantic.Field(default=None)
     """
     This is the language that will be set for the transcription. The list of languages Deepgram supports can be found here: https://developers.deepgram.com/docs/models-languages-overview
     """

@@ -365,7 +365,6 @@ from .fallback_lmnt_voice_id_enum import FallbackLmntVoiceIdEnum
 from .fallback_neets_voice import FallbackNeetsVoice
 from .fallback_neuphonic_voice import FallbackNeuphonicVoice
 from .fallback_neuphonic_voice_model import FallbackNeuphonicVoiceModel
-from .fallback_neuphonic_voice_voice_id import FallbackNeuphonicVoiceVoiceId
 from .fallback_open_ai_transcriber import FallbackOpenAiTranscriber
 from .fallback_open_ai_transcriber_language import FallbackOpenAiTranscriberLanguage
 from .fallback_open_ai_transcriber_model import FallbackOpenAiTranscriberModel
@@ -508,7 +507,6 @@ from .neets_voice import NeetsVoice
 from .neuphonic_credential import NeuphonicCredential
 from .neuphonic_voice import NeuphonicVoice
 from .neuphonic_voice_model import NeuphonicVoiceModel
-from .neuphonic_voice_voice_id import NeuphonicVoiceVoiceId
 from .o_auth_2_authentication_plan import OAuth2AuthenticationPlan
 from .oauth_2_authentication_session import Oauth2AuthenticationSession
 from .open_ai_credential import OpenAiCredential
@@ -1262,7 +1260,6 @@ __all__ = [
     "FallbackNeetsVoice",
     "FallbackNeuphonicVoice",
     "FallbackNeuphonicVoiceModel",
-    "FallbackNeuphonicVoiceVoiceId",
     "FallbackOpenAiTranscriber",
     "FallbackOpenAiTranscriberLanguage",
     "FallbackOpenAiTranscriberModel",
@@ -1401,7 +1398,6 @@ __all__ = [
     "NeuphonicCredential",
     "NeuphonicVoice",
     "NeuphonicVoiceModel",
-    "NeuphonicVoiceVoiceId",
     "OAuth2AuthenticationPlan",
     "Oauth2AuthenticationSession",
     "OpenAiCredential",

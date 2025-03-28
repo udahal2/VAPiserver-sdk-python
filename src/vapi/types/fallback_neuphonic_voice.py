@@ -4,7 +4,6 @@ from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
 import pydantic
 import typing_extensions
-from .fallback_neuphonic_voice_voice_id import FallbackNeuphonicVoiceVoiceId
 from ..core.serialization import FieldMetadata
 from .fallback_neuphonic_voice_model import FallbackNeuphonicVoiceModel
 from .chunk_plan import ChunkPlan
@@ -17,9 +16,7 @@ class FallbackNeuphonicVoice(UncheckedBaseModel):
     This is the voice provider that will be used.
     """
 
-    voice_id: typing_extensions.Annotated[FallbackNeuphonicVoiceVoiceId, FieldMetadata(alias="voiceId")] = (
-        pydantic.Field()
-    )
+    voice_id: typing_extensions.Annotated[str, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     This is the provider-specific ID that will be used.
     """

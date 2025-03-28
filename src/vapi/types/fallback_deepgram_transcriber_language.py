@@ -57,7 +57,6 @@ FallbackDeepgramTranscriberLanguage = typing.Union[
         "vi",
         "zh",
         "zh-CN",
-        "zh-HK",
         "zh-Hans",
         "zh-Hant",
         "zh-TW",
