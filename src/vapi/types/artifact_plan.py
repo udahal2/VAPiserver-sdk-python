@@ -5,6 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
+from .artifact_plan_recording_format import ArtifactPlanRecordingFormat
 from .transcript_plan import TranscriptPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -23,6 +24,15 @@ class ArtifactPlan(UncheckedBaseModel):
     You can find the recording at `call.artifact.recordingUrl` and `call.artifact.stereoRecordingUrl` after the call is ended.
     
     @default true
+    """
+
+    recording_format: typing_extensions.Annotated[
+        typing.Optional[ArtifactPlanRecordingFormat], FieldMetadata(alias="recordingFormat")
+    ] = pydantic.Field(default=None)
+    """
+    This determines the format of the recording. Defaults to `wav;l16`.
+    
+    @default 'wav;l16'
     """
 
     video_recording_enabled: typing_extensions.Annotated[

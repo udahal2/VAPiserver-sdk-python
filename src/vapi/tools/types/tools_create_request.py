@@ -12,6 +12,8 @@ from ...types.create_bash_tool_dto import CreateBashToolDto
 from ...types.create_computer_tool_dto import CreateComputerToolDto
 from ...types.create_text_editor_tool_dto import CreateTextEditorToolDto
 from ...types.create_query_tool_dto import CreateQueryToolDto
+from ...types.create_google_calendar_create_event_tool_dto import CreateGoogleCalendarCreateEventToolDto
+from ...types.create_google_sheets_row_append_tool_dto import CreateGoogleSheetsRowAppendToolDto
 
 ToolsCreateRequest = typing.Union[
     CreateDtmfToolDto,
@@ -25,4 +27,6 @@ ToolsCreateRequest = typing.Union[
     CreateComputerToolDto,
     CreateTextEditorToolDto,
     CreateQueryToolDto,
+    CreateGoogleCalendarCreateEventToolDto,
+    CreateGoogleSheetsRowAppendToolDto,
 ]

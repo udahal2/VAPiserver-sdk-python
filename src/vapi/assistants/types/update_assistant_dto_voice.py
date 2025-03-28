@@ -6,13 +6,15 @@ from ...types.cartesia_voice import CartesiaVoice
 from ...types.custom_voice import CustomVoice
 from ...types.deepgram_voice import DeepgramVoice
 from ...types.eleven_labs_voice import ElevenLabsVoice
+from ...types.hume_voice import HumeVoice
 from ...types.lmnt_voice import LmntVoice
-from ...types.neets_voice import NeetsVoice
+from ...types.neuphonic_voice import NeuphonicVoice
 from ...types.open_ai_voice import OpenAiVoice
 from ...types.play_ht_voice import PlayHtVoice
 from ...types.rime_ai_voice import RimeAiVoice
 from ...types.smallest_ai_voice import SmallestAiVoice
 from ...types.tavus_voice import TavusVoice
+from ...types.vapi_voice import VapiVoice
 
 UpdateAssistantDtoVoice = typing.Union[
     AzureVoice,
@@ -20,11 +22,13 @@ UpdateAssistantDtoVoice = typing.Union[
     CustomVoice,
     DeepgramVoice,
     ElevenLabsVoice,
+    HumeVoice,
     LmntVoice,
-    NeetsVoice,
+    NeuphonicVoice,
     OpenAiVoice,
     PlayHtVoice,
     RimeAiVoice,
     SmallestAiVoice,
     TavusVoice,
+    VapiVoice,
 ]

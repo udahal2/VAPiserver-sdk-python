@@ -5,6 +5,7 @@ import typing
 import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
+from .fallback_transcriber_plan import FallbackTranscriberPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -46,6 +47,13 @@ class AssemblyAiTranscriber(UncheckedBaseModel):
     """
     Disable partial transcripts.
     Set to `true` to not receive partial transcripts. Defaults to `false`.
+    """
+
+    fallback_plan: typing_extensions.Annotated[
+        typing.Optional[FallbackTranscriberPlan], FieldMetadata(alias="fallbackPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is the plan for voice provider fallbacks in the event that the primary voice provider fails.
     """
 
     if IS_PYDANTIC_V2:

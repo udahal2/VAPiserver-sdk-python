@@ -21,6 +21,14 @@ class Analysis(UncheckedBaseModel):
     This is the structured data extracted from the call. Customize by setting `assistant.analysisPlan.structuredDataPrompt` and/or `assistant.analysisPlan.structuredDataSchema`.
     """
 
+    structured_data_multi: typing_extensions.Annotated[
+        typing.Optional[typing.List[typing.Dict[str, typing.Optional[typing.Any]]]],
+        FieldMetadata(alias="structuredDataMulti"),
+    ] = pydantic.Field(default=None)
+    """
+    This is the structured data catalog of the call. Customize by setting `assistant.analysisPlan.structuredDataMultiPlan`.
+    """
+
     success_evaluation: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="successEvaluation")] = (
         pydantic.Field(default=None)
     )

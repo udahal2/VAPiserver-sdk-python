@@ -33,6 +33,34 @@ class RimeAiVoice(UncheckedBaseModel):
     This is the speed multiplier that will be used.
     """
 
+    pause_between_brackets: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="pauseBetweenBrackets")
+    ] = pydantic.Field(default=None)
+    """
+    This is a flag that controls whether to add slight pauses using angle brackets. Example: “Hi. <200> I’d love to have a conversation with you.” adds a 200ms pause between the first and second sentences.
+    """
+
+    phonemize_between_brackets: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="phonemizeBetweenBrackets")
+    ] = pydantic.Field(default=None)
+    """
+    This is a flag that controls whether text inside brackets should be phonemized (converted to phonetic pronunciation) - Example: "{h'El.o} World" will pronounce "Hello" as expected.
+    """
+
+    reduce_latency: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="reduceLatency")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is a flag that controls whether to optimize for reduced latency in streaming. https://docs.rime.ai/api-reference/endpoint/websockets#param-reduce-latency
+    """
+
+    inline_speed_alpha: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="inlineSpeedAlpha")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is a string that allows inline speed control using alpha notation. https://docs.rime.ai/api-reference/endpoint/websockets#param-inline-speed-alpha
+    """
+
     chunk_plan: typing_extensions.Annotated[typing.Optional[ChunkPlan], FieldMetadata(alias="chunkPlan")] = (
         pydantic.Field(default=None)
     )

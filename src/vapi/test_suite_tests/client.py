@@ -13,9 +13,13 @@ from ..core.datetime_utils import serialize_datetime
 from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
-from ..types.test_suite_test_scorer_ai import TestSuiteTestScorerAi
-from ..types.test_suite_test_voice import TestSuiteTestVoice
+from .types.test_suite_test_controller_create_request import TestSuiteTestControllerCreateRequest
+from .types.test_suite_test_controller_create_response import TestSuiteTestControllerCreateResponse
 from ..core.serialization import convert_and_respect_annotation_metadata
+from .types.test_suite_test_controller_find_one_response import TestSuiteTestControllerFindOneResponse
+from .types.test_suite_test_controller_remove_response import TestSuiteTestControllerRemoveResponse
+from .types.test_suite_test_controller_update_request import TestSuiteTestControllerUpdateRequest
+from .types.test_suite_test_controller_update_response import TestSuiteTestControllerUpdateResponse
 from ..core.client_wrapper import AsyncClientWrapper
 
 # this is used as the default value for optional parameters
@@ -125,61 +129,39 @@ class TestSuiteTestsClient:
         self,
         test_suite_id: str,
         *,
-        scorers: typing.Sequence[TestSuiteTestScorerAi],
-        script: str,
-        num_attempts: typing.Optional[float] = OMIT,
-        name: typing.Optional[str] = OMIT,
+        request: TestSuiteTestControllerCreateRequest,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerCreateResponse:
         """
         Parameters
         ----------
         test_suite_id : str
 
-        scorers : typing.Sequence[TestSuiteTestScorerAi]
-            These are the scorers used to evaluate the test.
-
-        script : str
-            This is the script to be used for the voice test.
-
-        num_attempts : typing.Optional[float]
-            This is the number of attempts allowed for the test.
-
-        name : typing.Optional[str]
-            This is the name of the test.
+        request : TestSuiteTestControllerCreateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerCreateResponse
 
         """
         _response = self._client_wrapper.httpx_client.request(
             f"test-suite/{jsonable_encoder(test_suite_id)}/test",
             method="POST",
-            json={
-                "scorers": convert_and_respect_annotation_metadata(
-                    object_=scorers, annotation=typing.Sequence[TestSuiteTestScorerAi], direction="write"
-                ),
-                "script": script,
-                "numAttempts": num_attempts,
-                "name": name,
-                "type": "voice",
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=TestSuiteTestControllerCreateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerCreateResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -190,7 +172,7 @@ class TestSuiteTestsClient:
 
     def test_suite_test_controller_find_one(
         self, test_suite_id: str, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerFindOneResponse:
         """
         Parameters
         ----------
@@ -203,7 +185,7 @@ class TestSuiteTestsClient:
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerFindOneResponse
 
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -214,9 +196,9 @@ class TestSuiteTestsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerFindOneResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerFindOneResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -227,7 +209,7 @@ class TestSuiteTestsClient:
 
     def test_suite_test_controller_remove(
         self, test_suite_id: str, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerRemoveResponse:
         """
         Parameters
         ----------
@@ -240,7 +222,7 @@ class TestSuiteTestsClient:
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerRemoveResponse
 
         """
         _response = self._client_wrapper.httpx_client.request(
@@ -251,9 +233,9 @@ class TestSuiteTestsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerRemoveResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerRemoveResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -267,12 +249,9 @@ class TestSuiteTestsClient:
         test_suite_id: str,
         id: str,
         *,
-        scorers: typing.Optional[typing.Sequence[TestSuiteTestScorerAi]] = OMIT,
-        name: typing.Optional[str] = OMIT,
-        script: typing.Optional[str] = OMIT,
-        num_attempts: typing.Optional[float] = OMIT,
+        request: TestSuiteTestControllerUpdateRequest,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerUpdateResponse:
         """
         Parameters
         ----------
@@ -280,49 +259,31 @@ class TestSuiteTestsClient:
 
         id : str
 
-        scorers : typing.Optional[typing.Sequence[TestSuiteTestScorerAi]]
-            These are the scorers used to evaluate the test.
-
-        name : typing.Optional[str]
-            This is the name of the test.
-
-        script : typing.Optional[str]
-            This is the script to be used for the voice test.
-
-        num_attempts : typing.Optional[float]
-            This is the number of attempts allowed for the test.
+        request : TestSuiteTestControllerUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerUpdateResponse
 
         """
         _response = self._client_wrapper.httpx_client.request(
             f"test-suite/{jsonable_encoder(test_suite_id)}/test/{jsonable_encoder(id)}",
             method="PATCH",
-            json={
-                "scorers": convert_and_respect_annotation_metadata(
-                    object_=scorers, annotation=typing.Sequence[TestSuiteTestScorerAi], direction="write"
-                ),
-                "name": name,
-                "script": script,
-                "numAttempts": num_attempts,
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=TestSuiteTestControllerUpdateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerUpdateResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -435,61 +396,39 @@ class AsyncTestSuiteTestsClient:
         self,
         test_suite_id: str,
         *,
-        scorers: typing.Sequence[TestSuiteTestScorerAi],
-        script: str,
-        num_attempts: typing.Optional[float] = OMIT,
-        name: typing.Optional[str] = OMIT,
+        request: TestSuiteTestControllerCreateRequest,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerCreateResponse:
         """
         Parameters
         ----------
         test_suite_id : str
 
-        scorers : typing.Sequence[TestSuiteTestScorerAi]
-            These are the scorers used to evaluate the test.
-
-        script : str
-            This is the script to be used for the voice test.
-
-        num_attempts : typing.Optional[float]
-            This is the number of attempts allowed for the test.
-
-        name : typing.Optional[str]
-            This is the name of the test.
+        request : TestSuiteTestControllerCreateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerCreateResponse
 
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"test-suite/{jsonable_encoder(test_suite_id)}/test",
             method="POST",
-            json={
-                "scorers": convert_and_respect_annotation_metadata(
-                    object_=scorers, annotation=typing.Sequence[TestSuiteTestScorerAi], direction="write"
-                ),
-                "script": script,
-                "numAttempts": num_attempts,
-                "name": name,
-                "type": "voice",
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=TestSuiteTestControllerCreateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerCreateResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -500,7 +439,7 @@ class AsyncTestSuiteTestsClient:
 
     async def test_suite_test_controller_find_one(
         self, test_suite_id: str, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerFindOneResponse:
         """
         Parameters
         ----------
@@ -513,7 +452,7 @@ class AsyncTestSuiteTestsClient:
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerFindOneResponse
 
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -524,9 +463,9 @@ class AsyncTestSuiteTestsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerFindOneResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerFindOneResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -537,7 +476,7 @@ class AsyncTestSuiteTestsClient:
 
     async def test_suite_test_controller_remove(
         self, test_suite_id: str, id: str, *, request_options: typing.Optional[RequestOptions] = None
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerRemoveResponse:
         """
         Parameters
         ----------
@@ -550,7 +489,7 @@ class AsyncTestSuiteTestsClient:
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerRemoveResponse
 
         """
         _response = await self._client_wrapper.httpx_client.request(
@@ -561,9 +500,9 @@ class AsyncTestSuiteTestsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerRemoveResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerRemoveResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -577,12 +516,9 @@ class AsyncTestSuiteTestsClient:
         test_suite_id: str,
         id: str,
         *,
-        scorers: typing.Optional[typing.Sequence[TestSuiteTestScorerAi]] = OMIT,
-        name: typing.Optional[str] = OMIT,
-        script: typing.Optional[str] = OMIT,
-        num_attempts: typing.Optional[float] = OMIT,
+        request: TestSuiteTestControllerUpdateRequest,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> TestSuiteTestVoice:
+    ) -> TestSuiteTestControllerUpdateResponse:
         """
         Parameters
         ----------
@@ -590,49 +526,31 @@ class AsyncTestSuiteTestsClient:
 
         id : str
 
-        scorers : typing.Optional[typing.Sequence[TestSuiteTestScorerAi]]
-            These are the scorers used to evaluate the test.
-
-        name : typing.Optional[str]
-            This is the name of the test.
-
-        script : typing.Optional[str]
-            This is the script to be used for the voice test.
-
-        num_attempts : typing.Optional[float]
-            This is the number of attempts allowed for the test.
+        request : TestSuiteTestControllerUpdateRequest
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
         Returns
         -------
-        TestSuiteTestVoice
+        TestSuiteTestControllerUpdateResponse
 
         """
         _response = await self._client_wrapper.httpx_client.request(
             f"test-suite/{jsonable_encoder(test_suite_id)}/test/{jsonable_encoder(id)}",
             method="PATCH",
-            json={
-                "scorers": convert_and_respect_annotation_metadata(
-                    object_=scorers, annotation=typing.Sequence[TestSuiteTestScorerAi], direction="write"
-                ),
-                "name": name,
-                "script": script,
-                "numAttempts": num_attempts,
-            },
-            headers={
-                "content-type": "application/json",
-            },
+            json=convert_and_respect_annotation_metadata(
+                object_=request, annotation=TestSuiteTestControllerUpdateRequest, direction="write"
+            ),
             request_options=request_options,
             omit=OMIT,
         )
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    TestSuiteTestVoice,
+                    TestSuiteTestControllerUpdateResponse,
                     construct_type(
-                        type_=TestSuiteTestVoice,  # type: ignore
+                        type_=TestSuiteTestControllerUpdateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

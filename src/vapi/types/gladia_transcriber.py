@@ -8,6 +8,7 @@ import typing_extensions
 from .gladia_transcriber_language_behaviour import GladiaTranscriberLanguageBehaviour
 from ..core.serialization import FieldMetadata
 from .gladia_transcriber_language import GladiaTranscriberLanguage
+from .fallback_transcriber_plan import FallbackTranscriberPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -44,6 +45,13 @@ class GladiaTranscriber(UncheckedBaseModel):
     )
     """
     If true, audio will be pre-processed to improve accuracy but latency will increase. Default value is false.
+    """
+
+    fallback_plan: typing_extensions.Annotated[
+        typing.Optional[FallbackTranscriberPlan], FieldMetadata(alias="fallbackPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is the plan for voice provider fallbacks in the event that the primary voice provider fails.
     """
 
     if IS_PYDANTIC_V2:

@@ -4,7 +4,13 @@ import typing
 from .make_tool_provider_details import MakeToolProviderDetails
 from .ghl_tool_provider_details import GhlToolProviderDetails
 from .function_tool_provider_details import FunctionToolProviderDetails
+from .google_calendar_create_event_tool_provider_details import GoogleCalendarCreateEventToolProviderDetails
+from .google_sheets_row_append_tool_provider_details import GoogleSheetsRowAppendToolProviderDetails
 
 CreateToolTemplateDtoProviderDetails = typing.Union[
-    MakeToolProviderDetails, GhlToolProviderDetails, FunctionToolProviderDetails
+    MakeToolProviderDetails,
+    GhlToolProviderDetails,
+    FunctionToolProviderDetails,
+    GoogleCalendarCreateEventToolProviderDetails,
+    GoogleSheetsRowAppendToolProviderDetails,
 ]

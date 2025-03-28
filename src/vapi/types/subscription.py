@@ -9,6 +9,7 @@ from .subscription_type import SubscriptionType
 from .subscription_status import SubscriptionStatus
 import typing
 from .auto_reload_plan import AutoReloadPlan
+from .invoice_plan import InvoicePlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -236,6 +237,28 @@ class Subscription(UncheckedBaseModel):
     )
     """
     This is the number of credits left obtained from a coupon.
+    """
+
+    invoice_plan: typing_extensions.Annotated[typing.Optional[InvoicePlan], FieldMetadata(alias="invoicePlan")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the invoice plan for the subscription.
+    """
+
+    pci_enabled: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="pciEnabled")] = pydantic.Field(
+        default=None
+    )
+    """
+    This is the PCI enabled flag for the subscription. It determines whether orgs under this
+    subscription have the option to enable PCI compliance.
+    """
+
+    pci_common_paper_agreement_id: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="pciCommonPaperAgreementId")
+    ] = pydantic.Field(default=None)
+    """
+    This is the ID for the Common Paper agreement outlining the PCI contract.
     """
 
     if IS_PYDANTIC_V2:

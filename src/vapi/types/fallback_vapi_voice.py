@@ -4,7 +4,9 @@ from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
 import pydantic
 import typing_extensions
+from .fallback_vapi_voice_voice_id import FallbackVapiVoiceVoiceId
 from ..core.serialization import FieldMetadata
+from .fallback_vapi_voice_language import FallbackVapiVoiceLanguage
 from .chunk_plan import ChunkPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -15,11 +17,23 @@ class FallbackVapiVoice(UncheckedBaseModel):
     This is the voice provider that will be used.
     """
 
-    voice_id: typing_extensions.Annotated[typing.Literal["Jordan"], FieldMetadata(alias="voiceId")] = pydantic.Field(
-        default="Jordan"
-    )
+    voice_id: typing_extensions.Annotated[FallbackVapiVoiceVoiceId, FieldMetadata(alias="voiceId")] = pydantic.Field()
     """
     The voices provided by Vapi
+    """
+
+    speed: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    This is the speed multiplier that will be used.
+    
+    @default 1
+    """
+
+    language: typing.Optional[FallbackVapiVoiceLanguage] = pydantic.Field(default=None)
+    """
+    This is the language code (ISO 639-1) that will be used.
+    
+    @default 'en-US'
     """
 
     chunk_plan: typing_extensions.Annotated[typing.Optional[ChunkPlan], FieldMetadata(alias="chunkPlan")] = (

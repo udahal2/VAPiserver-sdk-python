@@ -3,5 +3,5 @@
 import typing
 
 FallbackCartesiaVoiceModel = typing.Union[
-    typing.Literal["sonic-english", "sonic-multilingual", "sonic-preview", "sonic"], typing.Any
+    typing.Literal["sonic-2", "sonic-english", "sonic-multilingual", "sonic-preview", "sonic"], typing.Any
 ]

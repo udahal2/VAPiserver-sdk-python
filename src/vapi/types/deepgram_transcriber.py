@@ -7,6 +7,7 @@ from .deepgram_transcriber_model import DeepgramTranscriberModel
 from .deepgram_transcriber_language import DeepgramTranscriberLanguage
 import typing_extensions
 from ..core.serialization import FieldMetadata
+from .fallback_transcriber_plan import FallbackTranscriberPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -81,6 +82,13 @@ class DeepgramTranscriber(UncheckedBaseModel):
     @default false
     """
 
+    numerals: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    If set to true, this will cause deepgram to convert spoken numbers to literal numerals. For example, "my phone number is nine-seven-two..." would become "my phone number is 972..."
+    
+    @default false
+    """
+
     keywords: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
     These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.
@@ -101,6 +109,13 @@ class DeepgramTranscriber(UncheckedBaseModel):
     - If neither 10 nor 300 work, contact support@vapi.ai and we'll find another solution.
     
     @default 10
+    """
+
+    fallback_plan: typing_extensions.Annotated[
+        typing.Optional[FallbackTranscriberPlan], FieldMetadata(alias="fallbackPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is the plan for voice provider fallbacks in the event that the primary voice provider fails.
     """
 
     if IS_PYDANTIC_V2:

@@ -26,6 +26,13 @@ class ClientInboundMessageSay(UncheckedBaseModel):
     This is the flag to end call after content is spoken.
     """
 
+    interruptions_enabled: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="interruptionsEnabled")
+    ] = pydantic.Field(default=None)
+    """
+    This is the flag for whether the message is interruptible.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

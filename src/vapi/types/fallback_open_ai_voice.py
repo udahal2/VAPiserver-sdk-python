@@ -6,6 +6,7 @@ import pydantic
 import typing_extensions
 from .fallback_open_ai_voice_id import FallbackOpenAiVoiceId
 from ..core.serialization import FieldMetadata
+from .fallback_open_ai_voice_model import FallbackOpenAiVoiceModel
 from .chunk_plan import ChunkPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -20,6 +21,17 @@ class FallbackOpenAiVoice(UncheckedBaseModel):
     """
     This is the provider-specific ID that will be used.
     Please note that ash, ballad, coral, sage, and verse may only be used with realtime models.
+    """
+
+    model: typing.Optional[FallbackOpenAiVoiceModel] = pydantic.Field(default=None)
+    """
+    This is the model that will be used for text-to-speech.
+    """
+
+    instructions: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    This is a prompt that allows you to control the voice of your generated audio.
+    Does not work with 'tts-1' or 'tts-1-hd' models.
     """
 
     speed: typing.Optional[float] = pydantic.Field(default=None)

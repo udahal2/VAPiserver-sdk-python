@@ -26,6 +26,10 @@ class File(UncheckedBaseModel):
     path: typing.Optional[str] = None
     bucket: typing.Optional[str] = None
     url: typing.Optional[str] = None
+    parsed_text_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="parsedTextUrl")] = None
+    parsed_text_bytes: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="parsedTextBytes")] = (
+        None
+    )
     metadata: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = None
     id: str = pydantic.Field()
     """

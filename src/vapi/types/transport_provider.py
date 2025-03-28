@@ -2,4 +2,4 @@
 
 import typing
 
-TransportProvider = typing.Union[typing.Literal["twilio", "vonage", "vapi", "daily"], typing.Any]
+TransportProvider = typing.Union[typing.Literal["twilio", "vonage", "vapi", "daily", "telnyx"], typing.Any]

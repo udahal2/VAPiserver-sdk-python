@@ -9,7 +9,6 @@ from .fallback_deepgram_voice import FallbackDeepgramVoice
 from .fallback_eleven_labs_voice import FallbackElevenLabsVoice
 from .fallback_vapi_voice import FallbackVapiVoice
 from .fallback_lmnt_voice import FallbackLmntVoice
-from .fallback_neets_voice import FallbackNeetsVoice
 from .fallback_open_ai_voice import FallbackOpenAiVoice
 from .fallback_play_ht_voice import FallbackPlayHtVoice
 from .fallback_rime_ai_voice import FallbackRimeAiVoice
@@ -25,7 +24,6 @@ FallbackPlanVoicesItem = typing.Union[
     FallbackElevenLabsVoice,
     FallbackVapiVoice,
     FallbackLmntVoice,
-    FallbackNeetsVoice,
     FallbackOpenAiVoice,
     FallbackPlayHtVoice,
     FallbackRimeAiVoice,

@@ -2,4 +2,4 @@
 
 import typing
 
-CallPhoneCallProvider = typing.Union[typing.Literal["twilio", "vonage", "vapi"], typing.Any]
+CallPhoneCallProvider = typing.Union[typing.Literal["twilio", "vonage", "vapi", "telnyx"], typing.Any]

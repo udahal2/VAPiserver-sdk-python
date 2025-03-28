@@ -2,7 +2,7 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-from .chat_completion_message import ChatCompletionMessage
+from .chat_completion_message_workflows import ChatCompletionMessageWorkflows
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from .create_workflow_dto import CreateWorkflowDto
@@ -11,7 +11,7 @@ import pydantic
 
 
 class ChatCompletionsDto(UncheckedBaseModel):
-    messages: typing.List[ChatCompletionMessage]
+    messages: typing.List[ChatCompletionMessageWorkflows]
     workflow_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="workflowId")] = None
     workflow: typing.Optional[CreateWorkflowDto] = None
 

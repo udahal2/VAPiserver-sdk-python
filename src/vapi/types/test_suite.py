@@ -6,6 +6,8 @@ import typing_extensions
 from ..core.serialization import FieldMetadata
 import datetime as dt
 import typing
+from .tester_plan import TesterPlan
+from .target_plan import TargetPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -40,6 +42,22 @@ class TestSuite(UncheckedBaseModel):
     )
     """
     This is the phone number ID associated with this test suite.
+    """
+
+    tester_plan: typing_extensions.Annotated[typing.Optional[TesterPlan], FieldMetadata(alias="testerPlan")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Override the default tester plan by providing custom assistant configuration for the test agent.
+    
+    We recommend only using this if you are confident, as we have already set sensible defaults on the tester plan.
+    """
+
+    target_plan: typing_extensions.Annotated[typing.Optional[TargetPlan], FieldMetadata(alias="targetPlan")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    These are the configuration for the assistant / phone number that is being tested.
     """
 
     if IS_PYDANTIC_V2:

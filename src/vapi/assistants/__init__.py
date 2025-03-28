@@ -2,6 +2,7 @@
 
 from .types import (
     UpdateAssistantDtoBackgroundSound,
+    UpdateAssistantDtoBackgroundSoundZero,
     UpdateAssistantDtoClientMessagesItem,
     UpdateAssistantDtoCredentialsItem,
     UpdateAssistantDtoFirstMessageMode,
@@ -9,10 +10,12 @@ from .types import (
     UpdateAssistantDtoServerMessagesItem,
     UpdateAssistantDtoTranscriber,
     UpdateAssistantDtoVoice,
+    UpdateAssistantDtoVoicemailDetection,
 )
 
 __all__ = [
     "UpdateAssistantDtoBackgroundSound",
+    "UpdateAssistantDtoBackgroundSoundZero",
     "UpdateAssistantDtoClientMessagesItem",
     "UpdateAssistantDtoCredentialsItem",
     "UpdateAssistantDtoFirstMessageMode",
@@ -20,4 +23,5 @@ __all__ = [
     "UpdateAssistantDtoServerMessagesItem",
     "UpdateAssistantDtoTranscriber",
     "UpdateAssistantDtoVoice",
+    "UpdateAssistantDtoVoicemailDetection",
 ]

@@ -9,11 +9,13 @@ from ..core.datetime_utils import serialize_datetime
 from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
+from ..types.create_customer_dto import CreateCustomerDto
+from ..types.schedule_plan import SchedulePlan
 from ..types.create_assistant_dto import CreateAssistantDto
 from ..types.assistant_overrides import AssistantOverrides
 from ..types.create_squad_dto import CreateSquadDto
 from ..types.import_twilio_phone_number_dto import ImportTwilioPhoneNumberDto
-from ..types.create_customer_dto import CreateCustomerDto
+from .types.calls_create_response import CallsCreateResponse
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.jsonable_encoder import jsonable_encoder
 from ..core.client_wrapper import AsyncClientWrapper
@@ -128,7 +130,9 @@ class CallsClient:
     def create(
         self,
         *,
+        customers: typing.Optional[typing.Sequence[CreateCustomerDto]] = OMIT,
         name: typing.Optional[str] = OMIT,
+        schedule_plan: typing.Optional[SchedulePlan] = OMIT,
         assistant_id: typing.Optional[str] = OMIT,
         assistant: typing.Optional[CreateAssistantDto] = OMIT,
         assistant_overrides: typing.Optional[AssistantOverrides] = OMIT,
@@ -139,12 +143,20 @@ class CallsClient:
         customer_id: typing.Optional[str] = OMIT,
         customer: typing.Optional[CreateCustomerDto] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> Call:
+    ) -> CallsCreateResponse:
         """
         Parameters
         ----------
+        customers : typing.Optional[typing.Sequence[CreateCustomerDto]]
+            This is used to issue batch calls to multiple customers.
+
+            Only relevant for `outboundPhoneCall`. To call a single customer, use `customer` instead.
+
         name : typing.Optional[str]
             This is the name of the call. This is just for your own reference.
+
+        schedule_plan : typing.Optional[SchedulePlan]
+            This is the schedule plan of the call.
 
         assistant_id : typing.Optional[str]
             This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
@@ -186,14 +198,20 @@ class CallsClient:
 
         Returns
         -------
-        Call
+        CallsCreateResponse
 
         """
         _response = self._client_wrapper.httpx_client.request(
             "call",
             method="POST",
             json={
+                "customers": convert_and_respect_annotation_metadata(
+                    object_=customers, annotation=typing.Sequence[CreateCustomerDto], direction="write"
+                ),
                 "name": name,
+                "schedulePlan": convert_and_respect_annotation_metadata(
+                    object_=schedule_plan, annotation=SchedulePlan, direction="write"
+                ),
                 "assistantId": assistant_id,
                 "assistant": convert_and_respect_annotation_metadata(
                     object_=assistant, annotation=CreateAssistantDto, direction="write"
@@ -223,9 +241,9 @@ class CallsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    Call,
+                    CallsCreateResponse,
                     construct_type(
-                        type_=Call,  # type: ignore
+                        type_=CallsCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )
@@ -452,7 +470,9 @@ class AsyncCallsClient:
     async def create(
         self,
         *,
+        customers: typing.Optional[typing.Sequence[CreateCustomerDto]] = OMIT,
         name: typing.Optional[str] = OMIT,
+        schedule_plan: typing.Optional[SchedulePlan] = OMIT,
         assistant_id: typing.Optional[str] = OMIT,
         assistant: typing.Optional[CreateAssistantDto] = OMIT,
         assistant_overrides: typing.Optional[AssistantOverrides] = OMIT,
@@ -463,12 +483,20 @@ class AsyncCallsClient:
         customer_id: typing.Optional[str] = OMIT,
         customer: typing.Optional[CreateCustomerDto] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> Call:
+    ) -> CallsCreateResponse:
         """
         Parameters
         ----------
+        customers : typing.Optional[typing.Sequence[CreateCustomerDto]]
+            This is used to issue batch calls to multiple customers.
+
+            Only relevant for `outboundPhoneCall`. To call a single customer, use `customer` instead.
+
         name : typing.Optional[str]
             This is the name of the call. This is just for your own reference.
+
+        schedule_plan : typing.Optional[SchedulePlan]
+            This is the schedule plan of the call.
 
         assistant_id : typing.Optional[str]
             This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
@@ -510,14 +538,20 @@ class AsyncCallsClient:
 
         Returns
         -------
-        Call
+        CallsCreateResponse
 
         """
         _response = await self._client_wrapper.httpx_client.request(
             "call",
             method="POST",
             json={
+                "customers": convert_and_respect_annotation_metadata(
+                    object_=customers, annotation=typing.Sequence[CreateCustomerDto], direction="write"
+                ),
                 "name": name,
+                "schedulePlan": convert_and_respect_annotation_metadata(
+                    object_=schedule_plan, annotation=SchedulePlan, direction="write"
+                ),
                 "assistantId": assistant_id,
                 "assistant": convert_and_respect_annotation_metadata(
                     object_=assistant, annotation=CreateAssistantDto, direction="write"
@@ -547,9 +581,9 @@ class AsyncCallsClient:
         try:
             if 200 <= _response.status_code < 300:
                 return typing.cast(
-                    Call,
+                    CallsCreateResponse,
                     construct_type(
-                        type_=Call,  # type: ignore
+                        type_=CallsCreateResponse,  # type: ignore
                         object_=_response.json(),
                     ),
                 )

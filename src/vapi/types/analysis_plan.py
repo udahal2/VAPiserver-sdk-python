@@ -7,6 +7,7 @@ from .summary_plan import SummaryPlan
 from ..core.serialization import FieldMetadata
 import pydantic
 from .structured_data_plan import StructuredDataPlan
+from .structured_data_multi_plan import StructuredDataMultiPlan
 from .success_evaluation_plan import SuccessEvaluationPlan
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
@@ -24,6 +25,13 @@ class AnalysisPlan(UncheckedBaseModel):
     ] = pydantic.Field(default=None)
     """
     This is the plan for generating the structured data from the call. This outputs to `call.analysis.structuredData`.
+    """
+
+    structured_data_multi_plan: typing_extensions.Annotated[
+        typing.Optional[typing.List[StructuredDataMultiPlan]], FieldMetadata(alias="structuredDataMultiPlan")
+    ] = pydantic.Field(default=None)
+    """
+    This is an array of structured data plan catalogs. Each entry includes a `key` and a `plan` for generating the structured data from the call. This outputs to `call.analysis.structuredDataMulti`.
     """
 
     success_evaluation_plan: typing_extensions.Annotated[

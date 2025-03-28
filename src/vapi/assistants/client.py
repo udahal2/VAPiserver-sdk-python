@@ -13,12 +13,13 @@ from ..types.create_assistant_dto_transcriber import CreateAssistantDtoTranscrib
 from ..types.create_assistant_dto_model import CreateAssistantDtoModel
 from ..types.create_assistant_dto_voice import CreateAssistantDtoVoice
 from ..types.create_assistant_dto_first_message_mode import CreateAssistantDtoFirstMessageMode
+from ..types.create_assistant_dto_voicemail_detection import CreateAssistantDtoVoicemailDetection
 from ..types.create_assistant_dto_client_messages_item import CreateAssistantDtoClientMessagesItem
 from ..types.create_assistant_dto_server_messages_item import CreateAssistantDtoServerMessagesItem
 from ..types.create_assistant_dto_background_sound import CreateAssistantDtoBackgroundSound
 from ..types.transport_configuration_twilio import TransportConfigurationTwilio
+from ..types.langfuse_observability_plan import LangfuseObservabilityPlan
 from ..types.create_assistant_dto_credentials_item import CreateAssistantDtoCredentialsItem
-from ..types.twilio_voicemail_detection import TwilioVoicemailDetection
 from ..types.compliance_plan import CompliancePlan
 from ..types.analysis_plan import AnalysisPlan
 from ..types.artifact_plan import ArtifactPlan
@@ -35,6 +36,7 @@ from .types.update_assistant_dto_transcriber import UpdateAssistantDtoTranscribe
 from .types.update_assistant_dto_model import UpdateAssistantDtoModel
 from .types.update_assistant_dto_voice import UpdateAssistantDtoVoice
 from .types.update_assistant_dto_first_message_mode import UpdateAssistantDtoFirstMessageMode
+from .types.update_assistant_dto_voicemail_detection import UpdateAssistantDtoVoicemailDetection
 from .types.update_assistant_dto_client_messages_item import UpdateAssistantDtoClientMessagesItem
 from .types.update_assistant_dto_server_messages_item import UpdateAssistantDtoServerMessagesItem
 from .types.update_assistant_dto_background_sound import UpdateAssistantDtoBackgroundSound
@@ -138,7 +140,9 @@ class AssistantsClient:
         model: typing.Optional[CreateAssistantDtoModel] = OMIT,
         voice: typing.Optional[CreateAssistantDtoVoice] = OMIT,
         first_message: typing.Optional[str] = OMIT,
+        first_message_interruptions_enabled: typing.Optional[bool] = OMIT,
         first_message_mode: typing.Optional[CreateAssistantDtoFirstMessageMode] = OMIT,
+        voicemail_detection: typing.Optional[CreateAssistantDtoVoicemailDetection] = OMIT,
         client_messages: typing.Optional[typing.Sequence[CreateAssistantDtoClientMessagesItem]] = OMIT,
         server_messages: typing.Optional[typing.Sequence[CreateAssistantDtoServerMessagesItem]] = OMIT,
         silence_timeout_seconds: typing.Optional[float] = OMIT,
@@ -147,9 +151,9 @@ class AssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        observability_plan: typing.Optional[LangfuseObservabilityPlan] = OMIT,
         credentials: typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
-        voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
         end_call_message: typing.Optional[str] = OMIT,
         end_call_phrases: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -184,6 +188,8 @@ class AssistantsClient:
 
             If unspecified, assistant will wait for user to speak and use the model to respond once they speak.
 
+        first_message_interruptions_enabled : typing.Optional[bool]
+
         first_message_mode : typing.Optional[CreateAssistantDtoFirstMessageMode]
             This is the mode for the first message. Default is 'assistant-speaks-first'.
 
@@ -194,8 +200,13 @@ class AssistantsClient:
 
             @default 'assistant-speaks-first'
 
+        voicemail_detection : typing.Optional[CreateAssistantDtoVoicemailDetection]
+            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
+            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
+            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
+
         client_messages : typing.Optional[typing.Sequence[CreateAssistantDtoClientMessagesItem]]
-            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema.
+            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
 
         server_messages : typing.Optional[typing.Sequence[CreateAssistantDtoServerMessagesItem]]
             These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema.
@@ -212,6 +223,7 @@ class AssistantsClient:
 
         background_sound : typing.Optional[CreateAssistantDtoBackgroundSound]
             This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.
+            You can also provide a custom sound by providing a URL to an audio file.
 
         background_denoising_enabled : typing.Optional[bool]
             This enables filtering of noise and background speech while the user is talking.
@@ -230,6 +242,10 @@ class AssistantsClient:
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
 
+        observability_plan : typing.Optional[LangfuseObservabilityPlan]
+            This is the plan for observability configuration of assistant's calls.
+            Currently supports Langfuse for tracing and monitoring.
+
         credentials : typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]]
             These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
@@ -237,11 +253,6 @@ class AssistantsClient:
             This is the name of the assistant.
 
             This is required when you want to transfer between assistants in a call.
-
-        voicemail_detection : typing.Optional[TwilioVoicemailDetection]
-            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
-            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
-            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
 
         voicemail_message : typing.Optional[str]
             This is the message that the assistant will say if the call is forwarded to voicemail.
@@ -340,12 +351,18 @@ class AssistantsClient:
                     object_=voice, annotation=CreateAssistantDtoVoice, direction="write"
                 ),
                 "firstMessage": first_message,
+                "firstMessageInterruptionsEnabled": first_message_interruptions_enabled,
                 "firstMessageMode": first_message_mode,
+                "voicemailDetection": convert_and_respect_annotation_metadata(
+                    object_=voicemail_detection, annotation=CreateAssistantDtoVoicemailDetection, direction="write"
+                ),
                 "clientMessages": client_messages,
                 "serverMessages": server_messages,
                 "silenceTimeoutSeconds": silence_timeout_seconds,
                 "maxDurationSeconds": max_duration_seconds,
-                "backgroundSound": background_sound,
+                "backgroundSound": convert_and_respect_annotation_metadata(
+                    object_=background_sound, annotation=CreateAssistantDtoBackgroundSound, direction="write"
+                ),
                 "backgroundDenoisingEnabled": background_denoising_enabled,
                 "modelOutputInMessagesEnabled": model_output_in_messages_enabled,
                 "transportConfigurations": convert_and_respect_annotation_metadata(
@@ -353,15 +370,15 @@ class AssistantsClient:
                     annotation=typing.Sequence[TransportConfigurationTwilio],
                     direction="write",
                 ),
+                "observabilityPlan": convert_and_respect_annotation_metadata(
+                    object_=observability_plan, annotation=LangfuseObservabilityPlan, direction="write"
+                ),
                 "credentials": convert_and_respect_annotation_metadata(
                     object_=credentials,
                     annotation=typing.Sequence[CreateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,
-                "voicemailDetection": convert_and_respect_annotation_metadata(
-                    object_=voicemail_detection, annotation=TwilioVoicemailDetection, direction="write"
-                ),
                 "voicemailMessage": voicemail_message,
                 "endCallMessage": end_call_message,
                 "endCallPhrases": end_call_phrases,
@@ -487,7 +504,9 @@ class AssistantsClient:
         model: typing.Optional[UpdateAssistantDtoModel] = OMIT,
         voice: typing.Optional[UpdateAssistantDtoVoice] = OMIT,
         first_message: typing.Optional[str] = OMIT,
+        first_message_interruptions_enabled: typing.Optional[bool] = OMIT,
         first_message_mode: typing.Optional[UpdateAssistantDtoFirstMessageMode] = OMIT,
+        voicemail_detection: typing.Optional[UpdateAssistantDtoVoicemailDetection] = OMIT,
         client_messages: typing.Optional[typing.Sequence[UpdateAssistantDtoClientMessagesItem]] = OMIT,
         server_messages: typing.Optional[typing.Sequence[UpdateAssistantDtoServerMessagesItem]] = OMIT,
         silence_timeout_seconds: typing.Optional[float] = OMIT,
@@ -496,9 +515,9 @@ class AssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        observability_plan: typing.Optional[LangfuseObservabilityPlan] = OMIT,
         credentials: typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
-        voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
         end_call_message: typing.Optional[str] = OMIT,
         end_call_phrases: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -535,6 +554,8 @@ class AssistantsClient:
 
             If unspecified, assistant will wait for user to speak and use the model to respond once they speak.
 
+        first_message_interruptions_enabled : typing.Optional[bool]
+
         first_message_mode : typing.Optional[UpdateAssistantDtoFirstMessageMode]
             This is the mode for the first message. Default is 'assistant-speaks-first'.
 
@@ -545,8 +566,13 @@ class AssistantsClient:
 
             @default 'assistant-speaks-first'
 
+        voicemail_detection : typing.Optional[UpdateAssistantDtoVoicemailDetection]
+            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
+            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
+            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
+
         client_messages : typing.Optional[typing.Sequence[UpdateAssistantDtoClientMessagesItem]]
-            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema.
+            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
 
         server_messages : typing.Optional[typing.Sequence[UpdateAssistantDtoServerMessagesItem]]
             These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema.
@@ -563,6 +589,7 @@ class AssistantsClient:
 
         background_sound : typing.Optional[UpdateAssistantDtoBackgroundSound]
             This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.
+            You can also provide a custom sound by providing a URL to an audio file.
 
         background_denoising_enabled : typing.Optional[bool]
             This enables filtering of noise and background speech while the user is talking.
@@ -581,6 +608,10 @@ class AssistantsClient:
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
 
+        observability_plan : typing.Optional[LangfuseObservabilityPlan]
+            This is the plan for observability configuration of assistant's calls.
+            Currently supports Langfuse for tracing and monitoring.
+
         credentials : typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]]
             These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
@@ -588,11 +619,6 @@ class AssistantsClient:
             This is the name of the assistant.
 
             This is required when you want to transfer between assistants in a call.
-
-        voicemail_detection : typing.Optional[TwilioVoicemailDetection]
-            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
-            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
-            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
 
         voicemail_message : typing.Optional[str]
             This is the message that the assistant will say if the call is forwarded to voicemail.
@@ -691,12 +717,18 @@ class AssistantsClient:
                     object_=voice, annotation=UpdateAssistantDtoVoice, direction="write"
                 ),
                 "firstMessage": first_message,
+                "firstMessageInterruptionsEnabled": first_message_interruptions_enabled,
                 "firstMessageMode": first_message_mode,
+                "voicemailDetection": convert_and_respect_annotation_metadata(
+                    object_=voicemail_detection, annotation=UpdateAssistantDtoVoicemailDetection, direction="write"
+                ),
                 "clientMessages": client_messages,
                 "serverMessages": server_messages,
                 "silenceTimeoutSeconds": silence_timeout_seconds,
                 "maxDurationSeconds": max_duration_seconds,
-                "backgroundSound": background_sound,
+                "backgroundSound": convert_and_respect_annotation_metadata(
+                    object_=background_sound, annotation=UpdateAssistantDtoBackgroundSound, direction="write"
+                ),
                 "backgroundDenoisingEnabled": background_denoising_enabled,
                 "modelOutputInMessagesEnabled": model_output_in_messages_enabled,
                 "transportConfigurations": convert_and_respect_annotation_metadata(
@@ -704,15 +736,15 @@ class AssistantsClient:
                     annotation=typing.Sequence[TransportConfigurationTwilio],
                     direction="write",
                 ),
+                "observabilityPlan": convert_and_respect_annotation_metadata(
+                    object_=observability_plan, annotation=LangfuseObservabilityPlan, direction="write"
+                ),
                 "credentials": convert_and_respect_annotation_metadata(
                     object_=credentials,
                     annotation=typing.Sequence[UpdateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,
-                "voicemailDetection": convert_and_respect_annotation_metadata(
-                    object_=voicemail_detection, annotation=TwilioVoicemailDetection, direction="write"
-                ),
                 "voicemailMessage": voicemail_message,
                 "endCallMessage": end_call_message,
                 "endCallPhrases": end_call_phrases,
@@ -861,7 +893,9 @@ class AsyncAssistantsClient:
         model: typing.Optional[CreateAssistantDtoModel] = OMIT,
         voice: typing.Optional[CreateAssistantDtoVoice] = OMIT,
         first_message: typing.Optional[str] = OMIT,
+        first_message_interruptions_enabled: typing.Optional[bool] = OMIT,
         first_message_mode: typing.Optional[CreateAssistantDtoFirstMessageMode] = OMIT,
+        voicemail_detection: typing.Optional[CreateAssistantDtoVoicemailDetection] = OMIT,
         client_messages: typing.Optional[typing.Sequence[CreateAssistantDtoClientMessagesItem]] = OMIT,
         server_messages: typing.Optional[typing.Sequence[CreateAssistantDtoServerMessagesItem]] = OMIT,
         silence_timeout_seconds: typing.Optional[float] = OMIT,
@@ -870,9 +904,9 @@ class AsyncAssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        observability_plan: typing.Optional[LangfuseObservabilityPlan] = OMIT,
         credentials: typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
-        voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
         end_call_message: typing.Optional[str] = OMIT,
         end_call_phrases: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -907,6 +941,8 @@ class AsyncAssistantsClient:
 
             If unspecified, assistant will wait for user to speak and use the model to respond once they speak.
 
+        first_message_interruptions_enabled : typing.Optional[bool]
+
         first_message_mode : typing.Optional[CreateAssistantDtoFirstMessageMode]
             This is the mode for the first message. Default is 'assistant-speaks-first'.
 
@@ -917,8 +953,13 @@ class AsyncAssistantsClient:
 
             @default 'assistant-speaks-first'
 
+        voicemail_detection : typing.Optional[CreateAssistantDtoVoicemailDetection]
+            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
+            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
+            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
+
         client_messages : typing.Optional[typing.Sequence[CreateAssistantDtoClientMessagesItem]]
-            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema.
+            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
 
         server_messages : typing.Optional[typing.Sequence[CreateAssistantDtoServerMessagesItem]]
             These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema.
@@ -935,6 +976,7 @@ class AsyncAssistantsClient:
 
         background_sound : typing.Optional[CreateAssistantDtoBackgroundSound]
             This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.
+            You can also provide a custom sound by providing a URL to an audio file.
 
         background_denoising_enabled : typing.Optional[bool]
             This enables filtering of noise and background speech while the user is talking.
@@ -953,6 +995,10 @@ class AsyncAssistantsClient:
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
 
+        observability_plan : typing.Optional[LangfuseObservabilityPlan]
+            This is the plan for observability configuration of assistant's calls.
+            Currently supports Langfuse for tracing and monitoring.
+
         credentials : typing.Optional[typing.Sequence[CreateAssistantDtoCredentialsItem]]
             These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
@@ -960,11 +1006,6 @@ class AsyncAssistantsClient:
             This is the name of the assistant.
 
             This is required when you want to transfer between assistants in a call.
-
-        voicemail_detection : typing.Optional[TwilioVoicemailDetection]
-            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
-            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
-            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
 
         voicemail_message : typing.Optional[str]
             This is the message that the assistant will say if the call is forwarded to voicemail.
@@ -1063,12 +1104,18 @@ class AsyncAssistantsClient:
                     object_=voice, annotation=CreateAssistantDtoVoice, direction="write"
                 ),
                 "firstMessage": first_message,
+                "firstMessageInterruptionsEnabled": first_message_interruptions_enabled,
                 "firstMessageMode": first_message_mode,
+                "voicemailDetection": convert_and_respect_annotation_metadata(
+                    object_=voicemail_detection, annotation=CreateAssistantDtoVoicemailDetection, direction="write"
+                ),
                 "clientMessages": client_messages,
                 "serverMessages": server_messages,
                 "silenceTimeoutSeconds": silence_timeout_seconds,
                 "maxDurationSeconds": max_duration_seconds,
-                "backgroundSound": background_sound,
+                "backgroundSound": convert_and_respect_annotation_metadata(
+                    object_=background_sound, annotation=CreateAssistantDtoBackgroundSound, direction="write"
+                ),
                 "backgroundDenoisingEnabled": background_denoising_enabled,
                 "modelOutputInMessagesEnabled": model_output_in_messages_enabled,
                 "transportConfigurations": convert_and_respect_annotation_metadata(
@@ -1076,15 +1123,15 @@ class AsyncAssistantsClient:
                     annotation=typing.Sequence[TransportConfigurationTwilio],
                     direction="write",
                 ),
+                "observabilityPlan": convert_and_respect_annotation_metadata(
+                    object_=observability_plan, annotation=LangfuseObservabilityPlan, direction="write"
+                ),
                 "credentials": convert_and_respect_annotation_metadata(
                     object_=credentials,
                     annotation=typing.Sequence[CreateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,
-                "voicemailDetection": convert_and_respect_annotation_metadata(
-                    object_=voicemail_detection, annotation=TwilioVoicemailDetection, direction="write"
-                ),
                 "voicemailMessage": voicemail_message,
                 "endCallMessage": end_call_message,
                 "endCallPhrases": end_call_phrases,
@@ -1210,7 +1257,9 @@ class AsyncAssistantsClient:
         model: typing.Optional[UpdateAssistantDtoModel] = OMIT,
         voice: typing.Optional[UpdateAssistantDtoVoice] = OMIT,
         first_message: typing.Optional[str] = OMIT,
+        first_message_interruptions_enabled: typing.Optional[bool] = OMIT,
         first_message_mode: typing.Optional[UpdateAssistantDtoFirstMessageMode] = OMIT,
+        voicemail_detection: typing.Optional[UpdateAssistantDtoVoicemailDetection] = OMIT,
         client_messages: typing.Optional[typing.Sequence[UpdateAssistantDtoClientMessagesItem]] = OMIT,
         server_messages: typing.Optional[typing.Sequence[UpdateAssistantDtoServerMessagesItem]] = OMIT,
         silence_timeout_seconds: typing.Optional[float] = OMIT,
@@ -1219,9 +1268,9 @@ class AsyncAssistantsClient:
         background_denoising_enabled: typing.Optional[bool] = OMIT,
         model_output_in_messages_enabled: typing.Optional[bool] = OMIT,
         transport_configurations: typing.Optional[typing.Sequence[TransportConfigurationTwilio]] = OMIT,
+        observability_plan: typing.Optional[LangfuseObservabilityPlan] = OMIT,
         credentials: typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]] = OMIT,
         name: typing.Optional[str] = OMIT,
-        voicemail_detection: typing.Optional[TwilioVoicemailDetection] = OMIT,
         voicemail_message: typing.Optional[str] = OMIT,
         end_call_message: typing.Optional[str] = OMIT,
         end_call_phrases: typing.Optional[typing.Sequence[str]] = OMIT,
@@ -1258,6 +1307,8 @@ class AsyncAssistantsClient:
 
             If unspecified, assistant will wait for user to speak and use the model to respond once they speak.
 
+        first_message_interruptions_enabled : typing.Optional[bool]
+
         first_message_mode : typing.Optional[UpdateAssistantDtoFirstMessageMode]
             This is the mode for the first message. Default is 'assistant-speaks-first'.
 
@@ -1268,8 +1319,13 @@ class AsyncAssistantsClient:
 
             @default 'assistant-speaks-first'
 
+        voicemail_detection : typing.Optional[UpdateAssistantDtoVoicemailDetection]
+            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
+            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
+            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
+
         client_messages : typing.Optional[typing.Sequence[UpdateAssistantDtoClientMessagesItem]]
-            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input. You can check the shape of the messages in ClientMessage schema.
+            These are the messages that will be sent to your Client SDKs. Default is conversation-update,function-call,hang,model-output,speech-update,status-update,transfer-update,transcript,tool-calls,user-interrupted,voice-input,workflow.node.started. You can check the shape of the messages in ClientMessage schema.
 
         server_messages : typing.Optional[typing.Sequence[UpdateAssistantDtoServerMessagesItem]]
             These are the messages that will be sent to your Server URL. Default is conversation-update,end-of-call-report,function-call,hang,speech-update,status-update,tool-calls,transfer-destination-request,user-interrupted. You can check the shape of the messages in ServerMessage schema.
@@ -1286,6 +1342,7 @@ class AsyncAssistantsClient:
 
         background_sound : typing.Optional[UpdateAssistantDtoBackgroundSound]
             This is the background sound in the call. Default for phone calls is 'office' and default for web calls is 'off'.
+            You can also provide a custom sound by providing a URL to an audio file.
 
         background_denoising_enabled : typing.Optional[bool]
             This enables filtering of noise and background speech while the user is talking.
@@ -1304,6 +1361,10 @@ class AsyncAssistantsClient:
         transport_configurations : typing.Optional[typing.Sequence[TransportConfigurationTwilio]]
             These are the configurations to be passed to the transport providers of assistant's calls, like Twilio. You can store multiple configurations for different transport providers. For a call, only the configuration matching the call transport provider is used.
 
+        observability_plan : typing.Optional[LangfuseObservabilityPlan]
+            This is the plan for observability configuration of assistant's calls.
+            Currently supports Langfuse for tracing and monitoring.
+
         credentials : typing.Optional[typing.Sequence[UpdateAssistantDtoCredentialsItem]]
             These are dynamic credentials that will be used for the assistant calls. By default, all the credentials are available for use in the call but you can supplement an additional credentials using this. Dynamic credentials override existing credentials.
 
@@ -1311,11 +1372,6 @@ class AsyncAssistantsClient:
             This is the name of the assistant.
 
             This is required when you want to transfer between assistants in a call.
-
-        voicemail_detection : typing.Optional[TwilioVoicemailDetection]
-            These are the settings to configure or disable voicemail detection. Alternatively, voicemail detection can be configured using the model.tools=[VoicemailTool].
-            This uses Twilio's built-in detection while the VoicemailTool relies on the model to detect if a voicemail was reached.
-            You can use neither of them, one of them, or both of them. By default, Twilio built-in detection is enabled while VoicemailTool is not.
 
         voicemail_message : typing.Optional[str]
             This is the message that the assistant will say if the call is forwarded to voicemail.
@@ -1414,12 +1470,18 @@ class AsyncAssistantsClient:
                     object_=voice, annotation=UpdateAssistantDtoVoice, direction="write"
                 ),
                 "firstMessage": first_message,
+                "firstMessageInterruptionsEnabled": first_message_interruptions_enabled,
                 "firstMessageMode": first_message_mode,
+                "voicemailDetection": convert_and_respect_annotation_metadata(
+                    object_=voicemail_detection, annotation=UpdateAssistantDtoVoicemailDetection, direction="write"
+                ),
                 "clientMessages": client_messages,
                 "serverMessages": server_messages,
                 "silenceTimeoutSeconds": silence_timeout_seconds,
                 "maxDurationSeconds": max_duration_seconds,
-                "backgroundSound": background_sound,
+                "backgroundSound": convert_and_respect_annotation_metadata(
+                    object_=background_sound, annotation=UpdateAssistantDtoBackgroundSound, direction="write"
+                ),
                 "backgroundDenoisingEnabled": background_denoising_enabled,
                 "modelOutputInMessagesEnabled": model_output_in_messages_enabled,
                 "transportConfigurations": convert_and_respect_annotation_metadata(
@@ -1427,15 +1489,15 @@ class AsyncAssistantsClient:
                     annotation=typing.Sequence[TransportConfigurationTwilio],
                     direction="write",
                 ),
+                "observabilityPlan": convert_and_respect_annotation_metadata(
+                    object_=observability_plan, annotation=LangfuseObservabilityPlan, direction="write"
+                ),
                 "credentials": convert_and_respect_annotation_metadata(
                     object_=credentials,
                     annotation=typing.Sequence[UpdateAssistantDtoCredentialsItem],
                     direction="write",
                 ),
                 "name": name,
-                "voicemailDetection": convert_and_respect_annotation_metadata(
-                    object_=voicemail_detection, annotation=TwilioVoicemailDetection, direction="write"
-                ),
                 "voicemailMessage": voicemail_message,
                 "endCallMessage": end_call_message,
                 "endCallPhrases": end_call_phrases,

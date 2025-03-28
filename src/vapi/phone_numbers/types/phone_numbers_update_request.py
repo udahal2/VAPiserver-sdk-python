@@ -5,7 +5,12 @@ from ...types.update_byo_phone_number_dto import UpdateByoPhoneNumberDto
 from ...types.update_twilio_phone_number_dto import UpdateTwilioPhoneNumberDto
 from ...types.update_vonage_phone_number_dto import UpdateVonagePhoneNumberDto
 from ...types.update_vapi_phone_number_dto import UpdateVapiPhoneNumberDto
+from ...types.update_telnyx_phone_number_dto import UpdateTelnyxPhoneNumberDto
 
 PhoneNumbersUpdateRequest = typing.Union[
-    UpdateByoPhoneNumberDto, UpdateTwilioPhoneNumberDto, UpdateVonagePhoneNumberDto, UpdateVapiPhoneNumberDto
+    UpdateByoPhoneNumberDto,
+    UpdateTwilioPhoneNumberDto,
+    UpdateVonagePhoneNumberDto,
+    UpdateVapiPhoneNumberDto,
+    UpdateTelnyxPhoneNumberDto,
 ]

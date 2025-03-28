@@ -5,7 +5,12 @@ from ...types.create_byo_phone_number_dto import CreateByoPhoneNumberDto
 from ...types.create_twilio_phone_number_dto import CreateTwilioPhoneNumberDto
 from ...types.create_vonage_phone_number_dto import CreateVonagePhoneNumberDto
 from ...types.create_vapi_phone_number_dto import CreateVapiPhoneNumberDto
+from ...types.create_telnyx_phone_number_dto import CreateTelnyxPhoneNumberDto
 
 PhoneNumbersCreateRequest = typing.Union[
-    CreateByoPhoneNumberDto, CreateTwilioPhoneNumberDto, CreateVonagePhoneNumberDto, CreateVapiPhoneNumberDto
+    CreateByoPhoneNumberDto,
+    CreateTwilioPhoneNumberDto,
+    CreateVonagePhoneNumberDto,
+    CreateVapiPhoneNumberDto,
+    CreateTelnyxPhoneNumberDto,
 ]

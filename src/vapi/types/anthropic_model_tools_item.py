@@ -9,6 +9,8 @@ from .create_ghl_tool_dto import CreateGhlToolDto
 from .create_make_tool_dto import CreateMakeToolDto
 from .create_transfer_call_tool_dto import CreateTransferCallToolDto
 from .create_query_tool_dto import CreateQueryToolDto
+from .create_google_calendar_create_event_tool_dto import CreateGoogleCalendarCreateEventToolDto
+from .create_google_sheets_row_append_tool_dto import CreateGoogleSheetsRowAppendToolDto
 
 AnthropicModelToolsItem = typing.Union[
     CreateDtmfToolDto,
@@ -19,4 +21,6 @@ AnthropicModelToolsItem = typing.Union[
     CreateMakeToolDto,
     CreateTransferCallToolDto,
     CreateQueryToolDto,
+    CreateGoogleCalendarCreateEventToolDto,
+    CreateGoogleSheetsRowAppendToolDto,
 ]

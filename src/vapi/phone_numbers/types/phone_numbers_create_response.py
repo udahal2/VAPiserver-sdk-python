@@ -5,5 +5,8 @@ from ...types.byo_phone_number import ByoPhoneNumber
 from ...types.twilio_phone_number import TwilioPhoneNumber
 from ...types.vonage_phone_number import VonagePhoneNumber
 from ...types.vapi_phone_number import VapiPhoneNumber
+from ...types.telnyx_phone_number import TelnyxPhoneNumber
 
-PhoneNumbersCreateResponse = typing.Union[ByoPhoneNumber, TwilioPhoneNumber, VonagePhoneNumber, VapiPhoneNumber]
+PhoneNumbersCreateResponse = typing.Union[
+    ByoPhoneNumber, TwilioPhoneNumber, VonagePhoneNumber, VapiPhoneNumber, TelnyxPhoneNumber
+]

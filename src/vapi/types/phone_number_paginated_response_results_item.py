@@ -5,7 +5,8 @@ from .byo_phone_number import ByoPhoneNumber
 from .twilio_phone_number import TwilioPhoneNumber
 from .vonage_phone_number import VonagePhoneNumber
 from .vapi_phone_number import VapiPhoneNumber
+from .telnyx_phone_number import TelnyxPhoneNumber
 
 PhoneNumberPaginatedResponseResultsItem = typing.Union[
-    ByoPhoneNumber, TwilioPhoneNumber, VonagePhoneNumber, VapiPhoneNumber
+    ByoPhoneNumber, TwilioPhoneNumber, VonagePhoneNumber, VapiPhoneNumber, TelnyxPhoneNumber
 ]

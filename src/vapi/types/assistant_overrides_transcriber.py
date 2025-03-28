@@ -5,14 +5,22 @@ from .assembly_ai_transcriber import AssemblyAiTranscriber
 from .azure_speech_transcriber import AzureSpeechTranscriber
 from .custom_transcriber import CustomTranscriber
 from .deepgram_transcriber import DeepgramTranscriber
+from .eleven_labs_transcriber import ElevenLabsTranscriber
 from .gladia_transcriber import GladiaTranscriber
+from .speechmatics_transcriber import SpeechmaticsTranscriber
 from .talkscriber_transcriber import TalkscriberTranscriber
+from .google_transcriber import GoogleTranscriber
+from .open_ai_transcriber import OpenAiTranscriber
 
 AssistantOverridesTranscriber = typing.Union[
     AssemblyAiTranscriber,
     AzureSpeechTranscriber,
     CustomTranscriber,
     DeepgramTranscriber,
+    ElevenLabsTranscriber,
     GladiaTranscriber,
+    SpeechmaticsTranscriber,
     TalkscriberTranscriber,
+    GoogleTranscriber,
+    OpenAiTranscriber,
 ]

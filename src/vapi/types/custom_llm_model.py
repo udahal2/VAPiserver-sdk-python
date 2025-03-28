@@ -73,6 +73,13 @@ class CustomLlmModel(UncheckedBaseModel):
     These is the URL we'll use for the OpenAI client's `baseURL`. Ex. https://openrouter.ai/api/v1
     """
 
+    timeout_seconds: typing_extensions.Annotated[typing.Optional[float], FieldMetadata(alias="timeoutSeconds")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This sets the timeout for the connection to the custom provider without needing to stream any tokens back. Default is 20 seconds.
+    """
+
     model: str = pydantic.Field()
     """
     This is the name of the model. Ex. cognitivecomputations/dolphin-mixtral-8x7b

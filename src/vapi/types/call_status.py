@@ -2,4 +2,6 @@
 
 import typing
 
-CallStatus = typing.Union[typing.Literal["queued", "ringing", "in-progress", "forwarding", "ended"], typing.Any]
+CallStatus = typing.Union[
+    typing.Literal["scheduled", "queued", "ringing", "in-progress", "forwarding", "ended"], typing.Any
+]

@@ -3,12 +3,13 @@
 import typing
 from ...types.anyscale_model import AnyscaleModel
 from ...types.anthropic_model import AnthropicModel
+from ...types.cerebras_model import CerebrasModel
 from ...types.custom_llm_model import CustomLlmModel
 from ...types.deep_infra_model import DeepInfraModel
+from ...types.deep_seek_model import DeepSeekModel
 from ...types.google_model import GoogleModel
 from ...types.groq_model import GroqModel
 from ...types.inflection_ai_model import InflectionAiModel
-from ...types.deep_seek_model import DeepSeekModel
 from ...types.open_ai_model import OpenAiModel
 from ...types.open_router_model import OpenRouterModel
 from ...types.perplexity_ai_model import PerplexityAiModel
@@ -19,12 +20,13 @@ from ...types.xai_model import XaiModel
 UpdateAssistantDtoModel = typing.Union[
     AnyscaleModel,
     AnthropicModel,
+    CerebrasModel,
     CustomLlmModel,
     DeepInfraModel,
+    DeepSeekModel,
     GoogleModel,
     GroqModel,
     InflectionAiModel,
-    DeepSeekModel,
     OpenAiModel,
     OpenRouterModel,
     PerplexityAiModel,

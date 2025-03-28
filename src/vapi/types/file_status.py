@@ -2,4 +2,4 @@
 
 import typing
 
-FileStatus = typing.Union[typing.Literal["indexed", "not_indexed"], typing.Any]
+FileStatus = typing.Union[typing.Literal["processing", "done", "failed"], typing.Any]

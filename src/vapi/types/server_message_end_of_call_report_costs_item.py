@@ -6,8 +6,9 @@ from .transcriber_cost import TranscriberCost
 from .model_cost import ModelCost
 from .voice_cost import VoiceCost
 from .vapi_cost import VapiCost
+from .voicemail_detection_cost import VoicemailDetectionCost
 from .analysis_cost import AnalysisCost
 
 ServerMessageEndOfCallReportCostsItem = typing.Union[
-    TransportCost, TranscriberCost, ModelCost, VoiceCost, VapiCost, AnalysisCost
+    TransportCost, TranscriberCost, ModelCost, VoiceCost, VapiCost, VoicemailDetectionCost, AnalysisCost
 ]

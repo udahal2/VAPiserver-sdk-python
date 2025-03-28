@@ -12,6 +12,8 @@ from ...types.bash_tool import BashTool
 from ...types.computer_tool import ComputerTool
 from ...types.text_editor_tool import TextEditorTool
 from ...types.query_tool import QueryTool
+from ...types.google_calendar_create_event_tool import GoogleCalendarCreateEventTool
+from ...types.google_sheets_row_append_tool import GoogleSheetsRowAppendTool
 
 ToolsDeleteResponse = typing.Union[
     DtmfTool,
@@ -25,4 +27,6 @@ ToolsDeleteResponse = typing.Union[
     ComputerTool,
     TextEditorTool,
     QueryTool,
+    GoogleCalendarCreateEventTool,
+    GoogleSheetsRowAppendTool,
 ]

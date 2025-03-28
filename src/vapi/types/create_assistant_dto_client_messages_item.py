@@ -19,6 +19,7 @@ CreateAssistantDtoClientMessagesItem = typing.Union[
         "transfer-update",
         "user-interrupted",
         "voice-input",
+        "workflow.node.started",
     ],
     typing.Any,
 ]

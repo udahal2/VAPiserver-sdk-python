@@ -3,5 +3,5 @@
 import typing
 
 ServerMessageStatusUpdateStatus = typing.Union[
-    typing.Literal["queued", "ringing", "in-progress", "forwarding", "ended"], typing.Any
+    typing.Literal["scheduled", "queued", "ringing", "in-progress", "forwarding", "ended"], typing.Any
 ]

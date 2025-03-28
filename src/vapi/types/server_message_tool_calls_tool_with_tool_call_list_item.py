@@ -7,6 +7,7 @@ from .make_tool_with_tool_call import MakeToolWithToolCall
 from .bash_tool_with_tool_call import BashToolWithToolCall
 from .computer_tool_with_tool_call import ComputerToolWithToolCall
 from .text_editor_tool_with_tool_call import TextEditorToolWithToolCall
+from .google_calendar_create_event_tool_with_tool_call import GoogleCalendarCreateEventToolWithToolCall
 
 ServerMessageToolCallsToolWithToolCallListItem = typing.Union[
     FunctionToolWithToolCall,
@@ -15,4 +16,5 @@ ServerMessageToolCallsToolWithToolCallListItem = typing.Union[
     BashToolWithToolCall,
     ComputerToolWithToolCall,
     TextEditorToolWithToolCall,
+    GoogleCalendarCreateEventToolWithToolCall,
 ]

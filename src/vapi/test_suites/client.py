@@ -12,7 +12,10 @@ from ..core.datetime_utils import serialize_datetime
 from ..core.unchecked_base_model import construct_type
 from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
+from ..types.tester_plan import TesterPlan
+from ..types.target_plan import TargetPlan
 from ..types.test_suite import TestSuite
+from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.jsonable_encoder import jsonable_encoder
 from ..core.client_wrapper import AsyncClientWrapper
 
@@ -121,6 +124,8 @@ class TestSuitesClient:
         *,
         name: typing.Optional[str] = OMIT,
         phone_number_id: typing.Optional[str] = OMIT,
+        tester_plan: typing.Optional[TesterPlan] = OMIT,
+        target_plan: typing.Optional[TargetPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TestSuite:
         """
@@ -131,6 +136,14 @@ class TestSuitesClient:
 
         phone_number_id : typing.Optional[str]
             This is the phone number ID associated with this test suite.
+
+        tester_plan : typing.Optional[TesterPlan]
+            Override the default tester plan by providing custom assistant configuration for the test agent.
+
+            We recommend only using this if you are confident, as we have already set sensible defaults on the tester plan.
+
+        target_plan : typing.Optional[TargetPlan]
+            These are the configuration for the assistant / phone number that is being tested.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -146,6 +159,12 @@ class TestSuitesClient:
             json={
                 "name": name,
                 "phoneNumberId": phone_number_id,
+                "testerPlan": convert_and_respect_annotation_metadata(
+                    object_=tester_plan, annotation=TesterPlan, direction="write"
+                ),
+                "targetPlan": convert_and_respect_annotation_metadata(
+                    object_=target_plan, annotation=TargetPlan, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -243,6 +262,8 @@ class TestSuitesClient:
         *,
         name: typing.Optional[str] = OMIT,
         phone_number_id: typing.Optional[str] = OMIT,
+        tester_plan: typing.Optional[TesterPlan] = OMIT,
+        target_plan: typing.Optional[TargetPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TestSuite:
         """
@@ -255,6 +276,14 @@ class TestSuitesClient:
 
         phone_number_id : typing.Optional[str]
             This is the phone number ID associated with this test suite.
+
+        tester_plan : typing.Optional[TesterPlan]
+            Override the default tester plan by providing custom assistant configuration for the test agent.
+
+            We recommend only using this if you are confident, as we have already set sensible defaults on the tester plan.
+
+        target_plan : typing.Optional[TargetPlan]
+            These are the configuration for the assistant / phone number that is being tested.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -270,6 +299,12 @@ class TestSuitesClient:
             json={
                 "name": name,
                 "phoneNumberId": phone_number_id,
+                "testerPlan": convert_and_respect_annotation_metadata(
+                    object_=tester_plan, annotation=TesterPlan, direction="write"
+                ),
+                "targetPlan": convert_and_respect_annotation_metadata(
+                    object_=target_plan, annotation=TargetPlan, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -393,6 +428,8 @@ class AsyncTestSuitesClient:
         *,
         name: typing.Optional[str] = OMIT,
         phone_number_id: typing.Optional[str] = OMIT,
+        tester_plan: typing.Optional[TesterPlan] = OMIT,
+        target_plan: typing.Optional[TargetPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TestSuite:
         """
@@ -403,6 +440,14 @@ class AsyncTestSuitesClient:
 
         phone_number_id : typing.Optional[str]
             This is the phone number ID associated with this test suite.
+
+        tester_plan : typing.Optional[TesterPlan]
+            Override the default tester plan by providing custom assistant configuration for the test agent.
+
+            We recommend only using this if you are confident, as we have already set sensible defaults on the tester plan.
+
+        target_plan : typing.Optional[TargetPlan]
+            These are the configuration for the assistant / phone number that is being tested.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -418,6 +463,12 @@ class AsyncTestSuitesClient:
             json={
                 "name": name,
                 "phoneNumberId": phone_number_id,
+                "testerPlan": convert_and_respect_annotation_metadata(
+                    object_=tester_plan, annotation=TesterPlan, direction="write"
+                ),
+                "targetPlan": convert_and_respect_annotation_metadata(
+                    object_=target_plan, annotation=TargetPlan, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",
@@ -515,6 +566,8 @@ class AsyncTestSuitesClient:
         *,
         name: typing.Optional[str] = OMIT,
         phone_number_id: typing.Optional[str] = OMIT,
+        tester_plan: typing.Optional[TesterPlan] = OMIT,
+        target_plan: typing.Optional[TargetPlan] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> TestSuite:
         """
@@ -527,6 +580,14 @@ class AsyncTestSuitesClient:
 
         phone_number_id : typing.Optional[str]
             This is the phone number ID associated with this test suite.
+
+        tester_plan : typing.Optional[TesterPlan]
+            Override the default tester plan by providing custom assistant configuration for the test agent.
+
+            We recommend only using this if you are confident, as we have already set sensible defaults on the tester plan.
+
+        target_plan : typing.Optional[TargetPlan]
+            These are the configuration for the assistant / phone number that is being tested.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -542,6 +603,12 @@ class AsyncTestSuitesClient:
             json={
                 "name": name,
                 "phoneNumberId": phone_number_id,
+                "testerPlan": convert_and_respect_annotation_metadata(
+                    object_=tester_plan, annotation=TesterPlan, direction="write"
+                ),
+                "targetPlan": convert_and_respect_annotation_metadata(
+                    object_=target_plan, annotation=TargetPlan, direction="write"
+                ),
             },
             headers={
                 "content-type": "application/json",

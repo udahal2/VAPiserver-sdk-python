@@ -2,14 +2,14 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-from .test_suite_test_voice import TestSuiteTestVoice
+from .test_suite_tests_paginated_response_results_item import TestSuiteTestsPaginatedResponseResultsItem
 import pydantic
 from .pagination_meta import PaginationMeta
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class TestSuiteTestsPaginatedResponse(UncheckedBaseModel):
-    results: typing.List[TestSuiteTestVoice] = pydantic.Field()
+    results: typing.List[TestSuiteTestsPaginatedResponseResultsItem] = pydantic.Field()
     """
     A list of test suite tests.
     """
