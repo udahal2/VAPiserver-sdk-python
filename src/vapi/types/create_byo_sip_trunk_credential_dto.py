@@ -2,8 +2,8 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-import pydantic
 from .sip_trunk_gateway import SipTrunkGateway
+import pydantic
 import typing_extensions
 from .sip_trunk_outbound_authentication_plan import SipTrunkOutboundAuthenticationPlan
 from ..core.serialization import FieldMetadata
@@ -12,11 +12,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class CreateByoSipTrunkCredentialDto(UncheckedBaseModel):
-    provider: typing.Optional[typing.Literal["byo-sip-trunk"]] = pydantic.Field(default=None)
-    """
-    This can be used to bring your own SIP trunks or to connect to a Carrier.
-    """
-
+    provider: typing.Literal["byo-sip-trunk"] = "byo-sip-trunk"
     gateways: typing.List[SipTrunkGateway] = pydantic.Field()
     """
     This is the list of SIP trunk's gateways.

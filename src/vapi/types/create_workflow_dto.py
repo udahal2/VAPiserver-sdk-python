@@ -3,13 +3,19 @@
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
 from .create_workflow_dto_nodes_item import CreateWorkflowDtoNodesItem
+from .create_workflow_dto_model import CreateWorkflowDtoModel
+import pydantic
 from .edge import Edge
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
-import pydantic
 
 
 class CreateWorkflowDto(UncheckedBaseModel):
     nodes: typing.List[CreateWorkflowDtoNodesItem]
+    model: typing.Optional[CreateWorkflowDtoModel] = pydantic.Field(default=None)
+    """
+    These are the options for the workflow's LLM.
+    """
+
     name: str
     edges: typing.List[Edge]
 

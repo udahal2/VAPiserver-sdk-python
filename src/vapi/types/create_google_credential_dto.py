@@ -2,18 +2,14 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
+import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class CreateGoogleCredentialDto(UncheckedBaseModel):
-    provider: typing.Literal["google"] = pydantic.Field(default="google")
-    """
-    This is the key for Gemini in Google AI Studio. Get it from here: https://aistudio.google.com/app/apikey
-    """
-
+    provider: typing.Literal["google"] = "google"
     api_key: typing_extensions.Annotated[str, FieldMetadata(alias="apiKey")] = pydantic.Field()
     """
     This is not returned in the API.

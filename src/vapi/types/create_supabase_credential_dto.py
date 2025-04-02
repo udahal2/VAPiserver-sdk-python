@@ -2,19 +2,15 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-import pydantic
 import typing_extensions
 from .supabase_bucket_plan import SupabaseBucketPlan
 from ..core.serialization import FieldMetadata
+import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class CreateSupabaseCredentialDto(UncheckedBaseModel):
-    provider: typing.Literal["supabase"] = pydantic.Field(default="supabase")
-    """
-    This is for supabase storage.
-    """
-
+    provider: typing.Literal["supabase"] = "supabase"
     bucket_plan: typing_extensions.Annotated[typing.Optional[SupabaseBucketPlan], FieldMetadata(alias="bucketPlan")] = (
         None
     )

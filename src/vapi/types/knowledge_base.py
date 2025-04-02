@@ -3,6 +3,7 @@
 from ..core.unchecked_base_model import UncheckedBaseModel
 import pydantic
 import typing
+from .knowledge_base_model import KnowledgeBaseModel
 import typing_extensions
 from ..core.serialization import FieldMetadata
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
@@ -19,7 +20,7 @@ class KnowledgeBase(UncheckedBaseModel):
     The provider of the knowledge base
     """
 
-    model: typing.Dict[str, typing.Optional[typing.Any]] = pydantic.Field()
+    model: typing.Optional[KnowledgeBaseModel] = pydantic.Field(default=None)
     """
     The model to use for the knowledge base
     """

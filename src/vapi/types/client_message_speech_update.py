@@ -24,6 +24,11 @@ class ClientMessageSpeechUpdate(UncheckedBaseModel):
     This is the role which the speech update is for.
     """
 
+    turn: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    This is the turn number of the speech update (0-indexed).
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

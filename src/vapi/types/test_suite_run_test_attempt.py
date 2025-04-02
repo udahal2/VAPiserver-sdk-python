@@ -7,6 +7,7 @@ from .test_suite_run_scorer_ai import TestSuiteRunScorerAi
 from ..core.serialization import FieldMetadata
 import pydantic
 from .test_suite_run_test_attempt_call import TestSuiteRunTestAttemptCall
+from .test_suite_run_test_attempt_metadata import TestSuiteRunTestAttemptMetadata
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -18,9 +19,21 @@ class TestSuiteRunTestAttempt(UncheckedBaseModel):
     These are the results of the scorers used to evaluate the test attempt.
     """
 
-    call: TestSuiteRunTestAttemptCall = pydantic.Field()
+    call: typing.Optional[TestSuiteRunTestAttemptCall] = pydantic.Field(default=None)
     """
     This is the call made during the test attempt.
+    """
+
+    call_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="callId")] = pydantic.Field(
+        default=None
+    )
+    """
+    This is the call ID for the test attempt.
+    """
+
+    metadata: typing.Optional[TestSuiteRunTestAttemptMetadata] = pydantic.Field(default=None)
+    """
+    This is the metadata for the test attempt.
     """
 
     if IS_PYDANTIC_V2:

@@ -2,18 +2,14 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
+import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class CreateS3CredentialDto(UncheckedBaseModel):
-    provider: typing.Literal["s3"] = pydantic.Field(default="s3")
-    """
-    Credential provider. Only allowed value is s3
-    """
-
+    provider: typing.Literal["s3"] = "s3"
     aws_access_key_id: typing_extensions.Annotated[str, FieldMetadata(alias="awsAccessKeyId")] = pydantic.Field()
     """
     AWS access key ID.

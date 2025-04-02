@@ -64,9 +64,9 @@ class ServerMessageStatusUpdate(UncheckedBaseModel):
     This is the destination the call is being transferred to. This is only sent if the status is "forwarding".
     """
 
-    timestamp: typing.Optional[str] = pydantic.Field(default=None)
+    timestamp: typing.Optional[float] = pydantic.Field(default=None)
     """
-    This is the ISO-8601 formatted timestamp of when the message was sent.
+    This is the timestamp of when the message was sent in milliseconds since Unix Epoch.
     """
 
     artifact: typing.Optional[Artifact] = pydantic.Field(default=None)

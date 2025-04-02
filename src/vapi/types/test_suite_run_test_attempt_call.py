@@ -10,7 +10,7 @@ import typing
 class TestSuiteRunTestAttemptCall(UncheckedBaseModel):
     artifact: Artifact = pydantic.Field()
     """
-    This is the artifact associated with the call.
+    This is the artifact of the call.
     """
 
     if IS_PYDANTIC_V2:

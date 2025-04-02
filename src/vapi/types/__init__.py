@@ -205,6 +205,10 @@ from .create_ghl_tool_dto import CreateGhlToolDto
 from .create_ghl_tool_dto_messages_item import CreateGhlToolDtoMessagesItem
 from .create_gladia_credential_dto import CreateGladiaCredentialDto
 from .create_go_high_level_credential_dto import CreateGoHighLevelCredentialDto
+from .create_google_calendar_check_availability_tool_dto import CreateGoogleCalendarCheckAvailabilityToolDto
+from .create_google_calendar_check_availability_tool_dto_messages_item import (
+    CreateGoogleCalendarCheckAvailabilityToolDtoMessagesItem,
+)
 from .create_google_calendar_create_event_tool_dto import CreateGoogleCalendarCreateEventToolDto
 from .create_google_calendar_create_event_tool_dto_messages_item import (
     CreateGoogleCalendarCreateEventToolDtoMessagesItem,
@@ -214,6 +218,9 @@ from .create_google_calendar_o_auth_2_authorization_credential_dto import (
 )
 from .create_google_calendar_o_auth_2_client_credential_dto import CreateGoogleCalendarOAuth2ClientCredentialDto
 from .create_google_credential_dto import CreateGoogleCredentialDto
+from .create_google_sheets_o_auth_2_authorization_credential_dto import (
+    CreateGoogleSheetsOAuth2AuthorizationCredentialDto,
+)
 from .create_google_sheets_row_append_tool_dto import CreateGoogleSheetsRowAppendToolDto
 from .create_google_sheets_row_append_tool_dto_messages_item import CreateGoogleSheetsRowAppendToolDtoMessagesItem
 from .create_groq_credential_dto import CreateGroqCredentialDto
@@ -224,6 +231,8 @@ from .create_lmnt_credential_dto import CreateLmntCredentialDto
 from .create_make_credential_dto import CreateMakeCredentialDto
 from .create_make_tool_dto import CreateMakeToolDto
 from .create_make_tool_dto_messages_item import CreateMakeToolDtoMessagesItem
+from .create_mcp_tool_dto import CreateMcpToolDto
+from .create_mcp_tool_dto_messages_item import CreateMcpToolDtoMessagesItem
 from .create_mistral_credential_dto import CreateMistralCredentialDto
 from .create_neuphonic_credential_dto import CreateNeuphonicCredentialDto
 from .create_open_ai_credential_dto import CreateOpenAiCredentialDto
@@ -240,6 +249,9 @@ from .create_query_tool_dto_messages_item import CreateQueryToolDtoMessagesItem
 from .create_rime_ai_credential_dto import CreateRimeAiCredentialDto
 from .create_runpod_credential_dto import CreateRunpodCredentialDto
 from .create_s_3_credential_dto import CreateS3CredentialDto
+from .create_slack_o_auth_2_authorization_credential_dto import CreateSlackOAuth2AuthorizationCredentialDto
+from .create_slack_send_message_tool_dto import CreateSlackSendMessageToolDto
+from .create_slack_send_message_tool_dto_messages_item import CreateSlackSendMessageToolDtoMessagesItem
 from .create_smallest_ai_credential_dto import CreateSmallestAiCredentialDto
 from .create_speechmatics_credential_dto import CreateSpeechmaticsCredentialDto
 from .create_squad_dto import CreateSquadDto
@@ -277,6 +289,7 @@ from .create_vonage_phone_number_dto_fallback_destination import CreateVonagePho
 from .create_web_call_dto import CreateWebCallDto
 from .create_webhook_credential_dto import CreateWebhookCredentialDto
 from .create_workflow_dto import CreateWorkflowDto
+from .create_workflow_dto_model import CreateWorkflowDtoModel
 from .create_workflow_dto_nodes_item import CreateWorkflowDtoNodesItem
 from .create_x_ai_credential_dto import CreateXAiCredentialDto
 from .credential_action_request import CredentialActionRequest
@@ -426,6 +439,8 @@ from .gladia_transcriber_language import GladiaTranscriberLanguage
 from .gladia_transcriber_language_behaviour import GladiaTranscriberLanguageBehaviour
 from .gladia_transcriber_model import GladiaTranscriberModel
 from .go_high_level_credential import GoHighLevelCredential
+from .google_calendar_check_availability_tool import GoogleCalendarCheckAvailabilityTool
+from .google_calendar_check_availability_tool_messages_item import GoogleCalendarCheckAvailabilityToolMessagesItem
 from .google_calendar_create_event_tool import GoogleCalendarCreateEventTool
 from .google_calendar_create_event_tool_messages_item import GoogleCalendarCreateEventToolMessagesItem
 from .google_calendar_create_event_tool_provider_details import GoogleCalendarCreateEventToolProviderDetails
@@ -440,6 +455,7 @@ from .google_model import GoogleModel
 from .google_model_model import GoogleModelModel
 from .google_model_tools_item import GoogleModelToolsItem
 from .google_realtime_config import GoogleRealtimeConfig
+from .google_sheets_o_auth_2_authorization_credential import GoogleSheetsOAuth2AuthorizationCredential
 from .google_sheets_row_append_tool import GoogleSheetsRowAppendTool
 from .google_sheets_row_append_tool_messages_item import GoogleSheetsRowAppendToolMessagesItem
 from .google_sheets_row_append_tool_provider_details import GoogleSheetsRowAppendToolProviderDetails
@@ -475,6 +491,7 @@ from .json_schema_type import JsonSchemaType
 from .keypad_input_plan import KeypadInputPlan
 from .keypad_input_plan_delimiters import KeypadInputPlanDelimiters
 from .knowledge_base import KnowledgeBase
+from .knowledge_base_model import KnowledgeBaseModel
 from .knowledge_base_response_document import KnowledgeBaseResponseDocument
 from .langfuse_credential import LangfuseCredential
 from .langfuse_observability_plan import LangfuseObservabilityPlan
@@ -497,6 +514,8 @@ from .make_tool_metadata import MakeToolMetadata
 from .make_tool_provider_details import MakeToolProviderDetails
 from .make_tool_with_tool_call import MakeToolWithToolCall
 from .make_tool_with_tool_call_messages_item import MakeToolWithToolCallMessagesItem
+from .mcp_tool import McpTool
+from .mcp_tool_messages_item import McpToolMessagesItem
 from .message_plan import MessagePlan
 from .metrics import Metrics
 from .mistral_credential import MistralCredential
@@ -633,6 +652,9 @@ from .sip_trunk_gateway import SipTrunkGateway
 from .sip_trunk_gateway_outbound_protocol import SipTrunkGatewayOutboundProtocol
 from .sip_trunk_outbound_authentication_plan import SipTrunkOutboundAuthenticationPlan
 from .sip_trunk_outbound_sip_register_plan import SipTrunkOutboundSipRegisterPlan
+from .slack_o_auth_2_authorization_credential import SlackOAuth2AuthorizationCredential
+from .slack_send_message_tool import SlackSendMessageTool
+from .slack_send_message_tool_messages_item import SlackSendMessageToolMessagesItem
 from .smallest_ai_credential import SmallestAiCredential
 from .smallest_ai_voice import SmallestAiVoice
 from .smallest_ai_voice_id import SmallestAiVoiceId
@@ -683,6 +705,7 @@ from .test_suite_run_scorer_ai_result import TestSuiteRunScorerAiResult
 from .test_suite_run_status import TestSuiteRunStatus
 from .test_suite_run_test_attempt import TestSuiteRunTestAttempt
 from .test_suite_run_test_attempt_call import TestSuiteRunTestAttemptCall
+from .test_suite_run_test_attempt_metadata import TestSuiteRunTestAttemptMetadata
 from .test_suite_run_test_result import TestSuiteRunTestResult
 from .test_suite_runs_paginated_response import TestSuiteRunsPaginatedResponse
 from .test_suite_test_chat import TestSuiteTestChat
@@ -797,6 +820,10 @@ from .update_ghl_tool_dto import UpdateGhlToolDto
 from .update_ghl_tool_dto_messages_item import UpdateGhlToolDtoMessagesItem
 from .update_gladia_credential_dto import UpdateGladiaCredentialDto
 from .update_go_high_level_credential_dto import UpdateGoHighLevelCredentialDto
+from .update_google_calendar_check_availability_tool_dto import UpdateGoogleCalendarCheckAvailabilityToolDto
+from .update_google_calendar_check_availability_tool_dto_messages_item import (
+    UpdateGoogleCalendarCheckAvailabilityToolDtoMessagesItem,
+)
 from .update_google_calendar_create_event_tool_dto import UpdateGoogleCalendarCreateEventToolDto
 from .update_google_calendar_create_event_tool_dto_messages_item import (
     UpdateGoogleCalendarCreateEventToolDtoMessagesItem,
@@ -806,6 +833,9 @@ from .update_google_calendar_o_auth_2_authorization_credential_dto import (
 )
 from .update_google_calendar_o_auth_2_client_credential_dto import UpdateGoogleCalendarOAuth2ClientCredentialDto
 from .update_google_credential_dto import UpdateGoogleCredentialDto
+from .update_google_sheets_o_auth_2_authorization_credential_dto import (
+    UpdateGoogleSheetsOAuth2AuthorizationCredentialDto,
+)
 from .update_google_sheets_row_append_tool_dto import UpdateGoogleSheetsRowAppendToolDto
 from .update_google_sheets_row_append_tool_dto_messages_item import UpdateGoogleSheetsRowAppendToolDtoMessagesItem
 from .update_groq_credential_dto import UpdateGroqCredentialDto
@@ -816,6 +846,8 @@ from .update_lmnt_credential_dto import UpdateLmntCredentialDto
 from .update_make_credential_dto import UpdateMakeCredentialDto
 from .update_make_tool_dto import UpdateMakeToolDto
 from .update_make_tool_dto_messages_item import UpdateMakeToolDtoMessagesItem
+from .update_mcp_tool_dto import UpdateMcpToolDto
+from .update_mcp_tool_dto_messages_item import UpdateMcpToolDtoMessagesItem
 from .update_mistral_credential_dto import UpdateMistralCredentialDto
 from .update_neuphonic_credential_dto import UpdateNeuphonicCredentialDto
 from .update_open_ai_credential_dto import UpdateOpenAiCredentialDto
@@ -831,6 +863,9 @@ from .update_query_tool_dto_messages_item import UpdateQueryToolDtoMessagesItem
 from .update_rime_ai_credential_dto import UpdateRimeAiCredentialDto
 from .update_runpod_credential_dto import UpdateRunpodCredentialDto
 from .update_s_3_credential_dto import UpdateS3CredentialDto
+from .update_slack_o_auth_2_authorization_credential_dto import UpdateSlackOAuth2AuthorizationCredentialDto
+from .update_slack_send_message_tool_dto import UpdateSlackSendMessageToolDto
+from .update_slack_send_message_tool_dto_messages_item import UpdateSlackSendMessageToolDtoMessagesItem
 from .update_smallest_ai_credential_dto import UpdateSmallestAiCredentialDto
 from .update_speechmatics_credential_dto import UpdateSpeechmaticsCredentialDto
 from .update_supabase_credential_dto import UpdateSupabaseCredentialDto
@@ -892,6 +927,7 @@ from .vonage_phone_number_fallback_destination import VonagePhoneNumberFallbackD
 from .vonage_phone_number_status import VonagePhoneNumberStatus
 from .webhook_credential import WebhookCredential
 from .workflow import Workflow
+from .workflow_model import WorkflowModel
 from .workflow_nodes_item import WorkflowNodesItem
 from .x_ai_credential import XAiCredential
 from .xai_model import XaiModel
@@ -1104,11 +1140,14 @@ __all__ = [
     "CreateGhlToolDtoMessagesItem",
     "CreateGladiaCredentialDto",
     "CreateGoHighLevelCredentialDto",
+    "CreateGoogleCalendarCheckAvailabilityToolDto",
+    "CreateGoogleCalendarCheckAvailabilityToolDtoMessagesItem",
     "CreateGoogleCalendarCreateEventToolDto",
     "CreateGoogleCalendarCreateEventToolDtoMessagesItem",
     "CreateGoogleCalendarOAuth2AuthorizationCredentialDto",
     "CreateGoogleCalendarOAuth2ClientCredentialDto",
     "CreateGoogleCredentialDto",
+    "CreateGoogleSheetsOAuth2AuthorizationCredentialDto",
     "CreateGoogleSheetsRowAppendToolDto",
     "CreateGoogleSheetsRowAppendToolDtoMessagesItem",
     "CreateGroqCredentialDto",
@@ -1119,6 +1158,8 @@ __all__ = [
     "CreateMakeCredentialDto",
     "CreateMakeToolDto",
     "CreateMakeToolDtoMessagesItem",
+    "CreateMcpToolDto",
+    "CreateMcpToolDtoMessagesItem",
     "CreateMistralCredentialDto",
     "CreateNeuphonicCredentialDto",
     "CreateOpenAiCredentialDto",
@@ -1135,6 +1176,9 @@ __all__ = [
     "CreateRimeAiCredentialDto",
     "CreateRunpodCredentialDto",
     "CreateS3CredentialDto",
+    "CreateSlackOAuth2AuthorizationCredentialDto",
+    "CreateSlackSendMessageToolDto",
+    "CreateSlackSendMessageToolDtoMessagesItem",
     "CreateSmallestAiCredentialDto",
     "CreateSpeechmaticsCredentialDto",
     "CreateSquadDto",
@@ -1172,6 +1216,7 @@ __all__ = [
     "CreateWebCallDto",
     "CreateWebhookCredentialDto",
     "CreateWorkflowDto",
+    "CreateWorkflowDtoModel",
     "CreateWorkflowDtoNodesItem",
     "CreateXAiCredentialDto",
     "CredentialActionRequest",
@@ -1321,6 +1366,8 @@ __all__ = [
     "GladiaTranscriberLanguageBehaviour",
     "GladiaTranscriberModel",
     "GoHighLevelCredential",
+    "GoogleCalendarCheckAvailabilityTool",
+    "GoogleCalendarCheckAvailabilityToolMessagesItem",
     "GoogleCalendarCreateEventTool",
     "GoogleCalendarCreateEventToolMessagesItem",
     "GoogleCalendarCreateEventToolProviderDetails",
@@ -1333,6 +1380,7 @@ __all__ = [
     "GoogleModelModel",
     "GoogleModelToolsItem",
     "GoogleRealtimeConfig",
+    "GoogleSheetsOAuth2AuthorizationCredential",
     "GoogleSheetsRowAppendTool",
     "GoogleSheetsRowAppendToolMessagesItem",
     "GoogleSheetsRowAppendToolProviderDetails",
@@ -1366,6 +1414,7 @@ __all__ = [
     "KeypadInputPlan",
     "KeypadInputPlanDelimiters",
     "KnowledgeBase",
+    "KnowledgeBaseModel",
     "KnowledgeBaseResponseDocument",
     "LangfuseCredential",
     "LangfuseObservabilityPlan",
@@ -1388,6 +1437,8 @@ __all__ = [
     "MakeToolProviderDetails",
     "MakeToolWithToolCall",
     "MakeToolWithToolCallMessagesItem",
+    "McpTool",
+    "McpToolMessagesItem",
     "MessagePlan",
     "Metrics",
     "MistralCredential",
@@ -1522,6 +1573,9 @@ __all__ = [
     "SipTrunkGatewayOutboundProtocol",
     "SipTrunkOutboundAuthenticationPlan",
     "SipTrunkOutboundSipRegisterPlan",
+    "SlackOAuth2AuthorizationCredential",
+    "SlackSendMessageTool",
+    "SlackSendMessageToolMessagesItem",
     "SmallestAiCredential",
     "SmallestAiVoice",
     "SmallestAiVoiceId",
@@ -1572,6 +1626,7 @@ __all__ = [
     "TestSuiteRunStatus",
     "TestSuiteRunTestAttempt",
     "TestSuiteRunTestAttemptCall",
+    "TestSuiteRunTestAttemptMetadata",
     "TestSuiteRunTestResult",
     "TestSuiteRunsPaginatedResponse",
     "TestSuiteTestChat",
@@ -1684,11 +1739,14 @@ __all__ = [
     "UpdateGhlToolDtoMessagesItem",
     "UpdateGladiaCredentialDto",
     "UpdateGoHighLevelCredentialDto",
+    "UpdateGoogleCalendarCheckAvailabilityToolDto",
+    "UpdateGoogleCalendarCheckAvailabilityToolDtoMessagesItem",
     "UpdateGoogleCalendarCreateEventToolDto",
     "UpdateGoogleCalendarCreateEventToolDtoMessagesItem",
     "UpdateGoogleCalendarOAuth2AuthorizationCredentialDto",
     "UpdateGoogleCalendarOAuth2ClientCredentialDto",
     "UpdateGoogleCredentialDto",
+    "UpdateGoogleSheetsOAuth2AuthorizationCredentialDto",
     "UpdateGoogleSheetsRowAppendToolDto",
     "UpdateGoogleSheetsRowAppendToolDtoMessagesItem",
     "UpdateGroqCredentialDto",
@@ -1699,6 +1757,8 @@ __all__ = [
     "UpdateMakeCredentialDto",
     "UpdateMakeToolDto",
     "UpdateMakeToolDtoMessagesItem",
+    "UpdateMcpToolDto",
+    "UpdateMcpToolDtoMessagesItem",
     "UpdateMistralCredentialDto",
     "UpdateNeuphonicCredentialDto",
     "UpdateOpenAiCredentialDto",
@@ -1714,6 +1774,9 @@ __all__ = [
     "UpdateRimeAiCredentialDto",
     "UpdateRunpodCredentialDto",
     "UpdateS3CredentialDto",
+    "UpdateSlackOAuth2AuthorizationCredentialDto",
+    "UpdateSlackSendMessageToolDto",
+    "UpdateSlackSendMessageToolDtoMessagesItem",
     "UpdateSmallestAiCredentialDto",
     "UpdateSpeechmaticsCredentialDto",
     "UpdateSupabaseCredentialDto",
@@ -1775,6 +1838,7 @@ __all__ = [
     "VonagePhoneNumberStatus",
     "WebhookCredential",
     "Workflow",
+    "WorkflowModel",
     "WorkflowNodesItem",
     "XAiCredential",
     "XaiModel",

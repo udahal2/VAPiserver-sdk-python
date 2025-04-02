@@ -2,18 +2,14 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
+import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class CreateXAiCredentialDto(UncheckedBaseModel):
-    provider: typing.Literal["xai"] = pydantic.Field(default="xai")
-    """
-    This is the api key for Grok in XAi's console. Get it from here: https://console.x.ai
-    """
-
+    provider: typing.Literal["xai"] = "xai"
     api_key: typing_extensions.Annotated[str, FieldMetadata(alias="apiKey")] = pydantic.Field()
     """
     This is not returned in the API.

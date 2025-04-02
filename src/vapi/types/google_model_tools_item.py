@@ -11,6 +11,8 @@ from .create_transfer_call_tool_dto import CreateTransferCallToolDto
 from .create_query_tool_dto import CreateQueryToolDto
 from .create_google_calendar_create_event_tool_dto import CreateGoogleCalendarCreateEventToolDto
 from .create_google_sheets_row_append_tool_dto import CreateGoogleSheetsRowAppendToolDto
+from .create_google_calendar_check_availability_tool_dto import CreateGoogleCalendarCheckAvailabilityToolDto
+from .create_slack_send_message_tool_dto import CreateSlackSendMessageToolDto
 
 GoogleModelToolsItem = typing.Union[
     CreateDtmfToolDto,
@@ -23,4 +25,6 @@ GoogleModelToolsItem = typing.Union[
     CreateQueryToolDto,
     CreateGoogleCalendarCreateEventToolDto,
     CreateGoogleSheetsRowAppendToolDto,
+    CreateGoogleCalendarCheckAvailabilityToolDto,
+    CreateSlackSendMessageToolDto,
 ]

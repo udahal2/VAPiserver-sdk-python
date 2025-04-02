@@ -9,9 +9,11 @@ from json.decoder import JSONDecodeError
 from ..core.api_error import ApiError
 from ..types.create_workflow_dto_nodes_item import CreateWorkflowDtoNodesItem
 from ..types.edge import Edge
+from ..types.create_workflow_dto_model import CreateWorkflowDtoModel
 from ..core.serialization import convert_and_respect_annotation_metadata
 from ..core.jsonable_encoder import jsonable_encoder
 from .types.update_workflow_dto_nodes_item import UpdateWorkflowDtoNodesItem
+from .types.update_workflow_dto_model import UpdateWorkflowDtoModel
 from ..core.client_wrapper import AsyncClientWrapper
 
 # this is used as the default value for optional parameters
@@ -61,6 +63,7 @@ class WorkflowClient:
         nodes: typing.Sequence[CreateWorkflowDtoNodesItem],
         name: str,
         edges: typing.Sequence[Edge],
+        model: typing.Optional[CreateWorkflowDtoModel] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> Workflow:
         """
@@ -71,6 +74,9 @@ class WorkflowClient:
         name : str
 
         edges : typing.Sequence[Edge]
+
+        model : typing.Optional[CreateWorkflowDtoModel]
+            These are the options for the workflow's LLM.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -86,6 +92,9 @@ class WorkflowClient:
             json={
                 "nodes": convert_and_respect_annotation_metadata(
                     object_=nodes, annotation=typing.Sequence[CreateWorkflowDtoNodesItem], direction="write"
+                ),
+                "model": convert_and_respect_annotation_metadata(
+                    object_=model, annotation=CreateWorkflowDtoModel, direction="write"
                 ),
                 "name": name,
                 "edges": convert_and_respect_annotation_metadata(
@@ -184,6 +193,7 @@ class WorkflowClient:
         id: str,
         *,
         nodes: typing.Optional[typing.Sequence[UpdateWorkflowDtoNodesItem]] = OMIT,
+        model: typing.Optional[UpdateWorkflowDtoModel] = OMIT,
         name: typing.Optional[str] = OMIT,
         edges: typing.Optional[typing.Sequence[Edge]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -194,6 +204,9 @@ class WorkflowClient:
         id : str
 
         nodes : typing.Optional[typing.Sequence[UpdateWorkflowDtoNodesItem]]
+
+        model : typing.Optional[UpdateWorkflowDtoModel]
+            These are the options for the workflow's LLM.
 
         name : typing.Optional[str]
 
@@ -213,6 +226,9 @@ class WorkflowClient:
             json={
                 "nodes": convert_and_respect_annotation_metadata(
                     object_=nodes, annotation=typing.Sequence[UpdateWorkflowDtoNodesItem], direction="write"
+                ),
+                "model": convert_and_respect_annotation_metadata(
+                    object_=model, annotation=UpdateWorkflowDtoModel, direction="write"
                 ),
                 "name": name,
                 "edges": convert_and_respect_annotation_metadata(
@@ -283,6 +299,7 @@ class AsyncWorkflowClient:
         nodes: typing.Sequence[CreateWorkflowDtoNodesItem],
         name: str,
         edges: typing.Sequence[Edge],
+        model: typing.Optional[CreateWorkflowDtoModel] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> Workflow:
         """
@@ -293,6 +310,9 @@ class AsyncWorkflowClient:
         name : str
 
         edges : typing.Sequence[Edge]
+
+        model : typing.Optional[CreateWorkflowDtoModel]
+            These are the options for the workflow's LLM.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -308,6 +328,9 @@ class AsyncWorkflowClient:
             json={
                 "nodes": convert_and_respect_annotation_metadata(
                     object_=nodes, annotation=typing.Sequence[CreateWorkflowDtoNodesItem], direction="write"
+                ),
+                "model": convert_and_respect_annotation_metadata(
+                    object_=model, annotation=CreateWorkflowDtoModel, direction="write"
                 ),
                 "name": name,
                 "edges": convert_and_respect_annotation_metadata(
@@ -406,6 +429,7 @@ class AsyncWorkflowClient:
         id: str,
         *,
         nodes: typing.Optional[typing.Sequence[UpdateWorkflowDtoNodesItem]] = OMIT,
+        model: typing.Optional[UpdateWorkflowDtoModel] = OMIT,
         name: typing.Optional[str] = OMIT,
         edges: typing.Optional[typing.Sequence[Edge]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
@@ -416,6 +440,9 @@ class AsyncWorkflowClient:
         id : str
 
         nodes : typing.Optional[typing.Sequence[UpdateWorkflowDtoNodesItem]]
+
+        model : typing.Optional[UpdateWorkflowDtoModel]
+            These are the options for the workflow's LLM.
 
         name : typing.Optional[str]
 
@@ -435,6 +462,9 @@ class AsyncWorkflowClient:
             json={
                 "nodes": convert_and_respect_annotation_metadata(
                     object_=nodes, annotation=typing.Sequence[UpdateWorkflowDtoNodesItem], direction="write"
+                ),
+                "model": convert_and_respect_annotation_metadata(
+                    object_=model, annotation=UpdateWorkflowDtoModel, direction="write"
                 ),
                 "name": name,
                 "edges": convert_and_respect_annotation_metadata(

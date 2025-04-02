@@ -39,9 +39,9 @@ class ServerMessageToolCalls(UncheckedBaseModel):
     This is the list of tools calls that the model is requesting along with the original tool configuration.
     """
 
-    timestamp: typing.Optional[str] = pydantic.Field(default=None)
+    timestamp: typing.Optional[float] = pydantic.Field(default=None)
     """
-    This is the ISO-8601 formatted timestamp of when the message was sent.
+    This is the timestamp of when the message was sent in milliseconds since Unix Epoch.
     """
 
     artifact: typing.Optional[Artifact] = pydantic.Field(default=None)

@@ -3,16 +3,22 @@
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
 from .workflow_nodes_item import WorkflowNodesItem
+from .workflow_model import WorkflowModel
+import pydantic
 import typing_extensions
 from ..core.serialization import FieldMetadata
 import datetime as dt
 from .edge import Edge
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
-import pydantic
 
 
 class Workflow(UncheckedBaseModel):
     nodes: typing.List[WorkflowNodesItem]
+    model: typing.Optional[WorkflowModel] = pydantic.Field(default=None)
+    """
+    These are the options for the workflow's LLM.
+    """
+
     id: str
     org_id: typing_extensions.Annotated[str, FieldMetadata(alias="orgId")]
     created_at: typing_extensions.Annotated[dt.datetime, FieldMetadata(alias="createdAt")]

@@ -4,7 +4,10 @@ import typing
 
 CredentialSessionDtoProvider = typing.Union[
     typing.Literal[
-        "google.calendar.oauth2-client", "google.calendar.oauth2-authorization", "google.sheets.oauth2-authorization"
+        "google.calendar.oauth2-client",
+        "google.calendar.oauth2-authorization",
+        "google.sheets.oauth2-authorization",
+        "slack.oauth2-authorization",
     ],
     typing.Any,
 ]

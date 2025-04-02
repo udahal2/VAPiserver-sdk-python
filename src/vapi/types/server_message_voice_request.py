@@ -51,9 +51,9 @@ class ServerMessageVoiceRequest(UncheckedBaseModel):
     ```
     """
 
-    timestamp: typing.Optional[str] = pydantic.Field(default=None)
+    timestamp: typing.Optional[float] = pydantic.Field(default=None)
     """
-    This is the ISO-8601 formatted timestamp of when the message was sent.
+    This is the timestamp of when the message was sent in milliseconds since Unix Epoch.
     """
 
     artifact: typing.Optional[Artifact] = pydantic.Field(default=None)

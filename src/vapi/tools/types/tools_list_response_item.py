@@ -14,6 +14,9 @@ from ...types.text_editor_tool import TextEditorTool
 from ...types.query_tool import QueryTool
 from ...types.google_calendar_create_event_tool import GoogleCalendarCreateEventTool
 from ...types.google_sheets_row_append_tool import GoogleSheetsRowAppendTool
+from ...types.google_calendar_check_availability_tool import GoogleCalendarCheckAvailabilityTool
+from ...types.slack_send_message_tool import SlackSendMessageTool
+from ...types.mcp_tool import McpTool
 
 ToolsListResponseItem = typing.Union[
     DtmfTool,
@@ -29,4 +32,7 @@ ToolsListResponseItem = typing.Union[
     QueryTool,
     GoogleCalendarCreateEventTool,
     GoogleSheetsRowAppendTool,
+    GoogleCalendarCheckAvailabilityTool,
+    SlackSendMessageTool,
+    McpTool,
 ]
