@@ -16,6 +16,7 @@ from ...types.create_google_calendar_create_event_tool_dto import CreateGoogleCa
 from ...types.create_google_sheets_row_append_tool_dto import CreateGoogleSheetsRowAppendToolDto
 from ...types.create_google_calendar_check_availability_tool_dto import CreateGoogleCalendarCheckAvailabilityToolDto
 from ...types.create_slack_send_message_tool_dto import CreateSlackSendMessageToolDto
+from ...types.create_sms_send_tool_dto import CreateSmsSendToolDto
 from ...types.create_mcp_tool_dto import CreateMcpToolDto
 
 ToolsCreateRequest = typing.Union[
@@ -34,5 +35,6 @@ ToolsCreateRequest = typing.Union[
     CreateGoogleSheetsRowAppendToolDto,
     CreateGoogleCalendarCheckAvailabilityToolDto,
     CreateSlackSendMessageToolDto,
+    CreateSmsSendToolDto,
     CreateMcpToolDto,
 ]

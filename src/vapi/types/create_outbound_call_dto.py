@@ -34,6 +34,11 @@ class CreateOutboundCallDto(UncheckedBaseModel):
     This is the schedule plan of the call.
     """
 
+    transport: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    """
+    This is the transport of the call.
+    """
+
     assistant_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assistantId")] = (
         pydantic.Field(default=None)
     )

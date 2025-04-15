@@ -133,6 +133,7 @@ class CallsClient:
         customers: typing.Optional[typing.Sequence[CreateCustomerDto]] = OMIT,
         name: typing.Optional[str] = OMIT,
         schedule_plan: typing.Optional[SchedulePlan] = OMIT,
+        transport: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         assistant_id: typing.Optional[str] = OMIT,
         assistant: typing.Optional[CreateAssistantDto] = OMIT,
         assistant_overrides: typing.Optional[AssistantOverrides] = OMIT,
@@ -157,6 +158,9 @@ class CallsClient:
 
         schedule_plan : typing.Optional[SchedulePlan]
             This is the schedule plan of the call.
+
+        transport : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            This is the transport of the call.
 
         assistant_id : typing.Optional[str]
             This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
@@ -212,6 +216,7 @@ class CallsClient:
                 "schedulePlan": convert_and_respect_annotation_metadata(
                     object_=schedule_plan, annotation=SchedulePlan, direction="write"
                 ),
+                "transport": transport,
                 "assistantId": assistant_id,
                 "assistant": convert_and_respect_annotation_metadata(
                     object_=assistant, annotation=CreateAssistantDto, direction="write"
@@ -473,6 +478,7 @@ class AsyncCallsClient:
         customers: typing.Optional[typing.Sequence[CreateCustomerDto]] = OMIT,
         name: typing.Optional[str] = OMIT,
         schedule_plan: typing.Optional[SchedulePlan] = OMIT,
+        transport: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = OMIT,
         assistant_id: typing.Optional[str] = OMIT,
         assistant: typing.Optional[CreateAssistantDto] = OMIT,
         assistant_overrides: typing.Optional[AssistantOverrides] = OMIT,
@@ -497,6 +503,9 @@ class AsyncCallsClient:
 
         schedule_plan : typing.Optional[SchedulePlan]
             This is the schedule plan of the call.
+
+        transport : typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]]
+            This is the transport of the call.
 
         assistant_id : typing.Optional[str]
             This is the assistant that will be used for the call. To use a transient assistant, use `assistant` instead.
@@ -552,6 +561,7 @@ class AsyncCallsClient:
                 "schedulePlan": convert_and_respect_annotation_metadata(
                     object_=schedule_plan, annotation=SchedulePlan, direction="write"
                 ),
+                "transport": transport,
                 "assistantId": assistant_id,
                 "assistant": convert_and_respect_annotation_metadata(
                     object_=assistant, annotation=CreateAssistantDto, direction="write"
