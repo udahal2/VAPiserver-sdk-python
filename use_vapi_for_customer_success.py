@@ -64,8 +64,16 @@ def analyze_customer_data(customer_data):
         logger.error(f"Error analyzing data for customer {customer_data['id']}: {e}")
         return None, None
 
-
+class uWebInserter():
+    def __init__(self):
+        self.task_done = False
+    def create_subtasks(self):
+        return "the return value is incomplete."
+    
 if __name__ == "__main__":
-    get_customer_data(256548)
-    analyze_customer_data(256548)
+    # get_customer_data(256548)
+    # analyze_customer_data(256548)
+    uInsertObject = uWebInserter()
+    print("Base object instantiation complete ***")
+    
 

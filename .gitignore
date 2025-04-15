@@ -6,3 +6,8 @@ poetry.toml
 *_environment*
 *devcontact*
 *customer*
+*app*
+*.md
+*main*
+config/
+logs/
