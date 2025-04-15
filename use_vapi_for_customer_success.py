@@ -26,6 +26,7 @@ import os
 import logging
 import sys
 import time
+
  
  # 2. Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -62,4 +63,9 @@ def analyze_customer_data(customer_data):
     except Exception as e:
         logger.error(f"Error analyzing data for customer {customer_data['id']}: {e}")
         return None, None
+
+
+if __name__ == "__main__":
+    get_customer_data(256548)
+    analyze_customer_data(256548)
 

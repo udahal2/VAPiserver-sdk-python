@@ -4,3 +4,5 @@ __pycache__/
 poetry.toml
 .ruff_cache/
 *_environment*
+*devcontact*
+*customer*
