@@ -19,6 +19,15 @@ class FallbackAssemblyAiTranscriber(UncheckedBaseModel):
     This is the language that will be set for the transcription.
     """
 
+    confidence_threshold: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="confidenceThreshold")
+    ] = pydantic.Field(default=None)
+    """
+    Transcripts below this confidence threshold will be discarded.
+    
+    @default 0.4
+    """
+
     realtime_url: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="realtimeUrl")] = (
         pydantic.Field(default=None)
     )

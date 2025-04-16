@@ -2,13 +2,16 @@
 
 from ..core.unchecked_base_model import UncheckedBaseModel
 import typing
-from ..core.pydantic_utilities import IS_PYDANTIC_V2
 import pydantic
+from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
 class AiEdgeCondition(UncheckedBaseModel):
     type: typing.Literal["ai"] = "ai"
-    matches: typing.List[str]
+    prompt: str = pydantic.Field()
+    """
+    This is the prompt for the AI edge condition. It should evaluate to a boolean.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

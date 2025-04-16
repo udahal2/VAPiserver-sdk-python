@@ -24,6 +24,13 @@ class TargetPlan(UncheckedBaseModel):
     This is the phone number that is being tested. Only use this if you have not imported the phone number to Vapi.
     """
 
+    assistant_id: typing_extensions.Annotated[typing.Optional[str], FieldMetadata(alias="assistantId")] = (
+        pydantic.Field(default=None)
+    )
+    """
+    This is the assistantId that is being tested.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

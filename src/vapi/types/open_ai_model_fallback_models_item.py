@@ -4,6 +4,9 @@ import typing
 
 OpenAiModelFallbackModelsItem = typing.Union[
     typing.Literal[
+        "gpt-4.1",
+        "gpt-4.1-mini",
+        "gpt-4.1-nano",
         "gpt-4.5-preview",
         "chatgpt-4o-latest",
         "o3-mini",
@@ -14,8 +17,8 @@ OpenAiModelFallbackModelsItem = typing.Union[
         "gpt-4o-realtime-preview-2024-10-01",
         "gpt-4o-realtime-preview-2024-12-17",
         "gpt-4o-mini-realtime-preview-2024-12-17",
-        "gpt-4o-mini",
         "gpt-4o-mini-2024-07-18",
+        "gpt-4o-mini",
         "gpt-4o",
         "gpt-4o-2024-05-13",
         "gpt-4o-2024-08-06",
