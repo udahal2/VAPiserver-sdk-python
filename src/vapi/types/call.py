@@ -19,7 +19,6 @@ from .artifact_plan import ArtifactPlan
 from .analysis import Analysis
 from .monitor import Monitor
 from .artifact import Artifact
-from .transport import Transport
 from .create_assistant_dto import CreateAssistantDto
 from .assistant_overrides import AssistantOverrides
 from .create_squad_dto import CreateSquadDto
@@ -144,11 +143,6 @@ class Call(UncheckedBaseModel):
     These are the artifacts created from the call. Configure in `assistant.artifactPlan`.
     """
 
-    transport: typing.Optional[Transport] = pydantic.Field(default=None)
-    """
-    This is the transport used for the call.
-    """
-
     phone_call_provider_id: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="phoneCallProviderId")
     ] = pydantic.Field(default=None)
@@ -233,6 +227,11 @@ class Call(UncheckedBaseModel):
     )
     """
     This is the schedule plan of the call.
+    """
+
+    transport: typing.Optional[typing.Dict[str, typing.Optional[typing.Any]]] = pydantic.Field(default=None)
+    """
+    This is the transport of the call.
     """
 
     if IS_PYDANTIC_V2:

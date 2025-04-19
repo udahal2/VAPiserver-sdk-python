@@ -16,6 +16,7 @@ from ...types.google_calendar_create_event_tool import GoogleCalendarCreateEvent
 from ...types.google_sheets_row_append_tool import GoogleSheetsRowAppendTool
 from ...types.google_calendar_check_availability_tool import GoogleCalendarCheckAvailabilityTool
 from ...types.slack_send_message_tool import SlackSendMessageTool
+from ...types.sms_send_tool import SmsSendTool
 from ...types.mcp_tool import McpTool
 
 ToolsGetResponse = typing.Union[
@@ -34,5 +35,6 @@ ToolsGetResponse = typing.Union[
     GoogleSheetsRowAppendTool,
     GoogleCalendarCheckAvailabilityTool,
     SlackSendMessageTool,
+    SmsSendTool,
     McpTool,
 ]

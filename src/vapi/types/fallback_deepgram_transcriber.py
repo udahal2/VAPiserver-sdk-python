@@ -88,6 +88,15 @@ class FallbackDeepgramTranscriber(UncheckedBaseModel):
     @default false
     """
 
+    confidence_threshold: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="confidenceThreshold")
+    ] = pydantic.Field(default=None)
+    """
+    Transcripts below this confidence threshold will be discarded.
+    
+    @default 0.4
+    """
+
     keywords: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
     """
     These keywords are passed to the transcription model to help it pick up use-case specific words. Anything that may not be a common word, like your company name, should be added here.

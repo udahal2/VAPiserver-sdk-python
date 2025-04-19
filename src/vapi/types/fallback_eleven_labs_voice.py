@@ -67,6 +67,13 @@ class FallbackElevenLabsVoice(UncheckedBaseModel):
     @default false
     """
 
+    auto_mode: typing_extensions.Annotated[typing.Optional[bool], FieldMetadata(alias="autoMode")] = pydantic.Field(
+        default=None
+    )
+    """
+    Defines the auto mode for voice settings. Defaults to false.
+    """
+
     model: typing.Optional[FallbackElevenLabsVoiceModel] = pydantic.Field(default=None)
     """
     This is the model that will be used. Defaults to 'eleven_turbo_v2' if not specified.

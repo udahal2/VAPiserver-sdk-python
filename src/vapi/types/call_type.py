@@ -2,4 +2,6 @@
 
 import typing
 
-CallType = typing.Union[typing.Literal["inboundPhoneCall", "outboundPhoneCall", "webCall"], typing.Any]
+CallType = typing.Union[
+    typing.Literal["inboundPhoneCall", "outboundPhoneCall", "webCall", "vapi.websocketCall"], typing.Any
+]

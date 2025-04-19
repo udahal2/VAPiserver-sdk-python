@@ -5,6 +5,7 @@ import typing_extensions
 import typing
 from ..core.serialization import FieldMetadata
 import pydantic
+from .assistant_overrides import AssistantOverrides
 from ..core.pydantic_utilities import IS_PYDANTIC_V2
 
 
@@ -27,6 +28,14 @@ class CreateCustomerDto(UncheckedBaseModel):
     extension: typing.Optional[str] = pydantic.Field(default=None)
     """
     This is the extension that will be dialed after the call is answered.
+    """
+
+    assistant_overrides: typing_extensions.Annotated[
+        typing.Optional[AssistantOverrides], FieldMetadata(alias="assistantOverrides")
+    ] = pydantic.Field(default=None)
+    """
+    These are the overrides for the assistant's settings and template variables specific to this customer.
+    This allows customization of the assistant's behavior for individual customers in batch calls.
     """
 
     number: typing.Optional[str] = pydantic.Field(default=None)

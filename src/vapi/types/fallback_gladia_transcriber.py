@@ -46,6 +46,15 @@ class FallbackGladiaTranscriber(UncheckedBaseModel):
     If true, audio will be pre-processed to improve accuracy but latency will increase. Default value is false.
     """
 
+    confidence_threshold: typing_extensions.Annotated[
+        typing.Optional[float], FieldMetadata(alias="confidenceThreshold")
+    ] = pydantic.Field(default=None)
+    """
+    Transcripts below this confidence threshold will be discarded.
+    
+    @default 0.4
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

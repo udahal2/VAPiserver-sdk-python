@@ -16,6 +16,7 @@ from ...types.update_google_calendar_create_event_tool_dto import UpdateGoogleCa
 from ...types.update_google_sheets_row_append_tool_dto import UpdateGoogleSheetsRowAppendToolDto
 from ...types.update_google_calendar_check_availability_tool_dto import UpdateGoogleCalendarCheckAvailabilityToolDto
 from ...types.update_slack_send_message_tool_dto import UpdateSlackSendMessageToolDto
+from ...types.update_sms_send_tool_dto import UpdateSmsSendToolDto
 from ...types.update_mcp_tool_dto import UpdateMcpToolDto
 
 ToolsUpdateRequest = typing.Union[
@@ -34,5 +35,6 @@ ToolsUpdateRequest = typing.Union[
     UpdateGoogleSheetsRowAppendToolDto,
     UpdateGoogleCalendarCheckAvailabilityToolDto,
     UpdateSlackSendMessageToolDto,
+    UpdateSmsSendToolDto,
     UpdateMcpToolDto,
 ]
