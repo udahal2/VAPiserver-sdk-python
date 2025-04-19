@@ -11,3 +11,4 @@ poetry.toml
 *main*
 config/
 logs/
+*.html
